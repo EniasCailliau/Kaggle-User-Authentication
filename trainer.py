@@ -133,3 +133,13 @@ class Trainer:
         train_features = scaler.fit_transform(train_features)
         test_features = scaler.transform(test_features)
         return train_features, train_activity_labels, train_subject_labels, test_features
+
+    def save_estimator(self, estimator, results_location):
+        handyman.dump_pickle(estimator, results_location + "estimator.pkl")
+
+    def load_estimator(self, results_location, verbose=0):
+        estimator = handyman.load_pickle(results_location + "estimator.pkl")
+        if verbose:
+            print("Description from loaded model {}".format(estimator.get_description()))
+            print("Parameters from loaded model {}".format(estimator.get_params(deep=True)))
+        return estimator

@@ -3,6 +3,10 @@ import inspect
 from sklearn.base import BaseEstimator, ClassifierMixin
 from sklearn.linear_model import LogisticRegression
 
+
+CREATED_BY = "Enias Cailliau"
+MODEL_NAME = "Logistic Regression"
+
 default_settings = {'warm_start': False, 'C': 10, 'n_jobs': 8, 'verbose': 0, 'intercept_scaling': 1,
                     'fit_intercept': True, 'max_iter': 100, 'penalty': 'l2', 'multi_class': 'multinomial',
                     'random_state': None, 'dual': False, 'tol': 0.0001, 'solver': 'newton-cg',
@@ -36,3 +40,9 @@ class LogReg(BaseEstimator):
     def score(self, X, y=None):
         # counts number of values bigger than mean
         return (sum(self.predict(X)))
+
+    def get_params(self, deep=True):
+        return self.estimator.get_params(deep)
+
+    def get_description(self):
+        return "{} created by {}".format(MODEL_NAME, CREATED_BY)

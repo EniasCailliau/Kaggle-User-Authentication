@@ -4,15 +4,15 @@ from models import logistic_regression
 from model_evaluation import scorer, visualiser
 
 options = ["logistic_regression", "dd", "NO_SMOTE", "Optimized"]
-results_location = os.path.join("Results", '/'.join(options))
+results_location = os.path.join("Results", '/'.join(options)+"/")
 # init trainer
 trainer = trainer.Trainer("")
 # init model
 estimator = logistic_regression.LogReg()
 
 # load data from feature file
-train_features, train_activity_labels, train_subject_labels, test_features = trainer.load_data(
-    os.path.join("feature_extraction", '_data_sets/unreduced.pkl'), final=False)
+# train_features, train_activity_labels, train_subject_labels, test_features = trainer.load_data(
+#     os.path.join("feature_extraction", '_data_sets/unreduced.pkl'), final=False)
 
 # Perform parameter optimisation
 # tuned_parameters = {'class_weight': ['balanced', None],
@@ -24,7 +24,12 @@ train_features, train_activity_labels, train_subject_labels, test_features = tra
 # results_location is used to point to a folder which will be used to output
 # trainer.evaluate(estimator, train_features, train_subject_labels, scorer.auc_evaluator, results_location)
 
-visualiser.plot_learning_curves(estimator, train_features, train_subject_labels, results_location)
+# visualiser.plot_learning_curves(estimator, train_features, train_subject_labels, results_location)
 
 # Create a submission
 # trainer.prepare_submission(estimator, test_features, options)
+
+
+trainer.save_estimator(estimator, results_location)
+
+estimator = trainer.load_estimator(results_location, verbose=1)
