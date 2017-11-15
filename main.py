@@ -1,6 +1,6 @@
 import trainer
 import os
-from models import logistic_regression
+from models import logistic_regression, random_forest
 from model_evaluation import scorer, visualiser
 
 options = ["logistic_regression", "dd", "NO_SMOTE", "Optimized"]
