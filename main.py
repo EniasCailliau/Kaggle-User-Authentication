@@ -1,14 +1,17 @@
 import trainer
 import os
-from models import logistic_regression
+from models import logistic_regression, random_forest
 from model_evaluation import scorer, visualiser
+
 
 options = ["logistic_regression", "dd", "NO_SMOTE", "Optimized"]
 results_location = os.path.join("Results", '/'.join(options)+"/")
+
+
 # init trainer
 trainer = trainer.Trainer("")
 # init model
-estimator = logistic_regression.LogReg()
+estimator = random_forest.RF()
 
 # load data from feature file
 # train_features, train_activity_labels, train_subject_labels, test_features = trainer.load_data(
