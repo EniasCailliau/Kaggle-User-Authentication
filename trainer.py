@@ -1,6 +1,7 @@
 import os
 
 import numpy as np
+import pandas as pd
 from imblearn.combine import SMOTEENN
 from imblearn.over_sampling import SMOTE
 from sklearn.metrics import classification_report
@@ -130,8 +131,10 @@ class Trainer:
                                                                               train_subject_labels)
         # Scale the data according to training set
         scaler = StandardScaler()
-        train_features = scaler.fit_transform(train_features)
-        test_features = scaler.transform(test_features)
+        train_features_np = scaler.fit_transform(train_features)
+        test_features_np = scaler.transform(test_features)
+        train_features = pd.DataFrame(train_features_np, columns=train_features.columns.values)
+        test_features = pd.DataFrame(test_features_np, columns=test_features.columns.values)
         return train_features, train_activity_labels, train_subject_labels, test_features
 
     def save_estimator(self, estimator, results_location):
