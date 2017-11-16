@@ -23,6 +23,13 @@ train_features_reduced, scores_, select_k_best = feature_reducer.reduce_k_best(t
 
 pandaman.print_stats(train_features_reduced=train_features_reduced)
 
+
+
+train_data_reduced, importances, forest = feature_reducer.reduce_tree(train_features, train_activity_labels)
+feature_reducer.visualize_tree_rankin(forest, 10)
+pandaman.print_stats(train_features_reduced=train_features_reduced)
+
+
 # trainer.find_optimized_model(estimator, train_features, train_subject_labels, tuned_parameters, scorer.auc_evaluator)
 
 # trainer.evaluate(estimator, train_features, train_subject_labels, scorer.auc_evaluator, results_location)

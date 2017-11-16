@@ -1,5 +1,6 @@
 import pandas as pd
-from sklearn.feature_selection import VarianceThreshold
+from sklearn.ensemble import ExtraTreesClassifier
+from sklearn.feature_selection import VarianceThreshold, SelectFromModel
 from sklearn.feature_selection import RFE
 from sklearn.feature_selection import SelectPercentile
 from sklearn.feature_selection import SelectKBest
@@ -30,11 +31,25 @@ def __evaluate_reduction(indices_selected, n_features, data_frame, type):
                                                                                              data_frame)))
 
 
-def visualize_RFE_ranking(ranking):
-    ranking = ranking.reshape((10, -1))
+def visualize_RFE_ranking(rfe):
+    ranking = rfe.scores_.reshape((10, -1))
     plt.matshow(ranking, cmap=plt.cm.Blues)
     plt.colorbar()
     plt.title("Ranking of features with RFE")
+    plt.show()
+
+
+def visualize_tree_rankin(forest, number_to_visualise):
+    importances = forest.feature_importances_
+    std = np.std([tree.feature_importances_ for tree in forest.estimators_],
+                 axis=0)
+    indices = np.argsort(importances)[::-1]
+    plt.figure()
+    plt.title("Feature importances")
+    plt.bar(range(number_to_visualise), importances[indices][0:number_to_visualise],
+            color="r", yerr=std[indices][0:number_to_visualise], align="center")
+    plt.xticks(range(number_to_visualise), indices[0:number_to_visualise])
+    plt.xlim([-1, number_to_visualise])
     plt.show()
 
 
@@ -88,8 +103,18 @@ def reduce_RFE(train_data, train_labels, estimator, n_features_to_select=None):
     train_data_reduced = pd.DataFrame(train_data_reduced_np,
                                       columns=pandaman.translate_column_indices(selected_indices, train_data))
     __evaluate_reduction(rfe.get_support(indices=True), train_data.shape[1], train_data, "RFE")
-    return train_data_reduced, rfe.scores_, rfe.scores_, rfe
+    return train_data_reduced, rfe.scores_, rfe
 
-# TODO: Make sure column names still work correctly after a reduction is performed
-# TODO: construct example
+
+def reduce_tree(train_data, train_labels):
+    forest = ExtraTreesClassifier(n_estimators=250,
+                                  random_state=0)
+
+    forest.fit(train_data, train_labels)
+    importances = forest.feature_importances_
+
+    model = SelectFromModel(forest, prefit=True)
+    train_data_reduced = model.transform(train_data)
+    return train_data_reduced, importances, forest
+
 # TODO: look at visualisations for feature reductions
