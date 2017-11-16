@@ -25,55 +25,6 @@ def analyse_correlation_with_subject(train_data, train_labels):
     print (correlations['subject_id'].sort_values(ascending=False)[-5:], '\t')
 
 
-def reduce_feature_space(train_data, train_labels, m, p=1, score_func=None, percentile=None):
-    if m == "variance":
-        return reduce_feature_space_variance_threshold(train_data, p=p)
-    elif m == "percentile":
-        return reduce_feature_space_select_k_percentile(train_data, train_labels, score_func=score_func,
-                                                        percentile=percentile)
-    else:
-        print("No reduction, returning original training _data")
-        return train_data
-
-
-def reduce_feature_space_variance_threshold(train_data, p):
-    length_not_reduced = train_data.shape[1]
-    sel = VarianceThreshold(threshold=(p * (1 - p)))
-    train_data_reduced = sel.fit_transform(train_data)
-    print("The Variance reduction wants to select the following features:")
-    features_selected = sel.get_support(indices=True)
-    print(features_selected)
-    print("The variance reduction wants to delete the following features:")
-    print(set(range(0, length_not_reduced)) - set(features_selected))
-    return train_data_reduced
-
-
-# def reduce_feature_space_select_k_best(train_data, train_labels, score_func):
-#     selectKBest = SelectKBest(score_func=score_func, k='all')
-#     selectKBest.fit(train_data, train_labels)
-#     print("Scoring for features:")
-#     print(selectKBest.scores_)
-#     sorted = selectKBest.scores_
-#     sorted.sort()
-#     print(sorted)
-
-
-def reduce_feature_space_select_k_percentile(train_data, train_labels, score_func, percentile=10):
-    length_not_reduced = train_data.shape[1]
-    selectPercentile = SelectPercentile(score_func=score_func, percentile=percentile)
-    train_data_reduced = selectPercentile.fit_transform(train_data, train_labels)
-    features_selected = selectPercentile.get_support(indices=True)
-    print("The select percentile reduction wants to select the following features:")
-    print(features_selected)
-    print("The select percentile reduction wants to delete the following features:")
-    print(set(range(0, length_not_reduced)) - set(features_selected))
-    return train_data_reduced
-
-
-def reduce_feature_space_RFE(estimator, train_data, train_labels, nfeatures=None):
-    rfe = RFE(estimator, verbose=1, n_features_to_select=nfeatures)
-    rfe.fit(train_data, train_labels)
-    return rfe
 
 
 def visualise_inter_feature_correlation(train_data):

@@ -29,6 +29,7 @@ def interpolate(data):
 
 
 # TODO: check this code
+# TODO: Jeroen, Louis
 def reduce_noise(data, technique):
     if technique == "butter":
         for index in range(0, data.shape[0]):
@@ -51,30 +52,3 @@ def reduce_noise(data, technique):
     return data
 
 
-"""
-TODO:
-def normalizeAll(data):
-    normData = np.zeros(data.shape)
-    for i in range(0, len(data[0])):
-        normColumn = np.zeros(len(data))
-        for j in range(0, len(data)):
-            normColumn[j] = data[j][i]
-        normColumn = preprocessing.normalize(normColumn, norm='l2')
-        print(normColumn)
-        for j in range(0, len(normData)):
-            normData[j][i] = normColumn[i]
-    return normData
-
-def normalizeFeatures(data):
-    normData = np.zeros(data.shape)
-    norms = np.zeros(len(data[0])) #storing the norm for each feature
-    for i in range(0, len(data[0])):
-        featureValues = np.zeros(len(data))
-        for j in range(0, len(data)):
-            featureValues[j] = data[j][i]
-        norms[i] = np.median(featureValues)
-        for j in range(0, len(data)):
-            normData[j][i] = (data[j][i] - norms[i]) / norms[i]
-    return normData
-
-"""

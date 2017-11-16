@@ -14,18 +14,13 @@ trainer = trainer.Trainer("")
 estimator = random_forest.RF()
 
 # load data from feature file
-# train_features, train_activity_labels, train_subject_labels, test_features = trainer.load_data(
-#     os.path.join("feature_extraction", '_data_sets/unreduced.pkl'), final=False)
+train_features, train_activity_labels, train_subject_labels, test_features = trainer.load_data(
+    os.path.join("feature_extraction", '_data_sets/unreduced.pkl'), final=False)
 
-# Perform parameter optimisation
-# tuned_parameters = {'class_weight': ['balanced', None],
-#                     'C': [10, 100, 1000],
-#                     'multi_class': ['ovr', 'multinomial'],
-#                     'solver': ['lbfgs', 'newton-cg', 'saga']}
+
 # trainer.find_optimized_model(estimator, train_features, train_subject_labels, tuned_parameters, scorer.auc_evaluator)
 
-# results_location is used to point to a folder which will be used to output
-# trainer.evaluate(estimator, train_features, train_subject_labels, scorer.auc_evaluator, results_location)
+trainer.evaluate(estimator, train_features, train_subject_labels, scorer.auc_evaluator, results_location)
 
 # visualiser.plot_learning_curves(estimator, train_features, train_subject_labels, results_location)
 
@@ -33,6 +28,4 @@ estimator = random_forest.RF()
 # trainer.prepare_submission(estimator, test_features, options)
 
 
-trainer.save_estimator(estimator, results_location)
 
-estimator = trainer.load_estimator(results_location, verbose=1)

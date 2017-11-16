@@ -105,6 +105,7 @@ def __calculate_spectral_stats(data):
     # spectral_entropy
     spectral_stats.extend(data.apply(lambda x: stats.entropy(x)))
     # TODO: these were not correctly implemented (uses a combination of amplitudes and frequencies)
+    # TODO Joppe fill this out
     # spectral_centroid =
     # principal_frequency =
     return spectral_stats
@@ -118,6 +119,7 @@ def __calculate_series_stats(data):
     stats.extend(__calculate_sma(data))
 
     # TODO: stats based on difference (see report louis)
+    # TODO Louis
 
     return stats
 
@@ -149,6 +151,7 @@ def calculate_pitch_roll_stats(data):
 
 
 def calculate_time_stats(data):
+    # TODO: Jeroen derivatives
     return __calculate_series_stats(data)
 
 
