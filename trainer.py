@@ -17,7 +17,7 @@ from utils import create_submission, handyman
 
 
 class Trainer:
-    def __init__(self, rebalance_method):
+    def __init__(self, rebalance_method=""):
         if rebalance_method == "SMOTEEN":
             print("Trainer initialised with SMOTEEN rebalance method")
             self.rebalancer = SMOTEENN()
