@@ -1,18 +1,22 @@
-from sklearn.metrics import log_loss
+import numpy as np
+from sklearn import preprocessing
+from sklearn.metrics import log_loss, accuracy_score
 from sklearn.metrics import roc_auc_score
 
-from utils import handyman
 
 def auc_evaluator(estimator, X, y):
     y_scores = estimator.predict_proba(X)
-    y_one_hot = handyman.to_one_hot([int(x) for x in y], min_int=1, max_int=8)
+    y_one_hot = preprocessing.label_binarize(y, np.unique(y))
     return roc_auc_score(y_one_hot, y_scores, average='macro')
 
 
 def logloss_evaluator(estimator, X, y):
     y_scores = estimator.predict_proba(X)
-    y_one_hot = handyman.to_one_hot([int(x) for x in y], min_int=1, max_int=8)
+    y_one_hot = preprocessing.label_binarize(y, np.unique(y))
     return log_loss(y_one_hot, y_scores)
 
 
-
+def accuracy_evaluator(estimator, X, y):
+    y_pred = estimator.predict(X)
+    # y_one_hot = preprocessing.label_binarize(y, np.unique(y))
+    return accuracy_score(y, y_pred)

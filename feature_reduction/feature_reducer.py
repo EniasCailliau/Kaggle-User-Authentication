@@ -116,5 +116,3 @@ def reduce_tree(train_data, train_labels):
     model = SelectFromModel(forest, prefit=True)
     train_data_reduced = model.transform(train_data)
     return train_data_reduced, importances, forest
-
-# TODO: look at visualisations for feature reductions

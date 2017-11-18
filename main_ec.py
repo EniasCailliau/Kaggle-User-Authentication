@@ -18,25 +18,9 @@ train_features, train_activity_labels, train_subject_labels, test_features = tra
 pandaman.print_stats(train_features=train_features, train_activity_labels=train_activity_labels,
                      train_subject_labels=train_subject_labels, test_features=test_features)
 
-train_features_reduced, scores_, select_k_best = feature_reducer.reduce_k_best(train_features, train_subject_labels,
-                                                                               feature_reducer.Scorer.F_CLASSIF, k=10)
-
-pandaman.print_stats(train_features_reduced=train_features_reduced)
-
-
-
-train_data_reduced, importances, forest = feature_reducer.reduce_tree(train_features, train_activity_labels)
-feature_reducer.visualize_tree_rankin(forest, 10)
-pandaman.print_stats(train_features_reduced=train_features_reduced)
-
 
 # trainer.find_optimized_model(estimator, train_features, train_subject_labels, tuned_parameters, scorer.auc_evaluator)
 
-# trainer.evaluate(estimator, train_features, train_subject_labels, scorer.auc_evaluator, results_location)
+trainer.evaluate(estimator, train_features, train_subject_labels, scorer.auc_evaluator, results_location)
 
 # visualiser.plot_learning_curves(estimator, train_features, train_subject_labels, results_location)
-
-
-# trainer.save_estimator(estimator, results_location)
-
-# estimator = trainer.load_estimator(results_location, verbose=1)

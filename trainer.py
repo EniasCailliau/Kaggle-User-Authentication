@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 from imblearn.combine import SMOTEENN
 from imblearn.over_sampling import SMOTE
+from sklearn import preprocessing
 from sklearn.metrics import classification_report
 from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import GridSearchCV
@@ -79,13 +80,13 @@ class Trainer:
         :return:
         """
         scores = []
-        train_label = np.array(train_labels.values)
-        # train_data = np.array(train_data)
+        train_labels = np.array(train_labels.values)
+        train_features = np.array(train_features.values)
         skf = list(StratifiedKFold(n_splits=4)
-                   .split(train_features, train_label))
+                   .split(train_features, train_labels))
         for num, (train_index, test_index) in enumerate(skf):
             X_train, X_test = train_features[train_index], train_features[test_index]
-            y_train, y_test = train_label[train_index], train_label[test_index]
+            y_train, y_test = train_labels[train_index], train_labels[test_index]
             if self.rebalancer:
                 train_features, train_labels = self.rebalancer.fit_sample(train_features, train_labels)
             X_train_rebalanced, y_train_rebalanced = X_train, y_train
@@ -98,12 +99,12 @@ class Trainer:
     def evaluate(self, estimator, train_data, train_labels, scorer, location):
         print("--------evaluation--------")
         X_train, X_test, y_train, y_test = train_test_split(train_data, train_labels, test_size=0.4)
-        y_test_one_hot = handyman.to_one_hot([int(x) for x in y_test], min_int=1, max_int=8)
+        # y_test_one_hot = preprocessing.label_binarize(y_test, np.unique(train_labels))
         estimator.fit(X_train, y_train)
-        y_scores = estimator.predict_proba(X_test)
+        # y_scores = estimator.predict_proba(X_test)
         print(
             "For my random training set I have following auc_roc score: :{}".format(
-                roc_auc_score(y_test_one_hot, y_scores, average='weighted')))
+                scorer(estimator, X_test, y_test)))
 
         scores = self.__cross_validate(estimator, train_data, train_labels, scorer)
         print(scores)
