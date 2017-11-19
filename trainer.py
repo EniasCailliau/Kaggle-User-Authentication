@@ -118,10 +118,10 @@ class Trainer:
         print("--------evaluation--------")
         scores = self.__cross_validate(estimator, train_data, train_labels, score_evaluation.accuracy_evaluator)
         accuracy = scores.mean()
-        print("Accuracy Score: :{}".format(accuracy))
+        print("Accuracy Score: {}".format(accuracy))
         scores = self.__cross_validate(estimator, train_data, train_labels, score_evaluation.auc_evaluator)
         auc = scores.mean()
-        print("AUC_ROC Score: :{}".format(auc))
+        print("AUC_ROC Score: {}".format(auc))
 
         X_train, X_test, y_train, y_test = train_test_split(train_data, train_labels, test_size=0.4)
         estimator.fit(X_train, y_train)
