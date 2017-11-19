@@ -8,36 +8,57 @@ from utils import handyman as utils
 
 def generate_column_names():
     feature_names = []
+
+    # TIME STATS
+    ## Series stats
     for metric in ["mean", "median", "q05", "q20", "q80", "q95", "kurtosis", "std", "skew", "mad", "rms",
                    "crestfactor"]:
         for placement in ["hand", "chest"]:
             for type in ["aX", "aY", "aZ", "gX", "gY", "gZ"]:
                 feature_names.append(metric + "_" + type + "_" + placement + "(t)")
 
+    ## Correlations
     feature_names.extend((s + "(t)" for s in (
         "corr_haX_haY", "corr_haX_haZ", "corr_haY_haZ", "corr_caX_caY", "corr_caX_caZ", "corr_caY_caZ",
         "corr_haX_caX", "corr_haY_caY", "corr_haZ_caZ")))
+
+    ## SMV, SMA
     feature_names.extend((s + "(t)" for s in ("smv_ha", "smv_hg", "smv_ca", "smv_cg")))
     feature_names.extend((s + "(t)" for s in ("sma_ha", "sma_hg", "sma_ca", "sma_cg")))
 
+    ## Derivative stats (first order to fourth order)
+    for base in ["derivative_1", "derivative_2","derivative_3", "derivative_4"]:
+        for metric in ["mean", "median", "q05", "q20", "q80", "q95", "kurtosis", "std", "skew", "mad", "rms",
+                       "crestfactor"]:
+            for placement in ["hand", "chest"]:
+                for type in ["aX", "aY", "aZ", "gX", "gY", "gZ"]:
+                    feature_names.append(base + "_" + metric + "_" + type + "_" + placement)
+
+    # PITCH AND ROLL
     for metric in ["mean", "median", "q05", "q20", "q80", "q95", "kurtosis", "std", "skew", "mad", "rms",
                    "crestfactor"]:
         for bodypart in ["hand", "chest"]:
             for type in ["pitch", "roll"]:
                 feature_names.append(bodypart + "_" + type + "_" + metric)
 
+    # FFT STATS
+    ## Series stats (s)
     for metric in ["mean", "median", "q05", "q20", "q80", "q95", "kurtosis", "std", "skew", "mad", "rms",
                    "crestfactor"]:
         for placement in ["hand", "chest"]:
             for type in ["aX", "aY", "aZ", "gX", "gY", "gZ"]:
                 feature_names.append(metric + "_" + type + "_" + placement + "(s)")
 
+    ## Correlations (s)
     feature_names.extend((s + "(s)" for s in (
         "corr_haX_haY", "corr_haX_haZ", "corr_haY_haZ", "corr_caX_caY", "corr_caX_caZ", "corr_caY_caZ",
         "corr_haX_caX", "corr_haY_caY", "corr_haZ_caZ")))
+
+    ## SMA, SMV (s)
     feature_names.extend((s + "(s)" for s in ("smv_ha", "smv_hg", "smv_ca", "smv_cg")))
     feature_names.extend((s + "(s)" for s in ("sma_ha", "sma_hg", "sma_ca", "sma_cg")))
 
+    ## Energy, entropy
     for metric in ["spectral_energy", "spectral_entropy"]:
         for placement in ["hand", "chest"]:
             for type in ["aX", "aY", "aZ", "gX", "gY", "gZ"]:
@@ -71,10 +92,6 @@ def generate_features(data):
     feature_names = generate_column_names()
 
     for index, interval in data.iteritems():
-        print(index)
-        if index > 10:
-            break
-
         interval_entry_new_features = []
 
         interval_entry_new_features.extend(calculator.calculate_time_stats(interval))

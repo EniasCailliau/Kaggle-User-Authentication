@@ -15,6 +15,7 @@ from sklearn.utils import shuffle
 
 from feature_extraction import extractor
 from model_evaluation import visualiser
+from model_evaluation import scorer as score_evaluation
 from utils import create_submission, handyman
 
 
@@ -112,6 +113,20 @@ class Trainer:
 
         visualiser.plot_confusion_matrix(estimator, X_test, y_test, location)
         return [scores.mean(), scores.std()]
+
+    def get_acc_auc(self, estimator, train_data, train_labels, location):
+        print("--------evaluation--------")
+        scores = self.__cross_validate(estimator, train_data, train_labels, score_evaluation.accuracy_evaluator)
+        accuracy = scores.mean()
+        print("Accuracy Score: :{}".format(accuracy))
+        scores = self.__cross_validate(estimator, train_data, train_labels, score_evaluation.auc_evaluator)
+        auc = scores.mean()
+        print("AUC_ROC Score: :{}".format(auc))
+
+        X_train, X_test, y_train, y_test = train_test_split(train_data, train_labels, test_size=0.4)
+        estimator.fit(X_train, y_train)
+        visualiser.plot_confusion_matrix(estimator, X_test, y_test, location)
+        return [accuracy, auc]
 
     def __rebalance_data(self, X, y):
         if self.rebalancer:
