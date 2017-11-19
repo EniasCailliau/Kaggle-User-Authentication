@@ -69,7 +69,7 @@ def plot_confusion_matrix(model, X_test, y_test, location):
     plt.ylabel('True label')
     plt.xlabel('Predicted label')
     plt.tight_layout()
-    location = location + "_confusion_matrix.png"
+    location = location + "confusion_matrix.png"
     if not os.path.exists(os.path.dirname(location)):
         os.makedirs(os.path.dirname(location))
 

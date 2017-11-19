@@ -39,7 +39,7 @@ def visualize_RFE_ranking(rfe):
     plt.show()
 
 
-def visualize_tree_rankin(forest, number_to_visualise):
+def visualize_tree_ranking(forest, number_to_visualise):
     importances = forest.feature_importances_
     std = np.std([tree.feature_importances_ for tree in forest.estimators_],
                  axis=0)
