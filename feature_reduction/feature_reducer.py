@@ -1,4 +1,6 @@
 import pandas as pd
+from sklearn.decomposition import PCA
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.feature_selection import VarianceThreshold, SelectFromModel
 from sklearn.feature_selection import RFE
@@ -104,6 +106,27 @@ def reduce_RFE(train_data, train_labels, estimator, n_features_to_select=None):
                                       columns=pandaman.translate_column_indices(selected_indices, train_data))
     __evaluate_reduction(rfe.get_support(indices=True), train_data.shape[1], train_data, "RFE")
     return train_data_reduced, rfe.scores_, rfe
+
+
+def reduce_PCA(train_data, n_components):
+    """
+    !!! Best used as feature extraction but can be used as feature reduction method
+    :param train_data:
+    :param n_components:
+    :return:
+    """
+    return PCA(n_components=n_components).fit_transform(train_data)
+
+
+def reduce_LDA(train_data, train_labels, n_components):
+    """
+    !!! Best used as feature extraction but can be used as feature reduction method
+    :param train_data:
+    :param train_labels:
+    :param n_components:
+    :return:
+    """
+    return LinearDiscriminantAnalysis(n_components=n_components).fit(train_data, train_labels).transform(train_data)
 
 
 def reduce_tree(train_data, train_labels):
