@@ -121,7 +121,7 @@ def __calculate_series_stats(data):
     stats.extend(__calculate_sma(data))
 
     # TODO: stats based on difference (see report louis)
-    # TODO Louis
+    # TODO Louis: basically derivative, see below.
 
     return stats
 
