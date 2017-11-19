@@ -30,7 +30,6 @@ def __evaluate_reduction(indices_selected, n_features, data_frame, type):
                                                                                                  list(indices_removed)),
                                                                                              data_frame)))
 
-
 def visualize_RFE_ranking(rfe):
     ranking = rfe.scores_.reshape((10, -1))
     plt.matshow(ranking, cmap=plt.cm.Blues)
