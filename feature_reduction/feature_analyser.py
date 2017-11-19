@@ -12,6 +12,7 @@ from sklearn.feature_selection import SelectPercentile
 from sklearn.feature_selection import VarianceThreshold
 
 from feature_extraction import extractor
+from feature_reduction import feature_reducer
 
 
 def analyse_correlation_with_subject(train_data, train_labels):
@@ -23,8 +24,6 @@ def analyse_correlation_with_subject(train_data, train_labels):
     correlations = train_data.corr(method='pearson')
     print (correlations['subject_id'].sort_values(ascending=False)[:6], '\t')
     print (correlations['subject_id'].sort_values(ascending=False)[-5:], '\t')
-
-
 
 
 def visualise_inter_feature_correlation(train_data):
@@ -41,7 +40,7 @@ def visualise_inter_feature_correlation(train_data):
 def visualise_features_PCA(train_data, train_labels):
     fig = plt.figure(1, figsize=(8, 6))
     ax = Axes3D(fig, elev=-150, azim=110)
-    X_reduced = PCA(n_components=3).fit_transform(train_data)
+    X_reduced = feature_reducer.reduce_PCA(train_data, n_components=3)
     for subject in range(1, 9):
         points = X_reduced[[i for i, s in enumerate(train_labels) if subject == s]]
         ax.scatter(points[:, 0], points[:, 1], points[:, 2], edgecolor='k', s=40, label='Subject ' + str(subject))
@@ -73,7 +72,7 @@ def visualise_feature_distribution(X, y, index, location):
 def visualise_features_LDA(train_data, train_labels):
     fig = plt.figure(1, figsize=(8, 6))
     ax = Axes3D(fig, elev=-150, azim=110)
-    X_reduced = LinearDiscriminantAnalysis(n_components=3).fit(train_data, train_labels).transform(train_data)
+    X_reduced = feature_reducer.reduce_LDA(train_data, train_labels, n_components=3)
     for subject in range(1, 9):
         points = X_reduced[[i for i, s in enumerate(train_labels) if subject == s]]
         ax.scatter(points[:, 0], points[:, 1], points[:, 2], edgecolor='k', s=40, label='Subject ' + str(subject))
