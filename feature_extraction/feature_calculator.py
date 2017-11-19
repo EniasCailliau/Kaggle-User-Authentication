@@ -1,7 +1,9 @@
 from feature_extraction._data import sensor
 import numpy as np
 import math
+import pandas as pd
 from scipy import signal, stats
+
 
 
 def __calculate_correlations(data):
@@ -123,6 +125,21 @@ def __calculate_series_stats(data):
 
     return stats
 
+def __calculate_derivative(data, order):
+    result = np.zeros((data.shape[1], data.shape[0]-order))
+    for j in range(12):
+        current = data.iloc[:,j]
+        for i in range(order):
+            current = np.ediff1d(current)
+        result[j,:] = current
+    return pd.DataFrame(result).transpose()
+
+def __calculate_derivative_stats(data):
+    derivative_stats = []
+    for i in range(4):
+        derivative_stats.extend(__calculate_basic_stats(__calculate_derivative(data, i+1), True).reshape(-1))
+    return derivative_stats
+
 
 def calculate_pitch_roll_stats(data):
     movements_stats = []
@@ -151,8 +168,10 @@ def calculate_pitch_roll_stats(data):
 
 
 def calculate_time_stats(data):
-    # TODO: Jeroen derivatives
-    return __calculate_series_stats(data)
+    time_stats = []
+    time_stats.extend(__calculate_series_stats(data))
+    time_stats.extend(__calculate_derivative_stats(data))
+    return time_stats
 
 
 def calculate_fft_stats(data):
