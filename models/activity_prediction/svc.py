@@ -13,11 +13,13 @@ MODEL_NAME = "Logistic Regression"
 #                     'class_weight': None}
 
 
-class SVC(BaseEstimator):
-    def __init__(self):
+class SVC(BaseEstimator, ):
+    def __init__(self, C=1.0, kernel='linear', degree=3, gamma='auto', coef0=0.0, shrinking=True, probability=True,
+                 tol=0.001, cache_size=200, class_weight=None, verbose=False, max_iter=-1,
+                 decision_function_shape='ovr', random_state=None):
         input_args = locals()
         del input_args["self"]
-        self.estimator = svm.SVC(kernel='linear', class_weight='balanced', probability=True)
+        self.estimator = svm.SVC(**input_args)
 
         args, _, _, values = inspect.getargvalues(inspect.currentframe())
         values.pop("self")
