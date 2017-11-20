@@ -58,8 +58,8 @@ def generate_column_names():
     feature_names.extend((s + "(s)" for s in ("smv_ha", "smv_hg", "smv_ca", "smv_cg")))
     feature_names.extend((s + "(s)" for s in ("sma_ha", "sma_hg", "sma_ca", "sma_cg")))
 
-    ## Energy, entropy
-    for metric in ["spectral_energy", "spectral_entropy"]:
+    ## Energy, entropy, spectral centroid, principal frequency
+    for metric in ["spectral_energy", "spectral_entropy", "spectral_centroid", "principal_frequency"]:
         for placement in ["hand", "chest"]:
             for type in ["aX", "aY", "aZ", "gX", "gY", "gZ"]:
                 feature_names.append(metric + "_" + type + "_" + placement)
