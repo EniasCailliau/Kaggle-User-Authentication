@@ -36,7 +36,7 @@ class Trainer:
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4)
 
         print("Performing grid search to find best parameter set")
-        clf = GridSearchCV(estimator, param_grid=tuned_parameters, scoring=scorer, cv=4, verbose=2)
+        clf = GridSearchCV(estimator, param_grid=tuned_parameters, scoring=scorer, cv=StratifiedKFold(n_splits=4), verbose=2, n_jobs=-1)
 
         clf.fit(X_train, y_train)
 

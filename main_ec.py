@@ -19,8 +19,11 @@ pandaman.print_stats(train_features=train_features, train_activity_labels=train_
                      train_subject_labels=train_subject_labels, test_features=test_features)
 
 
-# trainer.find_optimized_model(estimator, train_features, train_subject_labels, tuned_parameters, scorer.auc_evaluator)
+
+# estimator = trainer.find_optimized_model(estimator, train_features, train_subject_labels, param_grid, scorer.auc_evaluator)
 
 trainer.evaluate(estimator, train_features, train_subject_labels, scorer.auc_evaluator, results_location)
 
 # visualiser.plot_learning_curves(estimator, train_features, train_subject_labels, results_location)
+
+trainer.save_estimator(estimator, results_location)

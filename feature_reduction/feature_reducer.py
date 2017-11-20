@@ -32,6 +32,7 @@ def __evaluate_reduction(indices_selected, n_features, data_frame, type):
                                                                                                  list(indices_removed)),
                                                                                              data_frame)))
 
+
 def visualize_RFE_ranking(rfe):
     ranking = rfe.scores_.reshape((10, -1))
     plt.matshow(ranking, cmap=plt.cm.Blues)
@@ -54,17 +55,18 @@ def visualize_tree_ranking(forest, number_to_visualise):
     plt.show()
 
 
-def reduce_variance(train_data, p):
+def reduce_variance(train_data, p, verbose=False):
     vt = VarianceThreshold(threshold=(p * (1 - p)))
     train_data_reduced_np = vt.fit_transform(train_data)
     selected_indices = vt.get_support(indices=True)
     train_data_reduced = pd.DataFrame(train_data_reduced_np,
                                       columns=pandaman.translate_column_indices(selected_indices, train_data))
-    __evaluate_reduction(vt.get_support(indices=True), train_data.shape[1], train_data, "Variance")
+    if verbose:
+        __evaluate_reduction(vt.get_support(indices=True), train_data.shape[1], train_data, "Variance")
     return train_data_reduced
 
 
-def reduce_k_best(train_data, train_labels, score_func=Scorer.F_CLASSIF, k='all'):
+def reduce_k_best(train_data, train_labels, score_func=Scorer.F_CLASSIF, k='all', verbose=False):
     if score_func == "mic":
         select_k_best = SelectKBest(score_func=mutual_info_classif, k=k)
     elif score_func == "fc":
@@ -76,11 +78,12 @@ def reduce_k_best(train_data, train_labels, score_func=Scorer.F_CLASSIF, k='all'
     selected_indices = select_k_best.get_support(indices=True)
     train_data_reduced = pd.DataFrame(train_data_reduced_np,
                                       columns=pandaman.translate_column_indices(selected_indices, train_data))
-    __evaluate_reduction(selected_indices, train_data.shape[1], train_data, "selectKBest")
+    if verbose:
+        __evaluate_reduction(selected_indices, train_data.shape[1], train_data, "selectKBest")
     return train_data_reduced, select_k_best.scores_, select_k_best
 
 
-def reduce_percentile(train_data, train_labels, score_func=Scorer.F_CLASSIF, percentile=10):
+def reduce_percentile(train_data, train_labels, score_func=Scorer.F_CLASSIF, percentile=10, verbose=False):
     if score_func == "mic":
         select_percentile = SelectPercentile(score_func=mutual_info_classif, percentile=percentile)
     elif score_func == "fc":
@@ -89,21 +92,23 @@ def reduce_percentile(train_data, train_labels, score_func=Scorer.F_CLASSIF, per
         print("Unsupported scorer")
         return
     train_data_reduced_np = select_percentile.fit_transform(train_data, train_labels)
-    __evaluate_reduction(select_percentile.get_support(indices=True), train_data.shape[1], train_data,
-                         "selectPercentile")
+    if verbose:
+        __evaluate_reduction(select_percentile.get_support(indices=True), train_data.shape[1], train_data,
+                             "selectPercentile")
     selected_indices = select_percentile.get_support(indices=True)
     train_data_reduced = pd.DataFrame(train_data_reduced_np,
                                       columns=pandaman.translate_column_indices(selected_indices, train_data))
     return train_data_reduced, select_percentile.scores_, select_percentile
 
 
-def reduce_RFE(train_data, train_labels, estimator, n_features_to_select=None):
+def reduce_RFE(train_data, train_labels, estimator, n_features_to_select=None, verbose=False):
     rfe = RFE(estimator, verbose=1, n_features_to_select=n_features_to_select)
     train_data_reduced_np = rfe.fit_transform(train_data, train_labels)
     selected_indices = rfe.get_support(indices=True)
     train_data_reduced = pd.DataFrame(train_data_reduced_np,
                                       columns=pandaman.translate_column_indices(selected_indices, train_data))
-    __evaluate_reduction(rfe.get_support(indices=True), train_data.shape[1], train_data, "RFE")
+    if verbose:
+        __evaluate_reduction(rfe.get_support(indices=True), train_data.shape[1], train_data, "RFE")
     return train_data_reduced, rfe.scores_, rfe
 
 
@@ -128,7 +133,7 @@ def reduce_LDA(train_data, train_labels, n_components):
     return LinearDiscriminantAnalysis(n_components=n_components).fit(train_data, train_labels).transform(train_data)
 
 
-def reduce_tree(train_data, train_labels):
+def reduce_tree(train_data, train_labels, verbose=False):
     forest = ExtraTreesClassifier(n_estimators=250,
                                   random_state=0)
 
