@@ -119,10 +119,10 @@ def reduce_PCA(train_data, n_components):
     :param n_components:
     :return:
     """
-    return PCA(n_components=n_components).fit_transform(train_data)
+    return pd.DataFrame(PCA(n_components=n_components).fit_transform(train_data))
 
 
-def reduce_LDA(train_data, train_labels, n_components):
+def reduce_LDA(train_data, train_labels, n_components, tolerance=0.0001):
     """
     !!! Best used as feature extraction but can be used as feature reduction method
     :param train_data:
@@ -130,7 +130,7 @@ def reduce_LDA(train_data, train_labels, n_components):
     :param n_components:
     :return:
     """
-    return LinearDiscriminantAnalysis(n_components=n_components).fit(train_data, train_labels).transform(train_data)
+    return pd.DataFrame(LinearDiscriminantAnalysis(solver = 'svd', n_components=n_components, tol = tolerance).fit(train_data, train_labels).transform(train_data))
 
 
 def reduce_tree(train_data, train_labels, verbose=False):
