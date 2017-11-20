@@ -23,7 +23,7 @@ tuned_parameters = [
      'min_samples_leaf': [1, 2, 3, 4, 5], }
 ]
 
-trainer.find_optimized_model(estimator, train_features, train_subject_labels, tuned_parameters, scorer.auc_evaluator)
+#trainer.find_optimized_model(estimator, train_features, train_subject_labels, tuned_parameters, scorer.auc_evaluator)
 
 trainer.evaluate(estimator, train_features, train_subject_labels, scorer.auc_evaluator, results_location)
 visualiser.plot_learning_curves(estimator, train_features, train_subject_labels, results_location)
