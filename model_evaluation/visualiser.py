@@ -39,12 +39,25 @@ def plot_learning_curve(estimator, title, X, y, location, scoring, train_sizes=n
     plt.savefig(location, bbox_inches='tight', dpi=300)
 
 
-def plot_learning_curves(estimator, X, y, location):
+def plot_ce_learning_curve(estimator, X, y, location):
     plot_learning_curve(estimator, "Learning Curve (Cross-Entropy)", X, y, scoring=scorer.logloss_evaluator,
                         location=location + "CE_")
+
+
+def plot_auc_learning_curve(estimator, X, y, location):
     plot_learning_curve(estimator, "Learning Curve (AUC)", X, y, scoring=scorer.auc_evaluator,
                         location=location + "AUC_")
 
+
+def plot_acc_learning_curve(estimator, X, y, location):
+    plot_learning_curve(estimator, "Learning Curve (AUC)", X, y, scoring=scorer.accuracy_evaluator,
+                        location=location + "ACC_")
+
+
+def plot_learning_curves(estimator, X, y, location):
+    plot_ce_learning_curve(estimator, X, y, location)
+    plot_auc_learning_curve(estimator, X, y, location)
+    plot_acc_learning_curve(estimator, X, y, location)
 
 def plot_confusion_matrix(model, X_test, y_test, location):
     classes = ["1", "2", "3", "4", "5", "6", "7", "8"]
