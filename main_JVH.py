@@ -5,7 +5,7 @@ from model_evaluation import scorer, visualiser
 from feature_reduction import feature_reducer
 from utils import pandaman
 
-options = ["JVH", "activity_classification", "xgboost", "lda_20", "untuned"]
+options = ["JVH", "activity_classification", "xgboost", "lda_11", "untuned"]
 results_location = os.path.join("Results", '/'.join(options) + "/")
 # init trainer
 trainer = trainer.Trainer("")

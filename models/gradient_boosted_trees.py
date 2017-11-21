@@ -1,7 +1,7 @@
 import inspect
-import xgboost
 
-from sklearn.base import BaseEstimator, ClassifierMixin
+import xgboost
+from sklearn.base import BaseEstimator
 
 CREATED_BY = "Jeroen Van Hautte"
 MODEL_NAME = "Gradient Boosted Trees"

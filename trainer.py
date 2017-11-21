@@ -17,7 +17,7 @@ from model_evaluation import scorer
 from feature_extraction import extractor
 from model_evaluation import visualiser
 from model_evaluation import scorer as score_evaluation
-from utils import create_submission, handyman
+from utils import create_submission, handyman, pandaman
 
 
 class Trainer:
@@ -103,26 +103,12 @@ class Trainer:
         auc_values = self.__cross_validate(estimator, train_data, train_labels, scorer.auc_evaluator)
         print(auc_values)
         print("AuC: %0.2f (+/- %0.2f)" % (auc_values.mean(), auc_values.std() * 2))
-        print("------------------------------------------------------------------------")
+        print("--------------------------")
         acc_values = self.__cross_validate(estimator, train_data, train_labels, scorer.accuracy_evaluator)
         print(acc_values)
         print("Accuracy: %0.2f (+/- %0.2f)" % (acc_values.mean(), acc_values.std() * 2))
         visualiser.plot_confusion_matrix(estimator, X_test, y_test, location)
         return [auc_values.mean(), acc_values.mean()]
-
-    def get_acc_auc(self, estimator, train_data, train_labels, location):
-        print("--------evaluation--------")
-        scores = self.__cross_validate(estimator, train_data, train_labels, score_evaluation.accuracy_evaluator)
-        accuracy = scores.mean()
-        print("Accuracy Score: {}".format(accuracy))
-        scores = self.__cross_validate(estimator, train_data, train_labels, score_evaluation.auc_evaluator)
-        auc = scores.mean()
-        print("AUC_ROC Score: {}".format(auc))
-
-        X_train, X_test, y_train, y_test = train_test_split(train_data, train_labels, test_size=0.4)
-        estimator.fit(X_train, y_train)
-        visualiser.plot_confusion_matrix(estimator, X_test, y_test, location)
-        return [accuracy, auc]
 
     def __rebalance_data(self, X, y):
         if self.rebalancer:
