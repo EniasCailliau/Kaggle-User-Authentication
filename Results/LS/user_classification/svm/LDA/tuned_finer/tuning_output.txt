@@ -1,0 +1,43 @@
+Best parameters set found on development set:
+
+{'kernel': 'linear', 'C': 500}
+Grid scores on development set:
+
+()
+0.997 (+/-0.001) for {'kernel': 'linear', 'C': 400}
+
+0.997 (+/-0.001) for {'kernel': 'linear', 'C': 500}
+
+0.997 (+/-0.001) for {'kernel': 'linear', 'C': 600}
+
+0.997 (+/-0.002) for {'kernel': 'linear', 'C': 700}
+
+0.997 (+/-0.001) for {'kernel': 'linear', 'C': 800}
+
+0.997 (+/-0.002) for {'kernel': 'linear', 'C': 900}
+
+0.997 (+/-0.001) for {'kernel': 'linear', 'C': 1000}
+
+0.997 (+/-0.001) for {'kernel': 'linear', 'C': 1100}
+
+0.997 (+/-0.001) for {'kernel': 'linear', 'C': 1200}
+
+0.997 (+/-0.001) for {'kernel': 'linear', 'C': 1300}
+
+Detailed classification report:
+
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+
+             precision    recall  f1-score   support
+
+          1       0.92      0.90      0.91       450
+          2       0.97      0.99      0.98       500
+          3       0.93      0.94      0.94       309
+          4       0.92      0.92      0.92       439
+          5       0.92      0.91      0.91       500
+          6       0.95      0.97      0.96       470
+          7       0.92      0.91      0.91       430
+          8       0.98      0.98      0.98       460
+
+avg / total       0.94      0.94      0.94      3558
