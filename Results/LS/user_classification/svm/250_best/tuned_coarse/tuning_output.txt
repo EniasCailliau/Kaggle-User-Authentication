@@ -1,0 +1,95 @@
+Best parameters set found on development set:
+
+{'kernel': 'poly', 'C': 100, 'gamma': 0.001, 'degree': 4}
+Grid scores on development set:
+
+()
+0.982 (+/-0.004) for {'kernel': 'linear', 'C': 1}
+
+0.982 (+/-0.004) for {'kernel': 'linear', 'C': 10}
+
+0.982 (+/-0.004) for {'kernel': 'linear', 'C': 100}
+
+0.982 (+/-0.004) for {'kernel': 'linear', 'C': 1000}
+
+0.982 (+/-0.004) for {'kernel': 'rbf', 'C': 1, 'gamma': 0.001}
+
+0.982 (+/-0.004) for {'kernel': 'rbf', 'C': 1, 'gamma': 0.0001}
+
+0.982 (+/-0.004) for {'kernel': 'rbf', 'C': 10, 'gamma': 0.001}
+
+0.982 (+/-0.004) for {'kernel': 'rbf', 'C': 10, 'gamma': 0.0001}
+
+0.982 (+/-0.004) for {'kernel': 'rbf', 'C': 100, 'gamma': 0.001}
+
+0.982 (+/-0.004) for {'kernel': 'rbf', 'C': 100, 'gamma': 0.0001}
+
+0.982 (+/-0.004) for {'kernel': 'rbf', 'C': 1000, 'gamma': 0.001}
+
+0.982 (+/-0.004) for {'kernel': 'rbf', 'C': 1000, 'gamma': 0.0001}
+
+0.982 (+/-0.004) for {'kernel': 'poly', 'C': 1, 'gamma': 0.001, 'degree': 2}
+
+0.982 (+/-0.004) for {'kernel': 'poly', 'C': 1, 'gamma': 0.0001, 'degree': 2}
+
+0.982 (+/-0.004) for {'kernel': 'poly', 'C': 1, 'gamma': 0.001, 'degree': 3}
+
+0.982 (+/-0.004) for {'kernel': 'poly', 'C': 1, 'gamma': 0.0001, 'degree': 3}
+
+0.982 (+/-0.004) for {'kernel': 'poly', 'C': 1, 'gamma': 0.001, 'degree': 4}
+
+0.982 (+/-0.004) for {'kernel': 'poly', 'C': 1, 'gamma': 0.0001, 'degree': 4}
+
+0.982 (+/-0.004) for {'kernel': 'poly', 'C': 10, 'gamma': 0.001, 'degree': 2}
+
+0.982 (+/-0.004) for {'kernel': 'poly', 'C': 10, 'gamma': 0.0001, 'degree': 2}
+
+0.982 (+/-0.004) for {'kernel': 'poly', 'C': 10, 'gamma': 0.001, 'degree': 3}
+
+0.982 (+/-0.004) for {'kernel': 'poly', 'C': 10, 'gamma': 0.0001, 'degree': 3}
+
+0.982 (+/-0.004) for {'kernel': 'poly', 'C': 10, 'gamma': 0.001, 'degree': 4}
+
+0.982 (+/-0.004) for {'kernel': 'poly', 'C': 10, 'gamma': 0.0001, 'degree': 4}
+
+0.982 (+/-0.004) for {'kernel': 'poly', 'C': 100, 'gamma': 0.001, 'degree': 2}
+
+0.982 (+/-0.004) for {'kernel': 'poly', 'C': 100, 'gamma': 0.0001, 'degree': 2}
+
+0.982 (+/-0.004) for {'kernel': 'poly', 'C': 100, 'gamma': 0.001, 'degree': 3}
+
+0.982 (+/-0.004) for {'kernel': 'poly', 'C': 100, 'gamma': 0.0001, 'degree': 3}
+
+0.982 (+/-0.004) for {'kernel': 'poly', 'C': 100, 'gamma': 0.001, 'degree': 4}
+
+0.982 (+/-0.004) for {'kernel': 'poly', 'C': 100, 'gamma': 0.0001, 'degree': 4}
+
+0.982 (+/-0.004) for {'kernel': 'poly', 'C': 1000, 'gamma': 0.001, 'degree': 2}
+
+0.982 (+/-0.004) for {'kernel': 'poly', 'C': 1000, 'gamma': 0.0001, 'degree': 2}
+
+0.982 (+/-0.004) for {'kernel': 'poly', 'C': 1000, 'gamma': 0.001, 'degree': 3}
+
+0.982 (+/-0.004) for {'kernel': 'poly', 'C': 1000, 'gamma': 0.0001, 'degree': 3}
+
+0.982 (+/-0.004) for {'kernel': 'poly', 'C': 1000, 'gamma': 0.001, 'degree': 4}
+
+0.982 (+/-0.004) for {'kernel': 'poly', 'C': 1000, 'gamma': 0.0001, 'degree': 4}
+
+Detailed classification report:
+
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+
+             precision    recall  f1-score   support
+
+          1       0.80      0.90      0.85       458
+          2       0.94      0.91      0.92       482
+          3       0.78      0.88      0.83       308
+          4       0.80      0.83      0.82       443
+          5       0.82      0.73      0.77       512
+          6       0.88      0.85      0.86       457
+          7       0.83      0.81      0.82       433
+          8       0.97      0.94      0.95       465
+
+avg / total       0.86      0.85      0.85      3558
