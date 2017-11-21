@@ -35,7 +35,7 @@ if __name__ == '__main__':
     #trainer.find_optimized_model(estimator, train_features, train_subject_labels, tuned_parameters, scorer.auc_evaluator)
 
     #trainer.evaluate(estimator, train_features, train_subject_labels, scorer.auc_evaluator, results_location)
-    trainer.get_acc_auc(estimator, train_features, train_subject_labels, results_location)
-    #visualiser.plot_learning_curves(estimator, train_features, train_subject_labels, results_location)
+    #trainer.get_acc_auc(estimator, train_features, train_subject_labels, results_location)
+    visualiser.plot_learning_curves(estimator, train_features, train_subject_labels, results_location)
 
 
