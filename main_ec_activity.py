@@ -39,8 +39,8 @@ param_grid = [
      'verbose': [True]}
 ]
 
-estimator = trainer.find_optimized_model(estimator, train_features, train_subject_labels, param_grid,
-                                         scorer.auc_evaluator)
+estimator = trainer.find_optimized_model(estimator, train_features_reduced, train_subject_labels, param_grid,
+                                         scorer.accuracy_evaluator)
 
 trainer.save_estimator(estimator, results_location)
 estimator = trainer.load_estimator(results_location)

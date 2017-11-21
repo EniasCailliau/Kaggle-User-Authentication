@@ -4,7 +4,7 @@ from sklearn import svm
 from sklearn.base import BaseEstimator
 
 CREATED_BY = "Enias Cailliau"
-MODEL_NAME = "Logistic Regression"
+MODEL_NAME = "SVC activity"
 
 
 # default_settings = {'warm_start': False, 'C': 10, 'n_jobs': 8, 'verbose': 0, 'intercept_scaling': 1,
@@ -13,7 +13,7 @@ MODEL_NAME = "Logistic Regression"
 #                     'class_weight': None}
 
 
-class SVC(BaseEstimator, ):
+class SVC(BaseEstimator):
     def __init__(self, C=1.0, kernel='linear', degree=3, gamma='auto', coef0=0.0, shrinking=True, probability=True,
                  tol=0.001, cache_size=200, class_weight=None, verbose=False, max_iter=-1,
                  decision_function_shape='ovr', random_state=None):
