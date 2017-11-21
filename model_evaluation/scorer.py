@@ -13,10 +13,12 @@ def auc_evaluator(estimator, X, y):
 def logloss_evaluator(estimator, X, y):
     y_scores = estimator.predict_proba(X)
     y_one_hot = preprocessing.label_binarize(y, np.unique(y))
+    print("shit hits the fan")
+    print(y_scores)
+    print(y_one_hot)
     return log_loss(y_one_hot, y_scores)
 
 
 def accuracy_evaluator(estimator, X, y):
     y_pred = estimator.predict(X)
-    # y_one_hot = preprocessing.label_binarize(y, np.unique(y))
     return accuracy_score(y, y_pred)

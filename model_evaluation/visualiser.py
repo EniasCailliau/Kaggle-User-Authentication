@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sklearn.model_selection
 from sklearn.metrics import confusion_matrix
+from sklearn.model_selection import StratifiedKFold
+
 import scorer
 
 
@@ -13,8 +15,9 @@ def plot_learning_curve(estimator, title, X, y, location, scoring, train_sizes=n
     plt.title(title)
     plt.xlabel("Training examples")
     plt.ylabel("Score")
+    cv = StratifiedKFold(n_splits=4)
     train_sizes, train_scores, test_scores = sklearn.model_selection.learning_curve(
-        estimator, X, y, train_sizes=train_sizes, scoring=scoring)
+        estimator, X, y, train_sizes=train_sizes, cv=cv, scoring=scoring)
     train_scores_mean = np.mean(train_scores, axis=1)
     train_scores_std = np.std(train_scores, axis=1)
     test_scores_mean = np.mean(test_scores, axis=1)
@@ -50,7 +53,7 @@ def plot_auc_learning_curve(estimator, X, y, location):
 
 
 def plot_acc_learning_curve(estimator, X, y, location):
-    plot_learning_curve(estimator, "Learning Curve (AUC)", X, y, scoring=scorer.accuracy_evaluator,
+    plot_learning_curve(estimator, "Learning Curve (ACC)", X, y, scoring=scorer.accuracy_evaluator,
                         location=location + "ACC_")
 
 
@@ -58,6 +61,7 @@ def plot_learning_curves(estimator, X, y, location):
     plot_ce_learning_curve(estimator, X, y, location)
     plot_auc_learning_curve(estimator, X, y, location)
     plot_acc_learning_curve(estimator, X, y, location)
+
 
 def plot_confusion_matrix(model, X_test, y_test, location):
     classes = ["1", "2", "3", "4", "5", "6", "7", "8"]
