@@ -81,7 +81,7 @@ class Trainer:
         :return:
         """
         scores = []
-        train_labels = np.array(train_labels.values)
+        train_labels = np.array(train_labels.values).ravel()
         train_features = np.array(train_features.values)
         skf = list(StratifiedKFold(n_splits=4)
                    .split(train_features, train_labels))
