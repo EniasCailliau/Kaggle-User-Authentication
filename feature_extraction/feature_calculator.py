@@ -108,7 +108,7 @@ def __calculate_spectral_stats(data):
     spectral_stats.extend(data.apply(lambda x: stats.entropy(x)))
     fs = 100
     frequencies = np.arange(1, len(data) + 1) * (fs / (2.0 * len(data)))
-    spectral_centroid = data.apply(lambda x: np.divide(np.multiply(np.abs(x), frequencies), np.abs(x)))
+    spectral_centroid = data.apply(lambda x: np.sum(np.multiply(np.abs(x), frequencies))/np.sum(np.abs(x)))
     spectral_stats.extend(spectral_centroid)
     principal_frequency = data.apply(lambda x: frequencies[np.argmax(x)])
     spectral_stats.extend(principal_frequency)
