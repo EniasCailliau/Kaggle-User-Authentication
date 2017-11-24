@@ -81,7 +81,7 @@ class Trainer:
         :return:
         """
         scores = []
-        train_labels = np.array(train_labels.values).ravel()
+        train_labels = np.array(train_labels.values).reshape(-1)
         train_features = np.array(train_features.values)
         skf = list(StratifiedKFold(n_splits=4)
                    .split(train_features, train_labels))
@@ -94,6 +94,7 @@ class Trainer:
             estimator.fit(X_train_rebalanced, y_train_rebalanced)
 
             score = scorer(estimator, X_test, y_test)
+            print "Intermediate score: " + str(score)
             scores.append(score)
         return np.array(scores)
 
