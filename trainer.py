@@ -81,7 +81,7 @@ class Trainer:
         :return:
         """
         scores = []
-        train_labels = np.array(train_labels.values).reshape(-1)
+        train_labels = np.array(train_labels.values).ravel()
         train_features = np.array(train_features.values)
         skf = list(StratifiedKFold(n_splits=4)
                    .split(train_features, train_labels))
@@ -94,7 +94,6 @@ class Trainer:
             estimator.fit(X_train_rebalanced, y_train_rebalanced)
 
             score = scorer(estimator, X_test, y_test)
-            print "Intermediate score: " + str(score)
             scores.append(score)
         return np.array(scores)
 
@@ -116,7 +115,6 @@ class Trainer:
         return [scores.mean(), scores.std()]
 
     def get_acc_auc(self, estimator, train_data, train_labels, location):
-        print("--------evaluation--------")
         scores = self.__cross_validate(estimator, train_data, train_labels, score_evaluation.accuracy_evaluator)
         accuracy = scores.mean()
         print("Accuracy Score: {}".format(accuracy))
