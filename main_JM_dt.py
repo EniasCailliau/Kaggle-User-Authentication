@@ -22,8 +22,15 @@ tuned_parameters = [
     {'criterion': ['gini', 'entropy'], 'max_depth': [10, 20, 30, 40, 50], 'min_samples_split': [1, 2, 3, 4, 5],
      'min_samples_leaf': [1, 2, 3, 4, 5], }
 ]
+#tuned_parameters = [
+#    {'max_depth': [10, 20, 30, 40, 50, 60]}
+#]
 
-#trainer.find_optimized_model(estimator, train_features, train_subject_labels, tuned_parameters, scorer.auc_evaluator)
+if __name__ == "__main__":
 
-trainer.evaluate(estimator, train_features, train_subject_labels, scorer.auc_evaluator, results_location)
-visualiser.plot_learning_curves(estimator, train_features, train_subject_labels, results_location)
+    trainer.find_optimized_model(estimator, train_features, train_subject_labels, tuned_parameters, scorer.auc_evaluator)
+
+    trainer.evaluate(estimator, train_features, train_subject_labels, scorer.auc_evaluator, results_location)
+    trainer.evaluate(estimator, train_features, train_subject_labels, scorer.accuracy_evaluator, results_location)
+
+    visualiser.plot_learning_curves(estimator, train_features, train_subject_labels, results_location)
