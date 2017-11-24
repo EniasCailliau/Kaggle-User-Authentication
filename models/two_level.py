@@ -20,16 +20,15 @@ class TwoLevel(BaseEstimator):
     # Expects X to be a list containing 13 feature sets
     def predict_proba(self, X):
         allUsers = [1,2,3,4,5,6,7,8]
-        allActivities = ['1','2','3','4','5','6','7','12','13','16','17','24']
+        allActivities = [1,2,3,4,5,6,7,12,13,16,17,24]
         activityProbabilities = self.activityEstimator.predict_proba(X[0]);
         userProbabilities = np.zeros([X[0].shape[0], 8])
-        for i in range(12):
-            realIndex = np.argwhere(self.activityEstimator.estimator.classes_ == allActivities[i])
+        for i in range(len(allActivities)):
+            realIndex = np.argwhere(self.activityEstimator.estimator.classes_ == allActivities[i])[0][0]
             currentPrediction = self.userEstimators[i].predict_proba(X[i+1])
             for j in range(X[i+1].shape[0]):
-                for k in range(len(self.userEstimators[i].estimator.classes_)):
-                    currentUser = self.userEstimators[i].estimator.classes_[k]
-                    userProbabilities[j, np.argwhere(allUsers == currentUser)] += activityProbabilities[j,realIndex]*currentPrediction[j, k]
+                for currentUser in self.userEstimators[i].estimator.classes_:
+                    userProbabilities[j, np.argwhere(currentUser == allUsers)] += activityProbabilities[j,realIndex]*currentPrediction[j, np.argwhere(currentUser == self.userEstimators[i].estimator.classes_)]
         return userProbabilities
 
     def predict(self, X):

@@ -7,7 +7,7 @@ import numpy as np
 from utils import pandaman
 import pandas as pd
 
-options = ["JVH", "two_level", "RF-RF", "2"]
+options = ["JVH", "two_level", "RF-RF2"]
 results_location = os.path.join("Results", '/'.join(options) + "/")
 # init trainer
 trainer = trainer.Trainer("")
@@ -16,8 +16,12 @@ trainer = trainer.Trainer("")
 train_features, train_activity_labels, train_subject_labels, test_features = trainer.load_data(
     os.path.join("feature_extraction", '_data_sets/unreduced.pkl'), final=False)
 
+print train_features.shape
+print train_activity_labels.shape
+print train_subject_labels.shape
+
 # Merge features with activity labels (required to use trainer)
-X = pd.DataFrame(np.hstack([train_features.values, train_activity_labels.values.reshape(-1,1)]))
+X = pd.DataFrame(np.hstack([train_features.values, train_activity_labels.values.reshape(-1,1).astype(int)]))
 y = train_subject_labels
 test = pd.DataFrame(np.hstack([test_features.values, np.zeros((test_features.shape[0],1))]))
 
