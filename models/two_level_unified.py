@@ -14,7 +14,7 @@ MODEL_NAME = "Standalone Two Level Classifier"
 
 TEST_INIT = False
 TEST_FIT = False
-TEST_PREDICT = True
+TEST_PREDICT = False
 
 ALL_USERS = np.asarray([1, 2, 3, 4, 5, 6, 7, 8])
 ALL_ACTIVITIES = np.asarray([1, 2, 3, 4, 5, 6, 7, 12, 13, 16, 17, 24])
@@ -125,7 +125,7 @@ class TwoLevel(BaseEstimator):
         return user_probabilities
 
     def predict(self, X):
-        return self.estimator.predict(X)
+        return np.argmax(self.predict_proba(X), axis=1) + np.ones(len(X))
 
     # This method is used for gridsearch !! needs revision
     def score(self, X, y=None):

@@ -4,14 +4,15 @@ from models import logistic_regression, random_forest, gradient_boosted_trees
 from model_evaluation import scorer, visualiser
 from feature_reduction import feature_reducer
 import numpy as np
+import pandas as pd
 from utils import pandaman
 
-options = ["JVH", "activity_classification", "xgboost", "lda_20", "untuned"]
+options = ["JVH", "submission_test", "random_forest", "lda_20", "untuned"]
 results_location = os.path.join("Results", '/'.join(options) + "/")
 # init trainer
 trainer = trainer.Trainer("")
 # init model
-estimator = gradient_boosted_trees.XGB(booster='dart')
+estimator = random_forest.RF()
 
 # load data from feature file
 train_features, train_activity_labels, train_subject_labels, test_features = trainer.load_data(
@@ -21,15 +22,17 @@ print np.unique(np.array(train_subject_labels.values))
 print np.unique(np.array(train_activity_labels.values))
 
 # reduce features
-# train_features = feature_reducer.reduce_k_best(train_features, train_subject_labels, k=250)[0];
-train_features = feature_reducer.reduce_LDA(train_features, train_activity_labels, 20)
+reducer = feature_reducer.get_LDA_reducer(train_features, train_activity_labels, 20)
+# train_features = pd.DataFrame(reducer.transform(train_features))
+# test_features = pd.DataFrame(reducer.transform(test_features))
 
-print(train_features.shape)
-trainer.get_acc_auc(estimator, train_features, train_activity_labels, results_location)
-print("Plotting learning curves...")
-visualiser.plot_learning_curves(estimator, train_features, train_activity_labels, results_location)
+# print(train_features.shape)
+# trainer.get_acc_auc(estimator, train_features, train_activity_labels, results_location)
+# print("Plotting learning curves...")
+# visualiser.plot_learning_curves(estimator, train_features, train_activity_labels, results_location)
 # print("Saving estimator...")
 # trainer.save_estimator(estimator, results_location)
 
 # Create a submission
-# trainer.prepare_submission(estimator, test_features, options)
+estimator.fit(train_features, train_subject_labels)
+trainer.prepare_submission(estimator, test_features, options)
