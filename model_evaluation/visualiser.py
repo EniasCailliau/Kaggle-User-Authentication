@@ -49,7 +49,8 @@ def plot_learning_curve(estimator, title, X, y, train_sessions, location, scorin
 
 
 def plot_ce_learning_curve(estimator, X, y, train_sessions, location):
-    plot_learning_curve(estimator, "Learning Curve (Cross-Entropy)", X, y, train_sessions, scoring=scorer.logloss_evaluator,
+    plot_learning_curve(estimator, "Learning Curve (Cross-Entropy)", X, y, train_sessions,
+                        scoring=scorer.logloss_evaluator,
                         location=location + "CE_")
 
 
@@ -69,9 +70,14 @@ def plot_learning_curves(estimator, X, y, train_sessions, location):
     plot_acc_learning_curve(estimator, X, y, train_sessions, location)
 
 
-def plot_confusion_matrix(model, X_test, y_test, location):
+def plot_confusion_matrix(estimator, train_features, train_labels, train_sessions, location):
+    num_folds = 4
+    (train_index, test_index) = CustomKFold.cv(num_folds, train_sessions)[0]
+    X_train, X_test = train_features[train_index], train_features[test_index]
+    y_train, y_test = train_labels[train_index], train_labels[test_index]
     classes = ["1", "2", "3", "4", "5", "6", "7", "8"]
-    y_predict = model.predict(X_test)
+    estimator.fit(X_train, y_train)
+    y_predict = estimator.predict(X_test)
     cnf_matrix = confusion_matrix(y_test, y_predict)
 
     cnf_matrix = cnf_matrix.astype('float') / cnf_matrix.sum(axis=1)[:, np.newaxis]

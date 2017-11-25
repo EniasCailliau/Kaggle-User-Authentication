@@ -17,20 +17,25 @@ class Scorer():
     F_CLASSIF = "fc"
 
 
-def __evaluate_reduction(indices_selected, n_features, data_frame, type):
-    indices_removed = set(range(0, n_features)) - set(indices_selected)
-    print("The {} reduction wants to select the following features (indices):\n {}".format(type, indices_selected))
-    print("The {} reduction wants to delete the following features (indices):\n {}".format(type, indices_removed))
-    print("--------------------------------------------------")
-    print("The {} reduction wants to select the following features (names):\n {}".format(type,
-                                                                                         pandaman.translate_column_indices(
-                                                                                             indices_selected,
-                                                                                             data_frame)))
-    print("The {} reduction wants to delete the following features (names):\n {}".format(type,
-                                                                                         pandaman.translate_column_indices(
-                                                                                             np.array(
-                                                                                                 list(indices_removed)),
-                                                                                             data_frame)))
+def __evaluate_reduction(indices_selected, n_features, data_frame, type, verbose=0):
+    if verbose > 0:
+        indices_removed = set(range(0, n_features)) - set(indices_selected)
+    if verbose == 1:
+        print("The reduction method wants to delete {} features".format(len(indices_removed)))
+    if verbose == 2:
+        print("The {} reduction wants to select the following features (indices):\n {}".format(type, indices_selected))
+        print("The {} reduction wants to delete the following features (indices):\n {}".format(type, indices_removed))
+        print("--------------------------------------------------")
+        print("The {} reduction wants to select the following features (names):\n {}".format(type,
+                                                                                             pandaman.translate_column_indices(
+                                                                                                 indices_selected,
+                                                                                                 data_frame)))
+        print("The {} reduction wants to delete the following features (names):\n {}".format(type,
+                                                                                             pandaman.translate_column_indices(
+                                                                                                 np.array(
+                                                                                                     list(
+                                                                                                         indices_removed)),
+                                                                                                 data_frame)))
 
 
 def visualize_RFE_ranking(rfe):
@@ -55,18 +60,21 @@ def visualize_tree_ranking(forest, number_to_visualise):
     plt.show()
 
 
-def reduce_variance(train_data, p, verbose=False):
+def reduce_variance(train_data, p, verbose=0):
+    """
+        Useless because we normalize all the features
+    """
     vt = VarianceThreshold(threshold=(p * (1 - p)))
     train_data_reduced_np = vt.fit_transform(train_data)
     selected_indices = vt.get_support(indices=True)
+    print(vt.variances_)
     train_data_reduced = pd.DataFrame(train_data_reduced_np,
                                       columns=pandaman.translate_column_indices(selected_indices, train_data))
-    if verbose:
-        __evaluate_reduction(vt.get_support(indices=True), train_data.shape[1], train_data, "Variance")
+    __evaluate_reduction(selected_indices, train_data.shape[1], train_data, "Variance", verbose)
     return train_data_reduced
 
 
-def reduce_k_best(train_data, train_labels, score_func=Scorer.F_CLASSIF, k='all', verbose=False):
+def reduce_k_best(train_data, train_labels, score_func=Scorer.F_CLASSIF, k='all', verbose=0):
     if score_func == "mic":
         select_k_best = SelectKBest(score_func=mutual_info_classif, k=k)
     elif score_func == "fc":
@@ -74,34 +82,34 @@ def reduce_k_best(train_data, train_labels, score_func=Scorer.F_CLASSIF, k='all'
     else:
         print("Unsupported scorer")
         return
+
     train_data_reduced_np = select_k_best.fit_transform(train_data, train_labels)
     selected_indices = select_k_best.get_support(indices=True)
     train_data_reduced = pd.DataFrame(train_data_reduced_np,
                                       columns=pandaman.translate_column_indices(selected_indices, train_data))
-    if verbose:
-        __evaluate_reduction(selected_indices, train_data.shape[1], train_data, "selectKBest")
+    __evaluate_reduction(selected_indices, train_data.shape[1], train_data, "selectKBest")
     return train_data_reduced, select_k_best.scores_, select_k_best
 
 
-def reduce_percentile(train_data, train_labels, score_func=Scorer.F_CLASSIF, percentile=10, verbose=False):
-    if score_func == "mic":
-        select_percentile = SelectPercentile(score_func=mutual_info_classif, percentile=percentile)
-    elif score_func == "fc":
-        select_percentile = SelectPercentile(score_func=f_classif, percentile=percentile)
-    else:
-        print("Unsupported scorer")
-        return
-    train_data_reduced_np = select_percentile.fit_transform(train_data, train_labels)
-    if verbose:
-        __evaluate_reduction(select_percentile.get_support(indices=True), train_data.shape[1], train_data,
-                             "selectPercentile")
-    selected_indices = select_percentile.get_support(indices=True)
-    train_data_reduced = pd.DataFrame(train_data_reduced_np,
-                                      columns=pandaman.translate_column_indices(selected_indices, train_data))
-    return train_data_reduced, select_percentile.scores_, select_percentile
+# def reduce_percentile(train_data, train_labels, score_func=Scorer.F_CLASSIF, percentile=10, verbose=0):
+#     if score_func == "mic":
+#         select_percentile = SelectPercentile(score_func=mutual_info_classif, percentile=percentile)
+#     elif score_func == "fc":
+#         select_percentile = SelectPercentile(score_func=f_classif, percentile=percentile)
+#     else:
+#         print("Unsupported scorer")
+#         return
+#     train_data_reduced_np = select_percentile.fit_transform(train_data, train_labels)
+#     if verbose:
+#         __evaluate_reduction(select_percentile.get_support(indices=True), train_data.shape[1], train_data,
+#                              "selectPercentile")
+#     selected_indices = select_percentile.get_support(indices=True)
+#     train_data_reduced = pd.DataFrame(train_data_reduced_np,
+#                                       columns=pandaman.translate_column_indices(selected_indices, train_data))
+#     return train_data_reduced, select_percentile.scores_, select_percentile
 
 
-def reduce_RFE(train_data, train_labels, estimator, n_features_to_select=None, verbose=False):
+def reduce_RFE(train_data, train_labels, estimator, n_features_to_select=None, verbose=0):
     rfe = RFE(estimator, verbose=1, n_features_to_select=n_features_to_select)
     train_data_reduced_np = rfe.fit_transform(train_data, train_labels)
     selected_indices = rfe.get_support(indices=True)
@@ -130,7 +138,11 @@ def reduce_LDA(train_data, train_labels, n_components, tolerance=0.0001):
     :param n_components:
     :return:
     """
-    return pd.DataFrame(LinearDiscriminantAnalysis(solver = 'svd', n_components=n_components, tol = tolerance).fit(train_data, train_labels).transform(train_data))
+    return pd.DataFrame(
+        LinearDiscriminantAnalysis(solver='svd', n_components=n_components, tol=tolerance).fit(train_data,
+                                                                                               train_labels).transform(
+            train_data))
+
 
 def get_LDA_reducer(train_data, train_labels, n_components, tolerance=0.0001):
     """
@@ -140,10 +152,11 @@ def get_LDA_reducer(train_data, train_labels, n_components, tolerance=0.0001):
     :param n_components:
     :return:
     """
-    return LinearDiscriminantAnalysis(solver = 'svd', n_components=n_components, tol = tolerance).fit(train_data, train_labels)
+    return LinearDiscriminantAnalysis(solver='svd', n_components=n_components, tol=tolerance).fit(train_data,
+                                                                                                  train_labels)
 
 
-def reduce_tree(train_data, train_labels, verbose=False):
+def reduce_tree(train_data, train_labels, verbose=0):
     forest = ExtraTreesClassifier(n_estimators=250,
                                   random_state=0)
 
