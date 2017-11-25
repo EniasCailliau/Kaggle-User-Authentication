@@ -87,7 +87,7 @@ class Trainer:
             X_train_rebalanced, y_train_rebalanced = X_train, y_train
             estimator.fit(X_train_rebalanced, y_train_rebalanced)
             score = scorer(estimator, X_test, y_test)
-            # print("Intermediate score: {}".format(score))
+            print("---- Intermediate score: {}".format(score))
             scores.append(score)
         return np.array(scores)
 
