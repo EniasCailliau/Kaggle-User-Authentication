@@ -96,6 +96,7 @@ class Trainer:
         print("--------evaluation--------")
         X_train, X_test, y_train, y_test = train_test_split(train_data, train_labels, test_size=0.25)
         estimator.fit(X_train, y_train)
+
         print(
             "For my random training set I have following auc_roc score: :{}".format(
                 scorer(estimator, X_test, y_test)))
