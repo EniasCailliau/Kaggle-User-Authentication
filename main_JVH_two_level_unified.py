@@ -31,3 +31,6 @@ model = two_level_unified.TwoLevel()
 print "TESTING"
 trainer.get_acc_auc(model, X, y, results_location)
 
+#model.fit(X.values, y.values)
+#trainer.prepare_submission(model, test.values, options)
+
