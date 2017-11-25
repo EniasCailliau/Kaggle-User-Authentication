@@ -8,7 +8,7 @@ MODEL_NAME = "Random Forest"
 
 
 class RF(BaseEstimator):
-    def __init__(self, n_estimators=256, n_jobs=-1, oob_score=True, verbose=1):
+    def __init__(self, n_estimators=256, n_jobs=-1, oob_score=True):
         input_args = locals()
         del input_args["self"]
         self.estimator = ensemble.RandomForestClassifier(**input_args)

@@ -86,31 +86,26 @@ class Trainer:
                 train_features, train_labels = self.rebalancer.fit_sample(train_features, train_labels)
             X_train_rebalanced, y_train_rebalanced = X_train, y_train
             estimator.fit(X_train_rebalanced, y_train_rebalanced)
-
             score = scorer(estimator, X_test, y_test)
-            print "Intermediate score: " + str(score)
+            # print("Intermediate score: {}".format(score))
             scores.append(score)
         return np.array(scores)
 
-    def evaluate(self, estimator, train_data, train_labels, train_sessions, location):
-        print("--------evaluation--------")
-        X_train, X_test, y_train, y_test = train_test_split(train_data, train_labels, test_size=0.25)
-        estimator.fit(X_train, y_train)
-
-        print(
-            "For my random training set I have following auc_roc score: :{}".format(
-                scorer(estimator, X_test, y_test)))
+    def evaluate(self, estimator, train_data, train_labels, train_sessions):
+        # print("--------evaluation--------")
+        # X_train, X_test, y_train, y_test = train_test_split(train_data, train_labels, test_size=0.25)
+        # estimator.fit(X_train, y_train)
+        #
+        # print(
+        #     "For my random training set I have following auc_roc score: :{}".format(
+        #         scorer.auc_evaluator(estimator, X_test, y_test)))
 
         auc_values = self.__cross_validate(estimator, train_data, train_labels, train_sessions, scorer.auc_evaluator)
-        print(auc_values)
         print("AuC: %0.2f (+/- %0.2f)" % (auc_values.mean(), auc_values.std() * 2))
-        print("--------------------------")
         acc_values = self.__cross_validate(estimator, train_data, train_labels, train_sessions,
                                            scorer.accuracy_evaluator)
-        print(acc_values)
         print("Accuracy: %0.2f (+/- %0.2f)" % (acc_values.mean(), acc_values.std() * 2))
-        visualiser.plot_confusion_matrix(estimator, X_test, y_test, location)
-        return [auc_values.mean(), acc_values.mean()]
+        return [auc_values.mean(), auc_values.std(), acc_values.mean(), acc_values.std()]
 
     def __rebalance_data(self, X, y):
         if self.rebalancer:
