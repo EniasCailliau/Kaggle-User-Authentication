@@ -7,11 +7,7 @@ import numpy as np
 import pandas as pd
 from utils import pandaman
 
-<<<<<<< HEAD
 options = ["JVH", "submission_test", "random_forest", "lda_20", "untuned"]
-=======
-options = ["JVH", "activity_classification", "xgboost", "lda_11", "untuned"]
->>>>>>> be3357bdeb9910290f5b8730139c17ef88d3fd99
 results_location = os.path.join("Results", '/'.join(options) + "/")
 # init trainer
 trainer = trainer.Trainer("")

@@ -21,7 +21,7 @@ def main():
     estimator = gradient_boosted_trees.XGB(max_depth=0)
 
     train_features, train_activity_labels, train_subject_labels, test_features = trainer.load_data(
-        os.path.join("feature_extraction", '_data_sets/unreduced.pkl'), final=False)
+        os.path.join("feature_extraction/_data_sets/unreduced.pkl"), final=False)
 
     pandaman.print_stats(train_features=train_features, train_activity_labels=train_activity_labels,
                          train_subject_labels=train_subject_labels, test_features=test_features)
