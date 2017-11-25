@@ -92,35 +92,29 @@ class TwoLevel(BaseEstimator):
         current_features = self.activityTransformer.transform(train_features)
         print(current_features.shape)
         activity_probabilities = self.activityClassifier.predict_proba(current_features)
-        if(TEST_PREDICT):
-            print "Activity: ",
-            print train_features.shape,
-            print " -> ",
-            print current_features.shape
 
         user_probabilities = np.zeros((len(activity_probabilities), len(ALL_USERS)))
-        for i in range(len(ALL_ACTIVITIES)):
-            current_features = self.userTransformers[i].transform(train_features)
-            partial_probabilities = self.userClassifiers[i].predict_proba(current_features)
-
+        for sample_index in range(len(activity_probabilities)):
             if (TEST_PREDICT):
-                print "Activity " + str(ALL_ACTIVITIES[i]) + " : ",
-                print train_features.shape,
-                print " -> ",
-                print current_features.shape
+                if ((sample_index + 1) % 100 == 0):
+                    print ".",
+                if (sample_index + 1 == len(activity_probabilities)):
+                    print ""
+            current_sample = train_features[sample_index].reshape(1,-1)
 
-            current_users = self.userClassifiers[i].estimator.classes_
-            for j in range(len(activity_probabilities)):
-                if(TEST_PREDICT):
-                    if((j+1)%100 == 0):
-                        print ".",
-                    if(j+1 == len(activity_probabilities)):
-                        print ""
+            for activity_index in range(len(ALL_ACTIVITIES)):
+
+                current_features = self.userTransformers[activity_index].transform(current_sample)
+                partial_probabilities = self.userClassifiers[activity_index].predict_proba(current_features)
+                partial_prediction = self.userClassifiers[activity_index].predict(current_features)
+
+                current_users = self.userClassifiers[activity_index].estimator.classes_
 
                 for cu in current_users:
-                    act_prob = activity_probabilities[j, i]
-                    partial_prob = partial_probabilities[j, np.argwhere(current_users == cu)]
-                    user_probabilities[j, cu-1] += act_prob*partial_prob
+                    act_prob = activity_probabilities[sample_index, activity_index]
+                    partial_prob = partial_probabilities[0, np.argwhere(current_users == cu)]
+                    partial_prob = partial_prediction == cu
+                    user_probabilities[sample_index, cu-1] += act_prob*partial_prob
 
         return user_probabilities
 
