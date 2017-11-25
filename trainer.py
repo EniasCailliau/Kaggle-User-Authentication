@@ -12,11 +12,12 @@ from sklearn.model_selection import StratifiedKFold
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.utils import shuffle
+from model_evaluation import scorer
 
 from feature_extraction import extractor
 from model_evaluation import visualiser
 from model_evaluation import scorer as score_evaluation
-from utils import create_submission, handyman
+from utils import create_submission, handyman, pandaman
 
 
 class Trainer:
@@ -36,7 +37,8 @@ class Trainer:
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4)
 
         print("Performing grid search to find best parameter set")
-        clf = GridSearchCV(estimator, param_grid=tuned_parameters, scoring=scorer, cv=StratifiedKFold(n_splits=4), n_jobs=-1)
+        clf = GridSearchCV(estimator, param_grid=tuned_parameters, scoring=scorer, cv=StratifiedKFold(n_splits=4),
+                           verbose=2, n_jobs=-1)
 
         clf.fit(X_train, y_train)
 
@@ -73,13 +75,6 @@ class Trainer:
         create_submission.main(pred_file_name, pred_file_name + '.csv')
 
     def __cross_validate(self, estimator, train_features, train_labels, scorer):
-        """
-        :param estimator:
-        :param train_features:
-        :param train_labels:
-        :param scorer: A scorer function (see main for example)
-        :return:
-        """
         scores = []
         train_labels = np.array(train_labels.values).ravel()
         train_features = np.array(train_features.values)
@@ -98,9 +93,10 @@ class Trainer:
             scores.append(score)
         return np.array(scores)
 
-    def evaluate(self, estimator, train_data, train_labels, scorer, location):
+    def evaluate(self, estimator, train_data, train_labels, location):
         print("--------evaluation--------")
         X_train, X_test, y_train, y_test = train_test_split(train_data, train_labels, test_size=0.4)
+<<<<<<< HEAD
         # y_test_one_hot = preprocessing.label_binarize(y_test, np.unique(train_labels))
         estimator.fit(X_train, y_train)
         # y_scores = estimator.predict_proba(X_test)
@@ -124,9 +120,22 @@ class Trainer:
         print("AUC_ROC Score: {}".format(auc))
 
         X_train, X_test, y_train, y_test = train_test_split(train_data, train_labels, test_size=0.4)
+=======
+>>>>>>> be3357bdeb9910290f5b8730139c17ef88d3fd99
         estimator.fit(X_train, y_train)
+        print("For my random training set I have following auc_roc score:")
+        print("AuC: {}".format(scorer.auc_evaluator(estimator, X_test, y_test)))
+        print("Accuracy: {}".format(scorer.accuracy_evaluator(estimator, X_test, y_test)))
+
+        auc_values = self.__cross_validate(estimator, train_data, train_labels, scorer.auc_evaluator)
+        print(auc_values)
+        print("AuC: %0.2f (+/- %0.2f)" % (auc_values.mean(), auc_values.std() * 2))
+        print("--------------------------")
+        acc_values = self.__cross_validate(estimator, train_data, train_labels, scorer.accuracy_evaluator)
+        print(acc_values)
+        print("Accuracy: %0.2f (+/- %0.2f)" % (acc_values.mean(), acc_values.std() * 2))
         visualiser.plot_confusion_matrix(estimator, X_test, y_test, location)
-        return [accuracy, auc]
+        return [auc_values.mean(), acc_values.mean()]
 
     def __rebalance_data(self, X, y):
         if self.rebalancer:
