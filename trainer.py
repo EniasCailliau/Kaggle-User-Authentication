@@ -96,7 +96,6 @@ class Trainer:
     def evaluate(self, estimator, train_data, train_labels, location):
         print("--------evaluation--------")
         X_train, X_test, y_train, y_test = train_test_split(train_data, train_labels, test_size=0.4)
-<<<<<<< HEAD
         # y_test_one_hot = preprocessing.label_binarize(y_test, np.unique(train_labels))
         estimator.fit(X_train, y_train)
         # y_scores = estimator.predict_proba(X_test)
@@ -112,16 +111,7 @@ class Trainer:
         return [scores.mean(), scores.std()]
 
     def get_acc_auc(self, estimator, train_data, train_labels, location):
-        scores = self.__cross_validate(estimator, train_data, train_labels, score_evaluation.accuracy_evaluator)
-        accuracy = scores.mean()
-        print("Accuracy Score: {}".format(accuracy))
-        scores = self.__cross_validate(estimator, train_data, train_labels, score_evaluation.auc_evaluator)
-        auc = scores.mean()
-        print("AUC_ROC Score: {}".format(auc))
-
         X_train, X_test, y_train, y_test = train_test_split(train_data, train_labels, test_size=0.4)
-=======
->>>>>>> be3357bdeb9910290f5b8730139c17ef88d3fd99
         estimator.fit(X_train, y_train)
         print("For my random training set I have following auc_roc score:")
         print("AuC: {}".format(scorer.auc_evaluator(estimator, X_test, y_test)))
