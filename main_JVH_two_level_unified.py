@@ -29,7 +29,5 @@ test = pd.DataFrame(np.hstack([test_features.values, np.zeros((test_features.sha
 # Set up model
 model = two_level_unified.TwoLevel()
 print "TESTING"
-x_train, x_val, y_train, y_val = train_test_split(X.values, y.values, test_size=0.2)
-
 trainer.get_acc_auc(model, X, y, results_location)
 

@@ -111,12 +111,6 @@ class Trainer:
         return [scores.mean(), scores.std()]
 
     def get_acc_auc(self, estimator, train_data, train_labels, location):
-        X_train, X_test, y_train, y_test = train_test_split(train_data, train_labels, test_size=0.4)
-        estimator.fit(X_train, y_train)
-        print("For my random training set I have following auc_roc score:")
-        print("AuC: {}".format(scorer.auc_evaluator(estimator, X_test, y_test)))
-        print("Accuracy: {}".format(scorer.accuracy_evaluator(estimator, X_test, y_test)))
-
         auc_values = self.__cross_validate(estimator, train_data, train_labels, scorer.auc_evaluator)
         print(auc_values)
         print("AuC: %0.2f (+/- %0.2f)" % (auc_values.mean(), auc_values.std() * 2))
@@ -124,7 +118,6 @@ class Trainer:
         acc_values = self.__cross_validate(estimator, train_data, train_labels, scorer.accuracy_evaluator)
         print(acc_values)
         print("Accuracy: %0.2f (+/- %0.2f)" % (acc_values.mean(), acc_values.std() * 2))
-        visualiser.plot_confusion_matrix(estimator, X_test, y_test, location)
         return [auc_values.mean(), acc_values.mean()]
 
     def __rebalance_data(self, X, y):
