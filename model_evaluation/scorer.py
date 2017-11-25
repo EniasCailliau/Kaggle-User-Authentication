@@ -18,5 +18,4 @@ def logloss_evaluator(estimator, X, y):
 
 def accuracy_evaluator(estimator, X, y):
     y_pred = estimator.predict(X)
-    # y_one_hot = preprocessing.label_binarize(y, np.unique(y))
     return accuracy_score(y, y_pred)

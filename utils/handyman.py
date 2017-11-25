@@ -64,3 +64,7 @@ def to_one_hot(indices, min_int, max_int):
 def to_indices(one_hot, min_int):
     """Converts a one-hot representation to indices."""
     return min_int + np.argmax(one_hot, axis=1)
+
+
+def calculate_path_from_options(base, options):
+    return os.path.join(base, '/'.join(options) + "/")
