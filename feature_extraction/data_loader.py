@@ -1,6 +1,6 @@
 import pandas as pd
 
-from feature_extraction import data
+import data
 
 
 def create_flat_intervals_structure():
@@ -10,12 +10,19 @@ def create_flat_intervals_structure():
 
     training_data = []
 
+    session_id = 0
     for session in dataset['train']:
+        print("session: {}".format(session_id))
+        interval_id = 0
         for interval in session.intervals:
-            training_data_entry = [interval.session.subject, interval.session.activity, pd.DataFrame(interval.data)]
+            training_data_entry = [str(session_id) + "_" + str(interval_id), interval.session.subject,
+                                   interval.session.activity,
+                                   pd.DataFrame(interval.data)]
+            interval_id += 1
             training_data.append(training_data_entry)
+        session_id += 1
 
-    train_flat = pd.DataFrame(training_data, columns=["subject", "activity", "interval_data"])
+    train_flat = pd.DataFrame(training_data, columns=["session_id", "subject", "activity", "interval_data"])
 
     print("STATUS: Creating flat interval structure (TEST)")
 

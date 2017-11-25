@@ -4,20 +4,17 @@ import numpy as np
 import pandas as pd
 from imblearn.combine import SMOTEENN
 from imblearn.over_sampling import SMOTE
-from sklearn import preprocessing
 from sklearn.metrics import classification_report
-from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import GridSearchCV
 from sklearn.model_selection import StratifiedKFold
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.utils import shuffle
-from model_evaluation import scorer
 
 from feature_extraction import extractor
+from model_evaluation import scorer, CustomKFold
 from model_evaluation import visualiser
-from model_evaluation import scorer as score_evaluation
-from utils import create_submission, handyman, pandaman
+from utils import create_submission, handyman
 
 
 class Trainer:
@@ -32,12 +29,14 @@ class Trainer:
             print("Trainer initialised with NO rebalance method")
             self.rebalancer = None
 
-    def find_optimized_model(self, estimator, X, y, tuned_parameters, scorer):
+    def find_optimized_model(self, estimator, X, y, train_sessions, tuned_parameters, scorer):
 
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4)
+        num_folds = 4
 
         print("Performing grid search to find best parameter set")
-        clf = GridSearchCV(estimator, param_grid=tuned_parameters, scoring=scorer, cv=StratifiedKFold(n_splits=4),
+        clf = GridSearchCV(estimator, param_grid=tuned_parameters, scoring=scorer,
+                           cv=CustomKFold.cv(num_folds, train_sessions),
                            verbose=2, n_jobs=-1)
 
         clf.fit(X_train, y_train)
@@ -74,13 +73,13 @@ class Trainer:
         print('Dumped predictions to {}'.format(pred_file_name))
         create_submission.main(pred_file_name, pred_file_name + '.csv')
 
-    def __cross_validate(self, estimator, train_features, train_labels, scorer):
+    def __cross_validate(self, estimator, train_features, train_labels, train_session, scorer):
         scores = []
-        train_labels = np.array(train_labels.values)
+        train_labels = np.array(train_labels.values).ravel()
         train_features = np.array(train_features.values)
-        skf = list(StratifiedKFold(n_splits=4)
-                   .split(train_features, train_labels))
-        for num, (train_index, test_index) in enumerate(skf):
+        num_folds = 4
+
+        for num, (train_index, test_index) in enumerate(CustomKFold.cv(num_folds, train_session)):
             X_train, X_test = train_features[train_index], train_features[test_index]
             y_train, y_test = train_labels[train_index], train_labels[test_index]
             if self.rebalancer:
@@ -89,22 +88,24 @@ class Trainer:
             estimator.fit(X_train_rebalanced, y_train_rebalanced)
 
             score = scorer(estimator, X_test, y_test)
+            print "Intermediate score: " + str(score)
             scores.append(score)
         return np.array(scores)
 
-    def evaluate(self, estimator, train_data, train_labels, location):
+    def evaluate(self, estimator, train_data, train_labels, train_sessions, location):
         print("--------evaluation--------")
-        X_train, X_test, y_train, y_test = train_test_split(train_data, train_labels, test_size=0.4)
+        X_train, X_test, y_train, y_test = train_test_split(train_data, train_labels, test_size=0.25)
         estimator.fit(X_train, y_train)
-        print("For my random training set I have following auc_roc score:")
-        print("AuC: {}".format(scorer.auc_evaluator(estimator, X_test, y_test)))
-        print("Accuracy: {}".format(scorer.accuracy_evaluator(estimator, X_test, y_test)))
+        print(
+            "For my random training set I have following auc_roc score: :{}".format(
+                scorer(estimator, X_test, y_test)))
 
-        auc_values = self.__cross_validate(estimator, train_data, train_labels, scorer.auc_evaluator)
+        auc_values = self.__cross_validate(estimator, train_data, train_labels, train_sessions, scorer.auc_evaluator)
         print(auc_values)
         print("AuC: %0.2f (+/- %0.2f)" % (auc_values.mean(), auc_values.std() * 2))
         print("--------------------------")
-        acc_values = self.__cross_validate(estimator, train_data, train_labels, scorer.accuracy_evaluator)
+        acc_values = self.__cross_validate(estimator, train_data, train_labels, train_sessions,
+                                           scorer.accuracy_evaluator)
         print(acc_values)
         print("Accuracy: %0.2f (+/- %0.2f)" % (acc_values.mean(), acc_values.std() * 2))
         visualiser.plot_confusion_matrix(estimator, X_test, y_test, location)
@@ -117,23 +118,21 @@ class Trainer:
             return [X, y]
 
     def load_data(self, filepath, final):
-        train_features, train_activity_labels, train_subject_labels, test_features = extractor.load_prepared_data_set(
+        train_features, train_activity_labels, train_subject_labels, train_session_id, test_features = extractor.load_prepared_data_set(
             filepath)
+
         if self.rebalancer and final:
             print("Trainer is REBALANCING data")
             train_features, train_subject_labels = self.rebalancer.fit_sample(train_features, train_subject_labels)
         else:
             print("Trainer does NOT rebalance _data")
-        # Shuffle the data
-        train_features, train_activity_labels, train_subject_labels = shuffle(train_features, train_activity_labels,
-                                                                              train_subject_labels)
         # Scale the data according to training set
         scaler = StandardScaler()
         train_features_np = scaler.fit_transform(train_features)
         test_features_np = scaler.transform(test_features)
         train_features = pd.DataFrame(train_features_np, columns=train_features.columns.values)
         test_features = pd.DataFrame(test_features_np, columns=test_features.columns.values)
-        return train_features, train_activity_labels, train_subject_labels, test_features
+        return train_features, train_activity_labels, train_subject_labels, train_session_id, test_features
 
     def save_estimator(self, estimator, results_location):
         handyman.dump_pickle(estimator, results_location + "estimator.pkl")
