@@ -112,12 +112,10 @@ class Trainer:
 
     def get_acc_auc(self, estimator, train_data, train_labels, location):
         auc_values = self.__cross_validate(estimator, train_data, train_labels, scorer.auc_evaluator)
-        print(auc_values)
-        print("AuC: %0.2f (+/- %0.2f)" % (auc_values.mean(), auc_values.std() * 2))
+        print("AuC: %0.4f (+/- %0.4f)" % (auc_values.mean(), auc_values.std() * 2))
         print("--------------------------")
         acc_values = self.__cross_validate(estimator, train_data, train_labels, scorer.accuracy_evaluator)
-        print(acc_values)
-        print("Accuracy: %0.2f (+/- %0.2f)" % (acc_values.mean(), acc_values.std() * 2))
+        print("Accuracy: %0.4f (+/- %0.4f)" % (acc_values.mean(), acc_values.std() * 2))
         return [auc_values.mean(), acc_values.mean()]
 
     def __rebalance_data(self, X, y):
