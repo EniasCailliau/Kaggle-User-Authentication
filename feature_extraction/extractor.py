@@ -27,7 +27,7 @@ def generate_column_names():
     feature_names.extend((s + "(t)" for s in ("sma_ha", "sma_hg", "sma_ca", "sma_cg")))
 
     ## Derivative stats (first order to fourth order)
-    for base in ["derivative_1", "derivative_2","derivative_3", "derivative_4"]:
+    for base in ["derivative_1", "derivative_2", "derivative_3", "derivative_4"]:
         for metric in ["mean", "median", "q05", "q20", "q80", "q95", "kurtosis", "std", "skew", "mad", "rms",
                        "crestfactor"]:
             for placement in ["hand", "chest"]:
@@ -80,10 +80,11 @@ def __create_data_set(noise_reducer_method="None"):
     train_features = generate_features(train_flat["interval_data"])
     train_activity_labels = train_flat["activity"]
     train_subject_labels = train_flat["subject"]
+    train_session_id = train_flat["session_id"]
 
     test_features = generate_features(test_flat["interval_data"])
 
-    return [train_features, train_activity_labels, train_subject_labels, test_features]
+    return [train_features, train_activity_labels, train_subject_labels, train_session_id, test_features]
 
 
 def generate_features(data):
@@ -92,6 +93,9 @@ def generate_features(data):
     feature_names = generate_column_names()
 
     for index, interval in data.iteritems():
+        print("Processing... {}".format(index))
+        if(index>300):
+            break
         interval_entry_new_features = []
 
         interval_entry_new_features.extend(calculator.calculate_time_stats(interval))
@@ -109,25 +113,19 @@ def generate_features(data):
 
 
 def prepare_data_pickle(file_path, noise_reducer_method="None"):
-    train_features, train_activity_labels, train_subject_labels, test_features = __create_data_set(noise_reducer_method)
+    train_features, train_activity_labels, train_subject_labels, train_session_id, test_features = __create_data_set(
+        noise_reducer_method)
     utils.dump_pickle(
         dict(train_features=train_features, train_activity_labels=train_activity_labels,
-             train_subject_labels=train_subject_labels, test_features=test_features), file_path)
+             train_subject_labels=train_subject_labels, train_session_id=train_session_id, test_features=test_features), file_path)
 
 
 def load_prepared_data_set(file_path):
     data = utils.load_pickle(file_path)
-    return data["train_features"], data["train_activity_labels"], data["train_subject_labels"], data["test_features"]
+    return data["train_features"], data["train_activity_labels"], data["train_subject_labels"], data["train_session_id"], data["test_features"]
 
 
 if __name__ == '__main__':
     """
          ATTENTION: This main block is for testing purposes only
     """
-    prepare_data_pickle("_data_sets/unreduced.pkl")
-    data = utils.load_pickle("_data_sets/unreduced.pkl")
-    print(data["train_features"].shape)
-    print(data["train_activity_labels"].shape)
-    print(data["train_subject_labels"].shape)
-    print(data["test_features"].shape)
-    print("ok?")

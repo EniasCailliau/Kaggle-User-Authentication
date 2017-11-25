@@ -1,8 +1,8 @@
-import trainer
 import os
-from models import logistic_regression
-from model_evaluation import scorer, visualiser
+
+import trainer
 from feature_reduction import feature_reducer
+from models import logistic_regression
 from utils import pandaman, handyman
 
 trainer = trainer.Trainer()

@@ -17,12 +17,12 @@ import warnings
 
 import numpy as np
 
+# Train and test _data locations
 from utils import handyman
 
 ## Default _data folder names ##
 # =========================== #
 
-# Train and test _data locations
 dir = os.path.dirname(__file__)
 DEFAULT_DATA_LOCATION = os.path.join(dir, '_data')
 
