@@ -67,7 +67,7 @@ def generate_column_names():
     return feature_names
 
 
-def __create_data_set(noise_reducer_method="None"):
+def __create_data_set(noise_reducer_method="None", coordinate_transform_method="None"):
     train_flat, test_flat = data_loader.create_flat_intervals_structure()
 
     # First preprocessing data
@@ -76,6 +76,7 @@ def __create_data_set(noise_reducer_method="None"):
 
     # TODO: this can have some other preprocessing
     preprocessor.reduce_noise(train_flat, noise_reducer_method)
+    preprocessor.coordinate_transform(train_flat, coordinate_transform_method)
 
     train_features = generate_features(train_flat["interval_data"])
     train_activity_labels = train_flat["activity"]
@@ -129,3 +130,4 @@ if __name__ == '__main__':
     """
          ATTENTION: This main block is for testing purposes only
     """
+    __create_data_set(coordinate_transform_method="depitch_all")

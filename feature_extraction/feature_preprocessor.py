@@ -2,6 +2,8 @@ from scipy import signal
 import numpy as np
 import pandas as pd
 from scipy.signal import filtfilt, butter
+import sympy as sp
+import math
 
 
 def interpolate(data):
@@ -36,7 +38,7 @@ def reduce_noise(data, technique):
             interval_data = data.loc[index, "interval_data"]
             b, a, _ = butter(3, 0.3)
             # Use filtfilt to apply the filter.
-            data.set_value(index, "interval_date", interval_data.apply(lambda x: filtfilt(b, a, x), axis=0))
+            data.set_value(index, "interval_data", interval_data.apply(lambda x: filtfilt(b, a, x), axis=0))
 
     elif technique == "gaussian":
         for index in range(0, data.shape[0]):
@@ -50,5 +52,84 @@ def reduce_noise(data, technique):
             data.set_value(index, "interval_data", pd.DataFrame(filtered_interval_data))
 
     return data
+
+def coordinate_transform(data, technique):
+    # Note that depitch might not work well when ascending or descending
+    # This function is based on the assumption that the net movement is 1D and tries to align it with the positive X axis
+    if technique == "depitch_all":
+        for index in range(0, data.shape[0]):
+            interval_data = data.loc[index, "interval_data"]
+            interval_data_array = np.asarray(interval_data)
+
+            data_sums = np.sum(interval_data_array, axis=0)
+
+            # Accelerometer data transform
+            rotate_hand = __rotate_to_x(np.array([data_sums[0],data_sums[1],data_sums[2]]))
+            rotate_chest = __rotate_to_x(np.array([data_sums[6],data_sums[7],data_sums[8]]))
+
+            interval_data_array[:,0:3] = np.transpose(np.dot(rotate_hand, np.transpose(interval_data_array[:,0:3])))
+            interval_data_array[:,6:9] = np.transpose(np.dot(rotate_chest, np.transpose(interval_data_array[:,6:9])))
+
+            #TODO: replace original data with transformed data
+
+
+
+def __rotate_to_x(original_vec):
+    ## STEP 1: remove z component
+    current_rotation = np.identity(3)
+    next_rotation = np.identity(3)
+    x = original_vec[0]
+    y = original_vec[1]
+    z = original_vec[2]
+    original_vec = np.array([x, y, z])
+    vec = original_vec
+
+    if vec[0] == 0:
+        next_rotation = np.array([[0, 0, 1], [0, 1, 0], [1, 0, 0]])
+    elif vec[1] == 0:
+        next_rotation = np.array([[1, 0, 0], [0, 0, 1], [0, 1, 0]])
+    elif vec[2] != 0:
+        next_rotation = __rotation_matrix([1, 0, 0], math.atan(-vec[2] / vec[1]))
+
+    current_rotation = np.dot(next_rotation, current_rotation)
+    vec = np.dot(current_rotation, original_vec)
+
+    if(vec[0] < 0):
+        next_rotation = np.array([[-1, 0, 0], [0, -1, 0], [0, 0, 1]])
+    else:
+        next_rotation = np.identity(3)
+
+    current_rotation = np.dot(next_rotation, current_rotation)
+    vec = np.dot(current_rotation, original_vec)
+
+    ## STEP 2: remove y component
+    next_rotation = np.identity(3)
+    if vec[0] == 0:
+        next_rotation = np.array([[0, 1, 0], [1, 0, 0], [0, 0, 1]])
+    elif vec[1] != 0:
+        next_rotation = __rotation_matrix([0, 0, 1], math.atan(-vec[1] / vec[0]))
+
+    current_rotation = np.dot(next_rotation, current_rotation)
+    vec = np.dot(current_rotation, original_vec)
+
+    return current_rotation
+
+def __rotation_matrix(axis, theta):
+    """
+    Return the rotation matrix associated with counterclockwise rotation about
+    the given axis by theta radians.
+
+    Sourced from https://stackoverflow.com/questions/6802577/python-rotation-of-3d-vector (27/11/2017)
+    """
+    axis = np.asarray(axis)
+    axis = axis / math.sqrt(np.dot(axis, axis))
+    a = math.cos(theta / 2.0)
+    b, c, d = -axis * math.sin(theta / 2.0)
+    aa, bb, cc, dd = a * a, b * b, c * c, d * d
+    bc, ad, ac, ab, bd, cd = b * c, a * d, a * c, a * b, b * d, c * d
+    return np.array([[aa + bb - cc - dd, 2 * (bc + ad), 2 * (bd - ac)],
+                     [2 * (bc - ad), aa + cc - bb - dd, 2 * (cd + ab)],
+                     [2 * (bd + ac), 2 * (cd - ab), aa + dd - bb - cc]])
+
 
 
