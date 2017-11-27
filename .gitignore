@@ -3,6 +3,8 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+feature_extraction\_data\data.pkl
+
 # C extensions
 *.so
 
