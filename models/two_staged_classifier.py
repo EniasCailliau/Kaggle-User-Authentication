@@ -8,15 +8,55 @@ from sklearn.linear_model import LogisticRegression
 from models import random_forest
 from models.activity_prediction import random_forest_activity, xgboost_activity
 
-CREATED_BY = "Enias Cailliau"
-MODEL_NAME = "Two Staged Classifier"
 ALL_ACTIVITIES = np.asarray([1, 2, 3, 4, 5, 6, 7, 12, 13, 16, 17, 24])
+
+
+class simple_twinzy(BaseEstimator):
+    def __init__(self):
+        self.activity_classifier = xgboost_activity.xgb(n_estimators=150, max_depth=10)
+        self.user_classifier = random_forest.RF()
+        self.CREATED_BY = "Enias Cailliau"
+        self.MODEL_NAME = "Simple Two Staged Classifier"
+
+    def fit(self, X, y):
+        self.activity_classifier.fit(X, y)
+        train_features = X[:, :-1]
+        train_activity_labels = X[:, -1]
+        train_subject_labels = y
+
+        print("fitting activity_classifier...")
+        self.activity_classifier.fit(train_features, train_activity_labels.reshape((-1,)))
+        print("fitting user_classifier...")
+        self.user_classifier.fit(X, train_subject_labels)
+
+        return self
+
+    def predict_proba(self, X):
+        X_real = X[:, :-1]
+        activities = self.activity_classifier.predict(X_real)
+        X_with_activity = np.append(X_real, activities.reshape(-1, 1), 1)
+        user_probabilities = self.user_classifier.predict_proba(X_with_activity)
+        return user_probabilities
+
+    # def predict(self, X):
+    #     return self.estimator.predict(X)
+    #
+    # def score(self, X, y=None):
+    #     return (sum(self.predict(X)))
+    #
+    # def get_params(self, deep=True):
+    #     return self.estimator.get_params(deep)
+
+    def get_description(self):
+        return "{} created by {}".format(self.MODEL_NAME, self.CREATED_BY)
 
 
 class twinzy(BaseEstimator):
     def __init__(self):
         self.activity_classifier = xgboost_activity.xgb(n_estimators=150, max_depth=10)
         self.user_classifier = random_forest.RF()
+        self.CREATED_BY = "Enias Cailliau"
+        self.MODEL_NAME = "Two Staged Classifier"
 
     def fit(self, X, y):
         self.activity_classifier.fit(X, y)
@@ -56,4 +96,4 @@ class twinzy(BaseEstimator):
     #     return self.estimator.get_params(deep)
 
     def get_description(self):
-        return "{} created by {}".format(MODEL_NAME, CREATED_BY)
+        return "{} created by {}".format(self.MODEL_NAME, self.CREATED_BY)
