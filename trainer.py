@@ -33,7 +33,7 @@ class Trainer:
             print("Trainer initialised with LDA feature reduction")
             self.lda = True
         else:
-            print("Trainer initialised with LDA feature reduction")
+            print("Trainer initialised with NO LDA feature reduction")
             self.lda = False
             
 
@@ -92,12 +92,15 @@ class Trainer:
             X_train, X_test = train_features[train_index], train_features[test_index]
             y_train, y_test = train_labels[train_index], train_labels[test_index]
             if self.lda:
-                lda_reducer = feature_reducer.get_LDA_reducer(X_train, y_train, 7)
+                lda_reducer = feature_reducer.get_LDA_reducer(X_train, y_train, 20)
                 X_train = lda_reducer.transform(X_train)
                 X_test = lda_reducer.transform(X_test)
 
             if self.rebalancer:
+                print("Rebalancing fold: {}".format(num))
                 X_train_rebalanced, y_train_rebalanced = self.rebalancer.fit_sample(X_train, y_train)
+            else:
+                X_train_rebalanced, y_train_rebalanced = X_train, y_train
             estimator.fit(X_train_rebalanced, y_train_rebalanced)
             score = scorer(estimator, X_test, y_test)
             print("---- Intermediate score: {}".format(score))
