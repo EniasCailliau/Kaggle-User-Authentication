@@ -45,14 +45,13 @@ print_stats(test_features, train_activity_labels, train_features, train_session_
 
 train_features = train_features.join(train_activity_labels)
 
-# estimator = two_staged_classifier.twinzy()
+estimator = two_staged_classifier.twinzy()
 
-X_train, X_test, y_train, y_test = train_test_split(train_features, train_subject_labels, test_size=0.25)
+# X_train, X_test, y_train, y_test = train_test_split(train_features, train_subject_labels, test_size=0.25)
 # estimator.fit(np.array(X_train.values), np.array(y_train.values))
-
+#
 # trainer.save_estimator(estimator, results_location)
-estimator = trainer.load_estimator(results_location)
-user_proba = estimator.predict_proba(np.array(X_test.values))
+# estimator = trainer.load_estimator(results_location)
 
 
 trainer.evaluate(estimator, train_features, train_subject_labels, train_session_id)
