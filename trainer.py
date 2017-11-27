@@ -31,12 +31,13 @@ class Trainer:
 
     def find_optimized_model(self, estimator, X, y, train_sessions, tuned_parameters, scorer):
 
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4)
+        X_train, X_test, y_train, y_test, sess_train, sess_test = train_test_split(X, y, train_sessions, test_size=0.25,
+                                                                                   shuffle=False)
         num_folds = 4
 
         print("Performing grid search to find best parameter set")
         clf = GridSearchCV(estimator, param_grid=tuned_parameters, scoring=scorer,
-                           cv=CustomKFold.cv(num_folds, train_sessions),
+                           cv=CustomKFold.cv(num_folds, sess_train),
                            verbose=2, n_jobs=-1)
 
         clf.fit(X_train, y_train)

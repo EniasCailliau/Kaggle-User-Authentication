@@ -6,7 +6,7 @@ from sklearn.base import BaseEstimator, ClassifierMixin
 from sklearn.linear_model import LogisticRegression
 
 from models import random_forest
-from models.activity_prediction import random_forest_user
+from models.activity_prediction import random_forest_activity, xgboost_activity
 
 CREATED_BY = "Enias Cailliau"
 MODEL_NAME = "Two Staged Classifier"
@@ -15,7 +15,7 @@ ALL_ACTIVITIES = np.asarray([1, 2, 3, 4, 5, 6, 7, 12, 13, 16, 17, 24])
 
 class twinzy(BaseEstimator):
     def __init__(self):
-        self.activity_classifier = random_forest_user.RandomForest(n_estimators=200, criterion='gini', oob_score=True)
+        self.activity_classifier = xgboost_activity.xgb(n_estimators=150, max_depth=10)
         self.user_classifier = random_forest.RF()
 
     def fit(self, X, y):
