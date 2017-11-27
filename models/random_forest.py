@@ -17,7 +17,6 @@ class RF(BaseEstimator):
 
         for arg, val in values.items():
             setattr(self, arg, val)
-            # print("{} = {}".format(arg,val)
 
     def fit(self, X, y):
         return self.estimator.fit(X, y)

@@ -39,19 +39,24 @@ def main():
 
     print_stats(test_features, train_activity_labels, train_features, train_session_id, train_subject_labels)
 
+
+    train_data_reduced, scores, select_k_best = reducer.reduce_k_best(train_features, train_activity_labels, Scorer.F_CLASSIF)
+    print(scores)
     estimator = random_forest_activity.RandomForest(n_estimators=250, criterion='gini', oob_score=True)
-    options = base_options + ["unreduced"] + ["gridsearch"]
+    options = base_options + ["reduce300"] + ["gridsearch_attempt2"]
 
     results_location = handyman.calculate_path_from_options("Results", options)
     print("location: {}".format(results_location))
 
-    param_grid = [{'n_estimators': [25, 100, 150, 200, 250, 300],
-                   'max_features': ['auto', None],
-                   'min_samples_leaf': [1, 10, 30, 50],
-                   'class_weight': [None, 'balanced']
-                   }]
-    estimator = trainer.find_optimized_model(estimator, train_features, train_activity_labels, train_session_id,
-                                             param_grid, scorer.auc_evaluator)
+    # param_grid = [{'n_estimators': [25, 100, 150, 200, 250, 300],
+    #                'max_features': ['auto', None],
+    #                'min_samples_leaf': [1, 5, 10, 30, 50],
+    #                'class_weight': [None, 'balanced']
+    #                }]
+
+
+    # estimator = trainer.find_optimized_model(estimator, train_features, train_activity_labels, train_session_id,
+    #                                          param_grid, scorer.auc_evaluator)
     trainer.save_estimator(estimator, results_location)
     auc_mean, auc_std, acc_mean, acc_std = evaluate(estimator, train_activity_labels, train_features,
                                                     train_session_id,
