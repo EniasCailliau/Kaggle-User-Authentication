@@ -139,8 +139,7 @@ def reduce_LDA(train_data, train_labels, n_components, tolerance=0.0001):
     :return:
     """
 
-    lda = LinearDiscriminantAnalysis(solver='svd', n_components=n_components, tol=tolerance).fit(train_data,
-                                                                                                 train_labels)
+    lda = LinearDiscriminantAnalysis().fit(train_data, train_labels)
     print("performed fit")
     transformed_data = lda.transform(train_data)
     return pd.DataFrame(transformed_data)

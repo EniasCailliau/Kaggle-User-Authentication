@@ -8,11 +8,11 @@ MODEL_NAME = "Gradient Boosted Trees"
 
 
 class xgb(BaseEstimator):
-    def __init__(self, max_depth=3, learning_rate=0.1,
+    def __init__(self, max_depth=5, learning_rate=0.1,
                  n_estimators=100, silent=True,
                  objective="binary:logistic",
                  nthread=-1, gamma=0, min_child_weight=1,
-                 max_delta_step=0, subsample=1, colsample_bytree=1, colsample_bylevel=1,
+                 max_delta_step=0, subsample=0.8, colsample_bytree=0.8, colsample_bylevel=1,
                  reg_alpha=0, reg_lambda=1, scale_pos_weight=1,
                  base_score=0.5, seed=0, missing=None):
         input_args = locals()
