@@ -7,19 +7,19 @@ from utils import pandaman
 
 if __name__ == '__main__':
 
-    options = ["LS","user_classification" ,"svm", "250_best", "tuned_coarse"]
+    options = ["LS","user_classification" ,"svm", "unreduced", "tuned_coarse"]
     results_location = os.path.join("Results", '/'.join(options) + "/")
 
     trainer = trainer.Trainer()
 
-    estimator = svm.SVC(class_weight='balanced', C=100, kernel='poly', gamma=0.001, degree=4)
+    estimator = svm.SVC(class_weight='balanced', C=100, kernel='rbf', gamma=0.0001)
 
     train_features, train_activity_labels, train_subject_labels, test_features = trainer.load_data(
         os.path.join("feature_extraction", '_data_sets/unreduced.pkl'), final=False)
 
     # pandaman.print_stats(train_features=train_features, train_activity_labels=train_activity_labels,
     #                      train_subject_labels=train_subject_labels, test_features=test_features)
-    train_features = feature_reducer.reduce_k_best(train_features, train_subject_labels, k=250)[0]
+    #train_features = feature_reducer.reduce_k_best(train_features, train_subject_labels, k=250)[0]
     # train_features = feature_reducer.reduce_LDA(train_features, train_subject_labels, 7)
 
     # pandaman.print_stats(train_features=train_features, train_activity_labels=train_activity_labels,
@@ -36,6 +36,6 @@ if __name__ == '__main__':
 
     #trainer.evaluate(estimator, train_features, train_subject_labels, scorer.auc_evaluator, results_location)
     trainer.get_acc_auc(estimator, train_features, train_subject_labels, results_location)
-    visualiser.plot_learning_curves(estimator, train_features, train_subject_labels, results_location)
+    #visualiser.plot_learning_curves(estimator, train_features, train_subject_labels, results_location)
 
 
