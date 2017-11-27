@@ -70,7 +70,22 @@ def coordinate_transform(data, technique):
             interval_data_array[:,0:3] = np.transpose(np.dot(rotate_hand, np.transpose(interval_data_array[:,0:3])))
             interval_data_array[:,6:9] = np.transpose(np.dot(rotate_chest, np.transpose(interval_data_array[:,6:9])))
 
-            #TODO: replace original data with transformed data
+            data.set_value(index, "interval_data", pd.DataFrame(interval_data_array))
+
+    elif technique == "depitch_chest":
+        for index in range(0, data.shape[0]):
+            interval_data = data.loc[index, "interval_data"]
+            interval_data_array = np.asarray(interval_data)
+
+            data_sums = np.sum(interval_data_array, axis=0)
+
+            # Accelerometer data transform
+            rotate_chest = __rotate_to_x(np.array([data_sums[6],data_sums[7],data_sums[8]]))
+
+            interval_data_array[:,6:9] = np.transpose(np.dot(rotate_chest, np.transpose(interval_data_array[:,6:9])))
+
+            data.set_value(index, "interval_data", pd.DataFrame(interval_data_array))
+    return data
 
 
 
