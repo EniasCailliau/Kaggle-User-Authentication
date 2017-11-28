@@ -183,6 +183,14 @@ def calculate_fft_stats(data):
     stats.extend(__calculate_spectral_stats(fft_coeff))
     return stats
 
+def calculate_time_bins(interval, percentiles):
+    stats = []
+    for i in range(12):
+        current = np.bincount(np.digitize(interval.values[:,i], percentiles[i,:]), minlength = len(percentiles[i,:])+1)
+        for x in current:
+            stats.append(x)
+    return stats
+
 
 """
     Features that are implicitly here:
