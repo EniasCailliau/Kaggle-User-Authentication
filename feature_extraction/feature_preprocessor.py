@@ -146,3 +146,16 @@ def __rotation_matrix(axis, theta):
     return np.array([[aa + bb - cc - dd, 2 * (bc + ad), 2 * (bd - ac)],
                      [2 * (bc - ad), aa + cc - bb - dd, 2 * (cd + ab)],
                      [2 * (bd + ac), 2 * (cd - ab), aa + dd - bb - cc]])
+
+def getPercentiles(flat_data, percentiles, abs=False):
+
+    results = np.zeros((12,len(percentiles)))
+    all_data = [interval.values for interval in flat_data["interval_data"]]
+    all_data_array = np.concatenate(all_data, axis=0)
+    if(abs):
+        all_data_array = np.absolute(all_data_array)
+    for j in range(len(percentiles)):
+        results[:,j] = np.percentile(all_data_array, percentiles[j], axis=0)
+
+    return results
+
