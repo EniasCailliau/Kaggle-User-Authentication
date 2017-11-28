@@ -1,7 +1,7 @@
 import pandas as pd
+import numpy as np
 
 import data
-
 
 def create_flat_intervals_structure():
     print("STATUS: Creating flat interval structure (TRAINING)")
@@ -41,6 +41,3 @@ if __name__ == '__main__':
     """
         ATTENTION: This main block is for testing purposes only
     """
-    train_flat, test_flat = create_flat_intervals_structure()
-    print(train_flat)
-    print(test_flat)
