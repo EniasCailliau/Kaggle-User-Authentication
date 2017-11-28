@@ -38,12 +38,6 @@ def __evaluate_reduction(indices_selected, n_features, data_frame, type, verbose
                                                                                                  data_frame)))
 
 
-def visualize_RFE_ranking(rfe):
-    ranking = rfe.scores_.reshape((10, -1))
-    plt.matshow(ranking, cmap=plt.cm.Blues)
-    plt.colorbar()
-    plt.title("Ranking of features with RFE")
-    plt.show()
 
 
 def visualize_tree_ranking(forest, number_to_visualise):
@@ -58,9 +52,6 @@ def visualize_tree_ranking(forest, number_to_visualise):
     plt.xticks(range(number_to_visualise), indices[0:number_to_visualise])
     plt.xlim([-1, number_to_visualise])
     plt.show()
-
-
-
 
 
 def reduce_variance(train_data, p, verbose=0):
@@ -90,8 +81,10 @@ def reduce_k_best(train_data, train_labels, score_func=Scorer.F_CLASSIF, k='all'
     selected_indices = select_k_best.get_support(indices=True)
     train_data_reduced = pd.DataFrame(train_data_reduced_np,
                                       columns=pandaman.translate_column_indices(selected_indices, train_data))
-    __evaluate_reduction(selected_indices, train_data.shape[1], train_data, "selectKBest")
+    if verbose:
+        __evaluate_reduction(selected_indices, train_data.shape[1], train_data, "selectKBest")
     return train_data_reduced, select_k_best.scores_, select_k_best
+
 
 def reduce_RFE(train_data, train_labels, estimator, n_features_to_select=None, verbose=0):
     rfe = RFE(estimator, verbose=1, n_features_to_select=n_features_to_select)
@@ -101,7 +94,7 @@ def reduce_RFE(train_data, train_labels, estimator, n_features_to_select=None, v
                                       columns=pandaman.translate_column_indices(selected_indices, train_data))
     if verbose:
         __evaluate_reduction(rfe.get_support(indices=True), train_data.shape[1], train_data, "RFE")
-    return train_data_reduced, rfe.scores_, rfe
+    return train_data_reduced, rfe.ranking_, rfe
 
 
 def reduce_PCA(train_data, n_components):
