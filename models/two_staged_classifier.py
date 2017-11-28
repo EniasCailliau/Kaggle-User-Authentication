@@ -7,13 +7,14 @@ from sklearn.linear_model import LogisticRegression
 
 from models import random_forest
 from models.activity_prediction import random_forest_activity, xgboost_activity
+import xgboost as xgb
 
 ALL_ACTIVITIES = np.asarray([1, 2, 3, 4, 5, 6, 7, 12, 13, 16, 17, 24])
 
 
 class simple_twinzy(BaseEstimator):
     def __init__(self):
-        self.activity_classifier = xgboost_activity.xgb(n_estimators=150, max_depth=10)
+        self.activity_classifier = xgb.XGBClassifier(n_estimators=150, max_depth=10)
         self.user_classifier = random_forest.RF()
         self.CREATED_BY = "Enias Cailliau"
         self.MODEL_NAME = "Simple Two Staged Classifier"
@@ -53,7 +54,7 @@ class simple_twinzy(BaseEstimator):
 
 class twinzy(BaseEstimator):
     def __init__(self):
-        self.activity_classifier = xgboost_activity.xgb(n_estimators=150, max_depth=10)
+        self.activity_classifier = xgb.XGBClassifier(n_estimators=150, max_depth=10)
         self.user_classifier = random_forest.RF()
         self.CREATED_BY = "Enias Cailliau"
         self.MODEL_NAME = "Two Staged Classifier"
