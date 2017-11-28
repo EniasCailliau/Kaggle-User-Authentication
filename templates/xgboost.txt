@@ -1,0 +1,1902 @@
+
+stdout
+Trainer initialised with NO rebalance method
+Trainer does NOT rebalance _data
+Shape of train_subject_labels : (8895,)
+Shape of test_features : (3369, 994)
+Shape of train_activity_labels : (8895,)
+Shape of train_features : (8895, 994)
+Shape of train_session_id : (8895,)
+Fitting estimator...
+Saving estimator...
+Tree produced the following importance: 
+[  5.68897836e-03   3.42058833e-03   6.55312696e-03   1.51226006e-03
+   1.04417955e-03   9.00154817e-04   5.58095984e-03   4.35674936e-03
+   3.74464411e-03   4.53678053e-03   4.35674936e-03   8.28142453e-04
+   2.66445824e-03   1.18820439e-03   3.45659442e-03   1.40424154e-03
+   9.36161028e-04   1.76430342e-03   2.73647066e-03   4.71681124e-03
+   2.05235300e-03   1.65628491e-03   1.83631585e-03   1.51226006e-03
+   3.20455129e-03   4.06869967e-03   6.19306508e-03   1.72829721e-03
+   2.19637784e-03   2.44842120e-03   2.98851402e-03   4.86083608e-03
+   3.02452012e-03   3.20455129e-03   2.70046457e-03   2.05235300e-03
+   2.80848308e-03   2.48442730e-03   3.24055739e-03   1.98034057e-03
+   1.90832827e-03   1.69229112e-03   3.49260075e-03   5.54495351e-03
+   2.26839026e-03   4.39275568e-03   2.80848308e-03   1.76430342e-03
+   3.24055739e-03   3.85266263e-03   4.39275568e-03   2.19637784e-03
+   8.64148606e-04   4.21272451e-03   1.04417955e-03   2.16037151e-03
+   6.69715181e-03   1.22421060e-03   4.42876155e-03   8.64148606e-04
+   3.13253887e-03   2.59244582e-03   3.74464411e-03   1.29622291e-03
+   2.62845214e-03   2.30439636e-03   1.83631585e-03   7.92136230e-03
+   4.57278639e-03   2.23238394e-03   7.77733792e-03   1.29622291e-03
+   1.54826627e-03   2.77247676e-03   6.48111454e-04   1.00817345e-03
+   1.58427248e-03   3.42058833e-03   1.00817345e-03   2.59244582e-03
+   4.14071232e-03   1.47625396e-03   1.44024775e-03   1.22421060e-03
+   7.20123877e-04   9.36161028e-04   5.40092879e-04   2.16037151e-04
+   1.80030969e-04   1.22421060e-03   1.00817345e-03   1.22421060e-03
+   1.29622291e-03   3.60061938e-04   9.00154817e-04   5.04086725e-04
+   1.36823533e-03   1.18820439e-03   9.00154817e-04   1.08018576e-03
+   1.76430342e-03   3.99668748e-03   1.87232206e-03   2.73647066e-03
+   2.44842120e-03   1.98034057e-03   1.40424154e-03   1.87232206e-03
+   2.16037151e-04   4.68080514e-04   3.24055727e-04   8.64148606e-04
+   2.16037151e-04   2.66445824e-03   7.20123877e-04   9.00154817e-04
+   6.12105301e-04   3.96068121e-04   4.32074303e-04   8.64148606e-04
+   2.52043363e-03   6.44510845e-03   2.05235300e-03   2.16037151e-04
+   2.16037151e-04   3.96068121e-04   3.09653254e-03   2.59244582e-03
+   1.51226006e-03   1.22421060e-03   8.28142453e-04   7.20123877e-04
+   2.59244582e-03   2.19637784e-03   2.44842120e-03   2.77247676e-03
+   1.44024775e-03   1.54826627e-03   2.23238394e-03   2.16037151e-03
+   4.50077420e-03   1.98034057e-03   1.90832827e-03   9.00154817e-04
+   2.23238394e-03   1.90832827e-03   3.52860685e-03   2.05235300e-03
+   4.06869967e-03   8.89352988e-03   2.73647066e-03   2.52043363e-03
+   4.75281756e-03   2.26839026e-03   1.26021681e-03   2.16037151e-03
+   2.84448918e-03   5.25690429e-03   7.92136241e-04   3.74464411e-03
+   1.83631585e-03   5.40092879e-04   1.44024772e-04   2.88049545e-04
+   6.12105301e-04   6.12105301e-04   5.76099090e-04   5.76099090e-04
+   5.04086725e-04   9.72167240e-04   1.22421060e-03   8.28142453e-04
+   7.20123877e-04   9.00154817e-04   1.15219818e-03   8.64148606e-04
+   7.20123877e-04   1.80030963e-03   7.56130030e-04   2.52043363e-04
+   3.16854496e-03   2.16037151e-03   7.56130030e-04   8.64148606e-04
+   5.76099090e-04   3.24055727e-04   3.60061938e-04   1.80030969e-04
+   7.56130030e-04   2.88049545e-04   1.44024772e-04   1.29622291e-03
+   1.58427248e-03   1.00817345e-03   6.48111454e-04   5.76099090e-04
+   7.92136241e-04   1.04417955e-03   1.00817345e-03   3.96068121e-04
+   1.44024775e-03   4.32074303e-04   2.01634690e-03   9.72167240e-04
+   9.00154817e-04   1.26021681e-03   3.96068121e-04   1.15219818e-03
+   4.68080514e-04   4.32074303e-04   1.11619197e-03   1.36823533e-03
+   1.51226006e-03   7.92136241e-04   6.12105301e-04   4.68080514e-04
+   2.73647066e-03   2.62845214e-03   5.04086725e-04   4.68080514e-04
+   5.76099090e-04   2.88049545e-04   1.44024772e-04   1.08018576e-04
+   2.52043363e-04   2.52043363e-04   1.80030969e-04   7.92136241e-04
+   5.76099090e-04   7.92136241e-04   3.60061938e-04   2.52043363e-04
+   9.72167240e-04   5.40092879e-04   1.98034057e-03   8.28142453e-04
+   1.15219818e-03   5.76099090e-04   8.64148606e-04   4.32074303e-04
+   1.00817345e-03   1.58427248e-03   4.32074303e-04   2.88049545e-04
+   8.28142453e-04   5.76099090e-04   2.52043363e-04   3.96068121e-04
+   3.60061931e-05   2.52043363e-04   6.48111454e-04   2.16037151e-04
+   1.44024772e-04   1.15219818e-03   6.48111454e-04   2.52043363e-04
+   2.52043363e-04   1.04417955e-03   1.36823533e-03   7.20123877e-04
+   6.48111454e-04   1.51226006e-03   1.15219818e-03   9.72167240e-04
+   2.66445824e-03   3.70863779e-03   1.51226006e-03   9.72167240e-04
+   7.92136241e-04   1.80030969e-04   7.20123877e-04   3.24055727e-04
+   2.88049545e-04   7.20123862e-05   3.96068121e-04   6.48111454e-04
+   8.28142453e-04   9.00154817e-04   2.52043363e-04   3.24055727e-04
+   6.48111454e-04   2.88049545e-04   0.00000000e+00   0.00000000e+00
+   0.00000000e+00   0.00000000e+00   7.20123862e-05   0.00000000e+00
+   0.00000000e+00   3.96068121e-04   1.80030969e-04   1.80030969e-04
+   3.60061931e-05   9.36161028e-04   9.72167240e-04   8.64148606e-04
+   2.88049545e-04   6.84117666e-04   3.60061938e-04   5.76099090e-04
+   9.00154817e-04   2.08835909e-03   1.22421060e-03   4.68080514e-04
+   6.12105301e-04   3.96068121e-04   3.24055727e-04   9.00154817e-04
+   1.08018576e-04   2.88049545e-04   4.32074303e-04   3.24055727e-04
+   5.76099090e-04   2.52043363e-04   4.68080514e-04   2.52043363e-04
+   1.80030969e-04   7.20123877e-04   1.00817345e-03   1.69229112e-03
+   1.04417955e-03   2.88049545e-04   1.11619197e-03   1.00817345e-03
+   1.65628491e-03   4.68080514e-04   6.84117666e-04   1.00817345e-03
+   7.56130030e-04   1.80030969e-04   3.60061938e-04   6.48111454e-04
+   2.52043363e-04   1.00817345e-03   5.76099090e-04   2.88049545e-04
+   6.48111454e-04   1.29622291e-03   3.60061938e-04   1.00817345e-03
+   6.84117666e-04   1.22421060e-03   1.76430342e-03   6.48111454e-04
+   1.08018576e-03   2.88049545e-04   4.32074303e-04   6.48111454e-04
+   6.48111454e-04   6.12105301e-04   2.16037151e-04   6.48111454e-04
+   4.68080514e-04   1.26021681e-03   1.47625396e-03   1.26021681e-03
+   4.68080514e-04   4.32074303e-04   1.44024772e-04   8.64148606e-04
+   8.64148606e-04   4.32074303e-04   7.56130030e-04   1.22421060e-03
+   5.04086725e-04   3.60061938e-04   1.44024772e-04   2.88049545e-04
+   2.16037151e-04   8.64148606e-04   5.40092879e-04   6.12105301e-04
+   1.22421060e-03   3.24055727e-04   3.96068121e-04   1.29622291e-03
+   5.40092879e-04   3.96068121e-04   6.12105301e-04   4.68080514e-04
+   7.56130030e-04   1.33222912e-03   4.68080514e-04   5.40092879e-04
+   5.76099090e-04   6.84117666e-04   3.60061938e-04   5.76099090e-04
+   2.88049545e-04   2.88049545e-04   3.60061938e-04   2.52043363e-04
+   2.88049545e-04   3.60061938e-04   1.08018576e-04   3.96068121e-04
+   5.40092879e-04   7.56130030e-04   2.52043363e-04   7.20123877e-04
+   7.20123877e-04   9.36161028e-04   6.12105301e-04   3.24055727e-04
+   9.36161028e-04   2.16037151e-04   7.92136241e-04   5.76099090e-04
+   1.69229112e-03   9.36161028e-04   6.12105301e-04   3.96068121e-04
+   5.76099090e-04   2.88049545e-04   2.16037151e-04   7.20123862e-05
+   1.80030969e-04   1.80030969e-04   3.96068121e-04   3.96068121e-04
+   3.60061938e-04   5.76099090e-04   1.80030969e-04   4.32074303e-04
+   3.60061931e-05   0.00000000e+00   0.00000000e+00   0.00000000e+00
+   0.00000000e+00   0.00000000e+00   0.00000000e+00   0.00000000e+00
+   0.00000000e+00   0.00000000e+00   0.00000000e+00   0.00000000e+00
+   0.00000000e+00   7.92136241e-04   6.84117666e-04   5.40092879e-04
+   5.76099090e-04   1.00817345e-03   6.12105301e-04   6.48111454e-04
+   6.48111454e-04   3.96068121e-04   5.40092879e-04   7.56130030e-04
+   3.96068121e-04   3.96068121e-04   6.12105301e-04   1.80030969e-04
+   3.96068121e-04   2.16037151e-04   1.08018576e-04   3.24055727e-04
+   2.16037151e-04   9.00154817e-04   2.88049545e-04   2.52043363e-04
+   3.60061938e-04   5.76099090e-04   3.24055727e-04   6.84117666e-04
+   1.22421060e-03   6.84117666e-04   2.88049545e-04   5.76099090e-04
+   1.54826627e-03   3.24055727e-04   4.68080514e-04   1.62027869e-03
+   3.24055727e-04   8.28142453e-04   3.96068121e-04   6.48111454e-04
+   4.68080514e-04   7.56130030e-04   5.40092879e-04   6.48111454e-04
+   9.00154817e-04   3.96068121e-04   1.22421060e-03   1.04417955e-03
+   2.88049545e-04   7.20123877e-04   5.76099090e-04   1.69229112e-03
+   9.36161028e-04   6.84117666e-04   3.60061938e-04   8.28142453e-04
+   4.68080514e-04   9.72167240e-04   4.68080514e-04   2.05235300e-03
+   1.44024772e-04   6.12105301e-04   3.96068121e-04   7.92136241e-04
+   2.52043363e-04   6.12105301e-04   4.32074303e-04   7.56130030e-04
+   1.00817345e-03   1.76430342e-03   1.40424154e-03   1.00817345e-03
+   6.84117666e-04   4.68080514e-04   2.16037151e-04   3.96068121e-04
+   3.60061938e-04   5.76099090e-04   5.04086725e-04   3.60061938e-04
+   4.32074303e-04   1.22421060e-03   4.68080514e-04   2.52043363e-03
+   2.88049545e-04   2.88049545e-04   5.04086725e-04   2.88049545e-04
+   4.68080514e-04   3.96068121e-04   4.68080514e-04   3.60061938e-04
+   3.60061938e-04   8.28142453e-04   4.68080514e-04   2.88049545e-04
+   1.80030969e-04   5.40092879e-04   1.80030969e-04   3.24055727e-04
+   5.04086725e-04   2.52043363e-04   5.04086725e-04   7.20123862e-05
+   1.44024772e-04   1.44024772e-04   2.88049545e-04   4.32074303e-04
+   1.08018576e-04   2.88049545e-04   6.48111454e-04   9.72167240e-04
+   5.76099090e-04   4.68080514e-04   8.64148606e-04   1.80030969e-04
+   5.04086725e-04   5.40092879e-04   4.32074303e-04   3.96068121e-04
+   3.24055727e-04   6.48111454e-04   1.08018576e-04   1.80030969e-04
+   1.08018576e-04   3.24055727e-04   4.32074303e-04   2.52043363e-04
+   1.44024772e-04   7.20123862e-05   6.12105301e-04   3.24055727e-04
+   2.16037151e-04   0.00000000e+00   0.00000000e+00   0.00000000e+00
+   0.00000000e+00   0.00000000e+00   0.00000000e+00   0.00000000e+00
+   0.00000000e+00   0.00000000e+00   0.00000000e+00   0.00000000e+00
+   0.00000000e+00   9.36161028e-04   1.22421060e-03   6.84117666e-04
+   8.64148606e-04   5.04086725e-04   4.32074303e-04   1.29622291e-03
+   1.18820439e-03   1.18820439e-03   5.76099090e-04   2.16037151e-04
+   3.60061938e-04   6.84117666e-04   2.88049545e-04   8.28142453e-04
+   5.04086725e-04   4.68080514e-04   2.52043363e-04   6.84117666e-04
+   9.00154817e-04   9.00154817e-04   2.88049545e-04   1.44024772e-04
+   1.08018576e-04   7.20123877e-04   1.80030969e-04   4.68080514e-04
+   9.72167240e-04   3.24055727e-04   3.24055727e-04   1.44024775e-03
+   6.48111454e-04   5.04086725e-04   3.24055727e-04   1.40424154e-03
+   1.36823533e-03   1.72829721e-03   1.44024775e-03   4.68080514e-04
+   9.72167240e-04   5.40092879e-04   1.33222912e-03   2.88049545e-04
+   3.96068121e-04   7.20123877e-04   8.64148606e-04   1.00817345e-03
+   1.80030969e-04   1.94433448e-03   1.90832827e-03   1.15219818e-03
+   1.47625396e-03   2.05235300e-03   4.68080514e-04   2.88049545e-04
+   3.96068121e-04   9.36161028e-04   9.72167240e-04   1.51226006e-03
+   3.24055727e-04   1.62027869e-03   1.15219818e-03   1.36823533e-03
+   1.58427248e-03   5.40092879e-04   4.68080514e-04   9.00154817e-04
+   1.26021681e-03   4.32074303e-04   4.17671818e-03   3.63662560e-03
+   3.60061938e-04   1.11619197e-03   7.56130030e-04   5.40092879e-04
+   5.76099090e-04   3.24055727e-04   6.48111454e-04   5.76099090e-04
+   4.68080514e-04   1.76430342e-03   1.11619197e-03   7.20123877e-04
+   5.76099090e-04   3.60061938e-04   2.88049545e-04   5.04086725e-04
+   3.96068121e-04   9.00154817e-04   5.40092879e-04   8.28142453e-04
+   2.16037151e-04   1.33222912e-03   5.40092879e-04   3.96068121e-04
+   2.88049545e-04   4.32074303e-04   6.48111454e-04   1.04417955e-03
+   7.92136241e-04   3.96068121e-04   3.60061938e-04   1.80030969e-04
+   2.88049545e-04   1.36823533e-03   5.76099090e-04   7.56130030e-04
+   7.20123862e-05   6.12105301e-04   1.44024775e-03   1.80030969e-04
+   9.72167240e-04   4.68080514e-04   3.60061938e-04   5.04086725e-04
+   2.52043363e-04   7.20123877e-04   7.20123862e-05   2.52043363e-04
+   4.68080514e-04   1.15219818e-03   7.20123877e-04   6.12105301e-04
+   1.44024772e-04   2.16037151e-04   3.96068121e-04   6.48111454e-04
+   3.24055727e-04   4.32074303e-04   1.33222912e-03   2.52043363e-03
+   2.52043363e-04   0.00000000e+00   0.00000000e+00   0.00000000e+00
+   0.00000000e+00   0.00000000e+00   0.00000000e+00   0.00000000e+00
+   0.00000000e+00   0.00000000e+00   0.00000000e+00   0.00000000e+00
+   0.00000000e+00   4.68080514e-04   6.84117666e-04   2.52043363e-04
+   2.88049545e-04   8.64148606e-04   1.80030969e-04   7.92136241e-04
+   7.20123877e-04   1.04417955e-03   1.44024772e-04   3.96068121e-04
+   2.16037151e-04   9.00154817e-04   3.34857590e-03   6.01303438e-03
+   3.24055739e-03   3.92467482e-03   2.62845214e-03   5.40092879e-04
+   5.40092879e-04   4.68080514e-04   6.48111454e-04   1.87232206e-03
+   1.54826627e-03   4.24873084e-03   3.99668748e-03   1.22421060e-03
+   2.95250793e-03   3.56461317e-03   2.98851402e-03   1.26021681e-03
+   3.24055727e-04   1.44024775e-03   3.60061938e-04   3.52860685e-03
+   5.04086725e-04   2.19637784e-03   8.64148606e-04   2.80848308e-03
+   7.56130030e-04   7.92136241e-04   1.65628491e-03   9.72167240e-04
+   5.40092879e-04   3.02452012e-03   6.48111454e-04   5.18489163e-03
+   5.76099101e-03   3.34857590e-03   2.44842120e-03   3.60061927e-03
+   2.16037151e-03   3.63662560e-03   2.44842120e-03   1.33222912e-03
+   3.60061938e-04   2.95250793e-03   5.76099090e-04   2.23238394e-03
+   2.37640878e-03   9.00154817e-04   7.20123877e-04   7.56130030e-04
+   3.24055727e-04   2.16037151e-04   4.32074303e-04   1.72829721e-03
+   1.29622291e-03   1.90832827e-03   2.88049545e-04   1.22421060e-03
+   2.52043363e-04   1.44024772e-04   3.60061938e-04   3.60061931e-05
+   8.64148606e-04   6.12105301e-04   1.80030969e-04   2.88049545e-04
+   6.84117666e-04   1.44024772e-04   2.88049545e-04   8.28142453e-04
+   3.96068121e-04   1.80030969e-04   7.20123877e-04   1.80030969e-04
+   3.60061938e-04   3.60061938e-04   2.16037151e-04   4.68080514e-04
+   4.32074303e-04   3.96068121e-04   4.32074303e-04   7.20123877e-04
+   7.92136241e-04   2.16037151e-04   8.28142453e-04   1.44024772e-04
+   2.88049545e-04   3.60061938e-04   2.16037151e-04   3.96068121e-04
+   6.48111454e-04   4.68080514e-04   2.16037151e-04   5.40092879e-04
+   2.52043363e-04   1.00817345e-03   3.96068121e-04   6.48111454e-04
+   7.92136241e-04   1.80030969e-04   5.76099090e-04   7.56130030e-04
+   4.68080514e-04   1.44024772e-04   7.92136241e-04   7.20123877e-04
+   7.56130030e-04   3.60061938e-04   5.04086725e-04   1.08018576e-04
+   4.68080514e-04   1.44024772e-04   3.96068121e-04   3.24055727e-04
+   1.98034057e-03   1.33222912e-03   6.48111454e-04   3.60061938e-04
+   7.56130030e-04   6.84117666e-04   2.88049545e-04   7.20123862e-05
+   5.76099090e-04   5.76099090e-04   9.36161028e-04   8.28142453e-04
+   9.00154817e-04   8.28142453e-04   1.47625396e-03   1.22421060e-03
+   2.88049545e-04   1.65628491e-03   6.04904024e-03   2.80848308e-03
+   7.56130030e-04   1.80030969e-04   5.04086725e-04   2.80848308e-03
+   7.56130030e-04   1.04417955e-03   1.72829721e-03   1.00817345e-03
+   7.56130030e-04   5.04086725e-04   1.44024772e-04   3.60061931e-05
+   6.48111454e-04   3.24055727e-04   1.18820439e-03   3.96068121e-04
+   1.80030969e-04   3.24055727e-04   7.20123877e-04   1.98034057e-03
+   5.76099090e-04   3.88866896e-03   9.00154817e-04   2.55643972e-03
+   3.60061938e-04   3.60061931e-05   3.60061938e-04   1.11619197e-03
+   2.91650160e-03   2.19637784e-03   7.56130030e-04   8.28142453e-04
+   5.40092879e-04   0.00000000e+00   0.00000000e+00   0.00000000e+00
+   0.00000000e+00   0.00000000e+00   0.00000000e+00   0.00000000e+00
+   0.00000000e+00   0.00000000e+00   0.00000000e+00   0.00000000e+00
+   0.00000000e+00   2.52043363e-04   2.88049545e-04   2.88049545e-04
+   1.22421060e-03   7.20123877e-04   7.20123877e-04   4.32074303e-04
+   6.12105301e-04   6.84117666e-04   2.30439636e-03   1.11619197e-03
+   1.58427248e-03   6.12105301e-04   8.28142453e-04   1.18820439e-03
+   1.04417955e-03   1.47625396e-03   7.20123877e-04   6.84117666e-04
+   8.28142453e-04   5.76099090e-04   3.60061931e-05   1.08018576e-04
+   5.40092879e-04   8.28142453e-04   3.60061931e-05   0.00000000e+00
+   0.00000000e+00   0.00000000e+00   0.00000000e+00   0.00000000e+00
+   0.00000000e+00   0.00000000e+00   0.00000000e+00   0.00000000e+00
+   0.00000000e+00   0.00000000e+00   0.00000000e+00   0.00000000e+00
+   0.00000000e+00   0.00000000e+00   4.68080514e-04   4.32074303e-04
+   1.58427248e-03   3.27656348e-03   6.48111454e-04   3.96068121e-04
+   3.09653254e-03   3.13253887e-03   2.19637784e-03   1.90832827e-03
+   8.28142453e-04   1.47625396e-03   6.48111454e-04   5.76099090e-04
+   1.00817345e-03   1.62027869e-03   2.44842120e-03   1.22421060e-03
+   1.36823533e-03   8.28142453e-04   7.92136241e-04   3.49260075e-03
+   1.22421060e-03   2.16037151e-03   0.00000000e+00   0.00000000e+00
+   0.00000000e+00   3.60061931e-05   1.08018576e-04   1.08018576e-04
+   7.20123862e-05   0.00000000e+00   2.16037151e-04   1.80030969e-04
+   1.08018576e-04   3.60061931e-05]
+Visualising forest importance in grid...
+Visualising forest importance...
+Feature ranking:
+1. feature 149 (corr_caY_caZ(t)) =  1.000000
+2. feature 67 (q95_aY_chest(t)) =  0.890688
+3. feature 70 (q95_gY_chest(t)) =  0.874494
+4. feature 56 (q80_aZ_chest(t)) =  0.753036
+5. feature 2 (mean_aZ_hand(t)) =  0.736842
+6. feature 121 (rms_aY_hand(t)) =  0.724696
+7. feature 26 (q05_aZ_hand(t)) =  0.696356
+8. feature 870 (std_aY_hand(s)) =  0.680162
+9. feature 739 (chest_pitch_mean) =  0.676113
+10. feature 772 (chest_roll_skew) =  0.647773
+11. feature 0 (mean_aX_hand(t)) =  0.639676
+12. feature 6 (mean_aX_chest(t)) =  0.627530
+13. feature 43 (q20_aY_chest(t)) =  0.623482
+14. feature 157 (sma_ha(t)) =  0.591093
+15. feature 771 (chest_pitch_skew) =  0.582996
+16. feature 31 (q05_aY_chest(t)) =  0.546559
+17. feature 152 (corr_haZ_caZ(t)) =  0.534413
+18. feature 19 (median_aY_chest(t)) =  0.530364
+19. feature 68 (q95_aZ_chest(t)) =  0.514170
+20. feature 9 (mean_gX_chest(t)) =  0.510121
+21. feature 140 (crestfactor_aZ_chest(t)) =  0.506073
+22. feature 58 (q80_gY_chest(t)) =  0.497976
+23. feature 45 (q20_gX_chest(t)) =  0.493927
+24. feature 50 (q80_aZ_hand(t)) =  0.493927
+25. feature 7 (mean_aY_chest(t)) =  0.489879
+26. feature 10 (mean_gY_chest(t)) =  0.489879
+27. feature 749 (hand_pitch_q20) =  0.477733
+28. feature 53 (q80_gZ_hand(t)) =  0.473684
+29. feature 650 (derivative_4_q80_gX_chest) =  0.469636
+30. feature 80 (kurtosis_aZ_chest(t)) =  0.465587
+31. feature 25 (q05_aY_hand(t)) =  0.457490
+32. feature 148 (corr_caX_caZ(t)) =  0.457490
+33. feature 101 (skew_gZ_hand(t)) =  0.449393
+34. feature 750 (hand_roll_q20) =  0.449393
+35. feature 741 (hand_pitch_median) =  0.441296
+36. feature 893 (mad_aX_hand(s)) =  0.437247
+37. feature 49 (q80_aY_hand(t)) =  0.433198
+38. feature 8 (mean_aZ_chest(t)) =  0.421053
+39. feature 62 (q95_aZ_hand(t)) =  0.421053
+40. feature 159 (sma_ca(t)) =  0.421053
+41. feature 265 (derivative_1_skew_aZ_chest) =  0.417004
+42. feature 777 (hand_pitch_rms) =  0.408907
+43. feature 651 (derivative_4_q80_gY_chest) =  0.408907
+44. feature 775 (chest_pitch_mad) =  0.404858
+45. feature 753 (hand_pitch_q80) =  0.400810
+46. feature 759 (chest_pitch_q95) =  0.396761
+47. feature 146 (corr_haY_haZ(t)) =  0.396761
+48. feature 979 (spectral_centroid_gX_chest) =  0.392713
+49. feature 42 (q20_aX_chest(t)) =  0.392713
+50. feature 14 (median_aZ_hand(t)) =  0.388664
+51. feature 77 (kurtosis_gZ_hand(t)) =  0.384615
+52. feature 1 (mean_aY_hand(t)) =  0.384615
+53. feature 738 (hand_roll_mean) =  0.376518
+54. feature 773 (hand_pitch_mad) =  0.376518
+55. feature 961 (spectral_entropy_gX_hand) =  0.368421
+56. feature 740 (chest_roll_mean) =  0.364372
+57. feature 48 (q80_aX_hand(t)) =  0.364372
+58. feature 38 (q20_aZ_hand(t)) =  0.364372
+59. feature 33 (q05_gX_chest(t)) =  0.360324
+60. feature 24 (q05_aX_hand(t)) =  0.360324
+61. feature 180 (derivative_1_median_aY_chest) =  0.356275
+62. feature 60 (q95_aX_hand(t)) =  0.352227
+63. feature 965 (spectral_entropy_aY_chest) =  0.352227
+64. feature 964 (spectral_entropy_aX_chest) =  0.348178
+65. feature 126 (rms_aX_chest(t)) =  0.348178
+66. feature 32 (q05_aZ_chest(t)) =  0.340081
+67. feature 769 (hand_pitch_skew) =  0.340081
+68. feature 30 (q05_aX_chest(t)) =  0.336032
+69. feature 754 (hand_roll_q80) =  0.336032
+70. feature 781 (hand_pitch_crestfactor) =  0.331984
+71. feature 752 (chest_roll_q20) =  0.331984
+72. feature 900 (mad_aY_chest(s)) =  0.327935
+73. feature 156 (smv_cg(t)) =  0.319838
+74. feature 36 (q20_aX_hand(t)) =  0.315789
+75. feature 46 (q20_gY_chest(t)) =  0.315789
+76. feature 763 (chest_pitch_kurtosis) =  0.315789
+77. feature 871 (std_aZ_hand(s)) =  0.315789
+78. feature 875 (std_aX_chest(s)) =  0.315789
+79. feature 73 (kurtosis_aY_hand(t)) =  0.311741
+80. feature 135 (crestfactor_gX_hand(t)) =  0.311741
+81. feature 216 (derivative_1_q80_aY_chest) =  0.307692
+82. feature 150 (corr_haX_caX(t)) =  0.307692
+83. feature 18 (median_aX_chest(t)) =  0.307692
+84. feature 103 (skew_aY_chest(t)) =  0.307692
+85. feature 34 (q05_gY_chest(t)) =  0.303644
+86. feature 113 (mad_gZ_hand(t)) =  0.299595
+87. feature 12 (median_aX_hand(t)) =  0.299595
+88. feature 264 (derivative_1_skew_aY_chest) =  0.299595
+89. feature 217 (derivative_1_q80_aZ_chest) =  0.295547
+90. feature 64 (q95_gY_hand(t)) =  0.295547
+91. feature 742 (hand_roll_median) =  0.295547
+92. feature 132 (crestfactor_aX_hand(t)) =  0.291498
+93. feature 127 (rms_aY_chest(t)) =  0.291498
+94. feature 61 (q95_aY_hand(t)) =  0.291498
+95. feature 79 (kurtosis_aY_chest(t)) =  0.291498
+96. feature 895 (mad_aZ_hand(s)) =  0.287449
+97. feature 120 (rms_aX_hand(t)) =  0.283401
+98. feature 151 (corr_haY_caY(t)) =  0.283401
+99. feature 519 (derivative_3_q95_gY_chest) =  0.283401
+100. feature 711 (derivative_4_mad_gY_chest) =  0.283401
+101. feature 37 (q20_aY_hand(t)) =  0.279352
+102. feature 134 (crestfactor_aZ_hand(t)) =  0.275304
+103. feature 774 (hand_roll_mad) =  0.275304
+104. feature 778 (hand_roll_rms) =  0.275304
+105. feature 29 (q05_gZ_hand(t)) =  0.275304
+106. feature 104 (skew_aZ_chest(t)) =  0.275304
+107. feature 974 (spectral_centroid_gY_hand) =  0.275304
+108. feature 784 (chest_roll_crestfactor) =  0.267206
+109. feature 926 (crestfactor_gX_chest(s)) =  0.259109
+110. feature 65 (q95_gZ_hand(t)) =  0.259109
+111. feature 44 (q20_aZ_chest(t)) =  0.255061
+112. feature 153 (smv_ha(t)) =  0.255061
+113. feature 138 (crestfactor_aX_chest(t)) =  0.251012
+114. feature 69 (q95_gX_chest(t)) =  0.251012
+115. feature 144 (corr_haX_haY(t)) =  0.251012
+116. feature 783 (chest_pitch_crestfactor) =  0.251012
+117. feature 28 (q05_gY_hand(t)) =  0.246964
+118. feature 966 (spectral_entropy_aZ_chest) =  0.246964
+119. feature 51 (q80_gX_hand(t)) =  0.246964
+120. feature 761 (hand_pitch_kurtosis) =  0.246964
+121. feature 133 (crestfactor_aY_hand(t)) =  0.246964
+122. feature 901 (mad_aZ_chest(s)) =  0.246964
+123. feature 181 (derivative_1_median_aZ_chest) =  0.242915
+124. feature 55 (q80_aY_chest(t)) =  0.242915
+125. feature 155 (smv_ca(t)) =  0.242915
+126. feature 776 (chest_roll_mad) =  0.242915
+127. feature 981 (spectral_centroid_gZ_chest) =  0.242915
+128. feature 139 (crestfactor_aY_chest(t)) =  0.242915
+129. feature 301 (derivative_1_crestfactor_aZ_chest) =  0.234818
+130. feature 35 (q05_gZ_chest(t)) =  0.230769
+131. feature 633 (derivative_4_q20_gY_hand) =  0.230769
+132. feature 20 (median_aZ_chest(t)) =  0.230769
+133. feature 495 (derivative_3_q20_gY_chest) =  0.230769
+134. feature 147 (corr_caX_caY(t)) =  0.230769
+135. feature 122 (rms_aZ_hand(t)) =  0.230769
+136. feature 202 (derivative_1_q20_gZ_hand) =  0.226721
+137. feature 891 (skew_gY_chest(s)) =  0.222672
+138. feature 105 (skew_gX_chest(t)) =  0.222672
+139. feature 234 (derivative_1_kurtosis_aY_hand) =  0.222672
+140. feature 39 (q20_gX_hand(t)) =  0.222672
+141. feature 141 (crestfactor_gX_chest(t)) =  0.222672
+142. feature 852 (q95_aY_chest(s)) =  0.222672
+143. feature 629 (derivative_4_q20_aX_hand) =  0.218623
+144. feature 142 (crestfactor_gY_chest(t)) =  0.214575
+145. feature 630 (derivative_4_q20_aY_hand) =  0.214575
+146. feature 793 (mean_aZ_chest(s)) =  0.214575
+147. feature 145 (corr_haX_haZ(t)) =  0.214575
+148. feature 40 (q20_gY_hand(t)) =  0.214575
+149. feature 967 (spectral_entropy_gX_chest) =  0.214575
+150. feature 102 (skew_aX_chest(t)) =  0.210526
+151. feature 107 (skew_gZ_chest(t)) =  0.210526
+152. feature 747 (chest_pitch_q05) =  0.210526
+153. feature 160 (sma_cg(t)) =  0.206478
+154. feature 66 (q95_aX_chest(t)) =  0.206478
+155. feature 22 (median_gY_chest(t)) =  0.206478
+156. feature 177 (derivative_1_median_gY_hand) =  0.202429
+157. feature 17 (median_gZ_hand(t)) =  0.198381
+158. feature 342 (derivative_2_q20_aY_hand) =  0.198381
+159. feature 100 (skew_gY_hand(t)) =  0.198381
+160. feature 47 (q20_gZ_chest(t)) =  0.198381
+161. feature 505 (derivative_3_q80_aZ_chest) =  0.198381
+162. feature 661 (derivative_4_q95_aZ_chest) =  0.198381
+163. feature 617 (derivative_4_q05_aX_hand) =  0.194332
+164. feature 791 (mean_aX_chest(s)) =  0.194332
+165. feature 878 (std_gX_chest(s)) =  0.194332
+166. feature 27 (q05_gX_hand(t)) =  0.194332
+167. feature 319 (derivative_2_median_aZ_hand) =  0.190283
+168. feature 408 (derivative_2_skew_aY_chest) =  0.190283
+169. feature 487 (derivative_3_q20_aZ_hand) =  0.190283
+170. feature 41 (q20_gZ_hand(t)) =  0.190283
+171. feature 766 (hand_roll_std) =  0.186235
+172. feature 21 (median_gX_chest(t)) =  0.186235
+173. feature 324 (derivative_2_median_aY_chest) =  0.186235
+174. feature 869 (std_aX_hand(s)) =  0.186235
+175. feature 641 (derivative_4_q80_aX_hand) =  0.182186
+176. feature 471 (derivative_3_median_gY_chest) =  0.182186
+177. feature 973 (spectral_centroid_gX_hand) =  0.182186
+178. feature 644 (derivative_4_q80_gX_hand) =  0.178138
+179. feature 241 (derivative_1_kurtosis_aZ_chest) =  0.178138
+180. feature 928 (crestfactor_gZ_chest(s)) =  0.178138
+181. feature 192 (derivative_1_q05_aY_chest) =  0.178138
+182. feature 960 (spectral_entropy_aZ_hand) =  0.178138
+183. feature 76 (kurtosis_gY_hand(t)) =  0.178138
+184. feature 748 (chest_roll_q05) =  0.174089
+185. feature 468 (derivative_3_median_aY_chest) =  0.174089
+186. feature 72 (kurtosis_aX_hand(t)) =  0.174089
+187. feature 137 (crestfactor_gZ_hand(t)) =  0.174089
+188. feature 3 (mean_gX_hand(t)) =  0.170040
+189. feature 261 (derivative_1_skew_gY_hand) =  0.170040
+190. feature 266 (derivative_1_skew_gX_chest) =  0.170040
+191. feature 23 (median_gZ_chest(t)) =  0.170040
+192. feature 639 (derivative_4_q20_gY_chest) =  0.170040
+193. feature 212 (derivative_1_q80_gX_hand) =  0.170040
+194. feature 128 (rms_aZ_chest(t)) =  0.170040
+195. feature 866 (kurtosis_gX_chest(s)) =  0.165992
+196. feature 969 (spectral_entropy_gZ_chest) =  0.165992
+197. feature 81 (kurtosis_gX_chest(t)) =  0.165992
+198. feature 933 (corr_caX_caZ(s)) =  0.165992
+199. feature 354 (derivative_2_q80_aY_hand) =  0.165992
+200. feature 632 (derivative_4_q20_gX_hand) =  0.165992
+201. feature 690 (derivative_4_skew_aY_hand) =  0.161943
+202. feature 757 (hand_pitch_q95) =  0.161943
+203. feature 611 (derivative_4_median_aX_chest) =  0.161943
+204. feature 618 (derivative_4_q05_aY_hand) =  0.161943
+205. feature 82 (kurtosis_gY_chest(t)) =  0.161943
+206. feature 136 (crestfactor_gY_hand(t)) =  0.161943
+207. feature 200 (derivative_1_q20_gX_hand) =  0.161943
+208. feature 15 (median_gX_hand(t)) =  0.157895
+209. feature 506 (derivative_3_q80_gX_chest) =  0.157895
+210. feature 615 (derivative_4_median_gY_chest) =  0.157895
+211. feature 106 (skew_gY_chest(t)) =  0.157895
+212. feature 258 (derivative_1_skew_aY_hand) =  0.153846
+213. feature 643 (derivative_4_q80_aZ_hand) =  0.153846
+214. feature 976 (spectral_centroid_aX_chest) =  0.153846
+215. feature 96 (skew_aX_hand(t)) =  0.153846
+216. feature 616 (derivative_4_median_gZ_chest) =  0.153846
+217. feature 211 (derivative_1_q80_aZ_hand) =  0.153846
+218. feature 685 (derivative_4_std_aZ_chest) =  0.153846
+219. feature 381 (derivative_2_kurtosis_gY_hand) =  0.149798
+220. feature 710 (derivative_4_mad_gX_chest) =  0.149798
+221. feature 853 (q95_aZ_chest(s)) =  0.149798
+222. feature 673 (derivative_4_kurtosis_aZ_chest) =  0.149798
+223. feature 779 (chest_pitch_rms) =  0.149798
+224. feature 622 (derivative_4_q05_gZ_hand) =  0.149798
+225. feature 63 (q95_gX_hand(t)) =  0.145749
+226. feature 375 (derivative_2_q95_gY_chest) =  0.145749
+227. feature 792 (mean_aY_chest(s)) =  0.145749
+228. feature 71 (q95_gZ_chest(t)) =  0.145749
+229. feature 92 (std_aZ_chest(t)) =  0.145749
+230. feature 337 (derivative_2_q05_aZ_chest) =  0.145749
+231. feature 587 (derivative_3_crestfactor_aX_chest) =  0.145749
+232. feature 191 (derivative_1_q05_aX_chest) =  0.145749
+233. feature 353 (derivative_2_q80_aX_hand) =  0.141700
+234. feature 755 (chest_pitch_q80) =  0.141700
+235. feature 355 (derivative_2_q80_aZ_hand) =  0.141700
+236. feature 205 (derivative_1_q20_aZ_chest) =  0.141700
+237. feature 154 (smv_hg(t)) =  0.141700
+238. feature 648 (derivative_4_q80_aY_chest) =  0.141700
+239. feature 91 (std_aY_chest(t)) =  0.137652
+240. feature 517 (derivative_3_q95_aZ_chest) =  0.137652
+241. feature 751 (chest_pitch_q20) =  0.137652
+242. feature 372 (derivative_2_q95_aY_chest) =  0.137652
+243. feature 302 (derivative_1_crestfactor_gX_chest) =  0.137652
+244. feature 89 (std_gZ_hand(t)) =  0.137652
+245. feature 795 (mean_gY_chest(s)) =  0.137652
+246. feature 867 (kurtosis_gY_chest(s)) =  0.137652
+247. feature 341 (derivative_2_q20_aX_hand) =  0.137652
+248. feature 980 (spectral_centroid_gY_chest) =  0.137652
+249. feature 170 (derivative_1_mean_gX_chest) =  0.137652
+250. feature 129 (rms_gX_chest(t)) =  0.137652
+251. feature 582 (derivative_3_crestfactor_aY_hand) =  0.137652
+252. feature 363 (derivative_2_q80_gY_chest) =  0.137652
+253. feature 920 (crestfactor_gX_hand(s)) =  0.137652
+254. feature 83 (kurtosis_gZ_chest(t)) =  0.137652
+255. feature 482 (derivative_3_q05_gX_chest) =  0.137652
+256. feature 57 (q80_gX_chest(t)) =  0.137652
+257. feature 464 (derivative_3_median_gX_hand) =  0.137652
+258. feature 975 (spectral_centroid_gZ_hand) =  0.137652
+259. feature 886 (skew_gZ_hand(s)) =  0.133603
+260. feature 588 (derivative_3_crestfactor_aY_chest) =  0.133603
+261. feature 97 (skew_aY_hand(t)) =  0.133603
+262. feature 589 (derivative_3_crestfactor_aZ_chest) =  0.133603
+263. feature 13 (median_aY_hand(t)) =  0.133603
+264. feature 931 (corr_haY_haZ(s)) =  0.133603
+265. feature 631 (derivative_4_q20_aZ_hand) =  0.129555
+266. feature 701 (derivative_4_mad_aX_hand) =  0.129555
+267. feature 236 (derivative_1_kurtosis_gX_hand) =  0.129555
+268. feature 207 (derivative_1_q20_gY_chest) =  0.129555
+269. feature 174 (derivative_1_median_aY_hand) =  0.129555
+270. feature 262 (derivative_1_skew_gZ_hand) =  0.129555
+271. feature 642 (derivative_4_q80_aY_hand) =  0.129555
+272. feature 253 (derivative_1_std_aZ_chest) =  0.129555
+273. feature 927 (crestfactor_gY_chest(s)) =  0.125506
+274. feature 322 (derivative_2_median_gZ_hand) =  0.125506
+275. feature 653 (derivative_4_q95_aX_hand) =  0.125506
+276. feature 662 (derivative_4_q95_gX_chest) =  0.125506
+277. feature 899 (mad_aX_chest(s)) =  0.125506
+278. feature 210 (derivative_1_q80_aY_hand) =  0.125506
+279. feature 344 (derivative_2_q20_gX_hand) =  0.121457
+280. feature 99 (skew_gX_hand(t)) =  0.121457
+281. feature 4 (mean_gY_hand(t)) =  0.117409
+282. feature 679 (derivative_4_std_aZ_hand) =  0.117409
+283. feature 483 (derivative_3_q05_gY_chest) =  0.117409
+284. feature 877 (std_aZ_chest(s)) =  0.117409
+285. feature 197 (derivative_1_q20_aX_hand) =  0.117409
+286. feature 257 (derivative_1_skew_aX_hand) =  0.117409
+287. feature 54 (q80_aX_chest(t)) =  0.117409
+288. feature 932 (corr_caX_caY(s)) =  0.117409
+289. feature 320 (derivative_2_median_gX_hand) =  0.117409
+290. feature 733 (derivative_4_crestfactor_aZ_chest) =  0.117409
+291. feature 198 (derivative_1_q20_aY_hand) =  0.113360
+292. feature 193 (derivative_1_q05_aZ_chest) =  0.113360
+293. feature 318 (derivative_2_median_aY_hand) =  0.113360
+294. feature 323 (derivative_2_median_aX_chest) =  0.113360
+295. feature 327 (derivative_2_median_gY_chest) =  0.113360
+296. feature 78 (kurtosis_aX_chest(t)) =  0.113360
+297. feature 75 (kurtosis_gX_hand(t)) =  0.113360
+298. feature 504 (derivative_3_q80_aY_chest) =  0.113360
+299. feature 339 (derivative_2_q05_gY_chest) =  0.113360
+300. feature 627 (derivative_4_q05_gY_chest) =  0.113360
+301. feature 879 (std_gY_chest(s)) =  0.113360
+302. feature 240 (derivative_1_kurtosis_aY_chest) =  0.113360
+303. feature 507 (derivative_3_q80_gY_chest) =  0.113360
+304. feature 972 (spectral_centroid_aZ_hand) =  0.113360
+305. feature 441 (derivative_2_crestfactor_gY_hand) =  0.113360
+306. feature 90 (std_aX_chest(t)) =  0.113360
+307. feature 333 (derivative_2_q05_gY_hand) =  0.113360
+308. feature 833 (q80_aX_hand(s)) =  0.113360
+309. feature 620 (derivative_4_q05_gX_hand) =  0.109312
+310. feature 267 (derivative_1_skew_gY_chest) =  0.109312
+311. feature 608 (derivative_4_median_gX_hand) =  0.109312
+312. feature 547 (derivative_3_skew_aZ_hand) =  0.109312
+313. feature 692 (derivative_4_skew_gX_hand) =  0.109312
+314. feature 169 (derivative_1_mean_aZ_chest) =  0.109312
+315. feature 232 (derivative_1_q95_gZ_chest) =  0.109312
+316. feature 638 (derivative_4_q20_gX_chest) =  0.109312
+317. feature 203 (derivative_1_q20_aX_chest) =  0.109312
+318. feature 263 (derivative_1_skew_aX_chest) =  0.109312
+319. feature 493 (derivative_3_q20_aZ_chest) =  0.109312
+320. feature 767 (chest_pitch_std) =  0.109312
+321. feature 294 (derivative_1_crestfactor_aY_hand) =  0.109312
+322. feature 409 (derivative_2_skew_aZ_chest) =  0.105263
+323. feature 581 (derivative_3_crestfactor_aX_hand) =  0.105263
+324. feature 85 (std_aY_hand(t)) =  0.105263
+325. feature 293 (derivative_1_crestfactor_aX_hand) =  0.105263
+326. feature 16 (median_gY_hand(t)) =  0.105263
+327. feature 404 (derivative_2_skew_gX_hand) =  0.105263
+328. feature 488 (derivative_3_q20_gX_hand) =  0.105263
+329. feature 637 (derivative_4_q20_aZ_chest) =  0.105263
+330. feature 862 (kurtosis_gZ_hand(s)) =  0.105263
+331. feature 401 (derivative_2_skew_aX_hand) =  0.105263
+332. feature 601 (derivative_4_mean_aZ_chest) =  0.101215
+333. feature 600 (derivative_4_mean_aY_chest) =  0.101215
+334. feature 277 (derivative_1_mad_aZ_chest) =  0.101215
+335. feature 647 (derivative_4_q80_aX_chest) =  0.101215
+336. feature 173 (derivative_1_median_aX_hand) =  0.101215
+337. feature 785 (mean_aX_hand(s)) =  0.101215
+338. feature 204 (derivative_1_q20_aY_chest) =  0.101215
+339. feature 480 (derivative_3_q05_aY_chest) =  0.101215
+340. feature 143 (crestfactor_gZ_chest(t)) =  0.101215
+341. feature 5 (mean_gZ_hand(t)) =  0.101215
+342. feature 457 (derivative_3_mean_aZ_chest) =  0.101215
+343. feature 98 (skew_aZ_hand(t)) =  0.101215
+344. feature 737 (hand_pitch_mean) =  0.101215
+345. feature 94 (std_gY_chest(t)) =  0.101215
+346. feature 115 (mad_aY_chest(t)) =  0.101215
+347. feature 669 (derivative_4_kurtosis_gY_hand) =  0.101215
+348. feature 307 (derivative_2_mean_aZ_hand) =  0.101215
+349. feature 864 (kurtosis_aY_chest(s)) =  0.101215
+350. feature 300 (derivative_1_crestfactor_aY_chest) =  0.101215
+351. feature 894 (mad_aY_hand(s)) =  0.101215
+352. feature 360 (derivative_2_q80_aY_chest) =  0.097166
+353. feature 183 (derivative_1_median_gY_chest) =  0.097166
+354. feature 369 (derivative_2_q95_gY_hand) =  0.097166
+355. feature 800 (median_gX_hand(s)) =  0.097166
+356. feature 295 (derivative_1_crestfactor_aZ_hand) =  0.097166
+357. feature 584 (derivative_3_crestfactor_gX_hand) =  0.097166
+358. feature 762 (hand_roll_kurtosis) =  0.097166
+359. feature 52 (q80_gY_hand(t)) =  0.097166
+360. feature 175 (derivative_1_median_aZ_hand) =  0.097166
+361. feature 119 (mad_gZ_chest(t)) =  0.097166
+362. feature 238 (derivative_1_kurtosis_gZ_hand) =  0.097166
+363. feature 59 (q80_gZ_chest(t)) =  0.097166
+364. feature 550 (derivative_3_skew_gZ_hand) =  0.097166
+365. feature 111 (mad_gX_hand(t)) =  0.097166
+366. feature 729 (derivative_4_crestfactor_gY_hand) =  0.097166
+367. feature 626 (derivative_4_q05_gX_chest) =  0.097166
+368. feature 359 (derivative_2_q80_aX_chest) =  0.097166
+369. feature 941 (smv_cg(s)) =  0.093117
+370. feature 473 (derivative_3_q05_aX_hand) =  0.093117
+371. feature 903 (mad_gY_chest(s)) =  0.093117
+372. feature 491 (derivative_3_q20_aX_chest) =  0.093117
+373. feature 936 (corr_haY_caY(s)) =  0.093117
+374. feature 930 (corr_haX_haZ(s)) =  0.093117
+375. feature 529 (derivative_3_kurtosis_aZ_chest) =  0.093117
+376. feature 11 (mean_gZ_chest(t)) =  0.093117
+377. feature 130 (rms_gY_chest(t)) =  0.093117
+378. feature 822 (q20_aY_hand(s)) =  0.093117
+379. feature 595 (derivative_4_mean_aZ_hand) =  0.093117
+380. feature 807 (median_gY_chest(s)) =  0.093117
+381. feature 977 (spectral_centroid_aY_chest) =  0.093117
+382. feature 671 (derivative_4_kurtosis_aX_chest) =  0.093117
+383. feature 968 (spectral_entropy_gY_chest) =  0.093117
+384. feature 171 (derivative_1_mean_gY_chest) =  0.093117
+385. feature 235 (derivative_1_kurtosis_aZ_hand) =  0.093117
+386. feature 863 (kurtosis_aX_chest(s)) =  0.093117
+387. feature 865 (kurtosis_aZ_chest(s)) =  0.093117
+388. feature 244 (derivative_1_kurtosis_gZ_chest) =  0.093117
+389. feature 276 (derivative_1_mad_aY_chest) =  0.093117
+390. feature 978 (spectral_centroid_aZ_chest) =  0.089069
+391. feature 268 (derivative_1_skew_gZ_chest) =  0.089069
+392. feature 820 (q05_gZ_chest(s)) =  0.089069
+393. feature 731 (derivative_4_crestfactor_aX_chest) =  0.089069
+394. feature 229 (derivative_1_q95_aZ_chest) =  0.089069
+395. feature 213 (derivative_1_q80_gY_hand) =  0.089069
+396. feature 158 (sma_hg(t)) =  0.089069
+397. feature 227 (derivative_1_q95_aX_chest) =  0.089069
+398. feature 836 (q80_gX_hand(s)) =  0.089069
+399. feature 842 (q80_gX_chest(s)) =  0.089069
+400. feature 680 (derivative_4_std_gX_hand) =  0.089069
+401. feature 196 (derivative_1_q05_gZ_chest) =  0.089069
+402. feature 499 (derivative_3_q80_aZ_hand) =  0.089069
+403. feature 437 (derivative_2_crestfactor_aX_hand) =  0.089069
+404. feature 406 (derivative_2_skew_gZ_hand) =  0.089069
+405. feature 765 (hand_pitch_std) =  0.089069
+406. feature 876 (std_aY_chest(s)) =  0.085020
+407. feature 477 (derivative_3_q05_gY_hand) =  0.085020
+408. feature 839 (q80_aX_chest(s)) =  0.085020
+409. feature 844 (q80_gZ_chest(s)) =  0.085020
+410. feature 872 (std_gX_hand(s)) =  0.085020
+411. feature 856 (q95_gZ_chest(s)) =  0.085020
+412. feature 447 (derivative_2_crestfactor_gY_chest) =  0.085020
+413. feature 178 (derivative_1_median_gZ_hand) =  0.085020
+414. feature 182 (derivative_1_median_gX_chest) =  0.085020
+415. feature 764 (chest_roll_kurtosis) =  0.085020
+416. feature 503 (derivative_3_q80_aX_chest) =  0.085020
+417. feature 188 (derivative_1_q05_gX_hand) =  0.085020
+418. feature 362 (derivative_2_q80_gX_chest) =  0.085020
+419. feature 328 (derivative_2_median_gZ_chest) =  0.085020
+420. feature 380 (derivative_2_kurtosis_gX_hand) =  0.085020
+421. feature 397 (derivative_2_std_aZ_chest) =  0.085020
+422. feature 880 (std_gZ_chest(s)) =  0.085020
+423. feature 654 (derivative_4_q95_aY_hand) =  0.085020
+424. feature 902 (mad_gX_chest(s)) =  0.085020
+425. feature 787 (mean_aZ_hand(s)) =  0.085020
+426. feature 687 (derivative_4_std_gY_chest) =  0.085020
+427. feature 786 (mean_aY_hand(s)) =  0.080972
+428. feature 625 (derivative_4_q05_aZ_chest) =  0.080972
+429. feature 663 (derivative_4_q95_gY_chest) =  0.080972
+430. feature 843 (q80_gY_chest(s)) =  0.080972
+431. feature 922 (crestfactor_gZ_hand(s)) =  0.080972
+432. feature 697 (derivative_4_skew_aZ_chest) =  0.080972
+433. feature 702 (derivative_4_mad_aY_hand) =  0.080972
+434. feature 890 (skew_gX_chest(s)) =  0.080972
+435. feature 819 (q05_gY_chest(s)) =  0.080972
+436. feature 810 (q05_aY_hand(s)) =  0.080972
+437. feature 485 (derivative_3_q20_aX_hand) =  0.080972
+438. feature 732 (derivative_4_crestfactor_aY_chest) =  0.080972
+439. feature 921 (crestfactor_gY_hand(s)) =  0.080972
+440. feature 605 (derivative_4_median_aX_hand) =  0.080972
+441. feature 934 (corr_caY_caZ(s)) =  0.080972
+442. feature 400 (derivative_2_std_gZ_chest) =  0.080972
+443. feature 259 (derivative_1_skew_aZ_hand) =  0.080972
+444. feature 114 (mad_aX_chest(t)) =  0.080972
+445. feature 172 (derivative_1_mean_gZ_chest) =  0.080972
+446. feature 399 (derivative_2_std_gY_chest) =  0.080972
+447. feature 317 (derivative_2_median_aX_hand) =  0.080972
+448. feature 176 (derivative_1_median_gX_hand) =  0.080972
+449. feature 84 (std_aX_hand(t)) =  0.080972
+450. feature 270 (derivative_1_mad_aY_hand) =  0.080972
+451. feature 131 (rms_gZ_chest(t)) =  0.080972
+452. feature 297 (derivative_1_crestfactor_gY_hand) =  0.076923
+453. feature 489 (derivative_3_q20_gY_hand) =  0.076923
+454. feature 326 (derivative_2_median_gX_chest) =  0.076923
+455. feature 465 (derivative_3_median_gY_hand) =  0.076923
+456. feature 726 (derivative_4_crestfactor_aY_hand) =  0.076923
+457. feature 463 (derivative_3_median_aZ_hand) =  0.076923
+458. feature 804 (median_aY_chest(s)) =  0.076923
+459. feature 508 (derivative_3_q80_gZ_chest) =  0.076923
+460. feature 438 (derivative_2_crestfactor_aY_hand) =  0.076923
+461. feature 340 (derivative_2_q05_gZ_chest) =  0.076923
+462. feature 925 (crestfactor_aZ_chest(s)) =  0.076923
+463. feature 385 (derivative_2_kurtosis_aZ_chest) =  0.076923
+464. feature 583 (derivative_3_crestfactor_aZ_hand) =  0.076923
+465. feature 593 (derivative_4_mean_aX_hand) =  0.076923
+466. feature 599 (derivative_4_mean_aX_chest) =  0.076923
+467. feature 935 (corr_haX_caX(s)) =  0.076923
+468. feature 857 (kurtosis_aX_hand(s)) =  0.076923
+469. feature 612 (derivative_4_median_aY_chest) =  0.072874
+470. feature 260 (derivative_1_skew_gX_hand) =  0.072874
+471. feature 557 (derivative_3_mad_aX_hand) =  0.072874
+472. feature 343 (derivative_2_q20_aZ_hand) =  0.072874
+473. feature 347 (derivative_2_q20_aX_chest) =  0.072874
+474. feature 275 (derivative_1_mad_aX_chest) =  0.072874
+475. feature 884 (skew_gX_hand(s)) =  0.072874
+476. feature 707 (derivative_4_mad_aX_chest) =  0.072874
+477. feature 348 (derivative_2_q20_aY_chest) =  0.072874
+478. feature 678 (derivative_4_std_aY_hand) =  0.072874
+479. feature 336 (derivative_2_q05_aY_chest) =  0.072874
+480. feature 658 (derivative_4_q95_gZ_hand) =  0.072874
+481. feature 331 (derivative_2_q05_aZ_hand) =  0.072874
+482. feature 351 (derivative_2_q20_gY_chest) =  0.072874
+483. feature 970 (spectral_centroid_aX_hand) =  0.072874
+484. feature 254 (derivative_1_std_gX_chest) =  0.072874
+485. feature 280 (derivative_1_mad_gZ_chest) =  0.072874
+486. feature 250 (derivative_1_std_gZ_hand) =  0.072874
+487. feature 443 (derivative_2_crestfactor_aX_chest) =  0.072874
+488. feature 444 (derivative_2_crestfactor_aY_chest) =  0.072874
+489. feature 74 (kurtosis_aZ_hand(t)) =  0.072874
+490. feature 854 (q95_gX_chest(s)) =  0.072874
+491. feature 835 (q80_aZ_hand(s)) =  0.072874
+492. feature 828 (q20_aY_chest(s)) =  0.072874
+493. feature 746 (hand_roll_q05) =  0.072874
+494. feature 962 (spectral_entropy_gY_hand) =  0.072874
+495. feature 194 (derivative_1_q05_gX_chest) =  0.072874
+496. feature 546 (derivative_3_skew_aY_hand) =  0.072874
+497. feature 479 (derivative_3_q05_aX_chest) =  0.072874
+498. feature 770 (hand_roll_skew) =  0.072874
+499. feature 475 (derivative_3_q05_aZ_hand) =  0.072874
+500. feature 214 (derivative_1_q80_gZ_hand) =  0.068826
+501. feature 442 (derivative_2_crestfactor_gZ_hand) =  0.068826
+502. feature 929 (corr_haX_haY(s)) =  0.068826
+503. feature 924 (crestfactor_aY_chest(s)) =  0.068826
+504. feature 566 (derivative_3_mad_gX_chest) =  0.068826
+505. feature 378 (derivative_2_kurtosis_aY_hand) =  0.068826
+506. feature 371 (derivative_2_q95_aX_chest) =  0.068826
+507. feature 450 (derivative_3_mean_aY_hand) =  0.068826
+508. feature 349 (derivative_2_q20_aZ_chest) =  0.068826
+509. feature 116 (mad_aZ_chest(t)) =  0.068826
+510. feature 164 (derivative_1_mean_gX_hand) =  0.068826
+511. feature 801 (median_gY_hand(s)) =  0.068826
+512. feature 165 (derivative_1_mean_gY_hand) =  0.068826
+513. feature 497 (derivative_3_q80_aX_hand) =  0.068826
+514. feature 703 (derivative_4_mad_aZ_hand) =  0.068826
+515. feature 689 (derivative_4_skew_aX_hand) =  0.068826
+516. feature 402 (derivative_2_skew_aY_hand) =  0.068826
+517. feature 501 (derivative_3_q80_gY_hand) =  0.068826
+518. feature 304 (derivative_1_crestfactor_gZ_chest) =  0.068826
+519. feature 410 (derivative_2_skew_gX_chest) =  0.068826
+520. feature 782 (hand_roll_crestfactor) =  0.064777
+521. feature 245 (derivative_1_std_aX_hand) =  0.064777
+522. feature 195 (derivative_1_q05_gY_chest) =  0.064777
+523. feature 387 (derivative_2_kurtosis_gY_chest) =  0.064777
+524. feature 237 (derivative_1_kurtosis_gY_hand) =  0.064777
+525. feature 384 (derivative_2_kurtosis_aY_chest) =  0.064777
+526. feature 299 (derivative_1_crestfactor_aX_chest) =  0.064777
+527. feature 590 (derivative_3_crestfactor_gX_chest) =  0.064777
+528. feature 861 (kurtosis_gY_hand(s)) =  0.064777
+529. feature 686 (derivative_4_std_gX_chest) =  0.064777
+530. feature 659 (derivative_4_q95_aX_chest) =  0.064777
+531. feature 228 (derivative_1_q95_aY_chest) =  0.064777
+532. feature 971 (spectral_centroid_aY_hand) =  0.064777
+533. feature 838 (q80_gZ_hand(s)) =  0.064777
+534. feature 220 (derivative_1_q80_gZ_chest) =  0.064777
+535. feature 892 (skew_gZ_chest(s)) =  0.064777
+536. feature 664 (derivative_4_q95_gZ_chest) =  0.064777
+537. feature 334 (derivative_2_q05_gZ_hand) =  0.064777
+538. feature 312 (derivative_2_mean_aY_chest) =  0.064777
+539. feature 166 (derivative_1_mean_gZ_hand) =  0.064777
+540. feature 167 (derivative_1_mean_aX_chest) =  0.064777
+541. feature 548 (derivative_3_skew_gX_hand) =  0.064777
+542. feature 656 (derivative_4_q95_gX_hand) =  0.064777
+543. feature 860 (kurtosis_gX_hand(s)) =  0.064777
+544. feature 184 (derivative_1_median_gZ_chest) =  0.064777
+545. feature 440 (derivative_2_crestfactor_gX_hand) =  0.064777
+546. feature 407 (derivative_2_skew_aX_chest) =  0.064777
+547. feature 513 (derivative_3_q95_gY_hand) =  0.064777
+548. feature 461 (derivative_3_median_aX_hand) =  0.064777
+549. feature 421 (derivative_2_mad_aZ_chest) =  0.064777
+550. feature 412 (derivative_2_skew_gZ_chest) =  0.064777
+551. feature 486 (derivative_3_q20_aY_hand) =  0.064777
+552. feature 937 (corr_haZ_caZ(s)) =  0.064777
+553. feature 467 (derivative_3_median_aX_chest) =  0.064777
+554. feature 161 (derivative_1_mean_aX_hand) =  0.060729
+555. feature 376 (derivative_2_q95_gZ_chest) =  0.060729
+556. feature 439 (derivative_2_crestfactor_aZ_hand) =  0.060729
+557. feature 533 (derivative_3_std_aX_hand) =  0.060729
+558. feature 831 (q20_gY_chest(s)) =  0.060729
+559. feature 383 (derivative_2_kurtosis_aX_chest) =  0.060729
+560. feature 370 (derivative_2_q95_gZ_hand) =  0.060729
+561. feature 670 (derivative_4_kurtosis_gZ_hand) =  0.060729
+562. feature 904 (mad_gZ_chest(s)) =  0.060729
+563. feature 940 (smv_ca(s)) =  0.060729
+564. feature 674 (derivative_4_kurtosis_gX_chest) =  0.060729
+565. feature 621 (derivative_4_q05_gY_hand) =  0.060729
+566. feature 655 (derivative_4_q95_aZ_hand) =  0.060729
+567. feature 446 (derivative_2_crestfactor_gX_chest) =  0.060729
+568. feature 86 (std_aZ_hand(t)) =  0.060729
+569. feature 233 (derivative_1_kurtosis_aX_hand) =  0.060729
+570. feature 478 (derivative_3_q05_gZ_hand) =  0.060729
+571. feature 396 (derivative_2_std_aY_chest) =  0.060729
+572. feature 768 (chest_roll_std) =  0.060729
+573. feature 744 (chest_roll_median) =  0.060729
+574. feature 645 (derivative_4_q80_gY_hand) =  0.060729
+575. feature 553 (derivative_3_skew_aZ_chest) =  0.060729
+576. feature 743 (chest_pitch_median) =  0.060729
+577. feature 552 (derivative_3_skew_aY_chest) =  0.056680
+578. feature 667 (derivative_4_kurtosis_aZ_hand) =  0.056680
+579. feature 585 (derivative_3_crestfactor_gY_hand) =  0.056680
+580. feature 596 (derivative_4_mean_gX_hand) =  0.056680
+581. feature 168 (derivative_1_mean_aY_chest) =  0.056680
+582. feature 846 (q95_aY_hand(s)) =  0.056680
+583. feature 218 (derivative_1_q80_gX_chest) =  0.056680
+584. feature 881 (skew_aX_hand(s)) =  0.056680
+585. feature 514 (derivative_3_q95_gZ_hand) =  0.056680
+586. feature 613 (derivative_4_median_aZ_chest) =  0.056680
+587. feature 364 (derivative_2_q80_gZ_chest) =  0.056680
+588. feature 536 (derivative_3_std_gX_hand) =  0.056680
+589. feature 760 (chest_roll_q95) =  0.056680
+590. feature 522 (derivative_3_kurtosis_aY_hand) =  0.056680
+591. feature 95 (std_gZ_chest(t)) =  0.056680
+592. feature 538 (derivative_3_std_gZ_hand) =  0.056680
+593. feature 695 (derivative_4_skew_aX_chest) =  0.056680
+594. feature 874 (std_gZ_hand(s)) =  0.056680
+595. feature 518 (derivative_3_q95_gX_chest) =  0.052632
+596. feature 815 (q05_aX_chest(s)) =  0.052632
+597. feature 352 (derivative_2_q20_gZ_chest) =  0.052632
+598. feature 619 (derivative_4_q05_aZ_hand) =  0.052632
+599. feature 646 (derivative_4_q80_gZ_hand) =  0.052632
+600. feature 509 (derivative_3_q95_aX_hand) =  0.052632
+601. feature 325 (derivative_2_median_aZ_chest) =  0.052632
+602. feature 314 (derivative_2_mean_gX_chest) =  0.052632
+603. feature 660 (derivative_4_q95_aY_chest) =  0.052632
+604. feature 524 (derivative_3_kurtosis_gX_hand) =  0.052632
+605. feature 634 (derivative_4_q20_gZ_hand) =  0.052632
+606. feature 829 (q20_aZ_chest(s)) =  0.052632
+607. feature 356 (derivative_2_q80_gX_hand) =  0.052632
+608. feature 526 (derivative_3_kurtosis_gZ_hand) =  0.052632
+609. feature 530 (derivative_3_kurtosis_gX_chest) =  0.052632
+610. feature 303 (derivative_1_crestfactor_gY_chest) =  0.052632
+611. feature 549 (derivative_3_skew_gY_hand) =  0.052632
+612. feature 219 (derivative_1_q80_gY_chest) =  0.052632
+613. feature 745 (hand_pitch_q05) =  0.052632
+614. feature 476 (derivative_3_q05_gX_hand) =  0.052632
+615. feature 215 (derivative_1_q80_aX_chest) =  0.052632
+616. feature 208 (derivative_1_q20_gZ_chest) =  0.052632
+617. feature 109 (mad_aY_hand(t)) =  0.052632
+618. feature 725 (derivative_4_crestfactor_aX_hand) =  0.052632
+619. feature 470 (derivative_3_median_gX_chest) =  0.052632
+620. feature 607 (derivative_4_median_aZ_hand) =  0.052632
+621. feature 382 (derivative_2_kurtosis_gZ_hand) =  0.052632
+622. feature 379 (derivative_2_kurtosis_aZ_hand) =  0.052632
+623. feature 492 (derivative_3_q20_aY_chest) =  0.052632
+624. feature 494 (derivative_3_q20_gX_chest) =  0.052632
+625. feature 848 (q95_gX_hand(s)) =  0.052632
+626. feature 700 (derivative_4_skew_gZ_chest) =  0.052632
+627. feature 597 (derivative_4_mean_gY_hand) =  0.052632
+628. feature 840 (q80_aY_chest(s)) =  0.052632
+629. feature 693 (derivative_4_skew_gY_hand) =  0.052632
+630. feature 958 (spectral_entropy_aX_hand) =  0.052632
+631. feature 239 (derivative_1_kurtosis_aX_chest) =  0.048583
+632. feature 677 (derivative_4_std_aX_hand) =  0.048583
+633. feature 242 (derivative_1_kurtosis_gX_chest) =  0.048583
+634. feature 423 (derivative_2_mad_gY_chest) =  0.048583
+635. feature 649 (derivative_4_q80_aZ_chest) =  0.048583
+636. feature 310 (derivative_2_mean_gZ_hand) =  0.048583
+637. feature 790 (mean_gZ_hand(s)) =  0.048583
+638. feature 209 (derivative_1_q80_aX_hand) =  0.048583
+639. feature 201 (derivative_1_q20_gY_hand) =  0.048583
+640. feature 959 (spectral_entropy_aY_hand) =  0.048583
+641. feature 709 (derivative_4_mad_aZ_chest) =  0.048583
+642. feature 502 (derivative_3_q80_gZ_hand) =  0.048583
+643. feature 818 (q05_gX_chest(s)) =  0.048583
+644. feature 816 (q05_aY_chest(s)) =  0.048583
+645. feature 516 (derivative_3_q95_aY_chest) =  0.048583
+646. feature 543 (derivative_3_std_gY_chest) =  0.048583
+647. feature 118 (mad_gY_chest(t)) =  0.048583
+648. feature 554 (derivative_3_skew_gX_chest) =  0.048583
+649. feature 357 (derivative_2_q80_gY_hand) =  0.048583
+650. feature 562 (derivative_3_mad_gZ_hand) =  0.048583
+651. feature 361 (derivative_2_q80_aZ_chest) =  0.048583
+652. feature 923 (crestfactor_aX_chest(s)) =  0.048583
+653. feature 586 (derivative_3_crestfactor_gZ_hand) =  0.048583
+654. feature 346 (derivative_2_q20_gZ_hand) =  0.048583
+655. feature 887 (skew_aX_chest(s)) =  0.044534
+656. feature 850 (q95_gZ_hand(s)) =  0.044534
+657. feature 377 (derivative_2_kurtosis_aX_hand) =  0.044534
+658. feature 706 (derivative_4_mad_gZ_hand) =  0.044534
+659. feature 374 (derivative_2_q95_gX_chest) =  0.044534
+660. feature 498 (derivative_3_q80_aY_hand) =  0.044534
+661. feature 117 (mad_gX_chest(t)) =  0.044534
+662. feature 411 (derivative_2_skew_gY_chest) =  0.044534
+663. feature 963 (spectral_entropy_gZ_hand) =  0.044534
+664. feature 199 (derivative_1_q20_aZ_hand) =  0.044534
+665. feature 206 (derivative_1_q20_gX_chest) =  0.044534
+666. feature 452 (derivative_3_mean_gX_hand) =  0.044534
+667. feature 681 (derivative_4_std_gY_hand) =  0.044534
+668. feature 418 (derivative_2_mad_gZ_hand) =  0.044534
+669. feature 735 (derivative_4_crestfactor_gY_chest) =  0.044534
+670. feature 419 (derivative_2_mad_aX_chest) =  0.044534
+671. feature 474 (derivative_3_q05_aY_hand) =  0.044534
+672. feature 449 (derivative_3_mean_aX_hand) =  0.044534
+673. feature 448 (derivative_2_crestfactor_gZ_chest) =  0.044534
+674. feature 395 (derivative_2_std_aX_chest) =  0.044534
+675. feature 247 (derivative_1_std_aZ_hand) =  0.044534
+676. feature 481 (derivative_3_q05_aZ_chest) =  0.044534
+677. feature 555 (derivative_3_skew_gY_chest) =  0.044534
+678. feature 445 (derivative_2_crestfactor_aZ_chest) =  0.044534
+679. feature 274 (derivative_1_mad_gZ_hand) =  0.044534
+680. feature 305 (derivative_2_mean_aX_hand) =  0.044534
+681. feature 289 (derivative_1_rms_aZ_chest) =  0.044534
+682. feature 511 (derivative_3_q95_aZ_hand) =  0.044534
+683. feature 817 (q05_aZ_chest(s)) =  0.044534
+684. feature 668 (derivative_4_kurtosis_gX_hand) =  0.044534
+685. feature 675 (derivative_4_kurtosis_gY_chest) =  0.044534
+686. feature 827 (q20_aX_chest(s)) =  0.044534
+687. feature 636 (derivative_4_q20_aY_chest) =  0.044534
+688. feature 525 (derivative_3_kurtosis_gY_hand) =  0.044534
+689. feature 808 (median_gZ_chest(s)) =  0.044534
+690. feature 624 (derivative_4_q05_aY_chest) =  0.044534
+691. feature 834 (q80_aY_hand(s)) =  0.044534
+692. feature 125 (rms_gZ_hand(t)) =  0.044534
+693. feature 386 (derivative_2_kurtosis_gX_chest) =  0.040486
+694. feature 855 (q95_gY_chest(s)) =  0.040486
+695. feature 490 (derivative_3_q20_gZ_hand) =  0.040486
+696. feature 393 (derivative_2_std_gY_hand) =  0.040486
+697. feature 186 (derivative_1_q05_aY_hand) =  0.040486
+698. feature 512 (derivative_3_q95_gX_hand) =  0.040486
+699. feature 825 (q20_gY_hand(s)) =  0.040486
+700. feature 780 (chest_roll_rms) =  0.040486
+701. feature 338 (derivative_2_q05_gX_chest) =  0.040486
+702. feature 665 (derivative_4_kurtosis_aX_hand) =  0.040486
+703. feature 652 (derivative_4_q80_gZ_chest) =  0.040486
+704. feature 93 (std_gX_chest(t)) =  0.040486
+705. feature 230 (derivative_1_q95_gX_chest) =  0.040486
+706. feature 420 (derivative_2_mad_aY_chest) =  0.040486
+707. feature 390 (derivative_2_std_aY_hand) =  0.040486
+708. feature 682 (derivative_4_std_gZ_hand) =  0.040486
+709. feature 758 (hand_roll_q95) =  0.040486
+710. feature 365 (derivative_2_q95_aX_hand) =  0.040486
+711. feature 515 (derivative_3_q95_aX_chest) =  0.040486
+712. feature 896 (mad_gX_hand(s)) =  0.040486
+713. feature 298 (derivative_1_crestfactor_gZ_hand) =  0.040486
+714. feature 460 (derivative_3_mean_gZ_chest) =  0.040486
+715. feature 812 (q05_gX_hand(s)) =  0.040486
+716. feature 898 (mad_gZ_hand(s)) =  0.040486
+717. feature 813 (q05_gY_hand(s)) =  0.040486
+718. feature 528 (derivative_3_kurtosis_aY_chest) =  0.040486
+719. feature 798 (median_aY_hand(s)) =  0.040486
+720. feature 845 (q95_aX_hand(s)) =  0.040486
+721. feature 592 (derivative_3_crestfactor_gZ_chest) =  0.040486
+722. feature 330 (derivative_2_q05_aY_hand) =  0.040486
+723. feature 527 (derivative_3_kurtosis_aX_chest) =  0.040486
+724. feature 694 (derivative_4_skew_gZ_hand) =  0.040486
+725. feature 657 (derivative_4_q95_gY_hand) =  0.036437
+726. feature 556 (derivative_3_skew_gZ_chest) =  0.036437
+727. feature 271 (derivative_1_mad_aZ_hand) =  0.036437
+728. feature 561 (derivative_3_mad_gY_hand) =  0.036437
+729. feature 756 (chest_roll_q80) =  0.036437
+730. feature 640 (derivative_4_q20_gZ_chest) =  0.036437
+731. feature 567 (derivative_3_mad_gY_chest) =  0.036437
+732. feature 403 (derivative_2_skew_aZ_hand) =  0.036437
+733. feature 472 (derivative_3_median_gZ_chest) =  0.036437
+734. feature 609 (derivative_4_median_gY_hand) =  0.036437
+735. feature 462 (derivative_3_median_aY_hand) =  0.036437
+736. feature 455 (derivative_3_mean_aX_chest) =  0.036437
+737. feature 610 (derivative_4_median_gZ_hand) =  0.036437
+738. feature 373 (derivative_2_q95_aZ_chest) =  0.036437
+739. feature 110 (mad_aZ_hand(t)) =  0.036437
+740. feature 708 (derivative_4_mad_aY_chest) =  0.036437
+741. feature 614 (derivative_4_median_gX_chest) =  0.036437
+742. feature 311 (derivative_2_mean_aX_chest) =  0.036437
+743. feature 469 (derivative_3_median_aZ_chest) =  0.036437
+744. feature 185 (derivative_1_q05_aX_hand) =  0.036437
+745. feature 306 (derivative_2_mean_aY_hand) =  0.036437
+746. feature 885 (skew_gY_hand(s)) =  0.036437
+747. feature 788 (mean_gX_hand(s)) =  0.036437
+748. feature 535 (derivative_3_std_aZ_hand) =  0.036437
+749. feature 889 (skew_aZ_chest(s)) =  0.036437
+750. feature 279 (derivative_1_mad_gY_chest) =  0.036437
+751. feature 851 (q95_aX_chest(s)) =  0.036437
+752. feature 824 (q20_gX_hand(s)) =  0.032389
+753. feature 163 (derivative_1_mean_aZ_hand) =  0.032389
+754. feature 794 (mean_gX_chest(s)) =  0.032389
+755. feature 466 (derivative_3_median_gZ_hand) =  0.032389
+756. feature 189 (derivative_1_q05_gY_hand) =  0.032389
+757. feature 458 (derivative_3_mean_gX_chest) =  0.032389
+758. feature 221 (derivative_1_q95_aX_hand) =  0.032389
+759. feature 868 (kurtosis_gZ_chest(s)) =  0.032389
+760. feature 803 (median_aX_chest(s)) =  0.032389
+761. feature 806 (median_gX_chest(s)) =  0.032389
+762. feature 858 (kurtosis_aY_hand(s)) =  0.032389
+763. feature 545 (derivative_3_skew_aX_hand) =  0.032389
+764. feature 413 (derivative_2_mad_aX_hand) =  0.032389
+765. feature 389 (derivative_2_std_aX_hand) =  0.032389
+766. feature 684 (derivative_4_std_aY_chest) =  0.032389
+767. feature 309 (derivative_2_mean_gY_hand) =  0.032389
+768. feature 388 (derivative_2_kurtosis_gZ_chest) =  0.032389
+769. feature 666 (derivative_4_kurtosis_aY_hand) =  0.032389
+770. feature 919 (crestfactor_aZ_hand(s)) =  0.032389
+771. feature 321 (derivative_2_median_gY_hand) =  0.032389
+772. feature 918 (crestfactor_aY_hand(s)) =  0.032389
+773. feature 296 (derivative_1_crestfactor_gX_hand) =  0.032389
+774. feature 335 (derivative_2_q05_aX_chest) =  0.032389
+775. feature 635 (derivative_4_q20_aX_chest) =  0.032389
+776. feature 521 (derivative_3_kurtosis_aX_hand) =  0.032389
+777. feature 345 (derivative_2_q20_gY_hand) =  0.032389
+778. feature 523 (derivative_3_kurtosis_aZ_hand) =  0.032389
+779. feature 623 (derivative_4_q05_aX_chest) =  0.032389
+780. feature 367 (derivative_2_q95_aZ_hand) =  0.032389
+781. feature 602 (derivative_4_mean_gX_chest) =  0.032389
+782. feature 594 (derivative_4_mean_aY_hand) =  0.032389
+783. feature 520 (derivative_3_q95_gZ_chest) =  0.032389
+784. feature 281 (derivative_1_rms_aX_hand) =  0.032389
+785. feature 676 (derivative_4_kurtosis_gZ_chest) =  0.032389
+786. feature 531 (derivative_3_kurtosis_gY_chest) =  0.032389
+787. feature 272 (derivative_1_mad_gX_hand) =  0.032389
+788. feature 542 (derivative_3_std_gX_chest) =  0.032389
+789. feature 243 (derivative_1_kurtosis_gY_chest) =  0.032389
+790. feature 392 (derivative_2_std_gX_hand) =  0.032389
+791. feature 484 (derivative_3_q05_gZ_chest) =  0.032389
+792. feature 728 (derivative_4_crestfactor_gX_hand) =  0.032389
+793. feature 832 (q20_gZ_chest(s)) =  0.028340
+794. feature 598 (derivative_4_mean_gZ_hand) =  0.028340
+795. feature 246 (derivative_1_std_aY_hand) =  0.028340
+796. feature 249 (derivative_1_std_gY_hand) =  0.028340
+797. feature 391 (derivative_2_std_aZ_hand) =  0.028340
+798. feature 255 (derivative_1_std_gY_chest) =  0.028340
+799. feature 256 (derivative_1_std_gZ_chest) =  0.028340
+800. feature 332 (derivative_2_q05_gX_hand) =  0.028340
+801. feature 917 (crestfactor_aX_hand(s)) =  0.028340
+802. feature 398 (derivative_2_std_gX_chest) =  0.028340
+803. feature 278 (derivative_1_mad_gX_chest) =  0.028340
+804. feature 315 (derivative_2_mean_gY_chest) =  0.028340
+805. feature 313 (derivative_2_mean_aZ_chest) =  0.028340
+806. feature 225 (derivative_1_q95_gY_hand) =  0.028340
+807. feature 224 (derivative_1_q95_gX_hand) =  0.028340
+808. feature 231 (derivative_1_q95_gY_chest) =  0.028340
+809. feature 699 (derivative_4_skew_gY_chest) =  0.028340
+810. feature 459 (derivative_3_mean_gY_chest) =  0.028340
+811. feature 179 (derivative_1_median_aX_chest) =  0.028340
+812. feature 796 (mean_gZ_chest(s)) =  0.028340
+813. feature 696 (derivative_4_skew_aY_chest) =  0.028340
+814. feature 500 (derivative_3_q80_gX_hand) =  0.028340
+815. feature 537 (derivative_3_std_gY_hand) =  0.028340
+816. feature 712 (derivative_4_mad_gZ_chest) =  0.028340
+817. feature 563 (derivative_3_mad_aX_chest) =  0.028340
+818. feature 727 (derivative_4_crestfactor_aZ_hand) =  0.028340
+819. feature 789 (mean_gY_hand(s)) =  0.024291
+820. feature 990 (principal_frequency_aZ_chest) =  0.024291
+821. feature 830 (q20_gX_chest(s)) =  0.024291
+822. feature 123 (rms_gX_hand(t)) =  0.024291
+823. feature 414 (derivative_2_mad_aY_hand) =  0.024291
+824. feature 456 (derivative_3_mean_aY_chest) =  0.024291
+825. feature 350 (derivative_2_q20_gX_chest) =  0.024291
+826. feature 453 (derivative_3_mean_gY_hand) =  0.024291
+827. feature 124 (rms_gY_hand(t)) =  0.024291
+828. feature 705 (derivative_4_mad_gY_hand) =  0.024291
+829. feature 368 (derivative_2_q95_gX_hand) =  0.024291
+830. feature 112 (mad_gY_hand(t)) =  0.024291
+831. feature 672 (derivative_4_kurtosis_aY_chest) =  0.024291
+832. feature 826 (q20_gZ_hand(s)) =  0.024291
+833. feature 591 (derivative_3_crestfactor_gY_chest) =  0.024291
+834. feature 108 (mad_aX_hand(t)) =  0.024291
+835. feature 510 (derivative_3_q95_aY_hand) =  0.024291
+836. feature 814 (q05_gZ_hand(s)) =  0.024291
+837. feature 736 (derivative_4_crestfactor_gZ_chest) =  0.024291
+838. feature 405 (derivative_2_skew_gY_hand) =  0.024291
+839. feature 87 (std_gX_hand(t)) =  0.024291
+840. feature 821 (q20_aX_hand(s)) =  0.024291
+841. feature 568 (derivative_3_mad_gZ_chest) =  0.024291
+842. feature 251 (derivative_1_std_aX_chest) =  0.024291
+843. feature 534 (derivative_3_std_aY_hand) =  0.020243
+844. feature 451 (derivative_3_mean_aZ_hand) =  0.020243
+845. feature 551 (derivative_3_skew_aX_chest) =  0.020243
+846. feature 88 (std_gY_hand(t)) =  0.020243
+847. feature 532 (derivative_3_kurtosis_gZ_chest) =  0.020243
+848. feature 559 (derivative_3_mad_aZ_hand) =  0.020243
+849. feature 226 (derivative_1_q95_gZ_hand) =  0.020243
+850. feature 606 (derivative_4_median_aY_hand) =  0.020243
+851. feature 422 (derivative_2_mad_gX_chest) =  0.020243
+852. feature 269 (derivative_1_mad_aX_hand) =  0.020243
+853. feature 730 (derivative_4_crestfactor_gZ_hand) =  0.020243
+854. feature 417 (derivative_2_mad_gY_hand) =  0.020243
+855. feature 416 (derivative_2_mad_gX_hand) =  0.020243
+856. feature 187 (derivative_1_q05_aZ_hand) =  0.020243
+857. feature 888 (skew_aY_chest(s)) =  0.020243
+858. feature 290 (derivative_1_rms_gX_chest) =  0.020243
+859. feature 873 (std_gY_hand(s)) =  0.020243
+860. feature 291 (derivative_1_rms_gY_chest) =  0.020243
+861. feature 802 (median_gZ_hand(s)) =  0.020243
+862. feature 683 (derivative_4_std_aX_chest) =  0.020243
+863. feature 809 (q05_aX_hand(s)) =  0.020243
+864. feature 811 (q05_aZ_hand(s)) =  0.020243
+865. feature 329 (derivative_2_q05_aX_hand) =  0.020243
+866. feature 991 (principal_frequency_gX_chest) =  0.020243
+867. feature 628 (derivative_4_q05_gZ_chest) =  0.020243
+868. feature 837 (q80_gY_hand(s)) =  0.020243
+869. feature 691 (derivative_4_skew_aZ_hand) =  0.020243
+870. feature 316 (derivative_2_mean_gZ_chest) =  0.020243
+871. feature 882 (skew_aY_hand(s)) =  0.016194
+872. feature 496 (derivative_3_q20_gZ_chest) =  0.016194
+873. feature 849 (q95_gY_hand(s)) =  0.016194
+874. feature 704 (derivative_4_mad_gX_hand) =  0.016194
+875. feature 541 (derivative_3_std_aZ_chest) =  0.016194
+876. feature 540 (derivative_3_std_aY_chest) =  0.016194
+877. feature 366 (derivative_2_q95_aY_hand) =  0.016194
+878. feature 358 (derivative_2_q80_gZ_hand) =  0.016194
+879. feature 564 (derivative_3_mad_aY_chest) =  0.016194
+880. feature 252 (derivative_1_std_aY_chest) =  0.016194
+881. feature 222 (derivative_1_q95_aY_hand) =  0.016194
+882. feature 603 (derivative_4_mean_gY_chest) =  0.016194
+883. feature 734 (derivative_4_crestfactor_gX_chest) =  0.016194
+884. feature 797 (median_aX_hand(s)) =  0.016194
+885. feature 190 (derivative_1_q05_gZ_hand) =  0.016194
+886. feature 805 (median_aZ_chest(s)) =  0.016194
+887. feature 162 (derivative_1_mean_aY_hand) =  0.016194
+888. feature 823 (q20_aZ_hand(s)) =  0.016194
+889. feature 841 (q80_aZ_chest(s)) =  0.016194
+890. feature 987 (principal_frequency_gZ_hand) =  0.012146
+891. feature 560 (derivative_3_mad_gX_hand) =  0.012146
+892. feature 558 (derivative_3_mad_aY_hand) =  0.012146
+893. feature 544 (derivative_3_std_gZ_chest) =  0.012146
+894. feature 992 (principal_frequency_gY_chest) =  0.012146
+895. feature 939 (smv_hg(s)) =  0.012146
+896. feature 394 (derivative_2_std_gZ_hand) =  0.012146
+897. feature 223 (derivative_1_q95_aZ_hand) =  0.012146
+898. feature 986 (principal_frequency_gY_hand) =  0.012146
+899. feature 308 (derivative_2_mean_gX_hand) =  0.012146
+900. feature 454 (derivative_3_mean_gZ_hand) =  0.012146
+901. feature 604 (derivative_4_mean_gZ_chest) =  0.012146
+902. feature 847 (q95_aZ_hand(s)) =  0.012146
+903. feature 988 (principal_frequency_aX_chest) =  0.008097
+904. feature 415 (derivative_2_mad_aZ_hand) =  0.008097
+905. feature 859 (kurtosis_aZ_hand(s)) =  0.008097
+906. feature 539 (derivative_3_std_aX_chest) =  0.008097
+907. feature 698 (derivative_4_skew_gX_chest) =  0.008097
+908. feature 688 (derivative_4_std_gZ_chest) =  0.008097
+909. feature 565 (derivative_3_mad_aZ_chest) =  0.008097
+910. feature 286 (derivative_1_rms_gZ_hand) =  0.008097
+911. feature 273 (derivative_1_mad_gY_hand) =  0.008097
+912. feature 942 (sma_ha(s)) =  0.004049
+913. feature 938 (smv_ha(s)) =  0.004049
+914. feature 424 (derivative_2_mad_gZ_chest) =  0.004049
+915. feature 292 (derivative_1_rms_gZ_chest) =  0.004049
+916. feature 897 (mad_gY_hand(s)) =  0.004049
+917. feature 993 (principal_frequency_gZ_chest) =  0.004049
+918. feature 985 (principal_frequency_gX_hand) =  0.004049
+919. feature 248 (derivative_1_std_gX_hand) =  0.004049
+920. feature 883 (skew_aZ_hand(s)) =  0.004049
+921. feature 799 (median_aZ_hand(s)) =  0.004049
+922. feature 283 (derivative_1_rms_aZ_hand) =  0.000000
+923. feature 425 (derivative_2_rms_aX_hand) =  0.000000
+924. feature 989 (principal_frequency_aY_chest) =  0.000000
+925. feature 426 (derivative_2_rms_aY_hand) =  0.000000
+926. feature 427 (derivative_2_rms_aZ_hand) =  0.000000
+927. feature 428 (derivative_2_rms_gX_hand) =  0.000000
+928. feature 429 (derivative_2_rms_gY_hand) =  0.000000
+929. feature 957 (spectral_energy_gZ_chest) =  0.000000
+930. feature 956 (spectral_energy_gY_chest) =  0.000000
+931. feature 955 (spectral_energy_gX_chest) =  0.000000
+932. feature 954 (spectral_energy_aZ_chest) =  0.000000
+933. feature 953 (spectral_energy_aY_chest) =  0.000000
+934. feature 724 (derivative_4_rms_gZ_chest) =  0.000000
+935. feature 723 (derivative_4_rms_gY_chest) =  0.000000
+936. feature 718 (derivative_4_rms_gZ_hand) =  0.000000
+937. feature 282 (derivative_1_rms_aY_hand) =  0.000000
+938. feature 719 (derivative_4_rms_aX_chest) =  0.000000
+939. feature 984 (principal_frequency_aZ_hand) =  0.000000
+940. feature 720 (derivative_4_rms_aY_chest) =  0.000000
+941. feature 983 (principal_frequency_aY_hand) =  0.000000
+942. feature 982 (principal_frequency_aX_hand) =  0.000000
+943. feature 722 (derivative_4_rms_gX_chest) =  0.000000
+944. feature 952 (spectral_energy_aX_chest) =  0.000000
+945. feature 288 (derivative_1_rms_aY_chest) =  0.000000
+946. feature 287 (derivative_1_rms_aX_chest) =  0.000000
+947. feature 721 (derivative_4_rms_aZ_chest) =  0.000000
+948. feature 285 (derivative_1_rms_gY_hand) =  0.000000
+949. feature 284 (derivative_1_rms_gX_hand) =  0.000000
+950. feature 717 (derivative_4_rms_gY_hand) =  0.000000
+951. feature 951 (spectral_energy_gZ_hand) =  0.000000
+952. feature 579 (derivative_3_rms_gY_chest) =  0.000000
+953. feature 949 (spectral_energy_gX_hand) =  0.000000
+954. feature 574 (derivative_3_rms_gZ_hand) =  0.000000
+955. feature 916 (rms_gZ_chest(s)) =  0.000000
+956. feature 915 (rms_gY_chest(s)) =  0.000000
+957. feature 914 (rms_gX_chest(s)) =  0.000000
+958. feature 913 (rms_aZ_chest(s)) =  0.000000
+959. feature 912 (rms_aY_chest(s)) =  0.000000
+960. feature 911 (rms_aX_chest(s)) =  0.000000
+961. feature 910 (rms_gZ_hand(s)) =  0.000000
+962. feature 909 (rms_gY_hand(s)) =  0.000000
+963. feature 908 (rms_gX_hand(s)) =  0.000000
+964. feature 907 (rms_aZ_hand(s)) =  0.000000
+965. feature 906 (rms_aY_hand(s)) =  0.000000
+966. feature 905 (rms_aX_hand(s)) =  0.000000
+967. feature 575 (derivative_3_rms_aX_chest) =  0.000000
+968. feature 576 (derivative_3_rms_aY_chest) =  0.000000
+969. feature 577 (derivative_3_rms_aZ_chest) =  0.000000
+970. feature 578 (derivative_3_rms_gX_chest) =  0.000000
+971. feature 573 (derivative_3_rms_gY_hand) =  0.000000
+972. feature 572 (derivative_3_rms_gX_hand) =  0.000000
+973. feature 571 (derivative_3_rms_aZ_hand) =  0.000000
+974. feature 570 (derivative_3_rms_aY_hand) =  0.000000
+975. feature 948 (spectral_energy_aZ_hand) =  0.000000
+976. feature 947 (spectral_energy_aY_hand) =  0.000000
+977. feature 580 (derivative_3_rms_gZ_chest) =  0.000000
+978. feature 945 (sma_cg(s)) =  0.000000
+979. feature 944 (sma_ca(s)) =  0.000000
+980. feature 943 (sma_hg(s)) =  0.000000
+981. feature 430 (derivative_2_rms_gZ_hand) =  0.000000
+982. feature 431 (derivative_2_rms_aX_chest) =  0.000000
+983. feature 950 (spectral_energy_gY_hand) =  0.000000
+984. feature 716 (derivative_4_rms_gX_hand) =  0.000000
+985. feature 433 (derivative_2_rms_aZ_chest) =  0.000000
+986. feature 434 (derivative_2_rms_gX_chest) =  0.000000
+987. feature 435 (derivative_2_rms_gY_chest) =  0.000000
+988. feature 436 (derivative_2_rms_gZ_chest) =  0.000000
+989. feature 715 (derivative_4_rms_aZ_hand) =  0.000000
+990. feature 714 (derivative_4_rms_aY_hand) =  0.000000
+991. feature 713 (derivative_4_rms_aX_hand) =  0.000000
+992. feature 569 (derivative_3_rms_aX_hand) =  0.000000
+993. feature 432 (derivative_2_rms_aY_chest) =  0.000000
+994. feature 946 (spectral_energy_aX_hand) =  0.000000
+Visualising feature importance...
+('going to check for features up to: ', 497)
+-- Checking performance when 1 features are used
+---- Intermediate score: 0.711182020122
+---- Intermediate score: 0.735113872536
+---- Intermediate score: 0.722260067184
+---- Intermediate score: 0.717639260737
+AuC: 0.72 (+/- 0.02)
+Plotting curves
+I upgrade from 0 to 1 features
+because of auc improvement from 0 to 0.721548805145
+-- Checking performance when 6 features are used
+---- Intermediate score: 0.988667818749
+---- Intermediate score: 0.987677275385
+---- Intermediate score: 0.984426444027
+---- Intermediate score: 0.98825661419
+AuC: 0.99 (+/- 0.00)
+I upgrade from 1 to 6 features
+because of auc improvement from 0.721548805145 to 0.987257038088
+-- Checking performance when 11 features are used
+---- Intermediate score: 0.993670910829
+---- Intermediate score: 0.992167667016
+---- Intermediate score: 0.989381937661
+---- Intermediate score: 0.99191187581
+AuC: 0.99 (+/- 0.00)
+I upgrade from 6 to 11 features
+because of auc improvement from 0.987257038088 to 0.991783097829
+-- Checking performance when 16 features are used
+---- Intermediate score: 0.993957139746
+---- Intermediate score: 0.994360614664
+---- Intermediate score: 0.991383832456
+---- Intermediate score: 0.993551744729
+AuC: 0.99 (+/- 0.00)
+I upgrade from 11 to 16 features
+because of auc improvement from 0.991783097829 to 0.993313332899
+-- Checking performance when 21 features are used
+---- Intermediate score: 0.993481610446
+---- Intermediate score: 0.99453952162
+---- Intermediate score: 0.992663113518
+---- Intermediate score: 0.994779733042
+AuC: 0.99 (+/- 0.00)
+I upgrade from 16 to 21 features
+because of auc improvement from 0.993313332899 to 0.993865994657
+-- Checking performance when 26 features are used
+---- Intermediate score: 0.994144641397
+---- Intermediate score: 0.994858596134
+---- Intermediate score: 0.992021840478
+---- Intermediate score: 0.995475812016
+AuC: 0.99 (+/- 0.00)
+I upgrade from 21 to 26 features
+because of auc improvement from 0.993865994657 to 0.994125222506
+-- Checking performance when 31 features are used
+---- Intermediate score: 0.994341374252
+---- Intermediate score: 0.995395345375
+---- Intermediate score: 0.992124008952
+---- Intermediate score: 0.995929426547
+AuC: 0.99 (+/- 0.00)
+I upgrade from 26 to 31 features
+because of auc improvement from 0.994125222506 to 0.994447538782
+-- Checking performance when 36 features are used
+---- Intermediate score: 0.99301927381
+---- Intermediate score: 0.995541378319
+---- Intermediate score: 0.992227415347
+---- Intermediate score: 0.995935652387
+AuC: 0.99 (+/- 0.00)
+-- Checking performance when 41 features are used
+---- Intermediate score: 0.993522883479
+---- Intermediate score: 0.99531154323
+---- Intermediate score: 0.992562969837
+---- Intermediate score: 0.995782161779
+AuC: 0.99 (+/- 0.00)
+-- Checking performance when 46 features are used
+---- Intermediate score: 0.994213994797
+---- Intermediate score: 0.995942151725
+---- Intermediate score: 0.992156673202
+---- Intermediate score: 0.996070124527
+AuC: 0.99 (+/- 0.00)
+I upgrade from 31 to 46 features
+because of auc improvement from 0.994447538782 to 0.994595736063
+-- Checking performance when 51 features are used
+---- Intermediate score: 0.993761084766
+---- Intermediate score: 0.995433156371
+---- Intermediate score: 0.992176949125
+---- Intermediate score: 0.996249059246
+AuC: 0.99 (+/- 0.00)
+-- Checking performance when 56 features are used
+---- Intermediate score: 0.993570273476
+---- Intermediate score: 0.995183051334
+---- Intermediate score: 0.992288201887
+---- Intermediate score: 0.996202889113
+AuC: 0.99 (+/- 0.00)
+-- Checking performance when 61 features are used
+---- Intermediate score: 0.993207227982
+---- Intermediate score: 0.995435001234
+---- Intermediate score: 0.992858851676
+---- Intermediate score: 0.996153266411
+AuC: 0.99 (+/- 0.00)
+-- Checking performance when 66 features are used
+---- Intermediate score: 0.9936498472
+---- Intermediate score: 0.995528540216
+---- Intermediate score: 0.993477693512
+---- Intermediate score: 0.996190489585
+AuC: 0.99 (+/- 0.00)
+I upgrade from 46 to 66 features
+because of auc improvement from 0.994595736063 to 0.994711642628
+-- Checking performance when 71 features are used
+---- Intermediate score: 0.993697271733
+---- Intermediate score: 0.995324660796
+---- Intermediate score: 0.993652846011
+---- Intermediate score: 0.996307716016
+AuC: 0.99 (+/- 0.00)
+I upgrade from 66 to 71 features
+because of auc improvement from 0.994711642628 to 0.994745623639
+-- Checking performance when 76 features are used
+---- Intermediate score: 0.994174508469
+---- Intermediate score: 0.995395458802
+---- Intermediate score: 0.993420443551
+---- Intermediate score: 0.996166142094
+AuC: 0.99 (+/- 0.00)
+I upgrade from 71 to 76 features
+because of auc improvement from 0.994745623639 to 0.994789138229
+-- Checking performance when 81 features are used
+---- Intermediate score: 0.993724963622
+---- Intermediate score: 0.995433980305
+---- Intermediate score: 0.993551651814
+---- Intermediate score: 0.996387396388
+AuC: 0.99 (+/- 0.00)
+-- Checking performance when 86 features are used
+---- Intermediate score: 0.993797757816
+---- Intermediate score: 0.995112753982
+---- Intermediate score: 0.993568147204
+---- Intermediate score: 0.996242177155
+AuC: 0.99 (+/- 0.00)
+-- Checking performance when 91 features are used
+---- Intermediate score: 0.993688108882
+---- Intermediate score: 0.995293287205
+---- Intermediate score: 0.993459599322
+---- Intermediate score: 0.996194812438
+AuC: 0.99 (+/- 0.00)
+-- Checking performance when 96 features are used
+---- Intermediate score: 0.993834427453
+---- Intermediate score: 0.99555878554
+---- Intermediate score: 0.993417304534
+---- Intermediate score: 0.996159812815
+AuC: 0.99 (+/- 0.00)
+-- Checking performance when 101 features are used
+---- Intermediate score: 0.994071265605
+---- Intermediate score: 0.995605472932
+---- Intermediate score: 0.993493095716
+---- Intermediate score: 0.996061235653
+AuC: 0.99 (+/- 0.00)
+Plotting curves
+I upgrade from 76 to 101 features
+because of auc improvement from 0.994789138229 to 0.994807767477
+-- Checking performance when 106 features are used
+---- Intermediate score: 0.994472722001
+---- Intermediate score: 0.995638382852
+---- Intermediate score: 0.993697079518
+---- Intermediate score: 0.996096301678
+AuC: 0.99 (+/- 0.00)
+I upgrade from 101 to 106 features
+because of auc improvement from 0.994807767477 to 0.994976121512
+-- Checking performance when 111 features are used
+---- Intermediate score: 0.994162631839
+---- Intermediate score: 0.995405964699
+---- Intermediate score: 0.993716472312
+---- Intermediate score: 0.996079231218
+AuC: 0.99 (+/- 0.00)
+-- Checking performance when 116 features are used
+---- Intermediate score: 0.994334240626
+---- Intermediate score: 0.995421207854
+---- Intermediate score: 0.9935991693
+---- Intermediate score: 0.995968707127
+AuC: 0.99 (+/- 0.00)
+-- Checking performance when 121 features are used
+---- Intermediate score: 0.994799653252
+---- Intermediate score: 0.995308750029
+---- Intermediate score: 0.993511110628
+---- Intermediate score: 0.996007572879
+AuC: 0.99 (+/- 0.00)
+-- Checking performance when 126 features are used
+---- Intermediate score: 0.994977366111
+---- Intermediate score: 0.995263349523
+---- Intermediate score: 0.993440277935
+---- Intermediate score: 0.995737914195
+AuC: 0.99 (+/- 0.00)
+-- Checking performance when 131 features are used
+---- Intermediate score: 0.994854776634
+---- Intermediate score: 0.995423998668
+---- Intermediate score: 0.993685539457
+---- Intermediate score: 0.995698641144
+AuC: 0.99 (+/- 0.00)
+-- Checking performance when 136 features are used
+---- Intermediate score: 0.994728445846
+---- Intermediate score: 0.995515737573
+---- Intermediate score: 0.993733744403
+---- Intermediate score: 0.995757782397
+AuC: 0.99 (+/- 0.00)
+-- Checking performance when 141 features are used
+---- Intermediate score: 0.994847687948
+---- Intermediate score: 0.995386843564
+---- Intermediate score: 0.993989725952
+---- Intermediate score: 0.995692545875
+AuC: 0.99 (+/- 0.00)
+I upgrade from 106 to 141 features
+because of auc improvement from 0.994976121512 to 0.994979200835
+-- Checking performance when 146 features are used
+---- Intermediate score: 0.994894079092
+---- Intermediate score: 0.995380795938
+---- Intermediate score: 0.994415076945
+---- Intermediate score: 0.996316392447
+AuC: 1.00 (+/- 0.00)
+I upgrade from 141 to 146 features
+because of auc improvement from 0.994979200835 to 0.995251586105
+-- Checking performance when 151 features are used
+---- Intermediate score: 0.995153323377
+---- Intermediate score: 0.995245996237
+---- Intermediate score: 0.994134469194
+---- Intermediate score: 0.996192985332
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 156 features are used
+---- Intermediate score: 0.995199096202
+---- Intermediate score: 0.995298583504
+---- Intermediate score: 0.994265289909
+---- Intermediate score: 0.996205959592
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 161 features are used
+---- Intermediate score: 0.994966102805
+---- Intermediate score: 0.995312734472
+---- Intermediate score: 0.994334148226
+---- Intermediate score: 0.996376782036
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 166 features are used
+---- Intermediate score: 0.994973644567
+---- Intermediate score: 0.995520093518
+---- Intermediate score: 0.994447519848
+---- Intermediate score: 0.996343885682
+AuC: 1.00 (+/- 0.00)
+I upgrade from 146 to 166 features
+because of auc improvement from 0.995251586105 to 0.995321285904
+-- Checking performance when 171 features are used
+---- Intermediate score: 0.99470352102
+---- Intermediate score: 0.995638781855
+---- Intermediate score: 0.994425870462
+---- Intermediate score: 0.996266597265
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 176 features are used
+---- Intermediate score: 0.994699011312
+---- Intermediate score: 0.995701448386
+---- Intermediate score: 0.994320777301
+---- Intermediate score: 0.99635822116
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 181 features are used
+---- Intermediate score: 0.994845996026
+---- Intermediate score: 0.995628070516
+---- Intermediate score: 0.994538191943
+---- Intermediate score: 0.996216295016
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 186 features are used
+---- Intermediate score: 0.995033950273
+---- Intermediate score: 0.995593484712
+---- Intermediate score: 0.994416394713
+---- Intermediate score: 0.996226444722
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 191 features are used
+---- Intermediate score: 0.99488217117
+---- Intermediate score: 0.995588602899
+---- Intermediate score: 0.994507024138
+---- Intermediate score: 0.99636975402
+AuC: 1.00 (+/- 0.00)
+I upgrade from 166 to 191 features
+because of auc improvement from 0.995321285904 to 0.995336888057
+-- Checking performance when 196 features are used
+---- Intermediate score: 0.994994175031
+---- Intermediate score: 0.995471168049
+---- Intermediate score: 0.994602725377
+---- Intermediate score: 0.9963031393
+AuC: 1.00 (+/- 0.00)
+I upgrade from 191 to 196 features
+because of auc improvement from 0.995336888057 to 0.995342801939
+-- Checking performance when 201 features are used
+---- Intermediate score: 0.994804816713
+---- Intermediate score: 0.995433139473
+---- Intermediate score: 0.994550345446
+---- Intermediate score: 0.99634332609
+AuC: 1.00 (+/- 0.00)
+Plotting curves
+-- Checking performance when 206 features are used
+---- Intermediate score: 0.994742560519
+---- Intermediate score: 0.99549596377
+---- Intermediate score: 0.994479258599
+---- Intermediate score: 0.996269266357
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 211 features are used
+---- Intermediate score: 0.994474346569
+---- Intermediate score: 0.995445716596
+---- Intermediate score: 0.99460160068
+---- Intermediate score: 0.996250593828
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 216 features are used
+---- Intermediate score: 0.994484843764
+---- Intermediate score: 0.995561097119
+---- Intermediate score: 0.994486806718
+---- Intermediate score: 0.996198311644
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 221 features are used
+---- Intermediate score: 0.994467603163
+---- Intermediate score: 0.995469788954
+---- Intermediate score: 0.994540338597
+---- Intermediate score: 0.996308683044
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 226 features are used
+---- Intermediate score: 0.994667373205
+---- Intermediate score: 0.995389595366
+---- Intermediate score: 0.994528509294
+---- Intermediate score: 0.996324358693
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 231 features are used
+---- Intermediate score: 0.99462021871
+---- Intermediate score: 0.995656574448
+---- Intermediate score: 0.994438682868
+---- Intermediate score: 0.996345988071
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 236 features are used
+---- Intermediate score: 0.99475665802
+---- Intermediate score: 0.995474562418
+---- Intermediate score: 0.994526200202
+---- Intermediate score: 0.996397985148
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 241 features are used
+---- Intermediate score: 0.994619295714
+---- Intermediate score: 0.99559379116
+---- Intermediate score: 0.994583003014
+---- Intermediate score: 0.996426250551
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 246 features are used
+---- Intermediate score: 0.994852012032
+---- Intermediate score: 0.995545299879
+---- Intermediate score: 0.994450122878
+---- Intermediate score: 0.996432562157
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 251 features are used
+---- Intermediate score: 0.99461910319
+---- Intermediate score: 0.995529038307
+---- Intermediate score: 0.994420669275
+---- Intermediate score: 0.996430285259
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 256 features are used
+---- Intermediate score: 0.994691719687
+---- Intermediate score: 0.995429011472
+---- Intermediate score: 0.994318409154
+---- Intermediate score: 0.99644558883
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 261 features are used
+---- Intermediate score: 0.994609709243
+---- Intermediate score: 0.995598518809
+---- Intermediate score: 0.994395621081
+---- Intermediate score: 0.996405779379
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 266 features are used
+---- Intermediate score: 0.994752933912
+---- Intermediate score: 0.99549862974
+---- Intermediate score: 0.994420050227
+---- Intermediate score: 0.996391176079
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 271 features are used
+---- Intermediate score: 0.994778866577
+---- Intermediate score: 0.99554781117
+---- Intermediate score: 0.994245215195
+---- Intermediate score: 0.996415702075
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 276 features are used
+---- Intermediate score: 0.994562439866
+---- Intermediate score: 0.995382537102
+---- Intermediate score: 0.99434686103
+---- Intermediate score: 0.996379225927
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 281 features are used
+---- Intermediate score: 0.994946003733
+---- Intermediate score: 0.995523650935
+---- Intermediate score: 0.994412686644
+---- Intermediate score: 0.996239102115
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 286 features are used
+---- Intermediate score: 0.994929635788
+---- Intermediate score: 0.995576374173
+---- Intermediate score: 0.994446466583
+---- Intermediate score: 0.996370796983
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 291 features are used
+---- Intermediate score: 0.994692649478
+---- Intermediate score: 0.995630350203
+---- Intermediate score: 0.994535629415
+---- Intermediate score: 0.996306448819
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 296 features are used
+---- Intermediate score: 0.994535150435
+---- Intermediate score: 0.995570092296
+---- Intermediate score: 0.994426396292
+---- Intermediate score: 0.996205835474
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 301 features are used
+---- Intermediate score: 0.994724619923
+---- Intermediate score: 0.995643111436
+---- Intermediate score: 0.994368853144
+---- Intermediate score: 0.99628959606
+AuC: 1.00 (+/- 0.00)
+Plotting curves
+-- Checking performance when 306 features are used
+---- Intermediate score: 0.994943734018
+---- Intermediate score: 0.995630581434
+---- Intermediate score: 0.994269655991
+---- Intermediate score: 0.996173642708
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 311 features are used
+---- Intermediate score: 0.994804394644
+---- Intermediate score: 0.99569660943
+---- Intermediate score: 0.994341182316
+---- Intermediate score: 0.996232995011
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 316 features are used
+---- Intermediate score: 0.994837951019
+---- Intermediate score: 0.995682802388
+---- Intermediate score: 0.994216399984
+---- Intermediate score: 0.99630488763
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 321 features are used
+---- Intermediate score: 0.994896360736
+---- Intermediate score: 0.995751053986
+---- Intermediate score: 0.994235357937
+---- Intermediate score: 0.99633337146
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 326 features are used
+---- Intermediate score: 0.994637857093
+---- Intermediate score: 0.995596344849
+---- Intermediate score: 0.994215291616
+---- Intermediate score: 0.996312948918
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 331 features are used
+---- Intermediate score: 0.994562746109
+---- Intermediate score: 0.995492693015
+---- Intermediate score: 0.994238275808
+---- Intermediate score: 0.9962117684
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 336 features are used
+---- Intermediate score: 0.994736624448
+---- Intermediate score: 0.995576194395
+---- Intermediate score: 0.994151900786
+---- Intermediate score: 0.99618256712
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 341 features are used
+---- Intermediate score: 0.994723665224
+---- Intermediate score: 0.995501165702
+---- Intermediate score: 0.994365148614
+---- Intermediate score: 0.996082585695
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 346 features are used
+---- Intermediate score: 0.994838419954
+---- Intermediate score: 0.995632343396
+---- Intermediate score: 0.994170246892
+---- Intermediate score: 0.996190254956
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 351 features are used
+---- Intermediate score: 0.994462296656
+---- Intermediate score: 0.99560482099
+---- Intermediate score: 0.994310165563
+---- Intermediate score: 0.996170386563
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 356 features are used
+---- Intermediate score: 0.994552300981
+---- Intermediate score: 0.99559258187
+---- Intermediate score: 0.994266912476
+---- Intermediate score: 0.996174279015
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 361 features are used
+---- Intermediate score: 0.9945358158
+---- Intermediate score: 0.995486149532
+---- Intermediate score: 0.994235246279
+---- Intermediate score: 0.996170307529
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 366 features are used
+---- Intermediate score: 0.99452101478
+---- Intermediate score: 0.995469086781
+---- Intermediate score: 0.994258400308
+---- Intermediate score: 0.996183504875
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 371 features are used
+---- Intermediate score: 0.994376019675
+---- Intermediate score: 0.995567524609
+---- Intermediate score: 0.994341627952
+---- Intermediate score: 0.996148779079
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 376 features are used
+---- Intermediate score: 0.994582559757
+---- Intermediate score: 0.995534716144
+---- Intermediate score: 0.994290926667
+---- Intermediate score: 0.996155973738
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 381 features are used
+---- Intermediate score: 0.994567141353
+---- Intermediate score: 0.995500610833
+---- Intermediate score: 0.994298014231
+---- Intermediate score: 0.996143740638
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 386 features are used
+---- Intermediate score: 0.994886121199
+---- Intermediate score: 0.995562391508
+---- Intermediate score: 0.994339806316
+---- Intermediate score: 0.996162305705
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 391 features are used
+---- Intermediate score: 0.994582286756
+---- Intermediate score: 0.99564211258
+---- Intermediate score: 0.994285692505
+---- Intermediate score: 0.996162510553
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 396 features are used
+---- Intermediate score: 0.994544186271
+---- Intermediate score: 0.995621364243
+---- Intermediate score: 0.994280062569
+---- Intermediate score: 0.996223618494
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 401 features are used
+---- Intermediate score: 0.994645831661
+---- Intermediate score: 0.995594758864
+---- Intermediate score: 0.994218235577
+---- Intermediate score: 0.996159882171
+AuC: 1.00 (+/- 0.00)
+Plotting curves
+-- Checking performance when 406 features are used
+---- Intermediate score: 0.994420144446
+---- Intermediate score: 0.995630035812
+---- Intermediate score: 0.994235999916
+---- Intermediate score: 0.996139900064
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 411 features are used
+---- Intermediate score: 0.99469618914
+---- Intermediate score: 0.995605195364
+---- Intermediate score: 0.994202654768
+---- Intermediate score: 0.99610488778
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 416 features are used
+---- Intermediate score: 0.994601845609
+---- Intermediate score: 0.995534666313
+---- Intermediate score: 0.994254400945
+---- Intermediate score: 0.996153874153
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 421 features are used
+---- Intermediate score: 0.994574584544
+---- Intermediate score: 0.995451050395
+---- Intermediate score: 0.994204324246
+---- Intermediate score: 0.99617811148
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 426 features are used
+---- Intermediate score: 0.99453325595
+---- Intermediate score: 0.99561492324
+---- Intermediate score: 0.994229459923
+---- Intermediate score: 0.996231742593
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 431 features are used
+---- Intermediate score: 0.994576396282
+---- Intermediate score: 0.995376164597
+---- Intermediate score: 0.994166484611
+---- Intermediate score: 0.996153514311
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 436 features are used
+---- Intermediate score: 0.99455000431
+---- Intermediate score: 0.995448657058
+---- Intermediate score: 0.994122917292
+---- Intermediate score: 0.996197867975
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 441 features are used
+---- Intermediate score: 0.994516889893
+---- Intermediate score: 0.995498047488
+---- Intermediate score: 0.994123020801
+---- Intermediate score: 0.996148413022
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 446 features are used
+---- Intermediate score: 0.994615810199
+---- Intermediate score: 0.99560621192
+---- Intermediate score: 0.994137497806
+---- Intermediate score: 0.996191850286
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 451 features are used
+---- Intermediate score: 0.994680763898
+---- Intermediate score: 0.995490318299
+---- Intermediate score: 0.994055223531
+---- Intermediate score: 0.996094763094
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 456 features are used
+---- Intermediate score: 0.994744805341
+---- Intermediate score: 0.995514167682
+---- Intermediate score: 0.99401003059
+---- Intermediate score: 0.996057797756
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 461 features are used
+---- Intermediate score: 0.994827934924
+---- Intermediate score: 0.995447677469
+---- Intermediate score: 0.993990261864
+---- Intermediate score: 0.996119695215
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 466 features are used
+---- Intermediate score: 0.994575896561
+---- Intermediate score: 0.995416826302
+---- Intermediate score: 0.993978170558
+---- Intermediate score: 0.996087426867
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 471 features are used
+---- Intermediate score: 0.99440443114
+---- Intermediate score: 0.995299589494
+---- Intermediate score: 0.99399233896
+---- Intermediate score: 0.996219373707
+AuC: 0.99 (+/- 0.00)
+-- Checking performance when 476 features are used
+---- Intermediate score: 0.9943484417
+---- Intermediate score: 0.99542129407
+---- Intermediate score: 0.994060419743
+---- Intermediate score: 0.996116186042
+AuC: 0.99 (+/- 0.00)
+-- Checking performance when 481 features are used
+---- Intermediate score: 0.994399056405
+---- Intermediate score: 0.995458329604
+---- Intermediate score: 0.99405535588
+---- Intermediate score: 0.996088849184
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 486 features are used
+---- Intermediate score: 0.994532372267
+---- Intermediate score: 0.995523929183
+---- Intermediate score: 0.994085559278
+---- Intermediate score: 0.996178878504
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 491 features are used
+---- Intermediate score: 0.99463924738
+---- Intermediate score: 0.99539903517
+---- Intermediate score: 0.994043935777
+---- Intermediate score: 0.996157284968
+AuC: 1.00 (+/- 0.00)
+-- Checking performance when 496 features are used
+---- Intermediate score: 0.994480751389
+---- Intermediate score: 0.995460668858
+---- Intermediate score: 0.994136999029
+---- Intermediate score: 0.99616074989
+AuC: 1.00 (+/- 0.00)
+Best number of features: 196 with auc: 0.995342801939

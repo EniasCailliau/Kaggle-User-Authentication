@@ -107,21 +107,17 @@ class Trainer:
             scores.append(score)
         return np.array(scores)
 
-    def evaluate(self, estimator, train_data, train_labels, train_sessions):
-        # print("--------evaluation--------")
-        # X_train, X_test, y_train, y_test = train_test_split(train_data, train_labels, test_size=0.25)
-        # estimator.fit(X_train, y_train)
-        #
-        # print(
-        #     "For my random training set I have following auc_roc score: :{}".format(
-        #         scorer.auc_evaluator(estimator, X_test, y_test)))
-
-        auc_values = self.__cross_validate(estimator, train_data, train_labels, train_sessions, scorer.auc_evaluator)
-        print("AuC: %0.4f (+/- %0.4f)" % (auc_values.mean(), auc_values.std() * 2))
-        acc_values = self.__cross_validate(estimator, train_data, train_labels, train_sessions,
+    def evaluate(self, estimator, train_data, train_labels, train_sessions, accuracy=False):
+        if accuracy:
+            values = self.__cross_validate(estimator, train_data, train_labels, train_sessions,
                                            scorer.accuracy_evaluator)
-        print("Accuracy: %0.2f (+/- %0.2f)" % (acc_values.mean(), acc_values.std() * 2))
-        return [auc_values.mean(), auc_values.std(), acc_values.mean(), acc_values.std()]
+            print("Accuracy: %0.2f (+/- %0.2f)" % (values.mean(), values.std() * 2))
+        else:
+            values = self.__cross_validate(estimator, train_data, train_labels, train_sessions, scorer.auc_evaluator)
+            print("AuC: %0.2f (+/- %0.2f)" % (values.mean(), values.std() * 2))
+
+        return [values.mean(), values.std()]
+
 
     def __rebalance_data(self, X, y):
         if self.rebalancer:
