@@ -1,0 +1,7 @@
+Äcmodels.activity_prediction.gaussianNB
+Gaussian
+q)Åq}q(UpriorsqNU
+input_argsq}q(hNhhuU	estimatorqcsklearn.naive_bayes
+GaussianNB
+q)Åq	}q
+(hNU_sklearn_versionqU0.19.0qubub.
