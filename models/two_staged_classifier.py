@@ -1,14 +1,8 @@
 import numpy as np
+import xgboost as xgb
 from sklearn.base import BaseEstimator
 
-<<<<<<< HEAD
-from models.activity_prediction import xgboost_activity
 from models.subject_prediction import random_forest
-=======
-from models import random_forest
-from models.activity_prediction import random_forest_activity, xgboost_activity
-import xgboost as xgb
->>>>>>> a6f418c325e5e70d41ab1e6b367b1ca479f34e72
 
 ALL_ACTIVITIES = np.asarray([1, 2, 3, 4, 5, 6, 7, 12, 13, 16, 17, 24])
 

@@ -134,12 +134,14 @@ def main():
     train_subject_labels = train_subject_labels[index].reset_index(drop=True)
     train_activity_labels = train_activity_labels.reset_index(drop=True)
 
+
     print_stats(test_features, train_activity_labels, train_features, train_sessions, train_subject_labels)
 
     """
         Initialize semi optimized estimator
     """
     estimator = xgboost.XGBClassifier(n_estimators=250, max_depth=10)
+
 
     print("Fitting estimator...")
     estimator.fit(train_features, train_subject_labels)
