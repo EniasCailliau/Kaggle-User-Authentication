@@ -15,7 +15,7 @@ def create_flat_intervals_structure():
         print("session: {}".format(session_id))
         interval_id = 0
         for interval in session.intervals:
-            training_data_entry = [str(session_id) + "_" + str(interval_id), interval.session.subject,
+            training_data_entry = [session_id, interval.session.subject,
                                    interval.session.activity,
                                    pd.DataFrame(interval.data)]
             interval_id += 1

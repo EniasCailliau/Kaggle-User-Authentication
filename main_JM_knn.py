@@ -1,10 +1,9 @@
-import trainer
 import os
-from models import nearest_neighbours
-from model_evaluation import scorer, visualiser
-from feature_reduction import feature_reducer
-from utils import pandaman
 
+import trainer
+from model_evaluation import scorer
+from models.subject_prediction import nearest_neighbours
+from utils import pandaman
 
 if __name__ == "__main__":
     options = ["nearest_neighbours", "test"]

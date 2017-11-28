@@ -1,14 +1,12 @@
-import trainer as t
-from feature_reduction import feature_reducer as reducer
-from feature_reduction.feature_reducer import Scorer
-from model_evaluation import visualiser, scorer
-from models.activity_prediction import xgboost_activity, random_forest_activity
-from utils import pandaman, handyman
-import matplotlib.pyplot as plt
 import os
-import xgboost as xgb
-from models import random_forest
+
 import numpy as np
+
+import trainer as t
+from model_evaluation import visualiser
+from models.subject_prediction import random_forest
+from utils import pandaman
+
 
 def print_stats(test_features, train_activity_labels, train_features, train_session_id, train_subject_labels):
     pandaman.print_stats(train_features=train_features, train_activity_labels=train_activity_labels,
@@ -23,14 +21,13 @@ def plot_curves(estimator, results_location, train_labels, train_features, train
 
 
 def evaluate(estimator, train_activity_labels, train_features, train_session_id, trainer):
-    auc_mean, auc_std, acc_mean, acc_std = trainer.evaluate(estimator, train_features, train_activity_labels,
+    auc_mean, auc_std = trainer.evaluate(estimator, train_features, train_activity_labels,
                                                             train_session_id)
-
-    print("AuC: {} \t Acc:{}".format(auc_mean, acc_mean))
-    return [auc_mean, auc_std, acc_mean, acc_std]
+    acc_mean, acc_std = trainer.evaluate(estimator, train_features, train_activity_labels,
+                                                            train_session_id, accuracy=True)
 
 def main():
-    options = ["JVH", "submission_test", "random_forest", "lda_20", "untuned"]
+    options = ["JVH", "submission_test", "random_forest", "unreduced_with_bins", "untuned"]
     results_location = os.path.join("Results", '/'.join(options) + "/")
     # init trainer
     trainer = t.Trainer("")
@@ -39,10 +36,10 @@ def main():
 
     # load data from feature file
     train_features, train_activity_labels, train_subject_labels, train_session_id, test_features = trainer.load_data(
-        os.path.join("feature_extraction", '_data_sets/unreduced_transformed.pkl'), final=False)
+        os.path.join("feature_extraction", '_data_sets/unreduced_with_bins.pkl'), final=False)
     print(train_features.shape)
     print np.unique(np.array(train_subject_labels.values))
-    print np.unique(np.array(train_activity_labels.values))
+    print np.unique(np.array(train_session_id.values))
 
     # reduce features
     # train_features = pd.DataFrame(reducer.transform(train_features))
@@ -56,9 +53,9 @@ def main():
     # trainer.save_estimator(estimator, results_location)
 
     # Create a submission
-    auc_mean, auc_std, acc_mean, acc_std = evaluate(estimator, train_subject_labels, train_features,
-                                                    train_session_id,
-                                                    trainer)
+    # auc_mean, auc_std, acc_mean, acc_std = evaluate(estimator, train_subject_labels, train_features, train_session_id, trainer)
+    estimator.fit(train_features, train_subject_labels)
+    trainer.prepare_submission(estimator, test_features, options)
 
 
 if __name__ == '__main__':

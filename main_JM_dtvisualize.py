@@ -1,11 +1,8 @@
-import trainer
 import os
-from models import decision_trees
-from model_evaluation import scorer, visualiser
-from feature_reduction import feature_reducer
-from utils import pandaman
 
 from sklearn import tree
+
+import trainer
 
 if __name__ == "__main__":
     trainer = trainer.Trainer()

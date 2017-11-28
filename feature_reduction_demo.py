@@ -2,7 +2,7 @@ import os
 
 import trainer
 from feature_reduction import feature_reducer
-from models import logistic_regression
+from models.subject_prediction import logistic_regression
 from utils import pandaman, handyman
 
 trainer = trainer.Trainer()
