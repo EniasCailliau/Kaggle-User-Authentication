@@ -5,6 +5,7 @@ import feature_preprocessor as preprocessor
 from feature_extraction import data_loader
 from utils import handyman as utils
 
+PERCENTILES = [10,30,70,90]
 
 def generate_column_names():
     feature_names = []
@@ -64,6 +65,13 @@ def generate_column_names():
             for type in ["aX", "aY", "aZ", "gX", "gY", "gZ"]:
                 feature_names.append(metric + "_" + type + "_" + placement)
 
+    # BINS (feature name contains upper limit only)
+    for placement in ["hand", "chest"]:
+        for type in ["aX", "aY", "aZ", "gX", "gY", "gZ"]:
+            feature_names.append("bin_0_" + type + "_" + placement + "(t)")
+            for pct in PERCENTILES:
+                feature_names.append("bin_" + str(pct) + "_" + type + "_" + placement + "(t)")
+
     return feature_names
 
 
@@ -79,9 +87,9 @@ def __create_data_set(noise_reducer_method="None", coordinate_transform_method="
     preprocessor.reduce_noise(train_flat, noise_reducer_method)
     preprocessor.coordinate_transform(train_flat, coordinate_transform_method)
 
-    percentiles = preprocessor.getPercentiles(train_flat, [10,30,70,90])
+    percentiles = preprocessor.getPercentiles(train_flat["interval_data"], PERCENTILES)
 
-    train_features = generate_features(train_flat["interval_data"])
+    train_features = generate_features(train_flat["interval_data"], percentiles)
     train_activity_labels = train_flat["activity"]
     train_subject_labels = train_flat["subject"]
     train_session_id = train_flat["session_id"]
@@ -91,10 +99,12 @@ def __create_data_set(noise_reducer_method="None", coordinate_transform_method="
     return [train_features, train_activity_labels, train_subject_labels, train_session_id, test_features]
 
 
-def generate_features(data):
+def generate_features(data, percentiles):
     print("STATUS: Deriving features from intervals")
     intervals = []
     feature_names = generate_column_names()
+
+
 
     for index, interval in data.iteritems():
         print("Processing... {}".format(index))
@@ -107,6 +117,8 @@ def generate_features(data):
         interval_entry_new_features.extend(calculator.calculate_pitch_roll_stats(interval))
 
         interval_entry_new_features.extend(calculator.calculate_fft_stats(interval))
+
+        interval_entry_new_features.extend(calculator.calculate_time_bins(interval, percentiles))
 
         if pd.isnull(interval_entry_new_features).any():
             print("!!! problem: there are NaN in the feature space !!!")
