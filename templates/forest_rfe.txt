@@ -1,0 +1,744 @@
+
+stdout
+Trainer initialised with NO rebalance method
+Trainer does NOT rebalance _data
+Shape of train_subject_labels : (8895,)
+Shape of test_features : (3369, 994)
+Shape of train_activity_labels : (8895,)
+Shape of train_features : (8895, 994)
+Shape of train_session_id : (8895,)
+Fitting estimator with 994 features.
+Fitting estimator with 993 features.
+Fitting estimator with 992 features.
+Fitting estimator with 991 features.
+Fitting estimator with 990 features.
+Fitting estimator with 989 features.
+Fitting estimator with 988 features.
+Fitting estimator with 987 features.
+Fitting estimator with 986 features.
+Saving RFE...
+RFE produced the following ranking: 
+[ 1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  6  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  2  1  1  4  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  8  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  7  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+  1  1  1  1  1  1  1  5 10  3  1  1  1  1  9  1  1  1  1]
+Visualising RFE feature importance...
+('going to check for features up to: ', 497)
+-- Checking performance when 1 features are used
+---- Intermediate score: 0.781494694655
+---- Intermediate score: 0.788707538272
+---- Intermediate score: 0.802136141339
+---- Intermediate score: 0.785149368493
+AuC: 0.79 (+/- 0.02)
+Plotting curves
+I upgrade from 0 to 1 features
+because of auc improvement from 0 to 0.78937193569
+-- Checking performance when 6 features are used
+---- Intermediate score: 0.93789539657
+---- Intermediate score: 0.946115743482
+---- Intermediate score: 0.948461259526
+---- Intermediate score: 0.951862017825
+AuC: 0.95 (+/- 0.01)
+I upgrade from 1 to 6 features
+because of auc improvement from 0.78937193569 to 0.946083604351
+-- Checking performance when 11 features are used
+---- Intermediate score: 0.951380113495
+---- Intermediate score: 0.966679548997
+---- Intermediate score: 0.967794485092
+---- Intermediate score: 0.968804839258
+AuC: 0.96 (+/- 0.01)
+I upgrade from 6 to 11 features
+because of auc improvement from 0.946083604351 to 0.963664746711
+-- Checking performance when 16 features are used
+---- Intermediate score: 0.960312170925
+---- Intermediate score: 0.971692519057
+---- Intermediate score: 0.968987625295
+---- Intermediate score: 0.971087475183
+AuC: 0.97 (+/- 0.01)
+I upgrade from 11 to 16 features
+because of auc improvement from 0.963664746711 to 0.968019947615
+-- Checking performance when 21 features are used
+---- Intermediate score: 0.956079950348
+---- Intermediate score: 0.969302978356
+---- Intermediate score: 0.969015813353
+---- Intermediate score: 0.970517651807
+AuC: 0.97 (+/- 0.01)
+-- Checking performance when 26 features are used
+---- Intermediate score: 0.955600730509
+---- Intermediate score: 0.972260486908
+---- Intermediate score: 0.969546349972
+---- Intermediate score: 0.972726707677
+AuC: 0.97 (+/- 0.01)
+-- Checking performance when 31 features are used
+---- Intermediate score: 0.955720646941
+---- Intermediate score: 0.971884178933
+---- Intermediate score: 0.96829588279
+---- Intermediate score: 0.971968093674
+AuC: 0.97 (+/- 0.01)
+-- Checking performance when 36 features are used
+---- Intermediate score: 0.955862480442
+---- Intermediate score: 0.971204456201
+---- Intermediate score: 0.96885584329
+---- Intermediate score: 0.971768681583
+AuC: 0.97 (+/- 0.01)
+-- Checking performance when 41 features are used
+---- Intermediate score: 0.954782981392
+---- Intermediate score: 0.972336949065
+---- Intermediate score: 0.968581589804
+---- Intermediate score: 0.971965555435
+AuC: 0.97 (+/- 0.01)
+-- Checking performance when 46 features are used
+---- Intermediate score: 0.955080367965
+---- Intermediate score: 0.971842370792
+---- Intermediate score: 0.968040217924
+---- Intermediate score: 0.972086067655
+AuC: 0.97 (+/- 0.01)
+-- Checking performance when 51 features are used
+---- Intermediate score: 0.956859833312
+---- Intermediate score: 0.971960122147
+---- Intermediate score: 0.967916951198
+---- Intermediate score: 0.972030318529
+AuC: 0.97 (+/- 0.01)
+-- Checking performance when 56 features are used
+---- Intermediate score: 0.955537538858
+---- Intermediate score: 0.971912140363
+---- Intermediate score: 0.967727996799
+---- Intermediate score: 0.97183732346
+AuC: 0.97 (+/- 0.01)
+-- Checking performance when 61 features are used
+---- Intermediate score: 0.95640601833
+---- Intermediate score: 0.972001533323
+---- Intermediate score: 0.96742239106
+---- Intermediate score: 0.971435240878
+AuC: 0.97 (+/- 0.01)
+-- Checking performance when 66 features are used
+---- Intermediate score: 0.956423419184
+---- Intermediate score: 0.969940868457
+---- Intermediate score: 0.967530017863
+---- Intermediate score: 0.971290609479
+AuC: 0.97 (+/- 0.01)
+-- Checking performance when 71 features are used
+---- Intermediate score: 0.955587847593
+---- Intermediate score: 0.970638701951
+---- Intermediate score: 0.967665869808
+---- Intermediate score: 0.972108583982
+AuC: 0.97 (+/- 0.01)
+-- Checking performance when 76 features are used
+---- Intermediate score: 0.955721103466
+---- Intermediate score: 0.97052509544
+---- Intermediate score: 0.967169713802
+---- Intermediate score: 0.971722748178
+AuC: 0.97 (+/- 0.01)
+-- Checking performance when 81 features are used
+---- Intermediate score: 0.955896946697
+---- Intermediate score: 0.971423981637
+---- Intermediate score: 0.966991825918
+---- Intermediate score: 0.971257078288
+AuC: 0.97 (+/- 0.01)
+-- Checking performance when 86 features are used
+---- Intermediate score: 0.954654469787
+---- Intermediate score: 0.970067165954
+---- Intermediate score: 0.966161889136
+---- Intermediate score: 0.972108152169
+AuC: 0.97 (+/- 0.01)
+-- Checking performance when 91 features are used
+---- Intermediate score: 0.961280317041
+---- Intermediate score: 0.974802994987
+---- Intermediate score: 0.974849816065
+---- Intermediate score: 0.976398739803
+AuC: 0.97 (+/- 0.01)
+I upgrade from 16 to 91 features
+because of auc improvement from 0.968019947615 to 0.971832966974
+-- Checking performance when 96 features are used
+---- Intermediate score: 0.960427810923
+---- Intermediate score: 0.975048842474
+---- Intermediate score: 0.974897340904
+---- Intermediate score: 0.976601298163
+AuC: 0.97 (+/- 0.01)
+-- Checking performance when 101 features are used
+---- Intermediate score: 0.960752583474
+---- Intermediate score: 0.97548980452
+---- Intermediate score: 0.975060776231
+---- Intermediate score: 0.976758455621
+AuC: 0.97 (+/- 0.01)
+Plotting curves
+I upgrade from 91 to 101 features
+because of auc improvement from 0.971832966974 to 0.972015404961
+-- Checking performance when 106 features are used
+---- Intermediate score: 0.959820466547
+---- Intermediate score: 0.976086387034
+---- Intermediate score: 0.974717431357
+---- Intermediate score: 0.977004258349
+AuC: 0.97 (+/- 0.01)
+-- Checking performance when 111 features are used
+---- Intermediate score: 0.960308666078
+---- Intermediate score: 0.975588388307
+---- Intermediate score: 0.974665499198
+---- Intermediate score: 0.976899136762
+AuC: 0.97 (+/- 0.01)
+-- Checking performance when 116 features are used
+---- Intermediate score: 0.963444413507
+---- Intermediate score: 0.974895943407
+---- Intermediate score: 0.9740384092
+---- Intermediate score: 0.976833495886
+AuC: 0.97 (+/- 0.01)
+I upgrade from 101 to 116 features
+because of auc improvement from 0.972015404961 to 0.9723030655
+-- Checking performance when 121 features are used
+---- Intermediate score: 0.961226003812
+---- Intermediate score: 0.975101177337
+---- Intermediate score: 0.974637357564
+---- Intermediate score: 0.976754887078
+AuC: 0.97 (+/- 0.01)
+-- Checking performance when 126 features are used
+---- Intermediate score: 0.960042581981
+---- Intermediate score: 0.97567608044
+---- Intermediate score: 0.974455141411
+---- Intermediate score: 0.977067686574
+AuC: 0.97 (+/- 0.01)
+-- Checking performance when 131 features are used
+---- Intermediate score: 0.960302697601
+---- Intermediate score: 0.975168146933
+---- Intermediate score: 0.974230821664
+---- Intermediate score: 0.976685884453
+AuC: 0.97 (+/- 0.01)
+-- Checking performance when 136 features are used
+---- Intermediate score: 0.960714523977
+---- Intermediate score: 0.975335842818
+---- Intermediate score: 0.974136366856
+---- Intermediate score: 0.97689134291
+AuC: 0.97 (+/- 0.01)
+-- Checking performance when 141 features are used
+---- Intermediate score: 0.96263420093
+---- Intermediate score: 0.975710538225
+---- Intermediate score: 0.974427105889
+---- Intermediate score: 0.976695165264
+AuC: 0.97 (+/- 0.01)
+I upgrade from 116 to 141 features
+because of auc improvement from 0.9723030655 to 0.972366752577
+-- Checking performance when 146 features are used
+---- Intermediate score: 0.961597372636
+---- Intermediate score: 0.975686283007
+---- Intermediate score: 0.974909454418
+---- Intermediate score: 0.977417956838
+AuC: 0.97 (+/- 0.01)
+I upgrade from 141 to 146 features
+because of auc improvement from 0.972366752577 to 0.972402766725
+-- Checking performance when 151 features are used
+---- Intermediate score: 0.962101148411
+---- Intermediate score: 0.976814146183
+---- Intermediate score: 0.974872578578
+---- Intermediate score: 0.977130815546
+AuC: 0.97 (+/- 0.01)
+I upgrade from 146 to 151 features
+because of auc improvement from 0.972402766725 to 0.972729672179
+-- Checking performance when 156 features are used
+---- Intermediate score: 0.961264438521
+---- Intermediate score: 0.976993650141
+---- Intermediate score: 0.975004307307
+---- Intermediate score: 0.97763240977
+AuC: 0.97 (+/- 0.01)
+-- Checking performance when 161 features are used
+---- Intermediate score: 0.961350424711
+---- Intermediate score: 0.976006166934
+---- Intermediate score: 0.975754267975
+---- Intermediate score: 0.977910955184
+AuC: 0.97 (+/- 0.01)
+I upgrade from 151 to 161 features
+because of auc improvement from 0.972729672179 to 0.972755453701
+-- Checking performance when 166 features are used
+---- Intermediate score: 0.961071732307
+---- Intermediate score: 0.97707069131
+---- Intermediate score: 0.975014889367
+---- Intermediate score: 0.977569329684
+AuC: 0.97 (+/- 0.01)
+-- Checking performance when 171 features are used
+---- Intermediate score: 0.961071316176
+---- Intermediate score: 0.977398642579
+---- Intermediate score: 0.975823905138
+---- Intermediate score: 0.97800981703
+AuC: 0.97 (+/- 0.01)
+I upgrade from 161 to 171 features
+because of auc improvement from 0.972755453701 to 0.973075920231
+-- Checking performance when 176 features are used
+---- Intermediate score: 0.96288067829
+---- Intermediate score: 0.977122365567
+---- Intermediate score: 0.975224477586
+---- Intermediate score: 0.977736283152
+AuC: 0.97 (+/- 0.01)
+I upgrade from 171 to 176 features
+because of auc improvement from 0.973075920231 to 0.973240951149
+-- Checking performance when 181 features are used
+---- Intermediate score: 0.960816436206
+---- Intermediate score: 0.977046594625
+---- Intermediate score: 0.975972563673
+---- Intermediate score: 0.978136305567
+AuC: 0.97 (+/- 0.01)
+-- Checking performance when 186 features are used
+---- Intermediate score: 0.960921835101
+---- Intermediate score: 0.97764684306
+---- Intermediate score: 0.976366707728
+---- Intermediate score: 0.97847505136
+AuC: 0.97 (+/- 0.01)
+I upgrade from 176 to 186 features
+because of auc improvement from 0.973240951149 to 0.973352609312
+-- Checking performance when 191 features are used
+---- Intermediate score: 0.961499670487
+---- Intermediate score: 0.977923156099
+---- Intermediate score: 0.97565080635
+---- Intermediate score: 0.978386812135
+AuC: 0.97 (+/- 0.01)
+I upgrade from 186 to 191 features
+because of auc improvement from 0.973352609312 to 0.973365111268
+-- Checking performance when 196 features are used
+---- Intermediate score: 0.962576943482
+---- Intermediate score: 0.977361481318
+---- Intermediate score: 0.976513733123
+---- Intermediate score: 0.978421688027
+AuC: 0.97 (+/- 0.01)
+I upgrade from 191 to 196 features
+because of auc improvement from 0.973365111268 to 0.973718461487
+-- Checking performance when 201 features are used
+---- Intermediate score: 0.961877891563
+---- Intermediate score: 0.977286552359
+---- Intermediate score: 0.976218416708
+---- Intermediate score: 0.978375761232
+AuC: 0.97 (+/- 0.01)
+Plotting curves
+-- Checking performance when 206 features are used
+---- Intermediate score: 0.961579727781
+---- Intermediate score: 0.978033546616
+---- Intermediate score: 0.975733777751
+---- Intermediate score: 0.978285099597
+AuC: 0.97 (+/- 0.01)
+-- Checking performance when 211 features are used
+---- Intermediate score: 0.962208307916
+---- Intermediate score: 0.977951480948
+---- Intermediate score: 0.975967680002
+---- Intermediate score: 0.977829909464
+AuC: 0.97 (+/- 0.01)
+-- Checking performance when 216 features are used
+---- Intermediate score: 0.962897197326
+---- Intermediate score: 0.976660207792
+---- Intermediate score: 0.976035555908
+---- Intermediate score: 0.977920263847
+AuC: 0.97 (+/- 0.01)
+-- Checking performance when 221 features are used
+---- Intermediate score: 0.961155444021
+---- Intermediate score: 0.976441414413
+---- Intermediate score: 0.975438283479
+---- Intermediate score: 0.977942197784
+AuC: 0.97 (+/- 0.01)
+-- Checking performance when 226 features are used
+---- Intermediate score: 0.963070789848
+---- Intermediate score: 0.977508948599
+---- Intermediate score: 0.976314595461
+---- Intermediate score: 0.978248945463
+AuC: 0.97 (+/- 0.01)
+I upgrade from 196 to 226 features
+because of auc improvement from 0.973718461487 to 0.973785819843
+-- Checking performance when 231 features are used
+---- Intermediate score: 0.961987322751
+---- Intermediate score: 0.977903892241
+---- Intermediate score: 0.975781687194
+---- Intermediate score: 0.978437176941
+AuC: 0.97 (+/- 0.01)
+-- Checking performance when 236 features are used
+---- Intermediate score: 0.961555314737
+---- Intermediate score: 0.978015940281
+---- Intermediate score: 0.976668013927
+---- Intermediate score: 0.978731425003
+AuC: 0.97 (+/- 0.01)
+-- Checking performance when 241 features are used
+---- Intermediate score: 0.962426441586
+---- Intermediate score: 0.978531644301
+---- Intermediate score: 0.975873394964
+---- Intermediate score: 0.978346766883
+AuC: 0.97 (+/- 0.01)
+I upgrade from 226 to 241 features
+because of auc improvement from 0.973785819843 to 0.973794561933
+-- Checking performance when 246 features are used
+---- Intermediate score: 0.96109256435
+---- Intermediate score: 0.97699213558
+---- Intermediate score: 0.976437302152
+---- Intermediate score: 0.978426007278
+AuC: 0.97 (+/- 0.01)
+-- Checking performance when 251 features are used
+---- Intermediate score: 0.967978088201
+---- Intermediate score: 0.983348922035
+---- Intermediate score: 0.982865843688
+---- Intermediate score: 0.983265062202
+AuC: 0.98 (+/- 0.01)
+I upgrade from 241 to 251 features
+because of auc improvement from 0.973794561933 to 0.979364479031
+-- Checking performance when 256 features are used
+---- Intermediate score: 0.969317993127
+---- Intermediate score: 0.983957876054
+---- Intermediate score: 0.984457236665
+---- Intermediate score: 0.98601829559
+AuC: 0.98 (+/- 0.01)
+I upgrade from 251 to 256 features
+because of auc improvement from 0.979364479031 to 0.980937850359
+-- Checking performance when 261 features are used
+---- Intermediate score: 0.97079278017
+---- Intermediate score: 0.985781605511
+---- Intermediate score: 0.985014757651
+---- Intermediate score: 0.986858185021
+AuC: 0.98 (+/- 0.01)
+I upgrade from 256 to 261 features
+because of auc improvement from 0.980937850359 to 0.982111832088
+-- Checking performance when 266 features are used
+---- Intermediate score: 0.971184742406
+---- Intermediate score: 0.986782626767
+---- Intermediate score: 0.98650727072
+---- Intermediate score: 0.987752157429
+AuC: 0.98 (+/- 0.01)
+I upgrade from 261 to 266 features
+because of auc improvement from 0.982111832088 to 0.98305669933
+-- Checking performance when 271 features are used
+---- Intermediate score: 0.974133423172
+---- Intermediate score: 0.987311870911
+---- Intermediate score: 0.986411131224
+---- Intermediate score: 0.988476255406
+AuC: 0.98 (+/- 0.01)
+I upgrade from 266 to 271 features
+because of auc improvement from 0.98305669933 to 0.984083170178
+-- Checking performance when 276 features are used
+---- Intermediate score: 0.971529832215
+---- Intermediate score: 0.987526417407
+---- Intermediate score: 0.987046796791
+---- Intermediate score: 0.988581780043
+AuC: 0.98 (+/- 0.01)
+-- Checking performance when 281 features are used
+---- Intermediate score: 0.974521767875
+---- Intermediate score: 0.98741451042
+---- Intermediate score: 0.986834558595
+---- Intermediate score: 0.989006369542
+AuC: 0.98 (+/- 0.01)
+I upgrade from 271 to 281 features
+because of auc improvement from 0.984083170178 to 0.984444301608
+-- Checking performance when 286 features are used
+---- Intermediate score: 0.973090160464
+---- Intermediate score: 0.986899844476
+---- Intermediate score: 0.987555806218
+---- Intermediate score: 0.989108401922
+AuC: 0.98 (+/- 0.01)
+-- Checking performance when 291 features are used
+---- Intermediate score: 0.973712487893
+---- Intermediate score: 0.987562661079
+---- Intermediate score: 0.988001341783
+---- Intermediate score: 0.989284869373
+AuC: 0.98 (+/- 0.01)
+I upgrade from 281 to 291 features
+because of auc improvement from 0.984444301608 to 0.984640340032
+-- Checking performance when 296 features are used
+---- Intermediate score: 0.972772816089
+---- Intermediate score: 0.988877343151
+---- Intermediate score: 0.987708736512
+---- Intermediate score: 0.98967247976
+AuC: 0.98 (+/- 0.01)
+I upgrade from 291 to 296 features
+because of auc improvement from 0.984640340032 to 0.984757843878
+-- Checking performance when 301 features are used
+---- Intermediate score: 0.973374819921
+---- Intermediate score: 0.988051449925
+---- Intermediate score: 0.988132135313
+---- Intermediate score: 0.989621437963
+AuC: 0.98 (+/- 0.01)
+Plotting curves
+I upgrade from 296 to 301 features
+because of auc improvement from 0.984757843878 to 0.98479496078
+-- Checking performance when 306 features are used
+---- Intermediate score: 0.974032291623
+---- Intermediate score: 0.987489208446
+---- Intermediate score: 0.988275528884
+---- Intermediate score: 0.989850051283
+AuC: 0.98 (+/- 0.01)
+I upgrade from 301 to 306 features
+because of auc improvement from 0.98479496078 to 0.984911770059
+-- Checking performance when 311 features are used
+---- Intermediate score: 0.974091993948
+---- Intermediate score: 0.987501865786
+---- Intermediate score: 0.988609468348
+---- Intermediate score: 0.990490051885
+AuC: 0.99 (+/- 0.01)
+I upgrade from 306 to 311 features
+because of auc improvement from 0.984911770059 to 0.985173344992
+-- Checking performance when 316 features are used
+---- Intermediate score: 0.975027630522
+---- Intermediate score: 0.988094038749
+---- Intermediate score: 0.988178179199
+---- Intermediate score: 0.989997466836
+AuC: 0.99 (+/- 0.01)
+I upgrade from 311 to 316 features
+because of auc improvement from 0.985173344992 to 0.985324328827
+-- Checking performance when 321 features are used
+---- Intermediate score: 0.972518313455
+---- Intermediate score: 0.987666258386
+---- Intermediate score: 0.988166116387
+---- Intermediate score: 0.990214148324
+AuC: 0.98 (+/- 0.01)
+-- Checking performance when 326 features are used
+---- Intermediate score: 0.973757406385
+---- Intermediate score: 0.987997459153
+---- Intermediate score: 0.988624997792
+---- Intermediate score: 0.990221392107
+AuC: 0.99 (+/- 0.01)
+-- Checking performance when 331 features are used
+---- Intermediate score: 0.973956606248
+---- Intermediate score: 0.986912799322
+---- Intermediate score: 0.988549625322
+---- Intermediate score: 0.990289093753
+AuC: 0.98 (+/- 0.01)
+-- Checking performance when 336 features are used
+---- Intermediate score: 0.975730424866
+---- Intermediate score: 0.987870904946
+---- Intermediate score: 0.988354478902
+---- Intermediate score: 0.99039420782
+AuC: 0.99 (+/- 0.01)
+I upgrade from 316 to 336 features
+because of auc improvement from 0.985324328827 to 0.985587504134
+-- Checking performance when 341 features are used
+---- Intermediate score: 0.973572376669
+---- Intermediate score: 0.987584608114
+---- Intermediate score: 0.988085566964
+---- Intermediate score: 0.99047111023
+AuC: 0.98 (+/- 0.01)
+-- Checking performance when 346 features are used
+---- Intermediate score: 0.975747190416
+---- Intermediate score: 0.987804335818
+---- Intermediate score: 0.988175448772
+---- Intermediate score: 0.99070849642
+AuC: 0.99 (+/- 0.01)
+I upgrade from 336 to 346 features
+because of auc improvement from 0.985587504134 to 0.985608867857
+-- Checking performance when 351 features are used
+---- Intermediate score: 0.976231059439
+---- Intermediate score: 0.987957973394
+---- Intermediate score: 0.9884403581
+---- Intermediate score: 0.990400616407
+AuC: 0.99 (+/- 0.01)
+I upgrade from 346 to 351 features
+because of auc improvement from 0.985608867857 to 0.985757501835
+-- Checking performance when 356 features are used
+---- Intermediate score: 0.97719756266
+---- Intermediate score: 0.989207451323
+---- Intermediate score: 0.98876038017
+---- Intermediate score: 0.990608019214
+AuC: 0.99 (+/- 0.01)
+I upgrade from 351 to 356 features
+because of auc improvement from 0.985757501835 to 0.986443353342
+-- Checking performance when 361 features are used
+---- Intermediate score: 0.97285128859
+---- Intermediate score: 0.988498543276
+---- Intermediate score: 0.988722796427
+---- Intermediate score: 0.990841747546
+AuC: 0.99 (+/- 0.01)
+-- Checking performance when 366 features are used
+---- Intermediate score: 0.975943252085
+---- Intermediate score: 0.988695186681
+---- Intermediate score: 0.988981604863
+---- Intermediate score: 0.991286265002
+AuC: 0.99 (+/- 0.01)
+-- Checking performance when 371 features are used
+---- Intermediate score: 0.973098012502
+---- Intermediate score: 0.989135707554
+---- Intermediate score: 0.988660614346
+---- Intermediate score: 0.990662859618
+AuC: 0.99 (+/- 0.01)
+-- Checking performance when 376 features are used
+---- Intermediate score: 0.973495306922
+---- Intermediate score: 0.988896019926
+---- Intermediate score: 0.988646003855
+---- Intermediate score: 0.991216221189
+AuC: 0.99 (+/- 0.01)
+-- Checking performance when 381 features are used
+---- Intermediate score: 0.976205732261
+---- Intermediate score: 0.989421638674
+---- Intermediate score: 0.989025400163
+---- Intermediate score: 0.991174022346
+AuC: 0.99 (+/- 0.01)
+I upgrade from 356 to 381 features
+because of auc improvement from 0.986443353342 to 0.986456698361
+-- Checking performance when 386 features are used
+---- Intermediate score: 0.976331672058
+---- Intermediate score: 0.989344871107
+---- Intermediate score: 0.988997344234
+---- Intermediate score: 0.991141374121
+AuC: 0.99 (+/- 0.01)
+-- Checking performance when 391 features are used
+---- Intermediate score: 0.973476189913
+---- Intermediate score: 0.989527114261
+---- Intermediate score: 0.988997312659
+---- Intermediate score: 0.990975078591
+AuC: 0.99 (+/- 0.01)
+-- Checking performance when 396 features are used
+---- Intermediate score: 0.974885573518
+---- Intermediate score: 0.9890665098
+---- Intermediate score: 0.988776042628
+---- Intermediate score: 0.991288097036
+AuC: 0.99 (+/- 0.01)
+-- Checking performance when 401 features are used
+---- Intermediate score: 0.975471791995
+---- Intermediate score: 0.989299579221
+---- Intermediate score: 0.988717316431
+---- Intermediate score: 0.99133497546
+AuC: 0.99 (+/- 0.01)
+Plotting curves
+-- Checking performance when 406 features are used
+---- Intermediate score: 0.974662637412
+---- Intermediate score: 0.989086362006
+---- Intermediate score: 0.988752624806
+---- Intermediate score: 0.991414633243
+AuC: 0.99 (+/- 0.01)
+-- Checking performance when 411 features are used
+---- Intermediate score: 0.975749956063
+---- Intermediate score: 0.989494506136
+---- Intermediate score: 0.989469151609
+---- Intermediate score: 0.991558328868
+AuC: 0.99 (+/- 0.01)
+I upgrade from 381 to 411 features
+because of auc improvement from 0.986456698361 to 0.986567985669
+-- Checking performance when 416 features are used
+---- Intermediate score: 0.976044546811
+---- Intermediate score: 0.988752486069
+---- Intermediate score: 0.988544596562
+---- Intermediate score: 0.991485809831
+AuC: 0.99 (+/- 0.01)
+-- Checking performance when 421 features are used
+---- Intermediate score: 0.974446673082
+---- Intermediate score: 0.989259220086
+---- Intermediate score: 0.989606021312
+---- Intermediate score: 0.991504004154
+AuC: 0.99 (+/- 0.01)
+-- Checking performance when 426 features are used
+---- Intermediate score: 0.976618814338
+---- Intermediate score: 0.989656245024
+---- Intermediate score: 0.989857600593
+---- Intermediate score: 0.991761610004
+AuC: 0.99 (+/- 0.01)
+I upgrade from 411 to 426 features
+because of auc improvement from 0.986567985669 to 0.98697356749
+-- Checking performance when 431 features are used
+---- Intermediate score: 0.976051881795
+---- Intermediate score: 0.988451138853
+---- Intermediate score: 0.990259351584
+---- Intermediate score: 0.991589341125
+AuC: 0.99 (+/- 0.01)
+-- Checking performance when 436 features are used
+---- Intermediate score: 0.976176990062
+---- Intermediate score: 0.988558892076
+---- Intermediate score: 0.990111466675
+---- Intermediate score: 0.991156730086
+AuC: 0.99 (+/- 0.01)
+-- Checking performance when 441 features are used
+---- Intermediate score: 0.976148409528
+---- Intermediate score: 0.989853691639
+---- Intermediate score: 0.990077906451
+---- Intermediate score: 0.991454816231
+AuC: 0.99 (+/- 0.01)
+-- Checking performance when 446 features are used
+---- Intermediate score: 0.974634380691
+---- Intermediate score: 0.988904810091
+---- Intermediate score: 0.989769148298
+---- Intermediate score: 0.991347317335
+AuC: 0.99 (+/- 0.01)
+-- Checking performance when 451 features are used
+---- Intermediate score: 0.974004073482
+---- Intermediate score: 0.988927453417
+---- Intermediate score: 0.989864449079
+---- Intermediate score: 0.991334830719
+AuC: 0.99 (+/- 0.01)
+-- Checking performance when 456 features are used
+---- Intermediate score: 0.975471074368
+---- Intermediate score: 0.988566069745
+---- Intermediate score: 0.989473805708
+---- Intermediate score: 0.991423266872
+AuC: 0.99 (+/- 0.01)
+-- Checking performance when 461 features are used
+---- Intermediate score: 0.977050854618
+---- Intermediate score: 0.989082387336
+---- Intermediate score: 0.989934791679
+---- Intermediate score: 0.990817247786
+AuC: 0.99 (+/- 0.01)
+-- Checking performance when 466 features are used
+---- Intermediate score: 0.977675285958
+---- Intermediate score: 0.989646540121
+---- Intermediate score: 0.989995479339
+---- Intermediate score: 0.99106723215
+AuC: 0.99 (+/- 0.01)
+I upgrade from 426 to 466 features
+because of auc improvement from 0.98697356749 to 0.987096134392
+-- Checking performance when 471 features are used
+---- Intermediate score: 0.974667950887
+---- Intermediate score: 0.989017645105
+---- Intermediate score: 0.989925923084
+---- Intermediate score: 0.990640625798
+AuC: 0.99 (+/- 0.01)
+-- Checking performance when 476 features are used
+---- Intermediate score: 0.974631017921
+---- Intermediate score: 0.988987550676
+---- Intermediate score: 0.989326088172
+---- Intermediate score: 0.991207015064
+AuC: 0.99 (+/- 0.01)
+-- Checking performance when 481 features are used
+---- Intermediate score: 0.975685594933
+---- Intermediate score: 0.989128020291
+---- Intermediate score: 0.990052369847
+---- Intermediate score: 0.991303745193
+AuC: 0.99 (+/- 0.01)
+-- Checking performance when 486 features are used
+---- Intermediate score: 0.975030747714
+---- Intermediate score: 0.989145991205
+---- Intermediate score: 0.98908093926
+---- Intermediate score: 0.991453388577
+AuC: 0.99 (+/- 0.01)
+-- Checking performance when 491 features are used
+---- Intermediate score: 0.974754420974
+---- Intermediate score: 0.98998718459
+---- Intermediate score: 0.989175628555
+---- Intermediate score: 0.991395252886
+AuC: 0.99 (+/- 0.01)
+-- Checking performance when 496 features are used
+---- Intermediate score: 0.976050280459
+---- Intermediate score: 0.988995307436
+---- Intermediate score: 0.989640073587
+---- Intermediate score: 0.991208885687
+AuC: 0.99 (+/- 0.01)
+Best number of features: 466 with auc: 0.987096134392

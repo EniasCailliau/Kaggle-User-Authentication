@@ -73,8 +73,8 @@ def plot_learning_curves(estimator, X, y, train_sessions, location):
 def plot_confusion_matrix(estimator, train_features, train_labels, train_sessions, location):
     num_folds = 4
     (train_index, test_index) = CustomKFold.cv(num_folds, train_sessions)[0]
-    X_train, X_test = train_features[train_index], train_features[test_index]
-    y_train, y_test = train_labels[train_index], train_labels[test_index]
+    X_train, X_test = train_features.iloc[train_index], train_features.iloc[test_index]
+    y_train, y_test = train_labels.iloc[train_index], train_labels.iloc[test_index]
     classes = ["1", "2", "3", "4", "5", "6", "7", "8"]
     estimator.fit(X_train, y_train)
     y_predict = estimator.predict(X_test)
