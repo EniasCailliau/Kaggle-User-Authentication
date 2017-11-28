@@ -15,8 +15,8 @@ trainer = trainer.Trainer("")
 estimator = random_forest.RF()
 
 # load data from feature file
-train_features, train_activity_labels, train_subject_labels, test_features = trainer.load_data(
-    os.path.join("feature_extraction", '_data_sets/unreduced.pkl'), final=False)
+train_features, train_activity_labels, train_subject_labels, train_session_id, test_features = trainer.load_data(
+    os.path.join("feature_extraction", '_data_sets/unreduced_transformed.pkl'), final=False)
 print(train_features.shape)
 print np.unique(np.array(train_subject_labels.values))
 print np.unique(np.array(train_activity_labels.values))
@@ -34,5 +34,4 @@ reducer = feature_reducer.get_LDA_reducer(train_features, train_activity_labels,
 # trainer.save_estimator(estimator, results_location)
 
 # Create a submission
-estimator.fit(train_features, train_subject_labels)
-trainer.prepare_submission(estimator, test_features, options)
+trainer.evaluate(estimator, train_features, train_subject_labels, train_session_id)

@@ -117,7 +117,7 @@ class Trainer:
         #         scorer.auc_evaluator(estimator, X_test, y_test)))
 
         auc_values = self.__cross_validate(estimator, train_data, train_labels, train_sessions, scorer.auc_evaluator)
-        print("AuC: %0.2f (+/- %0.2f)" % (auc_values.mean(), auc_values.std() * 2))
+        print("AuC: %0.4f (+/- %0.4f)" % (auc_values.mean(), auc_values.std() * 2))
         acc_values = self.__cross_validate(estimator, train_data, train_labels, train_sessions,
                                            scorer.accuracy_evaluator)
         print("Accuracy: %0.2f (+/- %0.2f)" % (acc_values.mean(), acc_values.std() * 2))
