@@ -1,10 +1,7 @@
-import trainer
 import os
-from models import svm
-from model_evaluation import scorer, visualiser
-from feature_reduction import feature_reducer
-from utils import pandaman
-import numpy as np
+
+import trainer
+from models.subject_prediction import svm
 
 if __name__ == '__main__':
 

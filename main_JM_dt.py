@@ -1,8 +1,8 @@
-import trainer
 import os
-from models import decision_trees
+
+import trainer
 from model_evaluation import scorer, visualiser
-from feature_reduction import feature_reducer
+from models.subject_prediction import decision_trees
 from utils import pandaman
 
 options = ["decision_trees", "test"]

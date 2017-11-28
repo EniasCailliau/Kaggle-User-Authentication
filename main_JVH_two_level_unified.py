@@ -1,15 +1,10 @@
-import trainer
 import os
-from models import logistic_regression, random_forest, gradient_boosted_trees, two_level_unified
-from model_evaluation import scorer, visualiser
-from feature_reduction import feature_reducer
+
 import numpy as np
-from utils import pandaman
 import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn import *
 
-
+import trainer
+from models import two_level_unified
 
 options = ["JVH", "two_level", "RF-RF2"]
 results_location = os.path.join("Results", '/'.join(options) + "/")
