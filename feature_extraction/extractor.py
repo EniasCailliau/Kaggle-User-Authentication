@@ -94,7 +94,7 @@ def __create_data_set(noise_reducer_method="None", coordinate_transform_method="
     train_subject_labels = train_flat["subject"]
     train_session_id = train_flat["session_id"]
 
-    test_features = generate_features(test_flat["interval_data"])
+    test_features = generate_features(test_flat["interval_data"], percentiles)
 
     return [train_features, train_activity_labels, train_subject_labels, train_session_id, test_features]
 
@@ -108,8 +108,6 @@ def generate_features(data, percentiles):
 
     for index, interval in data.iteritems():
         print("Processing... {}".format(index))
-        if(index>300):
-            break
         interval_entry_new_features = []
 
         interval_entry_new_features.extend(calculator.calculate_time_stats(interval))
@@ -128,9 +126,9 @@ def generate_features(data, percentiles):
     return pd.DataFrame(intervals, columns=feature_names)
 
 
-def prepare_data_pickle(file_path, noise_reducer_method="None"):
+def prepare_data_pickle(file_path, noise_reducer_method="None", coordinate_transform_method="None"):
     train_features, train_activity_labels, train_subject_labels, train_session_id, test_features = __create_data_set(
-        noise_reducer_method)
+        noise_reducer_method=noise_reducer_method, coordinate_transform_method=coordinate_transform_method)
     utils.dump_pickle(
         dict(train_features=train_features, train_activity_labels=train_activity_labels,
              train_subject_labels=train_subject_labels, train_session_id=train_session_id, test_features=test_features), file_path)
@@ -145,4 +143,5 @@ if __name__ == '__main__':
     """
          ATTENTION: This main block is for testing purposes only
     """
-    __create_data_set(coordinate_transform_method="depitch_all")
+    #__create_data_set(coordinate_transform_method="depitch_all")
+    prepare_data_pickle("feature_extraction/_data_sets/unreduced_transformed.pkl", coordinate_transform_method="depitch_all")
