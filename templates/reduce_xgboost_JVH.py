@@ -27,11 +27,11 @@ def print_stats(test_features, train_activity_labels, train_features, train_sess
 def plot_curves(estimator, results_location, train_labels, train_features, train_session_id):
     # visualiser.plot_learning_curves(estimator, train_features, train_labels, train_session_id,
     #                                 results_location)
-    visualiser.plot_auc_learning_curve(estimator, train_features, train_labels, train_session_id,
+    visualiser.plot_safe_auc_learning_curve(estimator, train_features, train_labels, train_session_id,
                                        results_location)
-    visualiser.plot_ce_learning_curve(estimator, train_features, train_labels, train_session_id,
+    visualiser.plot_safe_ce_learning_curve(estimator, train_features, train_labels, train_session_id,
                                       results_location)
-    visualiser.plot_confusion_matrix(estimator, train_features, train_labels, train_session_id, results_location)
+    visualiser.plot_safe_confusion_matrix(estimator, train_features, train_labels, train_session_id, results_location)
 
 
 def visualize_importances(importance, location):
@@ -84,7 +84,7 @@ def visualize_feature_importance_tree(trainer, forest, train_features, train_lab
                                 quotechar='|', quoting=csv.QUOTE_MINIMAL)
         csv_writer.writerow(["num_features", "auc_mean", "auc_std"])
         print("going to check for features up to: ", len(importances) / 2)
-        for i in range(1, len(importances) / 2, 5):
+        for i in range(1, 410, 100):
             print("-- Checking performance when {} features are used".format(i))
             train_features_reduced = train_features.iloc[:, features_ordered[:i]]
             auc_mean, auc_std = trainer.evaluate(forest, train_features_reduced, train_labels, train_sessions)
@@ -113,54 +113,58 @@ def visualize_feature_importance_tree(trainer, forest, train_features, train_lab
 
 
 def main():
-    base_options = ["JVH", "user", "activity5", "xgboost"]
+    for current_activity in ['17']: # 5,12 nog niet volledig gerund!
+        print "-------------------------------------"
+        print "Activity "+ current_activity
+        print "-------------------------------------"
 
-    options = base_options + ["FIMP"] + ["semi-optimized"]
+        base_options = ["JVH", "user", "activity" + current_activity, "xgboost"]
 
-    results_location = handyman.calculate_path_from_options("Results", options)
-    print("location: {}".format(results_location))
+        options = base_options + ["FIMP"] + ["semi-optimized"]
 
-    trainer = t.Trainer()
-    train_features, train_activity_labels, train_subject_labels, train_sessions, test_features = trainer.load_data(
-        os.path.join("../feature_extraction", '_data_sets/unreduced.pkl'), final=False)
+        results_location = handyman.calculate_path_from_options("Results", options)
+        print("location: {}".format(results_location))
 
-    current_activity = '5'
-
-    index = train_activity_labels == current_activity
-
-
-    train_features =  train_features[index].reset_index(drop=True)
-    train_sessions = train_sessions[index].reset_index(drop=True)
-    train_subject_labels = train_subject_labels[index].reset_index(drop=True)
-    train_activity_labels = train_activity_labels.reset_index(drop=True)
+        trainer = t.Trainer()
+        train_features, train_activity_labels, train_subject_labels, train_sessions, test_features = trainer.load_data(
+            os.path.join("../feature_extraction", '_data_sets/unreduced_with_bins.pkl'), final=False)
 
 
-    print_stats(test_features, train_activity_labels, train_features, train_sessions, train_subject_labels)
-
-    """
-        Initialize semi optimized estimator
-    """
-    estimator = xgboost.XGBClassifier(n_estimators=250, max_depth=10)
+        index = train_activity_labels == current_activity
 
 
-    print("Fitting estimator...")
-    estimator.fit(train_features, train_subject_labels)
+        train_features =  train_features[index].reset_index(drop=True)
+        train_sessions = train_sessions[index].reset_index(drop=True)
+        train_subject_labels = train_subject_labels[index].reset_index(drop=True)
+        train_activity_labels = train_activity_labels.reset_index(drop=True)
 
-    print("Saving estimator...")
-    handyman.dump_pickle(estimator, results_location + "estimator.pkl")
 
-    print("Tree produced the following importance: ")
-    print(estimator.feature_importances_)
+        print_stats(test_features, train_activity_labels, train_features, train_sessions, train_subject_labels)
 
-    print("Visualising forest importance in grid...")
-    visualize_importances(estimator.feature_importances_, results_location)
+        """
+            Initialize semi optimized estimator
+        """
+        estimator = xgboost.XGBClassifier(n_estimators=250, max_depth=10)
 
-    print("Visualising forest importance...")
-    visualize_forest_importance(estimator, train_features, results_location)
 
-    print("Visualising feature importance...")
-    visualize_feature_importance_tree(trainer, estimator, train_features, train_subject_labels, train_sessions,
-                                      results_location)
+        print("Fitting estimator...")
+        estimator.fit(train_features, train_subject_labels)
+
+        print("Saving estimator...")
+        handyman.dump_pickle(estimator, results_location + "estimator.pkl")
+
+        print("Tree produced the following importance: ")
+        print(estimator.feature_importances_)
+
+        print("Visualising forest importance in grid...")
+        visualize_importances(estimator.feature_importances_, results_location)
+
+        print("Visualising forest importance...")
+        visualize_forest_importance(estimator, train_features, results_location)
+
+        print("Visualising feature importance...")
+        visualize_feature_importance_tree(trainer, estimator, train_features, train_subject_labels, train_sessions,
+                                          results_location)
 
 
 if __name__ == '__main__':

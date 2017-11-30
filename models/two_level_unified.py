@@ -3,8 +3,9 @@ import os
 import numpy as np
 import pandas as pd
 from sklearn.base import BaseEstimator
+import xgboost as xgb
 
-import trainer
+import trainer as t
 from feature_reduction import feature_reducer
 from models.subject_prediction import random_forest
 
@@ -17,114 +18,73 @@ TEST_PREDICT = False
 
 ALL_USERS = np.asarray([1, 2, 3, 4, 5, 6, 7, 8])
 ALL_ACTIVITIES = np.asarray([1, 2, 3, 4, 5, 6, 7, 12, 13, 16, 17, 24])
+ACTIVITY_FEATURES = 101
+USER_FEATURES = [101, 201, 101, 201, 301, 401, 101, 101, 101, 101, 101, 101]
 
-BASEPATH = "Results/JVH/two_level/basic/"
+BASEPATH = "Results/JVH/two_level/xgb/"
 
 class TwoLevel(BaseEstimator):
     def __init__(self):
-        if (TEST_INIT):
-            print "Creating two level model..."
         # Set up classifiers
-        self.activityClassifier = random_forest.RF()
-        self.userClassifiers = []
-        for i in range(12):
-            self.userClassifiers.append(random_forest.RF())
+        self.classifiers = []
+        self.feature_indices = []
+        for i in range(13):
+            self.classifiers.append(xgb.XGBClassifier(n_estimators=250, max_depth=10))
 
     def fit(self, X, y):
+        options = ["JVH", "two_level", "GBX2"]
+        results_location = os.path.join("Results", '/'.join(options) + "/")
+
         # Retrieve feature set and labels
         train_features = X[:,0:X.shape[1]-1]
         train_activity_labels = X[:,X.shape[1]-1].astype(int).reshape(-1)
         train_subject_labels = y
+        self.feature_indices = []
 
-        if (TEST_FIT):
-            temp_trainer = trainer.Trainer("")
-            print "Fitting two level model..."
-
-        # Building feature transformers
+        print "Fitting activity (1)"
         ## Activity
-        self.activityTransformer = feature_reducer.get_LDA_reducer(
-            train_features,
-            train_activity_labels,
-            20)
+        self.classifiers[0].fit(train_features, train_activity_labels)
+        importances = self.classifiers[0].feature_importances_
+        features_ordered = np.argsort(importances)[::-1]
+        self.feature_indices.append(features_ordered[:ACTIVITY_FEATURES])
+        print "Fitting activity (2)"
+        train_features_reduced = train_features[:, features_ordered[:ACTIVITY_FEATURES]]
+        self.classifiers[0].fit(train_features_reduced, train_activity_labels)
+        trainer = t.Trainer("")
+        trainer.save_estimator(self.classifiers[0], results_location)
 
-        activityFeatures = self.activityTransformer.transform(train_features)
-        activityFeatures = train_features
-
-        if (TEST_FIT):
-            print "Activity classification:"
-            temp_trainer.get_acc_auc(
-                self.activityClassifier,
-                pd.DataFrame(activityFeatures),
-                pd.DataFrame(train_activity_labels),
-                os.path.join(BASEPATH + "activity/"))
-
-        self.activityClassifier.fit(activityFeatures, train_activity_labels)
-
-        self.userTransformers = []
         for i in range(len(ALL_ACTIVITIES)):
-            current_train_features = train_features[train_activity_labels == ALL_ACTIVITIES[i], :]
-            current_train_subject_labels = train_subject_labels[train_activity_labels == ALL_ACTIVITIES[i]]
-            self.userTransformers.append(feature_reducer.get_LDA_reducer(
-                current_train_features,
-                current_train_subject_labels,
-                20))
+            print "Fitting " + str(ALL_ACTIVITIES[i])
+            current_features = train_features[train_activity_labels == ALL_ACTIVITIES[i]]
+            current_labels = train_subject_labels[train_activity_labels == ALL_ACTIVITIES[i]]
+            self.classifiers[i+1].fit(current_features, current_labels)
+            importances = self.classifiers[0].feature_importances_
+            features_ordered = np.argsort(importances)[::-1]
+            self.feature_indices.append(features_ordered[:ACTIVITY_FEATURES])
+            train_features_reduced = current_features[:, features_ordered[:ACTIVITY_FEATURES]]
+            self.classifiers[i+1].fit(train_features_reduced, current_labels)
 
-            userFeatures = self.userTransformers[i].transform(current_train_features)
-            userFeatures = current_train_features
-
-            if(TEST_FIT):
-                print "____________________________"
-                print "Activity " + str(ALL_ACTIVITIES[i])
-                temp_trainer.get_acc_auc(
-                    self.activityClassifier,
-                    pd.DataFrame(userFeatures),
-                    pd.DataFrame(current_train_subject_labels),
-                    os.path.join(BASEPATH + "activity"+str(ALL_ACTIVITIES[i])+"/"))
-
-            self.userClassifiers[i].fit(userFeatures, current_train_subject_labels)
         return self
 
     def predict_proba(self, X):
-        if(TEST_PREDICT):
-            print "Predicting probabilities..."
+        print "Predicting probabilities..."
         # Retrieve feature set and labels
         train_features = X[:,0:X.shape[1]-1]
 
-        current_features = self.activityTransformer.transform(train_features)
-        current_features = train_features
-        print(current_features.shape)
-        activity_probabilities = self.activityClassifier.predict_proba(current_features)
-        if(TEST_PREDICT):
-            print "Activity: ",
-            print train_features.shape,
-            print " -> ",
-            print current_features.shape
+        activity_probabilities = self.classifiers[0].predict_proba(train_features[:,self.feature_indices[0]])
 
         user_probabilities = np.zeros((len(activity_probabilities), len(ALL_USERS)))
         for i in range(len(ALL_ACTIVITIES)):
-            current_features = self.userTransformers[i].transform(train_features)
-            current_features=train_features
-            partial_probabilities = self.userClassifiers[i].predict_proba(current_features)
+            print "Predicting " + str(ALL_ACTIVITIES[i])
 
-            if (TEST_PREDICT):
-                print "Activity " + str(ALL_ACTIVITIES[i]) + " : ",
-                print train_features.shape,
-                print " -> ",
-                print current_features.shape
+            partial_probabilities = self.classifiers[i+1].predict_proba(train_features[:,self.feature_indices[i+1]])
 
-            current_users = self.userClassifiers[i].estimator.classes_
+            current_users = self.classifiers[i+1].classes_
             for j in range(len(activity_probabilities)):
-                if(TEST_PREDICT):
-                    if((j+1)%100 == 0):
-                        print ".",
-                    if(j+1 == len(activity_probabilities)):
-                        print ""
-
                 for cu in current_users:
                     act_prob = activity_probabilities[j, i]
                     partial_prob = partial_probabilities[j, np.argwhere(current_users == cu)]
                     user_probabilities[j, cu-1] += act_prob*partial_prob
-
         return user_probabilities
 
     def predict(self, X):
