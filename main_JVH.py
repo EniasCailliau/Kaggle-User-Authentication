@@ -5,6 +5,7 @@ import numpy as np
 import trainer as t
 from model_evaluation import visualiser
 from models.subject_prediction import random_forest
+from sklearn import ensemble
 from utils import pandaman
 
 
@@ -32,7 +33,7 @@ def main():
     # init trainer
     trainer = t.Trainer("")
     # init model
-    estimator = random_forest.RF()
+    estimator = ensemble.RandomForestClassifier(n_estimators=256, n_jobs=-1, oob_score=True)
 
     # load data from feature file
     train_features, train_activity_labels, train_subject_labels, train_session_id, test_features = trainer.load_data(
@@ -53,9 +54,9 @@ def main():
     # trainer.save_estimator(estimator, results_location)
 
     # Create a submission
-    # auc_mean, auc_std, acc_mean, acc_std = evaluate(estimator, train_subject_labels, train_features, train_session_id, trainer)
-    estimator.fit(train_features, train_subject_labels)
-    trainer.prepare_submission(estimator, test_features, options)
+    auc_mean, auc_std, acc_mean, acc_std = evaluate(estimator, train_subject_labels, train_features, train_session_id, trainer)
+    #estimator.fit(train_features, train_subject_labels)
+    #trainer.prepare_submission(estimator, test_features, options)
 
 
 if __name__ == '__main__':
