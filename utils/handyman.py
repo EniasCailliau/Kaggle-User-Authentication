@@ -67,4 +67,4 @@ def to_indices(one_hot, min_int):
 
 
 def calculate_path_from_options(base, options):
-    return os.path.join(base, '/'.join(options) + "/")
+    return os.path.join(base, *options)
