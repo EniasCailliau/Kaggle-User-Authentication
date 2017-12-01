@@ -75,7 +75,7 @@ class Trainer:
         :return:
         """
         predictions_test = model.predict_proba(test_data)
-        location = os.path.join('Predictions', 'linear' + '-' + '-'.join(options))
+        location = os.path.join('Predictions', '-'.join(options))
         pred_file_name = handyman.generate_unqiue_file_name(
             location, 'npy')
         handyman.dump_npy(predictions_test, pred_file_name)
@@ -111,10 +111,10 @@ class Trainer:
         if accuracy:
             values = self.__cross_validate(estimator, train_data, train_labels, train_sessions,
                                            scorer.accuracy_evaluator)
-            print("Accuracy: %0.2f (+/- %0.2f)" % (values.mean(), values.std() * 2))
+            print("Accuracy: %0.4f (+/- %0.4f)" % (values.mean(), values.std() * 2))
         else:
             values = self.__cross_validate(estimator, train_data, train_labels, train_sessions, scorer.auc_evaluator)
-            print("AuC: %0.2f (+/- %0.2f)" % (values.mean(), values.std() * 2))
+            print("AuC: %0.4f (+/- %0.4f)" % (values.mean(), values.std() * 2))
 
         return [values.mean(), values.std()]
 

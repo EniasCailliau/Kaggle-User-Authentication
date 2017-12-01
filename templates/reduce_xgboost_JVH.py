@@ -84,7 +84,7 @@ def visualize_feature_importance_tree(trainer, forest, train_features, train_lab
                                 quotechar='|', quoting=csv.QUOTE_MINIMAL)
         csv_writer.writerow(["num_features", "auc_mean", "auc_std"])
         print("going to check for features up to: ", len(importances) / 2)
-        for i in range(1, 410, 100):
+        for i in range(1, 410, 25):
             print("-- Checking performance when {} features are used".format(i))
             train_features_reduced = train_features.iloc[:, features_ordered[:i]]
             auc_mean, auc_std = trainer.evaluate(forest, train_features_reduced, train_labels, train_sessions)
@@ -113,14 +113,14 @@ def visualize_feature_importance_tree(trainer, forest, train_features, train_lab
 
 
 def main():
-    for current_activity in ['17']: # 5,12 nog niet volledig gerund!
+    for current_activity in ['1','2','3','4','5','6','7','12','13','16','17','24']:
         print "-------------------------------------"
         print "Activity "+ current_activity
         print "-------------------------------------"
 
-        base_options = ["JVH", "user", "activity" + current_activity, "xgboost"]
+        base_options = ["JVH", "augmented", "user", "activity" + current_activity, "xgboost"]
 
-        options = base_options + ["FIMP"] + ["semi-optimized"]
+        options = base_options #+ ["FIMP"] + ["semi-optimized"]
 
         results_location = handyman.calculate_path_from_options("Results", options)
         print("location: {}".format(results_location))
@@ -144,7 +144,16 @@ def main():
         """
             Initialize semi optimized estimator
         """
-        estimator = xgboost.XGBClassifier(n_estimators=250, max_depth=10)
+        param = {'objective': 'binary:logistic',
+                 'n_estimators' : 256,
+                 'max_depth': 10,
+                 'eval_metric': 'auc',
+                 'eta': 0.2,
+                 'silent': 1,
+                 'scale_pos_weight' : 1,
+                 'tree_method': 'gpu_exact'  # Use GPU accelerated algorithm
+                 }
+        estimator = xgboost.XGBClassifier(**param)
 
 
         print("Fitting estimator...")

@@ -76,8 +76,8 @@ def generate_column_names():
 
 
 
-def __create_data_set(noise_reducer_method="None", coordinate_transform_method="None"):
-    train_flat, test_flat = data_loader.create_flat_intervals_structure()
+def __create_data_set(augmented = False, noise_reducer_method="None", coordinate_transform_method="None"):
+    train_flat, test_flat = data_loader.create_flat_intervals_structure(augmented=augmented)
 
     # First preprocessing data
     train_flat = preprocessor.interpolate(train_flat)
@@ -126,8 +126,8 @@ def generate_features(data, percentiles):
     return pd.DataFrame(intervals, columns=feature_names)
 
 
-def prepare_data_pickle(file_path, noise_reducer_method="None", coordinate_transform_method="None"):
-    train_features, train_activity_labels, train_subject_labels, train_session_id, test_features = __create_data_set(
+def prepare_data_pickle(file_path, noise_reducer_method="None", coordinate_transform_method="None", augmented = False):
+    train_features, train_activity_labels, train_subject_labels, train_session_id, test_features = __create_data_set(augmented=augmented,
         noise_reducer_method=noise_reducer_method, coordinate_transform_method=coordinate_transform_method)
     utils.dump_pickle(
         dict(train_features=train_features, train_activity_labels=train_activity_labels,
@@ -144,5 +144,5 @@ if __name__ == '__main__':
          ATTENTION: This main block is for testing purposes only
     """
     #__create_data_set(coordinate_transform_method="depitch_all")
-    prepare_data_pickle("_data_sets/unreduced_with_bins.pkl")
+    prepare_data_pickle("_data_sets/augmented.pkl", augmented=True)
 
