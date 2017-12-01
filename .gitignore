@@ -162,3 +162,6 @@ fabric.properties
 .idea/misc.xml
 .idea/inspectionProfiles/Project_Default.xml
 .idea/Kaggle-User-Authentication.iml
+
+
+feature_extraction/_data_sets/augmented.pkl
