@@ -120,7 +120,7 @@ def main():
 
     trainer = t.Trainer()
     train_features, train_activity_labels, train_subject_labels, train_sessions, test_features = trainer.load_data(
-        os.path.join("feature_extraction", '_data_sets', 'unreduced.pkl'), final=False)
+        os.path.join("feature_extraction", '_data_sets', 'augmented.pkl'), final=False)
 
     print_stats(test_features, train_activity_labels, train_features, train_sessions, train_subject_labels)
 

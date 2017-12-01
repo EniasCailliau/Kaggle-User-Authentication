@@ -84,13 +84,13 @@ def main():
     print("location: {}".format(results_location))
 
     sys.stdout = os.fdopen(sys.stdout.fileno(), 'w', 0)
-    tee = subprocess.Popen(["tee", "forest_rfe.txt"], stdin=subprocess.PIPE)
+    tee = subprocess.Popen(["tee", "with_act_forest_rfe.txt"], stdin=subprocess.PIPE)
     os.dup2(tee.stdin.fileno(), sys.stdout.fileno())
     print "\nstdout"
 
     trainer = t.Trainer()
     train_features, train_activity_labels, train_subject_labels, train_session, test_features = trainer.load_data(
-        os.path.join("feature_extraction", '_data_sets', 'unreduced.pkl'), final=False)
+        os.path.join("feature_extraction", '_data_sets', 'augmented.pkl'), final=False)
 
     """
         Add activity labels as feature
@@ -110,7 +110,7 @@ def main():
         Start RFE reduction (stop at 50 features)
     """
     train_data_reduced, ranking, rfe = reducer.reduce_RFE(train_features, train_subject_labels, estimator,
-                                                          n_features_to_select=985)
+                                                          n_features_to_select=150)
 
     print("Saving RFE...")
     handyman.dump_pickle(rfe, results_location + "rfe.pkl")
