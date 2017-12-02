@@ -8,6 +8,7 @@ from sklearn.feature_selection import SelectPercentile
 from sklearn.feature_selection import SelectKBest
 import matplotlib.pyplot as plt
 from sklearn.feature_selection import mutual_info_classif, f_classif
+from .custom_RFE import RFE as RFE_custom
 from utils import pandaman
 import numpy as np
 
@@ -88,6 +89,16 @@ def reduce_k_best(train_data, train_labels, score_func=Scorer.F_CLASSIF, k='all'
 
 def reduce_RFE(train_data, train_labels, estimator, n_features_to_select=None, verbose=0):
     rfe = RFE(estimator, verbose=1, n_features_to_select=n_features_to_select)
+    train_data_reduced_np = rfe.fit_transform(train_data, train_labels)
+    selected_indices = rfe.get_support(indices=True)
+    train_data_reduced = pd.DataFrame(train_data_reduced_np,
+                                      columns=pandaman.translate_column_indices(selected_indices, train_data))
+    if verbose:
+        __evaluate_reduction(rfe.get_support(indices=True), train_data.shape[1], train_data, "RFE")
+    return train_data_reduced, rfe.ranking_, rfe
+
+def reduce_RFE_custom(train_data, train_labels, estimator, estimator_name, n_features_to_select=None, verbose=0):
+    rfe = RFE_custom(estimator, estimator_name, verbose=1,n_features_to_select=n_features_to_select)
     train_data_reduced_np = rfe.fit_transform(train_data, train_labels)
     selected_indices = rfe.get_support(indices=True)
     train_data_reduced = pd.DataFrame(train_data_reduced_np,
