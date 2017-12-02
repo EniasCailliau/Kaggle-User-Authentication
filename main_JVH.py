@@ -65,6 +65,5 @@ def main():
     trainer.prepare_submission(estimator, test_features, local_options)
     trainer.save_estimator(estimator, results_location)
 
-
 if __name__ == '__main__':
     main()
