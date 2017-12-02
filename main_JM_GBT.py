@@ -12,7 +12,19 @@ if __name__ == "__main__":
     options = ["JM", "boosted_trees", "without_labels", "unreduced", "untuned"]
     results_location = os.path.join("Results", '/'.join(options) + "/")
 
-    estimator = xgboost.XGBClassifier()
+    estimator = xgboost.XGBClassifier(
+        learning_rate=0.1,
+        n_estimators=1000,
+        max_depth=8,
+        min_child_weight=1,
+        gamma=0,
+        subsample=0.75,
+        colsample_bytree=0.75,
+        objective='binary:logistic',
+        nthread=4,
+        scale_pos_weight=1,
+        seed=27
+    )
     trainer = trainer.Trainer()
     train_features, train_activity_labels, train_subject_labels, train_session_id, test_features = trainer.load_data(
         os.path.join("feature_extraction", '_data_sets/unreduced.pkl'), final=False)
@@ -25,14 +37,14 @@ if __name__ == "__main__":
     tuned_parameters = [
         {
             #'learning_rate': [0.1, 0.2, 0.3, 0.4, 0.5],
-            #'min_child_weight': [4, 5, 6, 7, 8, 9, 10],
-            #'max_depth': [5, 6, 7, 8, 9],
-            #'gamma': [10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
-            #'subsample': [0.25, 0.5, 0.75, 1],
-            #'colsample_bytree': [0.25, 0.5, 0.75, 1],
-            #'reg_lambda': [0.01, 0.1, 1, 10, 100],
+            #'min_child_weight': [1,2],
+            #'max_depth': [6,7,8],
+            #'gamma': [0.0, 0.1, 0.2, 0.3, 0.4],
+            #'subsample': [0.65, 0.7, 0.75],
+            #'colsample_bytree': [0.65, 0.7, 0.75],
+            'reg_lambda': [10, 50],
             #'scale_pos_weight': [0, 1, 2, 3, 4],
-            'n_estimators': [1100, 1200, 1300]
+            #'n_estimators': [1100, 1200, 1300]
         }
     ]
 
