@@ -85,6 +85,7 @@ def visualize_feature_importance_tree(trainer, forest, train_features, train_lab
         csv_writer.writerow(["num_features", "auc_mean", "auc_std"])
         print("going to check for features up to: ", len(importances) / 2)
         for i in range(1, 410, 25):
+
             print("-- Checking performance when {} features are used".format(i))
             train_features_reduced = train_features.iloc[:, features_ordered[:i]]
             auc_mean, auc_std = trainer.evaluate(forest, train_features_reduced, train_labels, train_sessions)
@@ -122,6 +123,7 @@ def main():
 
         options = base_options #+ ["FIMP"] + ["semi-optimized"]
 
+
         results_location = handyman.calculate_path_from_options("Results", options)
         print("location: {}".format(results_location))
 
@@ -154,6 +156,7 @@ def main():
                  'tree_method': 'gpu_exact'  # Use GPU accelerated algorithm
                  }
         estimator = xgboost.XGBClassifier(**param)
+
 
 
         print("Fitting estimator...")

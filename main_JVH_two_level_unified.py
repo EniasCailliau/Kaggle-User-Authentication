@@ -7,6 +7,7 @@ import trainer
 from models import two_level_unified_XGB, two_level_unified_RF
 
 options = ["JVH", "two_level", "RF2_simplified", "augmented"]
+
 results_location = os.path.join("Results", '/'.join(options) + "/")
 
 # init trainer
@@ -14,7 +15,8 @@ trainer = trainer.Trainer("")
 
 # Load data from feature file
 train_features, train_activity_labels, train_subject_labels, train_session_id, test_features = trainer.load_data(
-    os.path.join("feature_extraction", '_data_sets/augmented.pkl'), final=False)
+os.path.join("feature_extraction", '_data_sets/augmented.pkl'), final=False)
+
 
 # Merge features with activity labels (required to use trainer)
 X = pd.DataFrame(np.hstack([train_features.values, train_activity_labels.values.reshape(-1,1).astype(int)]))
