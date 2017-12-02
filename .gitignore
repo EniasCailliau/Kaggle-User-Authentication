@@ -165,3 +165,4 @@ fabric.properties
 
 
 feature_extraction/_data_sets/augmented.pkl
+feature_extraction/_data_sets/rfe_rf_with_activities/

@@ -76,7 +76,7 @@ def visualize_feature_importance(trainer, rfe, estimator, train_features, train_
 
 
 def main():
-    base_options = ["ec", "user_with_activities", "random_forest"]
+    base_options = ["LS", "user_with_activities", "random_forest"]
 
     options = base_options + ["RFE"] + ["semi-optimized"]
 
@@ -109,7 +109,7 @@ def main():
     """
         Start RFE reduction (stop at 50 features)
     """
-    train_data_reduced, ranking, rfe = reducer.reduce_RFE(train_features, train_subject_labels, estimator,
+    train_data_reduced, ranking, rfe = reducer.reduce_RFE_custom(train_features, train_subject_labels, estimator, "random_forest_with_activities",
                                                           n_features_to_select=150)
 
     print("Saving RFE...")
