@@ -63,6 +63,7 @@ Fitting estimator with 1003 features.
 Fitting estimator with 1002 features.
 Fitting estimator with 1001 features.
 Fitting estimator with 1000 features.
+dumping RFE intermediate with 1000 features
 Fitting estimator with 999 features.
 Fitting estimator with 998 features.
 Fitting estimator with 997 features.
@@ -163,6 +164,7 @@ Fitting estimator with 903 features.
 Fitting estimator with 902 features.
 Fitting estimator with 901 features.
 Fitting estimator with 900 features.
+dumping RFE intermediate with 900 features
 Fitting estimator with 899 features.
 Fitting estimator with 898 features.
 Fitting estimator with 897 features.
@@ -263,6 +265,7 @@ Fitting estimator with 803 features.
 Fitting estimator with 802 features.
 Fitting estimator with 801 features.
 Fitting estimator with 800 features.
+dumping RFE intermediate with 800 features
 Fitting estimator with 799 features.
 Fitting estimator with 798 features.
 Fitting estimator with 797 features.
@@ -323,3 +326,1320 @@ Fitting estimator with 743 features.
 Fitting estimator with 742 features.
 Fitting estimator with 741 features.
 Fitting estimator with 740 features.
+Fitting estimator with 739 features.
+Fitting estimator with 738 features.
+Fitting estimator with 737 features.
+Fitting estimator with 736 features.
+Fitting estimator with 735 features.
+Fitting estimator with 734 features.
+Fitting estimator with 733 features.
+Fitting estimator with 732 features.
+Fitting estimator with 731 features.
+Fitting estimator with 730 features.
+Fitting estimator with 729 features.
+Fitting estimator with 728 features.
+Fitting estimator with 727 features.
+Fitting estimator with 726 features.
+Fitting estimator with 725 features.
+Fitting estimator with 724 features.
+Fitting estimator with 723 features.
+Fitting estimator with 722 features.
+Fitting estimator with 721 features.
+Fitting estimator with 720 features.
+Fitting estimator with 719 features.
+Fitting estimator with 718 features.
+Fitting estimator with 717 features.
+Fitting estimator with 716 features.
+Fitting estimator with 715 features.
+Fitting estimator with 714 features.
+Fitting estimator with 713 features.
+Fitting estimator with 712 features.
+Fitting estimator with 711 features.
+Fitting estimator with 710 features.
+Fitting estimator with 709 features.
+Fitting estimator with 708 features.
+Fitting estimator with 707 features.
+Fitting estimator with 706 features.
+Fitting estimator with 705 features.
+Fitting estimator with 704 features.
+Fitting estimator with 703 features.
+Fitting estimator with 702 features.
+Fitting estimator with 701 features.
+Fitting estimator with 700 features.
+dumping RFE intermediate with 700 features
+Fitting estimator with 699 features.
+Fitting estimator with 698 features.
+Fitting estimator with 697 features.
+Fitting estimator with 696 features.
+Fitting estimator with 695 features.
+Fitting estimator with 694 features.
+Fitting estimator with 693 features.
+Fitting estimator with 692 features.
+Fitting estimator with 691 features.
+Fitting estimator with 690 features.
+Fitting estimator with 689 features.
+Fitting estimator with 688 features.
+Fitting estimator with 687 features.
+Fitting estimator with 686 features.
+Fitting estimator with 685 features.
+Fitting estimator with 684 features.
+Fitting estimator with 683 features.
+Fitting estimator with 682 features.
+Fitting estimator with 681 features.
+Fitting estimator with 680 features.
+Fitting estimator with 679 features.
+Fitting estimator with 678 features.
+Fitting estimator with 677 features.
+Fitting estimator with 676 features.
+Fitting estimator with 675 features.
+Fitting estimator with 674 features.
+Fitting estimator with 673 features.
+Fitting estimator with 672 features.
+Fitting estimator with 671 features.
+Fitting estimator with 670 features.
+Fitting estimator with 669 features.
+Fitting estimator with 668 features.
+Fitting estimator with 667 features.
+Fitting estimator with 666 features.
+Fitting estimator with 665 features.
+Fitting estimator with 664 features.
+Fitting estimator with 663 features.
+Fitting estimator with 662 features.
+Fitting estimator with 661 features.
+Fitting estimator with 660 features.
+Fitting estimator with 659 features.
+Fitting estimator with 658 features.
+Fitting estimator with 657 features.
+Fitting estimator with 656 features.
+Fitting estimator with 655 features.
+Fitting estimator with 654 features.
+Fitting estimator with 653 features.
+Fitting estimator with 652 features.
+Fitting estimator with 651 features.
+Fitting estimator with 650 features.
+Fitting estimator with 649 features.
+Fitting estimator with 648 features.
+Fitting estimator with 647 features.
+Fitting estimator with 646 features.
+Fitting estimator with 645 features.
+Fitting estimator with 644 features.
+Fitting estimator with 643 features.
+Fitting estimator with 642 features.
+Fitting estimator with 641 features.
+Fitting estimator with 640 features.
+Fitting estimator with 639 features.
+Fitting estimator with 638 features.
+Fitting estimator with 637 features.
+Fitting estimator with 636 features.
+Fitting estimator with 635 features.
+Fitting estimator with 634 features.
+Fitting estimator with 633 features.
+Fitting estimator with 632 features.
+Fitting estimator with 631 features.
+Fitting estimator with 630 features.
+Fitting estimator with 629 features.
+Fitting estimator with 628 features.
+Fitting estimator with 627 features.
+Fitting estimator with 626 features.
+Fitting estimator with 625 features.
+Fitting estimator with 624 features.
+Fitting estimator with 623 features.
+Fitting estimator with 622 features.
+Fitting estimator with 621 features.
+Fitting estimator with 620 features.
+Fitting estimator with 619 features.
+Fitting estimator with 618 features.
+Fitting estimator with 617 features.
+Fitting estimator with 616 features.
+Fitting estimator with 615 features.
+Fitting estimator with 614 features.
+Fitting estimator with 613 features.
+Fitting estimator with 612 features.
+Fitting estimator with 611 features.
+Fitting estimator with 610 features.
+Fitting estimator with 609 features.
+Fitting estimator with 608 features.
+Fitting estimator with 607 features.
+Fitting estimator with 606 features.
+Fitting estimator with 605 features.
+Fitting estimator with 604 features.
+Fitting estimator with 603 features.
+Fitting estimator with 602 features.
+Fitting estimator with 601 features.
+Fitting estimator with 600 features.
+dumping RFE intermediate with 600 features
+Fitting estimator with 599 features.
+Fitting estimator with 598 features.
+Fitting estimator with 597 features.
+Fitting estimator with 596 features.
+Fitting estimator with 595 features.
+Fitting estimator with 594 features.
+Fitting estimator with 593 features.
+Fitting estimator with 592 features.
+Fitting estimator with 591 features.
+Fitting estimator with 590 features.
+Fitting estimator with 589 features.
+Fitting estimator with 588 features.
+Fitting estimator with 587 features.
+Fitting estimator with 586 features.
+Fitting estimator with 585 features.
+Fitting estimator with 584 features.
+Fitting estimator with 583 features.
+Fitting estimator with 582 features.
+Fitting estimator with 581 features.
+Fitting estimator with 580 features.
+Fitting estimator with 579 features.
+Fitting estimator with 578 features.
+Fitting estimator with 577 features.
+Fitting estimator with 576 features.
+Fitting estimator with 575 features.
+Fitting estimator with 574 features.
+Fitting estimator with 573 features.
+Fitting estimator with 572 features.
+Fitting estimator with 571 features.
+Fitting estimator with 570 features.
+Fitting estimator with 569 features.
+Fitting estimator with 568 features.
+Fitting estimator with 567 features.
+Fitting estimator with 566 features.
+Fitting estimator with 565 features.
+Fitting estimator with 564 features.
+Fitting estimator with 563 features.
+Fitting estimator with 562 features.
+Fitting estimator with 561 features.
+Fitting estimator with 560 features.
+Fitting estimator with 559 features.
+Fitting estimator with 558 features.
+Fitting estimator with 557 features.
+Fitting estimator with 556 features.
+Fitting estimator with 555 features.
+Fitting estimator with 554 features.
+Fitting estimator with 553 features.
+Fitting estimator with 552 features.
+Fitting estimator with 551 features.
+Fitting estimator with 550 features.
+Fitting estimator with 549 features.
+Fitting estimator with 548 features.
+Fitting estimator with 547 features.
+Fitting estimator with 546 features.
+Fitting estimator with 545 features.
+Fitting estimator with 544 features.
+Fitting estimator with 543 features.
+Fitting estimator with 542 features.
+Fitting estimator with 541 features.
+Fitting estimator with 540 features.
+Fitting estimator with 539 features.
+Fitting estimator with 538 features.
+Fitting estimator with 537 features.
+Fitting estimator with 536 features.
+Fitting estimator with 535 features.
+Fitting estimator with 534 features.
+Fitting estimator with 533 features.
+Fitting estimator with 532 features.
+Fitting estimator with 531 features.
+Fitting estimator with 530 features.
+Fitting estimator with 529 features.
+Fitting estimator with 528 features.
+Fitting estimator with 527 features.
+Fitting estimator with 526 features.
+Fitting estimator with 525 features.
+Fitting estimator with 524 features.
+Fitting estimator with 523 features.
+Fitting estimator with 522 features.
+Fitting estimator with 521 features.
+Fitting estimator with 520 features.
+Fitting estimator with 519 features.
+Fitting estimator with 518 features.
+Fitting estimator with 517 features.
+Fitting estimator with 516 features.
+Fitting estimator with 515 features.
+Fitting estimator with 514 features.
+Fitting estimator with 513 features.
+Fitting estimator with 512 features.
+Fitting estimator with 511 features.
+Fitting estimator with 510 features.
+Fitting estimator with 509 features.
+Fitting estimator with 508 features.
+Fitting estimator with 507 features.
+Fitting estimator with 506 features.
+Fitting estimator with 505 features.
+Fitting estimator with 504 features.
+Fitting estimator with 503 features.
+Fitting estimator with 502 features.
+Fitting estimator with 501 features.
+Fitting estimator with 500 features.
+dumping RFE intermediate with 500 features
+Fitting estimator with 499 features.
+Fitting estimator with 498 features.
+Fitting estimator with 497 features.
+Fitting estimator with 496 features.
+Fitting estimator with 495 features.
+Fitting estimator with 494 features.
+Fitting estimator with 493 features.
+Fitting estimator with 492 features.
+Fitting estimator with 491 features.
+Fitting estimator with 490 features.
+Fitting estimator with 489 features.
+Fitting estimator with 488 features.
+Fitting estimator with 487 features.
+Fitting estimator with 486 features.
+Fitting estimator with 485 features.
+Fitting estimator with 484 features.
+Fitting estimator with 483 features.
+Fitting estimator with 482 features.
+Fitting estimator with 481 features.
+Fitting estimator with 480 features.
+Fitting estimator with 479 features.
+Fitting estimator with 478 features.
+Fitting estimator with 477 features.
+Fitting estimator with 476 features.
+Fitting estimator with 475 features.
+Fitting estimator with 474 features.
+Fitting estimator with 473 features.
+Fitting estimator with 472 features.
+Fitting estimator with 471 features.
+Fitting estimator with 470 features.
+Fitting estimator with 469 features.
+Fitting estimator with 468 features.
+Fitting estimator with 467 features.
+Fitting estimator with 466 features.
+Fitting estimator with 465 features.
+Fitting estimator with 464 features.
+Fitting estimator with 463 features.
+Fitting estimator with 462 features.
+Fitting estimator with 461 features.
+Fitting estimator with 460 features.
+Fitting estimator with 459 features.
+Fitting estimator with 458 features.
+Fitting estimator with 457 features.
+Fitting estimator with 456 features.
+Fitting estimator with 455 features.
+Fitting estimator with 454 features.
+Fitting estimator with 453 features.
+Fitting estimator with 452 features.
+Fitting estimator with 451 features.
+Fitting estimator with 450 features.
+Fitting estimator with 449 features.
+Fitting estimator with 448 features.
+Fitting estimator with 447 features.
+Fitting estimator with 446 features.
+Fitting estimator with 445 features.
+Fitting estimator with 444 features.
+Fitting estimator with 443 features.
+Fitting estimator with 442 features.
+Fitting estimator with 441 features.
+Fitting estimator with 440 features.
+Fitting estimator with 439 features.
+Fitting estimator with 438 features.
+Fitting estimator with 437 features.
+Fitting estimator with 436 features.
+Fitting estimator with 435 features.
+Fitting estimator with 434 features.
+Fitting estimator with 433 features.
+Fitting estimator with 432 features.
+Fitting estimator with 431 features.
+Fitting estimator with 430 features.
+Fitting estimator with 429 features.
+Fitting estimator with 428 features.
+Fitting estimator with 427 features.
+Fitting estimator with 426 features.
+Fitting estimator with 425 features.
+Fitting estimator with 424 features.
+Fitting estimator with 423 features.
+Fitting estimator with 422 features.
+Fitting estimator with 421 features.
+Fitting estimator with 420 features.
+Fitting estimator with 419 features.
+Fitting estimator with 418 features.
+Fitting estimator with 417 features.
+Fitting estimator with 416 features.
+Fitting estimator with 415 features.
+Fitting estimator with 414 features.
+Fitting estimator with 413 features.
+Fitting estimator with 412 features.
+Fitting estimator with 411 features.
+Fitting estimator with 410 features.
+Fitting estimator with 409 features.
+Fitting estimator with 408 features.
+Fitting estimator with 407 features.
+Fitting estimator with 406 features.
+Fitting estimator with 405 features.
+Fitting estimator with 404 features.
+Fitting estimator with 403 features.
+Fitting estimator with 402 features.
+Fitting estimator with 401 features.
+Fitting estimator with 400 features.
+dumping RFE intermediate with 400 features
+Fitting estimator with 399 features.
+Fitting estimator with 398 features.
+Fitting estimator with 397 features.
+Fitting estimator with 396 features.
+Fitting estimator with 395 features.
+Fitting estimator with 394 features.
+Fitting estimator with 393 features.
+Fitting estimator with 392 features.
+Fitting estimator with 391 features.
+Fitting estimator with 390 features.
+Fitting estimator with 389 features.
+Fitting estimator with 388 features.
+Fitting estimator with 387 features.
+Fitting estimator with 386 features.
+Fitting estimator with 385 features.
+Fitting estimator with 384 features.
+Fitting estimator with 383 features.
+Fitting estimator with 382 features.
+Fitting estimator with 381 features.
+Fitting estimator with 380 features.
+Fitting estimator with 379 features.
+Fitting estimator with 378 features.
+Fitting estimator with 377 features.
+Fitting estimator with 376 features.
+Fitting estimator with 375 features.
+Fitting estimator with 374 features.
+Fitting estimator with 373 features.
+Fitting estimator with 372 features.
+Fitting estimator with 371 features.
+Fitting estimator with 370 features.
+Fitting estimator with 369 features.
+Fitting estimator with 368 features.
+Fitting estimator with 367 features.
+Fitting estimator with 366 features.
+Fitting estimator with 365 features.
+Fitting estimator with 364 features.
+Fitting estimator with 363 features.
+Fitting estimator with 362 features.
+Fitting estimator with 361 features.
+Fitting estimator with 360 features.
+Fitting estimator with 359 features.
+Fitting estimator with 358 features.
+Fitting estimator with 357 features.
+Fitting estimator with 356 features.
+Fitting estimator with 355 features.
+Fitting estimator with 354 features.
+Fitting estimator with 353 features.
+Fitting estimator with 352 features.
+Fitting estimator with 351 features.
+Fitting estimator with 350 features.
+Fitting estimator with 349 features.
+Fitting estimator with 348 features.
+Fitting estimator with 347 features.
+Fitting estimator with 346 features.
+Fitting estimator with 345 features.
+Fitting estimator with 344 features.
+Fitting estimator with 343 features.
+Fitting estimator with 342 features.
+Fitting estimator with 341 features.
+Fitting estimator with 340 features.
+Fitting estimator with 339 features.
+Fitting estimator with 338 features.
+Fitting estimator with 337 features.
+Fitting estimator with 336 features.
+Fitting estimator with 335 features.
+Fitting estimator with 334 features.
+Fitting estimator with 333 features.
+Fitting estimator with 332 features.
+Fitting estimator with 331 features.
+Fitting estimator with 330 features.
+Fitting estimator with 329 features.
+Fitting estimator with 328 features.
+Fitting estimator with 327 features.
+Fitting estimator with 326 features.
+Fitting estimator with 325 features.
+Fitting estimator with 324 features.
+Fitting estimator with 323 features.
+Fitting estimator with 322 features.
+Fitting estimator with 321 features.
+Fitting estimator with 320 features.
+Fitting estimator with 319 features.
+Fitting estimator with 318 features.
+Fitting estimator with 317 features.
+Fitting estimator with 316 features.
+Fitting estimator with 315 features.
+Fitting estimator with 314 features.
+Fitting estimator with 313 features.
+Fitting estimator with 312 features.
+Fitting estimator with 311 features.
+Fitting estimator with 310 features.
+Fitting estimator with 309 features.
+Fitting estimator with 308 features.
+Fitting estimator with 307 features.
+Fitting estimator with 306 features.
+Fitting estimator with 305 features.
+Fitting estimator with 304 features.
+Fitting estimator with 303 features.
+Fitting estimator with 302 features.
+Fitting estimator with 301 features.
+Fitting estimator with 300 features.
+dumping RFE intermediate with 300 features
+Fitting estimator with 299 features.
+Fitting estimator with 298 features.
+Fitting estimator with 297 features.
+Fitting estimator with 296 features.
+Fitting estimator with 295 features.
+Fitting estimator with 294 features.
+Fitting estimator with 293 features.
+Fitting estimator with 292 features.
+Fitting estimator with 291 features.
+Fitting estimator with 290 features.
+Fitting estimator with 289 features.
+Fitting estimator with 288 features.
+Fitting estimator with 287 features.
+Fitting estimator with 286 features.
+Fitting estimator with 285 features.
+Fitting estimator with 284 features.
+Fitting estimator with 283 features.
+Fitting estimator with 282 features.
+Fitting estimator with 281 features.
+Fitting estimator with 280 features.
+Fitting estimator with 279 features.
+Fitting estimator with 278 features.
+Fitting estimator with 277 features.
+Fitting estimator with 276 features.
+Fitting estimator with 275 features.
+Fitting estimator with 274 features.
+Fitting estimator with 273 features.
+Fitting estimator with 272 features.
+Fitting estimator with 271 features.
+Fitting estimator with 270 features.
+Fitting estimator with 269 features.
+Fitting estimator with 268 features.
+Fitting estimator with 267 features.
+Fitting estimator with 266 features.
+Fitting estimator with 265 features.
+Fitting estimator with 264 features.
+Fitting estimator with 263 features.
+Fitting estimator with 262 features.
+Fitting estimator with 261 features.
+Fitting estimator with 260 features.
+Fitting estimator with 259 features.
+Fitting estimator with 258 features.
+Fitting estimator with 257 features.
+Fitting estimator with 256 features.
+Fitting estimator with 255 features.
+Fitting estimator with 254 features.
+Fitting estimator with 253 features.
+Fitting estimator with 252 features.
+Fitting estimator with 251 features.
+Fitting estimator with 250 features.
+Fitting estimator with 249 features.
+Fitting estimator with 248 features.
+Fitting estimator with 247 features.
+Fitting estimator with 246 features.
+Fitting estimator with 245 features.
+Fitting estimator with 244 features.
+Fitting estimator with 243 features.
+Fitting estimator with 242 features.
+Fitting estimator with 241 features.
+Fitting estimator with 240 features.
+Fitting estimator with 239 features.
+Fitting estimator with 238 features.
+Fitting estimator with 237 features.
+Fitting estimator with 236 features.
+Fitting estimator with 235 features.
+Fitting estimator with 234 features.
+Fitting estimator with 233 features.
+Fitting estimator with 232 features.
+Fitting estimator with 231 features.
+Fitting estimator with 230 features.
+Fitting estimator with 229 features.
+Fitting estimator with 228 features.
+Fitting estimator with 227 features.
+Fitting estimator with 226 features.
+Fitting estimator with 225 features.
+Fitting estimator with 224 features.
+Fitting estimator with 223 features.
+Fitting estimator with 222 features.
+Fitting estimator with 221 features.
+Fitting estimator with 220 features.
+Fitting estimator with 219 features.
+Fitting estimator with 218 features.
+Fitting estimator with 217 features.
+Fitting estimator with 216 features.
+Fitting estimator with 215 features.
+Fitting estimator with 214 features.
+Fitting estimator with 213 features.
+Fitting estimator with 212 features.
+Fitting estimator with 211 features.
+Fitting estimator with 210 features.
+Fitting estimator with 209 features.
+Fitting estimator with 208 features.
+Fitting estimator with 207 features.
+Fitting estimator with 206 features.
+Fitting estimator with 205 features.
+Fitting estimator with 204 features.
+Fitting estimator with 203 features.
+Fitting estimator with 202 features.
+Fitting estimator with 201 features.
+Fitting estimator with 200 features.
+dumping RFE intermediate with 200 features
+Fitting estimator with 199 features.
+Fitting estimator with 198 features.
+Fitting estimator with 197 features.
+Fitting estimator with 196 features.
+Fitting estimator with 195 features.
+Fitting estimator with 194 features.
+Fitting estimator with 193 features.
+Fitting estimator with 192 features.
+Fitting estimator with 191 features.
+Fitting estimator with 190 features.
+Fitting estimator with 189 features.
+Fitting estimator with 188 features.
+Fitting estimator with 187 features.
+Fitting estimator with 186 features.
+Fitting estimator with 185 features.
+Fitting estimator with 184 features.
+Fitting estimator with 183 features.
+Fitting estimator with 182 features.
+Fitting estimator with 181 features.
+Fitting estimator with 180 features.
+Fitting estimator with 179 features.
+Fitting estimator with 178 features.
+Fitting estimator with 177 features.
+Fitting estimator with 176 features.
+Fitting estimator with 175 features.
+Fitting estimator with 174 features.
+Fitting estimator with 173 features.
+Fitting estimator with 172 features.
+Fitting estimator with 171 features.
+Fitting estimator with 170 features.
+Fitting estimator with 169 features.
+Fitting estimator with 168 features.
+Fitting estimator with 167 features.
+Fitting estimator with 166 features.
+Fitting estimator with 165 features.
+Fitting estimator with 164 features.
+Fitting estimator with 163 features.
+Fitting estimator with 162 features.
+Fitting estimator with 161 features.
+Fitting estimator with 160 features.
+Fitting estimator with 159 features.
+Fitting estimator with 158 features.
+Fitting estimator with 157 features.
+Fitting estimator with 156 features.
+Fitting estimator with 155 features.
+Fitting estimator with 154 features.
+Fitting estimator with 153 features.
+Fitting estimator with 152 features.
+Fitting estimator with 151 features.
+Saving RFE...
+RFE produced the following ranking: 
+[  1   1   1 ..., 501 673 541]
+Visualising RFE feature importance...
+('going to check for features up to: ', 527)
+-- Checking performance when 1 features are used
+---- Intermediate score: 0.684645698269
+---- Intermediate score: 0.692260627893
+---- Intermediate score: 0.689192838582
+---- Intermediate score: 0.672665122224
+AuC: 0.6847 (+/- 0.0149)
+Plotting curves
+I upgrade from 0 to 1 features
+because of auc improvement from 0 to 0.684691071742
+-- Checking performance when 6 features are used
+---- Intermediate score: 0.931579217177
+---- Intermediate score: 0.93987561177
+---- Intermediate score: 0.933076778139
+---- Intermediate score: 0.930252371604
+AuC: 0.9337 (+/- 0.0074)
+I upgrade from 1 to 6 features
+because of auc improvement from 0.684691071742 to 0.933695994672
+-- Checking performance when 11 features are used
+---- Intermediate score: 0.969352932811
+---- Intermediate score: 0.969037916391
+---- Intermediate score: 0.963244974915
+---- Intermediate score: 0.96844337302
+AuC: 0.9675 (+/- 0.0050)
+I upgrade from 6 to 11 features
+because of auc improvement from 0.933695994672 to 0.967519799284
+-- Checking performance when 16 features are used
+---- Intermediate score: 0.978863628073
+---- Intermediate score: 0.979040535699
+---- Intermediate score: 0.973567034597
+---- Intermediate score: 0.980034587622
+AuC: 0.9779 (+/- 0.0051)
+I upgrade from 11 to 16 features
+because of auc improvement from 0.967519799284 to 0.977876446498
+-- Checking performance when 21 features are used
+---- Intermediate score: 0.983278427132
+---- Intermediate score: 0.979961879877
+---- Intermediate score: 0.974323818324
+---- Intermediate score: 0.984023627084
+AuC: 0.9804 (+/- 0.0077)
+I upgrade from 16 to 21 features
+because of auc improvement from 0.977876446498 to 0.980396938104
+-- Checking performance when 26 features are used
+---- Intermediate score: 0.984770207617
+---- Intermediate score: 0.982528802062
+---- Intermediate score: 0.978766330966
+---- Intermediate score: 0.988128704024
+AuC: 0.9835 (+/- 0.0068)
+I upgrade from 21 to 26 features
+because of auc improvement from 0.980396938104 to 0.983548511167
+-- Checking performance when 31 features are used
+---- Intermediate score: 0.985342041839
+---- Intermediate score: 0.98230223112
+---- Intermediate score: 0.977218480784
+---- Intermediate score: 0.989146872285
+AuC: 0.9835 (+/- 0.0087)
+-- Checking performance when 36 features are used
+---- Intermediate score: 0.985125683786
+---- Intermediate score: 0.981925561878
+---- Intermediate score: 0.978059531913
+---- Intermediate score: 0.989863414804
+AuC: 0.9837 (+/- 0.0087)
+I upgrade from 26 to 36 features
+because of auc improvement from 0.983548511167 to 0.983743548095
+-- Checking performance when 41 features are used
+---- Intermediate score: 0.985883354679
+---- Intermediate score: 0.982986996486
+---- Intermediate score: 0.979426061434
+---- Intermediate score: 0.99022912976
+AuC: 0.9846 (+/- 0.0079)
+I upgrade from 36 to 41 features
+because of auc improvement from 0.983743548095 to 0.98463138559
+-- Checking performance when 46 features are used
+---- Intermediate score: 0.987149178185
+---- Intermediate score: 0.984908221511
+---- Intermediate score: 0.980440056682
+---- Intermediate score: 0.991678543411
+AuC: 0.9860 (+/- 0.0081)
+I upgrade from 41 to 46 features
+because of auc improvement from 0.98463138559 to 0.986043999947
+-- Checking performance when 51 features are used
+---- Intermediate score: 0.987642707117
+---- Intermediate score: 0.985819023024
+---- Intermediate score: 0.982003581185
+---- Intermediate score: 0.991739537527
+AuC: 0.9868 (+/- 0.0070)
+I upgrade from 46 to 51 features
+because of auc improvement from 0.986043999947 to 0.986801212213
+-- Checking performance when 56 features are used
+---- Intermediate score: 0.989425489004
+---- Intermediate score: 0.98693144779
+---- Intermediate score: 0.983387280249
+---- Intermediate score: 0.992249502182
+AuC: 0.9880 (+/- 0.0065)
+I upgrade from 51 to 56 features
+because of auc improvement from 0.986801212213 to 0.987998429807
+-- Checking performance when 61 features are used
+---- Intermediate score: 0.989197438713
+---- Intermediate score: 0.988072932279
+---- Intermediate score: 0.984131741498
+---- Intermediate score: 0.992661176697
+AuC: 0.9885 (+/- 0.0061)
+I upgrade from 56 to 61 features
+because of auc improvement from 0.987998429807 to 0.988515822297
+-- Checking performance when 66 features are used
+---- Intermediate score: 0.989216321034
+---- Intermediate score: 0.987734808725
+---- Intermediate score: 0.983685107093
+---- Intermediate score: 0.992852553105
+AuC: 0.9884 (+/- 0.0066)
+-- Checking performance when 71 features are used
+---- Intermediate score: 0.98901061133
+---- Intermediate score: 0.989269043814
+---- Intermediate score: 0.984771249001
+---- Intermediate score: 0.993031328627
+AuC: 0.9890 (+/- 0.0058)
+I upgrade from 61 to 71 features
+because of auc improvement from 0.988515822297 to 0.989020558193
+-- Checking performance when 76 features are used
+---- Intermediate score: 0.989156241457
+---- Intermediate score: 0.988798913217
+---- Intermediate score: 0.984764347215
+---- Intermediate score: 0.993099181611
+AuC: 0.9890 (+/- 0.0059)
+-- Checking performance when 81 features are used
+---- Intermediate score: 0.98978240227
+---- Intermediate score: 0.990809693918
+---- Intermediate score: 0.985771732463
+---- Intermediate score: 0.993511835597
+AuC: 0.9900 (+/- 0.0056)
+I upgrade from 71 to 81 features
+because of auc improvement from 0.989020558193 to 0.989968916062
+-- Checking performance when 86 features are used
+---- Intermediate score: 0.990965687533
+---- Intermediate score: 0.991538663663
+---- Intermediate score: 0.985121071091
+---- Intermediate score: 0.993472198498
+AuC: 0.9903 (+/- 0.0062)
+I upgrade from 81 to 86 features
+because of auc improvement from 0.989968916062 to 0.990274405196
+-- Checking performance when 91 features are used
+---- Intermediate score: 0.990868514329
+---- Intermediate score: 0.991401854382
+---- Intermediate score: 0.985536074344
+---- Intermediate score: 0.993829691391
+AuC: 0.9904 (+/- 0.0061)
+I upgrade from 86 to 91 features
+because of auc improvement from 0.990274405196 to 0.990409033612
+-- Checking performance when 96 features are used
+---- Intermediate score: 0.99103717455
+---- Intermediate score: 0.991748427137
+---- Intermediate score: 0.985306129399
+---- Intermediate score: 0.993730285002
+AuC: 0.9905 (+/- 0.0063)
+I upgrade from 91 to 96 features
+because of auc improvement from 0.990409033612 to 0.990455504022
+-- Checking performance when 101 features are used
+---- Intermediate score: 0.990785986529
+---- Intermediate score: 0.99171218994
+---- Intermediate score: 0.984550661021
+---- Intermediate score: 0.994037665439
+AuC: 0.9903 (+/- 0.0070)
+Plotting curves
+-- Checking performance when 106 features are used
+---- Intermediate score: 0.990843462114
+---- Intermediate score: 0.991852246389
+---- Intermediate score: 0.984390005506
+---- Intermediate score: 0.993920424124
+AuC: 0.9903 (+/- 0.0071)
+-- Checking performance when 111 features are used
+---- Intermediate score: 0.991025412647
+---- Intermediate score: 0.991726204196
+---- Intermediate score: 0.984603972161
+---- Intermediate score: 0.993761252915
+AuC: 0.9903 (+/- 0.0069)
+-- Checking performance when 116 features are used
+---- Intermediate score: 0.991321221143
+---- Intermediate score: 0.991674090631
+---- Intermediate score: 0.983933708567
+---- Intermediate score: 0.993949474842
+AuC: 0.9902 (+/- 0.0075)
+-- Checking performance when 121 features are used
+---- Intermediate score: 0.990872568336
+---- Intermediate score: 0.991652083268
+---- Intermediate score: 0.983666089954
+---- Intermediate score: 0.994146294716
+AuC: 0.9901 (+/- 0.0078)
+-- Checking performance when 126 features are used
+---- Intermediate score: 0.991223130775
+---- Intermediate score: 0.99165128985
+---- Intermediate score: 0.983908393557
+---- Intermediate score: 0.994098434991
+AuC: 0.9902 (+/- 0.0076)
+-- Checking performance when 131 features are used
+---- Intermediate score: 0.991447857435
+---- Intermediate score: 0.991894315383
+---- Intermediate score: 0.984238375603
+---- Intermediate score: 0.994264206437
+AuC: 0.9905 (+/- 0.0075)
+I upgrade from 96 to 131 features
+because of auc improvement from 0.990455504022 to 0.990461188715
+-- Checking performance when 136 features are used
+---- Intermediate score: 0.991322245348
+---- Intermediate score: 0.992119862885
+---- Intermediate score: 0.9842960059
+---- Intermediate score: 0.994365935636
+AuC: 0.9905 (+/- 0.0075)
+I upgrade from 131 to 136 features
+because of auc improvement from 0.990461188715 to 0.990526012442
+-- Checking performance when 141 features are used
+---- Intermediate score: 0.991058132504
+---- Intermediate score: 0.991567426558
+---- Intermediate score: 0.983664684481
+---- Intermediate score: 0.994229934669
+AuC: 0.9901 (+/- 0.0078)
+-- Checking performance when 146 features are used
+---- Intermediate score: 0.991233164766
+---- Intermediate score: 0.992170052076
+---- Intermediate score: 0.983884944318
+---- Intermediate score: 0.994387979854
+AuC: 0.9904 (+/- 0.0079)
+-- Checking performance when 151 features are used
+---- Intermediate score: 0.990960678797
+---- Intermediate score: 0.992221412
+---- Intermediate score: 0.983673109259
+---- Intermediate score: 0.994248419851
+AuC: 0.9903 (+/- 0.0080)
+-- Checking performance when 156 features are used
+---- Intermediate score: 0.991440520058
+---- Intermediate score: 0.992116023756
+---- Intermediate score: 0.98375193683
+---- Intermediate score: 0.994092219261
+AuC: 0.9904 (+/- 0.0079)
+-- Checking performance when 161 features are used
+---- Intermediate score: 0.99119150125
+---- Intermediate score: 0.992202585035
+---- Intermediate score: 0.983657514929
+---- Intermediate score: 0.994362066499
+AuC: 0.9904 (+/- 0.0081)
+-- Checking performance when 166 features are used
+---- Intermediate score: 0.991461457235
+---- Intermediate score: 0.992022094711
+---- Intermediate score: 0.984383482511
+---- Intermediate score: 0.994308724831
+AuC: 0.9905 (+/- 0.0074)
+I upgrade from 136 to 166 features
+because of auc improvement from 0.990526012442 to 0.990543939822
+-- Checking performance when 171 features are used
+---- Intermediate score: 0.991215247751
+---- Intermediate score: 0.992592541453
+---- Intermediate score: 0.984049848333
+---- Intermediate score: 0.994597101159
+AuC: 0.9906 (+/- 0.0080)
+I upgrade from 166 to 171 features
+because of auc improvement from 0.990543939822 to 0.990613684674
+-- Checking performance when 176 features are used
+---- Intermediate score: 0.991212758503
+---- Intermediate score: 0.992508934746
+---- Intermediate score: 0.983828149676
+---- Intermediate score: 0.994572036959
+AuC: 0.9905 (+/- 0.0081)
+-- Checking performance when 181 features are used
+---- Intermediate score: 0.991801036593
+---- Intermediate score: 0.992315305266
+---- Intermediate score: 0.983473591159
+---- Intermediate score: 0.994338663073
+AuC: 0.9905 (+/- 0.0083)
+-- Checking performance when 186 features are used
+---- Intermediate score: 0.991377715792
+---- Intermediate score: 0.992166737918
+---- Intermediate score: 0.984943204236
+---- Intermediate score: 0.994413367278
+AuC: 0.9907 (+/- 0.0070)
+I upgrade from 171 to 186 features
+because of auc improvement from 0.990613684674 to 0.990725256306
+-- Checking performance when 191 features are used
+---- Intermediate score: 0.99143771996
+---- Intermediate score: 0.992082740858
+---- Intermediate score: 0.983965519553
+---- Intermediate score: 0.994667656143
+AuC: 0.9905 (+/- 0.0080)
+-- Checking performance when 196 features are used
+---- Intermediate score: 0.991215226148
+---- Intermediate score: 0.992385273788
+---- Intermediate score: 0.983831245057
+---- Intermediate score: 0.994759406633
+AuC: 0.9905 (+/- 0.0082)
+-- Checking performance when 201 features are used
+---- Intermediate score: 0.991589414929
+---- Intermediate score: 0.992545406639
+---- Intermediate score: 0.984551310047
+---- Intermediate score: 0.994634289934
+AuC: 0.9908 (+/- 0.0076)
+Plotting curves
+I upgrade from 186 to 201 features
+because of auc improvement from 0.990725256306 to 0.990830105387
+-- Checking performance when 206 features are used
+---- Intermediate score: 0.991239344656
+---- Intermediate score: 0.992791818485
+---- Intermediate score: 0.984408188463
+---- Intermediate score: 0.994711047758
+AuC: 0.9908 (+/- 0.0078)
+-- Checking performance when 211 features are used
+---- Intermediate score: 0.991863916585
+---- Intermediate score: 0.992867607465
+---- Intermediate score: 0.984132348491
+---- Intermediate score: 0.994572803222
+AuC: 0.9909 (+/- 0.0080)
+I upgrade from 201 to 211 features
+because of auc improvement from 0.990830105387 to 0.990859168941
+-- Checking performance when 216 features are used
+---- Intermediate score: 0.991363457339
+---- Intermediate score: 0.992407542903
+---- Intermediate score: 0.984013122207
+---- Intermediate score: 0.994595723978
+AuC: 0.9906 (+/- 0.0080)
+-- Checking performance when 221 features are used
+---- Intermediate score: 0.991582411965
+---- Intermediate score: 0.993035546573
+---- Intermediate score: 0.983778245719
+---- Intermediate score: 0.994969712229
+AuC: 0.9908 (+/- 0.0085)
+-- Checking performance when 226 features are used
+---- Intermediate score: 0.991501271363
+---- Intermediate score: 0.99284018255
+---- Intermediate score: 0.983306125365
+---- Intermediate score: 0.994896174704
+AuC: 0.9906 (+/- 0.0088)
+-- Checking performance when 231 features are used
+---- Intermediate score: 0.99160336773
+---- Intermediate score: 0.992556519225
+---- Intermediate score: 0.984878907542
+---- Intermediate score: 0.994976576296
+AuC: 0.9910 (+/- 0.0075)
+I upgrade from 211 to 231 features
+because of auc improvement from 0.990859168941 to 0.991003842698
+-- Checking performance when 236 features are used
+---- Intermediate score: 0.991699681457
+---- Intermediate score: 0.992813691783
+---- Intermediate score: 0.984097011698
+---- Intermediate score: 0.994811169228
+AuC: 0.9909 (+/- 0.0081)
+-- Checking performance when 241 features are used
+---- Intermediate score: 0.991775781357
+---- Intermediate score: 0.992682984521
+---- Intermediate score: 0.983933185884
+---- Intermediate score: 0.995231658409
+AuC: 0.9909 (+/- 0.0084)
+-- Checking performance when 246 features are used
+---- Intermediate score: 0.991621056574
+---- Intermediate score: 0.992705822614
+---- Intermediate score: 0.984851276793
+---- Intermediate score: 0.994986905667
+AuC: 0.9910 (+/- 0.0075)
+I upgrade from 231 to 246 features
+because of auc improvement from 0.991003842698 to 0.991041265412
+-- Checking performance when 251 features are used
+---- Intermediate score: 0.991703460194
+---- Intermediate score: 0.992708881253
+---- Intermediate score: 0.984371516224
+---- Intermediate score: 0.994928339951
+AuC: 0.9909 (+/- 0.0079)
+-- Checking performance when 256 features are used
+---- Intermediate score: 0.992034218618
+---- Intermediate score: 0.992604928132
+---- Intermediate score: 0.98382580018
+---- Intermediate score: 0.994792297987
+AuC: 0.9908 (+/- 0.0083)
+-- Checking performance when 261 features are used
+---- Intermediate score: 0.991747718811
+---- Intermediate score: 0.992454944487
+---- Intermediate score: 0.985246482191
+---- Intermediate score: 0.994859145987
+AuC: 0.9911 (+/- 0.0071)
+I upgrade from 246 to 261 features
+because of auc improvement from 0.991041265412 to 0.991077072869
+-- Checking performance when 266 features are used
+---- Intermediate score: 0.991819997281
+---- Intermediate score: 0.993020214232
+---- Intermediate score: 0.984467378124
+---- Intermediate score: 0.995256450091
+AuC: 0.9911 (+/- 0.0081)
+I upgrade from 261 to 266 features
+because of auc improvement from 0.991077072869 to 0.991141009932
+-- Checking performance when 271 features are used
+---- Intermediate score: 0.99177871345
+---- Intermediate score: 0.992731146488
+---- Intermediate score: 0.984739545036
+---- Intermediate score: 0.995082960974
+AuC: 0.9911 (+/- 0.0077)
+-- Checking performance when 276 features are used
+---- Intermediate score: 0.99218158386
+---- Intermediate score: 0.992896070241
+---- Intermediate score: 0.984664412618
+---- Intermediate score: 0.995220602378
+AuC: 0.9912 (+/- 0.0079)
+I upgrade from 266 to 276 features
+because of auc improvement from 0.991141009932 to 0.991240667274
+-- Checking performance when 281 features are used
+---- Intermediate score: 0.991920031438
+---- Intermediate score: 0.992977263937
+---- Intermediate score: 0.985167906967
+---- Intermediate score: 0.995334756822
+AuC: 0.9913 (+/- 0.0076)
+I upgrade from 276 to 281 features
+because of auc improvement from 0.991240667274 to 0.991349989791
+-- Checking performance when 286 features are used
+---- Intermediate score: 0.992136372715
+---- Intermediate score: 0.993137445575
+---- Intermediate score: 0.984765926132
+---- Intermediate score: 0.99515557385
+AuC: 0.9913 (+/- 0.0079)
+-- Checking performance when 291 features are used
+---- Intermediate score: 0.992194120849
+---- Intermediate score: 0.99284661943
+---- Intermediate score: 0.985085253828
+---- Intermediate score: 0.995277359487
+AuC: 0.9914 (+/- 0.0076)
+I upgrade from 281 to 291 features
+because of auc improvement from 0.991349989791 to 0.991350838399
+-- Checking performance when 296 features are used
+---- Intermediate score: 0.992235571547
+---- Intermediate score: 0.992825564006
+---- Intermediate score: 0.983942489541
+---- Intermediate score: 0.99494050098
+AuC: 0.9910 (+/- 0.0084)
+-- Checking performance when 301 features are used
+---- Intermediate score: 0.992069219199
+---- Intermediate score: 0.992921832636
+---- Intermediate score: 0.985146523224
+---- Intermediate score: 0.995127430864
+AuC: 0.9913 (+/- 0.0075)
+Plotting curves
+-- Checking performance when 306 features are used
+---- Intermediate score: 0.992164068283
+---- Intermediate score: 0.992891894312
+---- Intermediate score: 0.984823613487
+---- Intermediate score: 0.995167239145
+AuC: 0.9913 (+/- 0.0078)
+-- Checking performance when 311 features are used
+---- Intermediate score: 0.991823512841
+---- Intermediate score: 0.992957957717
+---- Intermediate score: 0.98492680205
+---- Intermediate score: 0.995228970875
+AuC: 0.9912 (+/- 0.0077)
+-- Checking performance when 316 features are used
+---- Intermediate score: 0.992164984695
+---- Intermediate score: 0.992765074277
+---- Intermediate score: 0.985388551169
+---- Intermediate score: 0.995233456952
+AuC: 0.9914 (+/- 0.0073)
+I upgrade from 291 to 316 features
+because of auc improvement from 0.991350838399 to 0.991388016773
+-- Checking performance when 321 features are used
+---- Intermediate score: 0.992222623396
+---- Intermediate score: 0.993105145095
+---- Intermediate score: 0.985980514262
+---- Intermediate score: 0.995339215089
+AuC: 0.9917 (+/- 0.0069)
+I upgrade from 316 to 321 features
+because of auc improvement from 0.991388016773 to 0.99166187446
+-- Checking performance when 326 features are used
+---- Intermediate score: 0.992125102414
+---- Intermediate score: 0.993324003174
+---- Intermediate score: 0.984808283911
+---- Intermediate score: 0.995360616861
+AuC: 0.9914 (+/- 0.0080)
+-- Checking performance when 331 features are used
+---- Intermediate score: 0.991925520238
+---- Intermediate score: 0.993134581824
+---- Intermediate score: 0.985016206413
+---- Intermediate score: 0.995066259046
+AuC: 0.9913 (+/- 0.0076)
+-- Checking performance when 336 features are used
+---- Intermediate score: 0.992520099082
+---- Intermediate score: 0.992896574121
+---- Intermediate score: 0.985050549119
+---- Intermediate score: 0.995157015048
+AuC: 0.9914 (+/- 0.0076)
+-- Checking performance when 341 features are used
+---- Intermediate score: 0.991915905984
+---- Intermediate score: 0.993380105101
+---- Intermediate score: 0.985205797342
+---- Intermediate score: 0.995227045791
+AuC: 0.9914 (+/- 0.0076)
+-- Checking performance when 346 features are used
+---- Intermediate score: 0.992195298329
+---- Intermediate score: 0.993045034698
+---- Intermediate score: 0.98578944753
+---- Intermediate score: 0.995399846963
+AuC: 0.9916 (+/- 0.0071)
+-- Checking performance when 351 features are used
+---- Intermediate score: 0.992058660149
+---- Intermediate score: 0.993012439884
+---- Intermediate score: 0.984638017719
+---- Intermediate score: 0.995409692211
+AuC: 0.9913 (+/- 0.0080)
+-- Checking performance when 356 features are used
+---- Intermediate score: 0.992057939475
+---- Intermediate score: 0.993122057034
+---- Intermediate score: 0.984988867011
+---- Intermediate score: 0.995185593983
+AuC: 0.9913 (+/- 0.0077)
+-- Checking performance when 361 features are used
+---- Intermediate score: 0.992261924554
+---- Intermediate score: 0.993189330806
+---- Intermediate score: 0.985228134744
+---- Intermediate score: 0.995122180879
+AuC: 0.9915 (+/- 0.0075)
+-- Checking performance when 366 features are used
+---- Intermediate score: 0.99230227615
+---- Intermediate score: 0.992951455681
+---- Intermediate score: 0.985114278774
+---- Intermediate score: 0.995307948486
+AuC: 0.9914 (+/- 0.0076)
+-- Checking performance when 371 features are used
+---- Intermediate score: 0.992258862664
+---- Intermediate score: 0.993444826501
+---- Intermediate score: 0.985616305638
+---- Intermediate score: 0.995148116276
+AuC: 0.9916 (+/- 0.0072)
+-- Checking performance when 376 features are used
+---- Intermediate score: 0.992472284697
+---- Intermediate score: 0.992862592353
+---- Intermediate score: 0.985582937084
+---- Intermediate score: 0.995095748353
+AuC: 0.9915 (+/- 0.0071)
+-- Checking performance when 381 features are used
+---- Intermediate score: 0.992275501485
+---- Intermediate score: 0.993072961662
+---- Intermediate score: 0.985320400176
+---- Intermediate score: 0.995188773038
+AuC: 0.9915 (+/- 0.0074)
+-- Checking performance when 386 features are used
+---- Intermediate score: 0.992456521268
+---- Intermediate score: 0.993035349947
+---- Intermediate score: 0.985578488958
+---- Intermediate score: 0.995207217782
+AuC: 0.9916 (+/- 0.0072)
+-- Checking performance when 391 features are used
+---- Intermediate score: 0.992255099423
+---- Intermediate score: 0.993010912415
+---- Intermediate score: 0.985514966304
+---- Intermediate score: 0.995215692526
+AuC: 0.9915 (+/- 0.0072)
+-- Checking performance when 396 features are used
+---- Intermediate score: 0.99214695221
+---- Intermediate score: 0.99296266121
+---- Intermediate score: 0.985607540138
+---- Intermediate score: 0.995184552666
+AuC: 0.9915 (+/- 0.0071)
+-- Checking performance when 401 features are used
+---- Intermediate score: 0.992000867137
+---- Intermediate score: 0.993317711506
+---- Intermediate score: 0.985829717744
+---- Intermediate score: 0.995296227812
+AuC: 0.9916 (+/- 0.0071)
+Plotting curves
+-- Checking performance when 406 features are used
+---- Intermediate score: 0.992160199921
+---- Intermediate score: 0.993385121393
+---- Intermediate score: 0.985736665363
+---- Intermediate score: 0.995355323206
+AuC: 0.9917 (+/- 0.0072)
+-- Checking performance when 411 features are used
+---- Intermediate score: 0.992182145806
+---- Intermediate score: 0.993023888678
+---- Intermediate score: 0.985157856769
+---- Intermediate score: 0.995178914185
+AuC: 0.9914 (+/- 0.0075)
+-- Checking performance when 416 features are used
+---- Intermediate score: 0.992304767695
+---- Intermediate score: 0.993183764706
+---- Intermediate score: 0.985621315966
+---- Intermediate score: 0.995513267081
+AuC: 0.9917 (+/- 0.0074)
+-- Checking performance when 421 features are used
+---- Intermediate score: 0.992384810836
+---- Intermediate score: 0.992967799622
+---- Intermediate score: 0.985856357309
+---- Intermediate score: 0.995391849301
+AuC: 0.9917 (+/- 0.0071)
+-- Checking performance when 426 features are used
+---- Intermediate score: 0.992169354618
+---- Intermediate score: 0.9928938714
+---- Intermediate score: 0.985840016748
+---- Intermediate score: 0.995409655318
+AuC: 0.9916 (+/- 0.0070)
+-- Checking performance when 431 features are used
+---- Intermediate score: 0.992100272546
+---- Intermediate score: 0.993119570975
+---- Intermediate score: 0.986321466429
+---- Intermediate score: 0.995291330896
+AuC: 0.9917 (+/- 0.0066)
+I upgrade from 321 to 431 features
+because of auc improvement from 0.99166187446 to 0.991708160211
+-- Checking performance when 436 features are used
+---- Intermediate score: 0.992630360235
+---- Intermediate score: 0.993137757478
+---- Intermediate score: 0.985742046641
+---- Intermediate score: 0.99538855063
+AuC: 0.9917 (+/- 0.0072)
+I upgrade from 431 to 436 features
+because of auc improvement from 0.991708160211 to 0.991724678746
+-- Checking performance when 441 features are used
+---- Intermediate score: 0.992444827151
+---- Intermediate score: 0.993121649407
+---- Intermediate score: 0.985514323735
+---- Intermediate score: 0.995425185004
+AuC: 0.9916 (+/- 0.0074)
+-- Checking performance when 446 features are used
+---- Intermediate score: 0.9923167893
+---- Intermediate score: 0.993402427141
+---- Intermediate score: 0.985525918271
+---- Intermediate score: 0.995296240342
+AuC: 0.9916 (+/- 0.0074)
+-- Checking performance when 451 features are used
+---- Intermediate score: 0.992350757359
+---- Intermediate score: 0.992972043087
+---- Intermediate score: 0.985571063731
+---- Intermediate score: 0.995564852426
+AuC: 0.9916 (+/- 0.0074)
+-- Checking performance when 456 features are used
+---- Intermediate score: 0.992663761452
+---- Intermediate score: 0.993298275463
+---- Intermediate score: 0.986124933594
+---- Intermediate score: 0.995493303045
+AuC: 0.9919 (+/- 0.0070)
+I upgrade from 436 to 456 features
+because of auc improvement from 0.991724678746 to 0.991895068388
+-- Checking performance when 461 features are used
+---- Intermediate score: 0.992615024677
+---- Intermediate score: 0.993333739738
+---- Intermediate score: 0.986154431951
+---- Intermediate score: 0.995355637005
+AuC: 0.9919 (+/- 0.0069)
+-- Checking performance when 466 features are used
+---- Intermediate score: 0.991720140478
+---- Intermediate score: 0.993423314211
+---- Intermediate score: 0.985747518796
+---- Intermediate score: 0.995133490908
+AuC: 0.9915 (+/- 0.0071)
+-- Checking performance when 471 features are used
+---- Intermediate score: 0.992372268886
+---- Intermediate score: 0.993364476888
+---- Intermediate score: 0.98604835154
+---- Intermediate score: 0.995353936851
+AuC: 0.9918 (+/- 0.0070)
+-- Checking performance when 476 features are used
+---- Intermediate score: 0.992581870537
+---- Intermediate score: 0.992999130937
+---- Intermediate score: 0.986275026911
+---- Intermediate score: 0.995015373587
+AuC: 0.9917 (+/- 0.0065)
+-- Checking performance when 481 features are used
+---- Intermediate score: 0.992325324286
+---- Intermediate score: 0.993296224184
+---- Intermediate score: 0.985957993611
+---- Intermediate score: 0.995410666019
+AuC: 0.9917 (+/- 0.0070)
+-- Checking performance when 486 features are used
+---- Intermediate score: 0.991999592145
+---- Intermediate score: 0.993537612344
+---- Intermediate score: 0.985696208184
+---- Intermediate score: 0.995435704095
+AuC: 0.9917 (+/- 0.0073)
+-- Checking performance when 491 features are used
+---- Intermediate score: 0.992378476992
+---- Intermediate score: 0.993557748162
+---- Intermediate score: 0.985255427248
+---- Intermediate score: 0.995485940916
+AuC: 0.9917 (+/- 0.0077)
+-- Checking performance when 496 features are used
+---- Intermediate score: 0.99234084489
+---- Intermediate score: 0.992823270911
+---- Intermediate score: 0.985090663347
+---- Intermediate score: 0.995504194951
+AuC: 0.9914 (+/- 0.0077)
+-- Checking performance when 501 features are used
+---- Intermediate score: 0.992475246735
+---- Intermediate score: 0.993480535455
+---- Intermediate score: 0.985928504494
+---- Intermediate score: 0.995457516509
+AuC: 0.9918 (+/- 0.0072)
+Plotting curves
+-- Checking performance when 506 features are used
+---- Intermediate score: 0.99266144601
+---- Intermediate score: 0.993437275894
+---- Intermediate score: 0.985724406497
+---- Intermediate score: 0.995294199449
+AuC: 0.9918 (+/- 0.0072)
+-- Checking performance when 511 features are used
+---- Intermediate score: 0.992486689024
+---- Intermediate score: 0.993489679098
+---- Intermediate score: 0.985492799287
+---- Intermediate score: 0.995202965754
+AuC: 0.9917 (+/- 0.0074)
+-- Checking performance when 516 features are used
+---- Intermediate score: 0.992684879365
+---- Intermediate score: 0.993439822461
+---- Intermediate score: 0.986173537115
+---- Intermediate score: 0.995358136817
+AuC: 0.9919 (+/- 0.0069)
+I upgrade from 456 to 516 features
+because of auc improvement from 0.991895068388 to 0.99191409394
+-- Checking performance when 521 features are used
+---- Intermediate score: 0.99245917931
+---- Intermediate score: 0.993184593217
+---- Intermediate score: 0.985841315156
+---- Intermediate score: 0.99546657753
+AuC: 0.9917 (+/- 0.0072)
+-- Checking performance when 526 features are used
+---- Intermediate score: 0.992296984972
+---- Intermediate score: 0.993629722911
+---- Intermediate score: 0.985949038622
+---- Intermediate score: 0.995358107485
+AuC: 0.9918 (+/- 0.0071)
+Best number of features: 516 with auc: 0.99191409394

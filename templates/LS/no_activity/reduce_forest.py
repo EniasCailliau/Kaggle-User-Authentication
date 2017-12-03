@@ -108,7 +108,7 @@ def visualize_feature_importance_tree(trainer, forest, train_features, train_lab
 def main():
     base_options = ["LS", "user_no_activities", "random_forest"]
 
-    options = base_options + ["FIMP"] + ["semi-optimized"]
+    options = base_options + ["FIMP"] + ["augmented"] + ["semi-optimized"]
 
     results_location = handyman.calculate_path_from_options("Results", options)
     print("location: {}".format(results_location))
