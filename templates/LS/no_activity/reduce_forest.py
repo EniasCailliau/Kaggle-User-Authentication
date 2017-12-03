@@ -114,7 +114,7 @@ def main():
     print("location: {}".format(results_location))
 
     sys.stdout = os.fdopen(sys.stdout.fileno(), 'w', 0)
-    tee = subprocess.Popen(["tee", "forest.txt"], stdin=subprocess.PIPE)
+    tee = subprocess.Popen(["tee", "fimp_augmented_forest.txt"], stdin=subprocess.PIPE)
     os.dup2(tee.stdin.fileno(), sys.stdout.fileno())
     print "\nstdout"
 

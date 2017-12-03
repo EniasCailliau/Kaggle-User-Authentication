@@ -36,7 +36,7 @@ def reduce_noise(data, technique):
     if technique == "butter":
         for index in range(0, data.shape[0]):
             interval_data = data.loc[index, "interval_data"]
-            b, a, _ = butter(3, 0.3)
+            b, a= butter(3, 0.3)
             # Use filtfilt to apply the filter.
             data.set_value(index, "interval_data", interval_data.apply(lambda x: filtfilt(b, a, x), axis=0))
 
@@ -45,14 +45,36 @@ def reduce_noise(data, technique):
             filtered_interval_data = []
             for x in range(12):
                 interval_data = data.loc[index, "interval_data"]
-            window = signal.general_gaussian(51, p=0.5, sig=4)
-            filtered = signal.fftconvolve(window, interval_data.iloc[:, x])
-            filtered = np.average(interval_data.iloc[:, x]) / np.average(filtered) * filtered
-            filtered_interval_data.append(filtered)
+                window = signal.general_gaussian(51, p=0.5, sig=4)
+                filtered = signal.fftconvolve(window, interval_data.iloc[:, x])
+                filtered = np.average(interval_data.iloc[:, x]) / np.average(filtered) * filtered
+                filtered_interval_data.append(filtered)
             data.set_value(index, "interval_data", pd.DataFrame(filtered_interval_data))
+    elif technique == "moving_avg":
+        for index in range(0, data.shape[0]):
+            for x in range(12):
+                interval_data = data.loc[index, "interval_data"]
+                data.set_value(index, "interval_data", interval_data.apply(lambda x: moving_average_nan(x), axis=0))
+    elif technique == "rolling":
+        for index in range(0, data.shape[0]):
+            for x in range(12):
+                interval_data = data.loc[index, "interval_data"]
+                data.set_value(index, "interval_data", interval_data.apply(lambda x: x.rolling(4,center=True,min_periods=1).mean(), axis=0))
+            
 
     return data
 
+
+def moving_average_nan(a, n=4):
+    a = np.ma.masked_array(a,np.isnan(a))
+    ret = np.cumsum(np.ma.filled(a, 0))
+    ret[n:] = ret[n:] - ret[:-n]
+    counts = np.cumsum(~a.mask)
+    counts[n:] = counts[n:] - counts[:-n]
+    ret[~a.mask] /= counts[~a.mask]
+    ret[a.mask] = np.nan
+
+    return ret
 
 def coordinate_transform(data, technique):
     # Note that depitch might not work well when ascending or descending

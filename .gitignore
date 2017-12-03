@@ -169,3 +169,7 @@ feature_extraction/_data_sets/rfe_rf_with_activities/
 feature_extraction/_data_sets/rfe_random_forest_no_activities/
 feature_extraction/_data_sets/rfe_random_forest_no_activities.zip
 feature_extraction/_data_sets/rfe_rf_with_activities.zip
+butter_data.pkl
+gaussian_data.pkl
+moving_avg_data.pkl
+rolling_data.pkl

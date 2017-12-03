@@ -15,7 +15,7 @@ def create_flat_intervals_structure(augmented=False):
 
     session_id = 0
     for session in dataset['train']:
-        print("session: {}".format(session_id))
+        #print("session: {}".format(session_id))
         interval_id = 0
         for interval in session.intervals:
             training_data_entry = [session_id, interval.session.subject,
