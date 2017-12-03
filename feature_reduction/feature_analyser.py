@@ -37,10 +37,10 @@ def visualise_inter_feature_correlation(train_data):
     plt.show()
 
 
-def visualise_features_PCA(train_data, train_labels):
+def visualise_features_PCA(train_data, train_labels, location):
     fig = plt.figure(1, figsize=(8, 6))
     ax = Axes3D(fig, elev=-150, azim=110)
-    X_reduced = feature_reducer.reduce_PCA(train_data, n_components=3)
+    X_reduced = feature_reducer.reduce_PCA(train_data, n_components=3, nparray=True)
     for subject in range(1, 9):
         points = X_reduced[[i for i, s in enumerate(train_labels) if subject == s]]
         ax.scatter(points[:, 0], points[:, 1], points[:, 2], edgecolor='k', s=40, label='Subject ' + str(subject))
@@ -51,7 +51,8 @@ def visualise_features_PCA(train_data, train_labels):
     ax.w_yaxis.set_ticklabels([])
     ax.w_zaxis.set_ticklabels([])
 
-    plt.savefig("test123/PCA", bbox_inches='tight', dpi=300)
+    plt.savefig(location, bbox_inches='tight', dpi=300)
+    return X_reduced
 
 
 def visualise_feature_distribution(X, y, index, location):
@@ -69,10 +70,10 @@ def visualise_feature_distribution(X, y, index, location):
         plt.clf()
 
 
-def visualise_features_LDA(train_data, train_labels):
+def visualise_features_LDA(train_data, train_labels, location):
     fig = plt.figure(1, figsize=(8, 6))
     ax = Axes3D(fig, elev=-150, azim=110)
-    X_reduced = feature_reducer.reduce_LDA(train_data, train_labels, n_components=3)
+    X_reduced = feature_reducer.reduce_LDA(train_data, train_labels, n_components=3, np_array=True)
     for subject in range(1, 9):
         points = X_reduced[[i for i, s in enumerate(train_labels) if subject == s]]
         ax.scatter(points[:, 0], points[:, 1], points[:, 2], edgecolor='k', s=40, label='Subject ' + str(subject))
@@ -83,7 +84,8 @@ def visualise_features_LDA(train_data, train_labels):
     ax.w_xaxis.set_ticklabels([])
     ax.w_yaxis.set_ticklabels([])
     ax.w_zaxis.set_ticklabels([])
-    plt.savefig("test123/LDA", bbox_inches='tight', dpi=300)
+    plt.savefig(location, bbox_inches='tight', dpi=300)
+    return X_reduced
 
 
 if __name__ == '__main__':
