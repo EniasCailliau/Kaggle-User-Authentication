@@ -133,14 +133,10 @@ def main():
     results_location = handyman.calculate_path_from_options("Results", options)
     print("location: {}".format(results_location))
 
-    sys.stdout = os.fdopen(sys.stdout.fileno(), 'w', 0)
-    tee = subprocess.Popen(["tee", "beta.txt"], stdin=subprocess.PIPE)
-    os.dup2(tee.stdin.fileno(), sys.stdout.fileno())
-    print "\nstdout"
 
     trainer = t.Trainer()
     train_features, train_activity_labels, train_subject_labels, train_session, test_features = trainer.load_data(
-        os.path.join("../feature_extraction", '_data_sets/augmented.pkl'), final=False)
+        os.path.join("../feature_extraction/_data_sets/augmented.pkl"), final=False)
     train_features["activity"] = train_activity_labels
 
 
@@ -162,7 +158,7 @@ def main():
     # handyman.dump_pickle(rfe, results_location + "rfe.pkl")
 
     ranker = handyman.load_pickle(
-        "/Users/eniascailliau/Documents/GitHub.nosync/Kaggle-User-Authentication/Results/LS/user_with_activities/random_forest/RFE/augmented/semi-optimizedrfe.pkl")
+        "../Results/LS/user_with_activities/random_forest/RFE/augmented/semi-optimizedrfe.pkl")
     ranking = ranker.ranking_
     print("RFE produced the following ranking: ")
     print(ranking)
