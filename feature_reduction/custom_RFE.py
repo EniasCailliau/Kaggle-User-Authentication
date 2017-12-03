@@ -185,7 +185,7 @@ class RFE(BaseEstimator, MetaEstimatorMixin, SelectorMixin):
                 print("dumping RFE intermediate with {} features".format(iteration))
                 handyman.dump_pickle(
                     dict(train_features=X[:, features], train_subject_labels=y, ranking=ranking_),
-                    os.path.join("feature_extraction", "_data_sets", "rfe_" + self.estimator_name + "_" + str(iteration) + ".pkl")
+                    os.path.join("feature_extraction", "_data_sets", "rfe_" + self.estimator_name, str(iteration) + "_features.pkl")
                 )
 
         # Set final attributes
