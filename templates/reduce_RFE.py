@@ -2,15 +2,16 @@ import csv
 import os
 
 import matplotlib.pyplot as plt
+import numpy as np
 import sys
+import xgboost
 from sklearn.ensemble import RandomForestClassifier
 import subprocess
-
 import trainer as t
-from feature_reduction import feature_reducer as reducer
-from model_evaluation import scorer, CustomKFold, visualiser
+from model_evaluation import visualiser, scorer, CustomKFold
 from utils import pandaman, handyman
-
+from feature_reduction import feature_analyser
+from sklearn.utils import shuffle
 
 def print_stats(test_features, train_activity_labels, train_features, train_session_id, train_subject_labels):
     pandaman.print_stats(train_features=train_features, train_activity_labels=train_activity_labels,
@@ -22,6 +23,41 @@ def plot_curves(estimator, results_location, train_labels, train_features, train
     visualiser.plot_learning_curves(estimator, train_features, train_labels, train_session_id,
                                     results_location)
     visualiser.plot_confusion_matrix(estimator, train_features, train_labels, train_session_id, results_location)
+
+
+def visualize_importances(ranking, location):
+    ranking = ranking.reshape((5, -1))
+    plt.matshow(ranking, cmap=plt.cm.Blues)
+    plt.colorbar()
+    plt.title("Feature importance (forest)")
+    plt.savefig(os.path.join(location, "RFE_ranking"), bbox_inches='tight', dpi=300)
+
+
+def visualize_rfe_importance(rfe, train_features, location):
+    importances = rfe.ranking_
+    indices = np.argsort(importances)
+
+    with open(location + 'forest_importance.csv', 'w') as csvfile:
+        csv_writer = csv.writer(csvfile, delimiter=',',
+                                quotechar='|', quoting=csv.QUOTE_MINIMAL)
+        csv_writer.writerow(["index", "feature", "feature name", "importance"])
+        print("Feature ranking:")
+        n_features = len(importances)
+        for f in range(n_features):
+            feature_id = indices[f]
+            feature_name = train_features.columns.values[feature_id]
+            print(
+                "%d. feature %d (%s) =  %f" % (f + 1, feature_id, feature_name, importances[feature_id]))
+            csv_writer.writerow([f + 1, feature_id, feature_name, importances[feature_id]])
+
+        # Plot the feature importances of the forest
+        plt.figure()
+        plt.title("Feature importance (rfe)")
+        plt.bar(range(n_features), importances[indices],
+                color="r", align="center")
+        plt.xticks(range(n_features), indices)
+        plt.xlim([-1, n_features])
+        plt.savefig(location + "forest_importance", bbox_inches='tight', dpi=300)
 
 
 def visualize_feature_importance(trainer, rfe, estimator, train_features, train_labels, train_sessions, location,
@@ -75,47 +111,78 @@ def visualize_feature_importance(trainer, rfe, estimator, train_features, train_
         print("Best number of features: {} with auc: {}".format(n_best, auc_best))
 
 
-def main():
-    base_options = ["ec", "activity", "random_forest"]
+def visualize_feature_lda_pca(rfe, train_features, train_labels, location):
+    features_ordered = rfe.ranking_.argsort()
+    for i in range(1, train_features.shape[1] / 2):
+        if i in [10, 20, 30, 40] or (i % 50 == 0):
+            print("Plotting curves")
+            train_features_reduced = train_features.iloc[:, features_ordered[:i]]
+            # print("reducing PCA")
+            # feature_analyser.visualise_features_PCA(train_features_reduced, train_labels,
+            #                                         os.path.join(location, "PCA" + str(i)))
+            print("reducing LDA")
+            feature_analyser.visualise_features_LDA(train_features_reduced, train_labels,
+                                                    os.path.join(location, "LDA" + str(i)))
 
-    options = base_options + ["RFE"] + ["semi-optimized"]
+
+def main():
+    base_options = ["ec", "feature_analysis", "rfe_augmented"]
+
+    options = base_options
 
     results_location = handyman.calculate_path_from_options("Results", options)
     print("location: {}".format(results_location))
 
     sys.stdout = os.fdopen(sys.stdout.fileno(), 'w', 0)
-    tee = subprocess.Popen(["tee", "forest_rfe.txt"], stdin=subprocess.PIPE)
+    tee = subprocess.Popen(["tee", "beta.txt"], stdin=subprocess.PIPE)
     os.dup2(tee.stdin.fileno(), sys.stdout.fileno())
     print "\nstdout"
 
     trainer = t.Trainer()
     train_features, train_activity_labels, train_subject_labels, train_session, test_features = trainer.load_data(
-        os.path.join("../feature_extraction", '_data_sets/unreduced.pkl'), final=False)
+        os.path.join("../feature_extraction", '_data_sets/augmented.pkl'), final=False)
+    train_features["activity"] = train_activity_labels
+
 
     print_stats(test_features, train_activity_labels, train_features, train_session, train_subject_labels)
+    #
+    # """
+    #     Initialize semi optimized estimator
+    # """
+    # estimator = RandomForestClassifier(n_estimators=250, criterion='gini', min_samples_leaf=10, oob_score=True,
+    #                                    n_jobs=-1)
+    #
+    # """
+    #     Start RFE reduction (stop at 50 features)
+    # """
+    # train_data_reduced, ranking, rfe = reducer.reduce_RFE(train_features, train_activity_labels, estimator,
+    #                                                       n_features_to_select=985)
+    #
+    # print("Saving RFE...")
+    # handyman.dump_pickle(rfe, results_location + "rfe.pkl")
 
-    """
-        Initialize semi optimized estimator
-    """
-    estimator = RandomForestClassifier(n_estimators=250, criterion='gini', min_samples_leaf=10, oob_score=True,
-                                       n_jobs=-1)
-
-    """
-        Start RFE reduction (stop at 50 features)
-    """
-    train_data_reduced, ranking, rfe = reducer.reduce_RFE(train_features, train_activity_labels, estimator,
-                                                          n_features_to_select=985)
-
-    print("Saving RFE...")
-    handyman.dump_pickle(rfe, results_location + "rfe.pkl")
-
+    ranker = handyman.load_pickle(
+        "/Users/eniascailliau/Documents/GitHub.nosync/Kaggle-User-Authentication/Results/LS/user_with_activities/random_forest/RFE/augmented/semi-optimizedrfe.pkl")
+    ranking = ranker.ranking_
     print("RFE produced the following ranking: ")
     print(ranking)
 
-    print("Visualising RFE feature importance...")
-    visualize_feature_importance(trainer, rfe, estimator, train_features, train_activity_labels, train_session,
-                                 results_location, std=True)
 
+    # train_features, train_subject_labels = shuffle(train_features, train_subject_labels)
+
+    # train_features = train_features.iloc[:8000].reset_index(drop=True)
+    # train_activity_labels = train_activity_labels.iloc[:8000].reset_index(drop=True)
+    # train_subject_labels = train_subject_labels.iloc[:8000].reset_index(drop=True)
+    # train_session = train_subject_labels.iloc[:8000].reset_index(drop=True)
+
+    print_stats(test_features, train_activity_labels, train_features, train_session, train_subject_labels)
+
+    handyman.dump_pickle(ranker, results_location + "/ranker.pkl")
+
+    # visualize_importances(ranking, results_location)
+    # visualize_rfe_importance(ranker, train_features, results_location)
+
+    visualize_feature_lda_pca(ranker, train_features, train_subject_labels, results_location)
     os.system('say Your program has finished!')
     os.system('say Your program has finished!')
     os.system('say Your program has finished!')

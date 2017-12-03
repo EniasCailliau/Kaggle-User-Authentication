@@ -1,0 +1,7 @@
+
+stdout
+Trainer initialised with NO rebalance method
+Trainer initialised with NO LDA feature reduction
+Trainer does NOT rebalance _data
+RFE produced the following ranking: 
+[  1   1   1 ..., 617 548   1]

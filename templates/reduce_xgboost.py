@@ -34,7 +34,9 @@ def plot_curves(estimator, results_location, train_labels, train_features, train
 
 
 def visualize_importances(importance, location):
-    ranking = importance.reshape((14, -1))
+    importance = importance / max(importance)
+
+    ranking = importance.reshape((17, -1))
     plt.matshow(ranking, cmap=plt.cm.Blues)
     plt.colorbar()
     plt.title("Feature importance (forest)")
@@ -112,7 +114,7 @@ def visualize_feature_importance_tree(trainer, forest, train_features, train_lab
 
 
 def main():
-    base_options = ["ec", "activity", "xgboost"]
+    base_options = ["ec", "user_augmented", "xgboost"]
 
     options = base_options + ["FIMP"] + ["semi-optimized"]
 
@@ -126,20 +128,22 @@ def main():
 
     trainer = t.Trainer()
     train_features, train_activity_labels, train_subject_labels, train_sessions, test_features = trainer.load_data(
-        os.path.join("../feature_extraction", '_data_sets/unreduced.pkl'), final=False)
+        os.path.join("../feature_extraction", '_data_sets/augmented.pkl'), final=False)
 
     print_stats(test_features, train_activity_labels, train_features, train_sessions, train_subject_labels)
 
     """
         Initialize semi optimized estimator
     """
-    estimator = xgboost.XGBClassifier(n_estimators=150, max_depth=10)
-
+    estimator = xgboost.XGBClassifier(n_estimators=400, max_depth=10, silent=False)
+    #
     print("Fitting estimator...")
     estimator.fit(train_features, train_activity_labels)
 
     print("Saving estimator...")
     handyman.dump_pickle(estimator, results_location + "estimator.pkl")
+
+    # estimator = handyman.load_pickle(results_location + "estimator.pkl")
 
     print("Tree produced the following importance: ")
     print(estimator.feature_importances_)
@@ -150,9 +154,9 @@ def main():
     print("Visualising forest importance...")
     visualize_forest_importance(estimator, train_features, results_location)
 
-    print("Visualising feature importance...")
-    visualize_feature_importance_tree(trainer, estimator, train_features, train_activity_labels, train_sessions,
-                                      results_location)
+    # print("Visualising feature importance...")
+    # visualize_feature_importance_tree(trainer, estimator, train_features, train_activity_labels, train_sessions,
+    #                                   results_location)
 
     os.system('say Your program has finished!')
     os.system('say Your program has finished!')
