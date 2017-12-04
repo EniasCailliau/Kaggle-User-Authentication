@@ -39,8 +39,6 @@ def __evaluate_reduction(indices_selected, n_features, data_frame, type, verbose
                                                                                                  data_frame)))
 
 
-
-
 def visualize_tree_ranking(forest, number_to_visualise):
     importances = forest.feature_importances_
     std = np.std([tree.feature_importances_ for tree in forest.estimators_],
@@ -97,8 +95,9 @@ def reduce_RFE(train_data, train_labels, estimator, n_features_to_select=None, v
         __evaluate_reduction(rfe.get_support(indices=True), train_data.shape[1], train_data, "RFE")
     return train_data_reduced, rfe.ranking_, rfe
 
+
 def reduce_RFE_custom(train_data, train_labels, estimator, estimator_name, n_features_to_select=None, verbose=0):
-    rfe = RFE_custom(estimator, estimator_name, verbose=1,n_features_to_select=n_features_to_select)
+    rfe = RFE_custom(estimator, estimator_name, verbose=1, n_features_to_select=n_features_to_select)
     train_data_reduced_np = rfe.fit_transform(train_data, train_labels)
     selected_indices = rfe.get_support(indices=True)
     train_data_reduced = pd.DataFrame(train_data_reduced_np,
@@ -108,21 +107,26 @@ def reduce_RFE_custom(train_data, train_labels, estimator, estimator_name, n_fea
     return train_data_reduced, rfe.ranking_, rfe
 
 
-def reduce_PCA(train_data, n_components):
+def reduce_PCA(train_data, n_components, nparray=False):
     """
     !!! Best used as feature extraction but can be used as feature reduction method
     :param train_data:
     :param n_components:
     :return:
     """
-    return pd.DataFrame(PCA(n_components=n_components).fit_transform(train_data))
+    if (nparray):
+        return PCA(n_components=n_components).fit_transform(train_data)
+    else:
+        return pd.DataFrame(PCA(n_components=n_components).fit_transform(train_data))
 
 
-def reduce_LDA(train_data, train_labels, n_components, tolerance=0.0001):
-    lda = LinearDiscriminantAnalysis().fit(train_data, train_labels)
+def reduce_LDA(train_data, train_labels, n_components, np_array=False):
+    lda = LinearDiscriminantAnalysis(n_components=n_components).fit(train_data, train_labels)
     print("performed fit")
-    transformed_data = lda.transform(train_data)
-    return pd.DataFrame(transformed_data)
+    if np_array:
+        return lda.transform(train_data)
+    else:
+        return pd.DataFrame(lda.transform(train_data))
 
 
 def get_LDA_reducer(train_data, train_labels, n_components, tolerance=0.0001):

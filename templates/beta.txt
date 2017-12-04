@@ -1,0 +1,19 @@
+
+stdout
+Trainer initialised with NO rebalance method
+Trainer initialised with NO LDA feature reduction
+Trainer does NOT rebalance _data
+Shape of train_subject_labels : (43730,)
+Shape of test_features : (3369, 1054)
+Shape of train_activity_labels : (43730,)
+Shape of train_features : (43730, 1055)
+Shape of train_session_id : (43730,)
+RFE produced the following ranking: 
+[  1   1   1 ..., 617 548   1]
+Shape of train_subject_labels : (43730,)
+Shape of test_features : (3369, 1054)
+Shape of train_activity_labels : (43730,)
+Shape of train_features : (43730, 1055)
+Shape of train_session_id : (43730,)
+Plotting curves
+reducing LDA
