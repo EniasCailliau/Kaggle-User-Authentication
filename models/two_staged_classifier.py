@@ -1,8 +1,7 @@
 import numpy as np
 import xgboost as xgb
 from sklearn.base import BaseEstimator
-
-from models.subject_prediction import random_forest
+from sklearn.ensemble import RandomForestClassifier
 
 ALL_ACTIVITIES = np.asarray([1, 2, 3, 4, 5, 6, 7, 12, 13, 16, 17, 24])
 
@@ -10,7 +9,7 @@ ALL_ACTIVITIES = np.asarray([1, 2, 3, 4, 5, 6, 7, 12, 13, 16, 17, 24])
 class simple_twinzy(BaseEstimator):
     def __init__(self):
         self.activity_classifier = xgb.XGBClassifier(n_estimators=150, max_depth=10)
-        self.user_classifier = random_forest.RF()
+        self.user_classifier = RandomForestClassifier()
         self.CREATED_BY = "Enias Cailliau"
         self.MODEL_NAME = "Simple Two Staged Classifier"
 
@@ -33,15 +32,6 @@ class simple_twinzy(BaseEstimator):
         X_with_activity = np.append(X_real, activities.reshape(-1, 1), 1)
         user_probabilities = self.user_classifier.predict_proba(X_with_activity)
         return user_probabilities
-
-    # def predict(self, X):
-    #     return self.estimator.predict(X)
-    #
-    # def score(self, X, y=None):
-    #     return (sum(self.predict(X)))
-    #
-    # def get_params(self, deep=True):
-    #     return self.estimator.get_params(deep)
 
     def get_description(self):
         return "{} created by {}".format(self.MODEL_NAME, self.CREATED_BY)
@@ -81,15 +71,6 @@ class twinzy(BaseEstimator):
             user_probabilities += user_probabilities_post
 
         return user_probabilities
-
-    # def predict(self, X):
-    #     return self.estimator.predict(X)
-    #
-    # def score(self, X, y=None):
-    #     return (sum(self.predict(X)))
-    #
-    # def get_params(self, deep=True):
-    #     return self.estimator.get_params(deep)
 
     def get_description(self):
         return "{} created by {}".format(self.MODEL_NAME, self.CREATED_BY)

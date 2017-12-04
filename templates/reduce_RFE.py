@@ -175,7 +175,7 @@ def main():
 
     handyman.dump_pickle(ranker, results_location + "/ranker.pkl")
 
-    # visualize_importances(ranking, results_location)
+    # visualize_importances(ranking, results_location)ze!
     # visualize_rfe_importance(ranker, train_features, results_location)
 
     visualize_feature_lda_pca(ranker, train_features, train_subject_labels, results_location)

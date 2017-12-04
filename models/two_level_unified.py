@@ -1,13 +1,10 @@
 import os
 
 import numpy as np
-import pandas as pd
-from sklearn.base import BaseEstimator
 import xgboost as xgb
+from sklearn.base import BaseEstimator
 
 import trainer as t
-from feature_reduction import feature_reducer
-from models.subject_prediction import random_forest
 
 CREATED_BY = "Jeroen Van Hautte"
 MODEL_NAME = "Standalone Two Level Classifier"
