@@ -26,7 +26,7 @@ def plot_curves(estimator, results_location, train_labels, train_features, train
 
 def visualize_importances(importance, location):
     print importance.shape
-    ranking = importance.reshape((14, -1))
+    ranking = importance.reshape((17, -1))
     plt.matshow(ranking, cmap=plt.cm.Blues)
     plt.colorbar()
     plt.title("Feature importance (forest)")
