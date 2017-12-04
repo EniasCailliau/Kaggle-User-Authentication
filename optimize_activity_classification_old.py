@@ -58,7 +58,7 @@ activity_to_index = {'1': 0, '2': 1, '3': 2, '4': 3, '5': 4, '6': 5, '7': 6, '12
 
 
 def main():
-    # try:
+    try:
         options = ["EC", "activity", "XGB", "unreduced", "temp"]
         results_location = os.path.join("Results", '/'.join(options) + "/")
         # init trainer
@@ -71,22 +71,22 @@ def main():
         global_start_time = datetime.now()
 
         train_activity_labels = train_activity_labels.apply(lambda x: activity_to_index[x])
-
         param = {
-            'nrounds': 100000,
             'n_estimators': 200,
             'learning_rate': 0.1,
-            'max_depth': 15,
+            'max_depth': 10,
             'min_child_weight': 1,
             'subsample': .7,
             'colsample_bytree': .7,
             'gamma': 0.05,
             'scale_pos_weight': 1,
             'nthread': 8,
-            'eta': 0.1
+            'silent': 0
         }
-        param['objective'] = 'multi:softprob'
-        param['num_class'] = 12
+        # param['objective'] = 'multi:softprob'
+        # param['num_class'] = 12
+
+        estimator = xgb.XGBClassifier(**param)
 
         # train_index, test_index = CustomKFold.cv(4, train_sessions)[0]
         # train_X, test_X = train_features.iloc[train_index].values.astype(float), train_features.iloc[
@@ -113,45 +113,16 @@ def main():
         # acc = accuracy_score(test_Y, y_pred)
         # print("I finally have to acc {}".format(acc))
 
-        auc_scores = []
-        acc_scores = []
-        for num, (train_index, test_index) in enumerate(CustomKFold.cv(4, train_sessions)):
-            print("heloo")
-            train_X, test_X = train_features.iloc[train_index], train_features.iloc[test_index]
-            train_Y, test_Y = train_activity_labels.iloc[train_index], train_activity_labels.iloc[test_index]
-            xg_train = xgb.DMatrix(train_X, label=train_Y)
-            xg_test = xgb.DMatrix(test_X, label=test_Y)
-            watchlist = [(xg_train, 'train'), (xg_test, 'test')]
-
-            bst = xgb.train(param, xg_train, 3, watchlist, early_stopping_rounds=50)
-            print("hllo")
-            xg_test = xgb.DMatrix(test_X)
-
-            y_scores = bst.predict(xg_test, output_margin=False, ntree_limit=0)
-            y_one_hot = preprocessing.label_binarize(test_Y, np.unique(test_Y))
-            auc = roc_auc_score(y_one_hot, y_scores, average='macro')
-            print("---- Intermediate score auc: {}".format(auc))
-            auc_scores.append(auc)
-
-            y_pred = np.argmax(y_scores, axis=1)
-            acc = accuracy_score(test_Y, y_pred)
-            print("---- Intermediate score auc: {}".format(accuracy_score(test_Y, y_pred)))
-            acc_scores.append(acc)
-
-        auc_scores = np.array(auc_scores)
-        acc_scores = np.array(acc_scores)
-        print(auc_scores)
-        print(acc_scores)
-        print("I have auc: {} +- {}".format(auc_scores.mean(), auc_scores.std()))
-        print("I have acc: {} +- {}".format(acc_scores.mean(), acc_scores.std()))
+        trainer = t.Trainer()
+        trainer.evaluate(estimator, train_features, train_activity_labels, train_sessions)
 
         time_elapsed = datetime.now() - global_start_time
 
         print('Time elpased (hh:mm:ss.ms) {}'.format(time_elapsed))
         send_notification("Finished", 'Time elpased (hh:mm:ss.ms) {}'.format(time_elapsed))
-    # except Exception as e:
-    #     print(e)
-    #     send_notification("Exception occurred", "{}".format(e))
+    except Exception as e:
+        print(e)
+        send_notification("Exception occurred", "{}".format(e))
 
 
 if __name__ == '__main__':
