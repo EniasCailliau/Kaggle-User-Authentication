@@ -26,14 +26,14 @@ def plot_curves(estimator, results_location, train_labels, train_features, train
     visualiser.plot_confusion_matrix(estimator, train_features, train_labels, train_session_id, results_location)
 
 
-yolo = [{'name': 'n_estimators', 'type': 'discrete', 'domain': (500, 500, 1)},
-        {'name': 'max_depth', 'type': 'discrete', 'domain': (2, 12, 1)},
+yolo = [{'name': 'n_estimators', 'type': 'discrete', 'domain': (100, 1000, 1)},
+        {'name': 'max_depth', 'type': 'discrete', 'domain': (2, 15, 1)},
         {'name': 'min_child_weight', 'type': 'discrete', 'domain': (1, 12, 1)},
         {'name': 'gamma', 'type': 'continuous', 'domain': (0, 1)},
         {'name': 'subsample', 'type': 'continuous', 'domain': (0.6, 1.0)},
         {'name': 'colsample_bytree', 'type': 'continuous', 'domain': (0.6, 1.0)},
         {'name': 'reg_alpha', 'type': 'continuous', 'domain': (1e-5, 100)},
-        {'name': 'n_folds', 'type': 'discrete', 'domain': (2, 100, 1)},
+        {'name': 'n_folds', 'type': 'discrete', 'domain': (2, 2000, 1)},
         ]
 
 
@@ -112,40 +112,51 @@ def xgbCv(x, folds):
         dict_params['silent'] = 1
         print(dict_params)
         auc_mean, auc_std, acc_mean, acc_std = evaluate(dict_params, folds, int(params[7]))
-        fs[i] = auc_mean
+        fs[i] = -acc_mean
     return fs
 
 
 def bayesOpt(folds):
     opt = BayesianOptimization(f=partial(xgbCv, folds=folds),
                                domain=yolo,
-                               num_cores=8,
+                               num_cores=12,
+                               optimize_restarts=15,
                                acquisition_type='MPI',
-                               acquisition_weight=0.2,
+                               acquisition_weight=0.1,
+                               batch_size=5,
                                maximize=True)
 
-    opt.run_optimization(max_iter=5)
-    opt.plot_acquisition()
+    opt.run_optimization(max_iter=100, eps=0)
+    ret = opt.plot_acquisition()
+    print(ret)
+    print(type(ret))
     plt.show()
     opt.plot_acquisition()
     plt.show()
 
-    x_best = opt.X[np.argmin(opt.Y)]
-    best_params = {}
-    best_params['n_estimators'] = int(x_best[0])
-    best_params['max_depth'] = int(x_best[1])
-    best_params['min_child_weight'] = int(x_best[1])
-    best_params['gamma'] = x_best[2]
-    best_params['subsample'] = x_best[3]
-    best_params['colsample_bytree'] = x_best[4]
-    best_params['reg_alpha'] = x_best[5]
-    best_params['objective'] = 'multi:softprob'
-    best_params['num_class'] = 12
+    print('opt_Y')
+    print(opt.Y)
+    print('opt_X')
+    print(opt.X)
+    print("selected:")
+    print(np.argmax(opt.Y))
+    params = opt.X[np.argmax(opt.Y)]
+    dict_params = {}
+    dict_params['n_estimators'] = int(params[0])
+    dict_params['max_depth'] = int(params[1])
+    dict_params['min_child_weight'] = int(params[2])
+    dict_params['gamma'] = params[3]
+    dict_params['subsample'] = params[4]
+    dict_params['colsample_bytree'] = params[5]
+    dict_params['reg_alpha'] = params[6]
+    dict_params['objective'] = 'multi:softprob'
+    dict_params['num_class'] = 12
+    dict_params['silent'] = 1
 
     print("best params:")
-    print(best_params)
+    print(dict_params)
 
-    auc_mean, auc_std, acc_mean, acc_std = evaluate(best_params, folds, 2)
+    auc_mean, auc_std, acc_mean, acc_std = evaluate(dict_params, folds, int(params[7]))
     print("I have auc: {} +- {}".format(auc_mean, auc_std))
     print("I have acc: {} +- {}".format(acc_mean, acc_std))
 
@@ -178,9 +189,10 @@ def main():
     #     'eta': 0.1
     # }
 
+
     folds = generate_folds(train_features, train_activity_labels, train_sessions)
     #
-    # auc_mean, auc_std, acc_mean, acc_std = evaluate(param, folds, 5)
+    # auc_mean, auc_std, acc_mean, acc_std = evaluate(param, folds, 100)
     # print("I have auc: {} +- {}".format(auc_mean, auc_std))
     # print("I have acc: {} +- {}".format(acc_mean, acc_std))
 
@@ -191,6 +203,10 @@ def main():
 
     print('Time elpased (hh:mm:ss.ms) {}'.format(time_elapsed))
     send_notification("Finished", 'Time elpased (hh:mm:ss.ms) {}'.format(time_elapsed))
+
+    os.system("say Your program has finished")
+    os.system("say Your program has finished")
+    os.system("say Your program has finished")
 
 
 # except Exception as e:
