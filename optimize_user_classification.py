@@ -84,7 +84,7 @@ def evaluate(param, folds, numRounds, n_iter=1):
     for i in range(n_iter):
         xg_train, xg_test, xg_valid, test_Y, test_Y_onehot = folds[i]
         watchlist = [(xg_train, 'train'), (xg_test, 'test')]
-        bst = xgb.train(param, xg_train, numRounds, watchlist, early_stopping_rounds=25)
+        bst = xgb.train(param, xg_train, numRounds, watchlist, early_stopping_rounds=50)
         y_scores = bst.predict(xg_valid, output_margin=False, ntree_limit=0)
         auc = roc_auc_score(test_Y_onehot, y_scores, average='macro')
         print("---- Intermediate score auc: {}".format(auc))
