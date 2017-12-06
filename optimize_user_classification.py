@@ -124,7 +124,6 @@ def bayesOpt(folds):
                                optimize_restarts=15,
                                acquisition_type='MPI',
                                acquisition_weight=0.1,
-                               batch_size=5,
                                maximize=True)
 
     opt.run_optimization(max_iter=100, eps=0)

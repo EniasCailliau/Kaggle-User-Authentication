@@ -633,7 +633,7 @@ def main():
 
 
     estimator = xgb.XGBClassifier(**dict_params)
-    trainer.evaluate(estimator, train_features, train_activity_labels, train_sessions)
+    trainer.evaluate(estimator, train_features, train_activity_labels, train_sessions, accuracy=True)
     visualiser.plot_acc_learning_curve(estimator, train_features, train_activity_labels, train_sessions, "test/")
 
     # print("starting with bayesian optimisation:")
