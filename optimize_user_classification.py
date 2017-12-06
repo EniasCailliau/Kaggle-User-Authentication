@@ -114,7 +114,7 @@ def xgbCv(x, folds):
         dict_params['silent'] = 1
         print(dict_params)
         auc_mean, auc_std, acc_mean, acc_std = evaluate(dict_params, folds, int(params[8]))
-        fs[i] = acc_mean
+        fs[i] = auc_mean
     return fs
 
 
