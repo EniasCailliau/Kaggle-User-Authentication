@@ -151,3 +151,10 @@ class Trainer:
             print("Description from loaded model {}".format(estimator.get_description()))
             print("Parameters from loaded model {}".format(estimator.get_params(deep=True)))
         return estimator
+
+    def load_estimator_file(self, results_location, verbose=0):
+        estimator = handyman.load_pickle(results_location)
+        if verbose:
+            print("Description from loaded model {}".format(estimator.get_description()))
+            print("Parameters from loaded model {}".format(estimator.get_params(deep=True)))
+        return estimator
