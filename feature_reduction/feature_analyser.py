@@ -72,7 +72,7 @@ def visualise_feature_distribution(X, y, index, location):
 
 def visualise_features_LDA(train_data, train_labels, location):
     fig = plt.figure(1, figsize=(8, 6))
-    ax = Axes3D(fig, elev=-150, azim=110)
+    ax = Axes3D(fig, elev=-145, azim=-150)
     X_reduced = feature_reducer.reduce_LDA(train_data, train_labels, n_components=3, np_array=True)
     for subject in range(1, 9):
         points = X_reduced[[i for i, s in enumerate(train_labels) if subject == s]]
@@ -84,6 +84,8 @@ def visualise_features_LDA(train_data, train_labels, location):
     ax.w_xaxis.set_ticklabels([])
     ax.w_yaxis.set_ticklabels([])
     ax.w_zaxis.set_ticklabels([])
+    if not os.path.exists(os.path.dirname(location)):
+        os.makedirs(os.path.dirname(location))
     plt.savefig(location, bbox_inches='tight', dpi=300)
     return X_reduced
 
