@@ -25,46 +25,6 @@ def plot_curves(estimator, results_location, train_labels, train_features, train
                                     results_location)
     visualiser.plot_confusion_matrix(estimator, train_features, train_labels, train_session_id, results_location)
 
-
-yolo = [{'name': 'n_estimators', 'type': 'discrete', 'domain': (500, 5000, 1)},
-        {'name': 'max_depth', 'type': 'discrete', 'domain': (2, 15, 1)},
-        {'name': 'min_child_weight', 'type': 'discrete', 'domain': (1, 8, 1)},
-        {'name': 'gamma', 'type': 'continuous', 'domain': (0, 1)},
-        {'name': 'subsample', 'type': 'continuous', 'domain': (0.6, 1.0)},
-        {'name': 'colsample_bytree', 'type': 'continuous', 'domain': (0.6, 1.0)},
-        {'name': 'reg_alpha', 'type': 'continuous', 'domain': (1e-5, 100)},
-        {'name': 'learning_rate', 'type': 'continuous', 'domain': (0, 1)},
-        {'name': 'n_folds', 'type': 'discrete', 'domain': (2000, 2000, 1)},
-        ]
-
-
-def send_notification(subject, body):
-    import smtplib
-    from email.MIMEMultipart import MIMEMultipart
-    from email.MIMEText import MIMEText
-
-    fromaddr = "enias.oryx@gmail.com"
-    toaddr = "enias.oryx@gmail.com"
-    msg = MIMEMultipart()
-    msg['From'] = fromaddr
-    msg['To'] = toaddr
-    msg['Subject'] = subject
-
-    body = body
-    msg.attach(MIMEText(body, 'plain'))
-
-    server = smtplib.SMTP('smtp.gmail.com', 587)
-    server.starttls()
-    server.login(fromaddr, "BILLIE_2")
-    text = msg.as_string()
-    server.sendmail(fromaddr, toaddr, text)
-    server.quit()
-
-
-activity_to_index = {'1': 0, '2': 1, '3': 2, '4': 3, '5': 4, '6': 5, '7': 6, '12': 7, '13': 8, '16': 9, '17': 10,
-                     '24': 11}
-
-
 def generate_folds(train_features, train_activity_labels, train_sessions):
     folds = []
     for num, (train_index, test_index) in enumerate(CustomKFold.cv(4, train_sessions)):
@@ -81,7 +41,7 @@ def generate_folds(train_features, train_activity_labels, train_sessions):
 def evaluate(param, folds, numRounds, n_iter=1):
     auc_scores, acc_scores = [], []
     print("I am using {} rounds".format(numRounds))
-    for i in [2]:
+    for i in range(n_iter):
         xg_train, xg_test, xg_valid, test_Y, test_Y_onehot = folds[i]
         watchlist = [(xg_train, 'train'), (xg_test, 'test')]
         bst = xgb.train(param, xg_train, numRounds, watchlist, early_stopping_rounds=50)
@@ -117,50 +77,6 @@ def xgbCv(x, folds):
         fs[i] = auc_mean
     return fs
 
-
-def bayesOpt(folds):
-    opt = BayesianOptimization(f=partial(xgbCv, folds=folds),
-                               domain=yolo,
-                               num_cores=8,
-                               optimize_restarts=15,
-                               acquisition_type='EI',
-                               acquisition_weight=2,
-                               batch_size=5,
-                               maximize=True)
-
-    opt.run_optimization(max_iter=100, eps=0)
-
-
-    print('opt_Y')
-    print(opt.Y)
-    print('opt_X')
-    print(opt.X)
-    print("selected:")
-    print(np.argmin(opt.Y))
-    params = opt.X[np.argmin(opt.Y)]
-    dict_params = {}
-    dict_params['n_estimators'] = int(params[0])
-    dict_params['max_depth'] = int(params[1])
-    dict_params['min_child_weight'] = int(params[2])
-    dict_params['gamma'] = params[3]
-    dict_params['subsample'] = params[4]
-    dict_params['colsample_bytree'] = params[5]
-    dict_params['reg_alpha'] = params[6]
-    dict_params['learning_rate'] = params[7]
-    dict_params['objective'] = 'multi:softprob'
-    dict_params['num_class'] = 8
-    dict_params['silent'] = 1
-    print("best params")
-    print(dict_params)
-
-    auc_mean, auc_std, acc_mean, acc_std = evaluate(dict_params, folds, int(params[8]), n_iter=4)
-    print("I have auc: {} +- {}".format(auc_mean, auc_std))
-    print("I have acc: {} +- {}".format(acc_mean, acc_std))
-
-    opt.plot_acquisition("acquisition.png")
-    opt.plot_convergence("convergence.png")
-
-
 def main():
     # try:
     options = ["JVH", "USER", "XGB", "augmented"]
@@ -175,29 +91,20 @@ def main():
     print_stats(test_features, train_activity_labels, train_features, train_sessions, train_subject_labels)
     global_start_time = datetime.now()
 
-    # param = {
-    #     'nrounds': 100000,
-    #     'n_estimators': 200,
-    #     'learning_rate': 0.1,
-    #     'max_depth': 15,
-    #     'min_child_weight': 1,
-    #     'subsample': .7,
-    #     'colsample_bytree': .7,
-    #     'gamma': 0.05,
-    #     'scale_pos_weight': 1,
-    #     'nthread': 8,
-    #     'eta': 0.1
-    # }
-
 
     folds = generate_folds(train_features, train_subject_labels, train_sessions)
-    #
-    # auc_mean, auc_std, acc_mean, acc_std = evaluate(param, folds, 100)
-    # print("I have auc: {} +- {}".format(auc_mean, auc_std))
-    # print("I have acc: {} +- {}".format(acc_mean, acc_std))
 
-    print("starting with bayesian optimisation:")
-    bayesOpt(folds)
+
+    print("Starting validation...")
+    params = {'reg_alpha': 22.517068955288213, 'colsample_bytree': 0.95241906379281249, 'silent': 1, 'learning_rate': 0.790592831047362,
+              'min_child_weight': 8, 'n_estimators': 5000, 'subsample': 0.73530308049441184, 'objective': 'multi:softprob',
+              'num_class': 8, 'max_depth': 2, 'gamma': 0.79861290730045043, 'nthread': 8}
+
+    print params
+
+    auc_mean, auc_std, acc_mean, acc_std = evaluate(params, folds, 2000, n_iter=4)
+    print("I have auc: {} +- {}".format(auc_mean, auc_std))
+    print("I have acc: {} +- {}".format(acc_mean, acc_std))
 
     time_elapsed = datetime.now() - global_start_time
 
