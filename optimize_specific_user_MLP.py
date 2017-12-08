@@ -85,6 +85,7 @@ def main():
                 current_best_params = current_best_params
                 estimator.fit(train_features, train_subject_labels)
                 trainer.save_estimator(estimator, results_location, filename="MLP_"+str(x)+"_"+str(int(auc_mean*100000))+".pkl")
+                handyman.dump_pickle(current_best_params, results_location+"MLP_"+str(x)+"_"+str(int(auc_mean*100000))+"_params.pkl")
 
         end = time.time()
         print(str(end - start) + "s elapsed")
