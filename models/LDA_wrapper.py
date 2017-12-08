@@ -18,10 +18,14 @@ class LDAWrapper(BaseEstimator):
         # Set up classifiers
         self.estimator = estimator
 
+
     def fit(self, X, y):
         self.reducer = feature_reducer.get_LDA_reducer(X,y,20)
         X = np.hstack((self.reducer.transform(X),X))
-        return self.estimator.fit(X,y)
+        self.estimator.fit(X, y)
+        self.classes_ = self.estimator.classes_
+
+        return self
 
     def predict_proba(self, X):
         X = np.hstack((self.reducer.transform(X),X))
