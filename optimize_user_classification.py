@@ -26,14 +26,14 @@ def plot_curves(estimator, results_location, train_labels, train_features, train
     visualiser.plot_confusion_matrix(estimator, train_features, train_labels, train_session_id, results_location)
 
 
-yolo = [{'name': 'n_estimators', 'type': 'discrete', 'domain': (100, 5000, 1)},
+yolo = [{'name': 'n_estimators', 'type': 'discrete', 'domain': (500, 5000, 1)},
         {'name': 'max_depth', 'type': 'discrete', 'domain': (2, 15, 1)},
         {'name': 'min_child_weight', 'type': 'discrete', 'domain': (1, 8, 1)},
-        {'name': 'gamma', 'type': 'continuous', 'domain': (1e-5, 1)},
+        {'name': 'gamma', 'type': 'continuous', 'domain': (0, 1)},
         {'name': 'subsample', 'type': 'continuous', 'domain': (0.6, 1.0)},
         {'name': 'colsample_bytree', 'type': 'continuous', 'domain': (0.6, 1.0)},
         {'name': 'reg_alpha', 'type': 'continuous', 'domain': (1e-5, 100)},
-        {'name': 'learning_rate', 'type': 'continuous', 'domain': (1e-5, 1)},
+        {'name': 'learning_rate', 'type': 'continuous', 'domain': (0, 1)},
         {'name': 'n_folds', 'type': 'discrete', 'domain': (2000, 2000, 1)},
         ]
 
@@ -121,18 +121,15 @@ def xgbCv(x, folds):
 def bayesOpt(folds):
     opt = BayesianOptimization(f=partial(xgbCv, folds=folds),
                                domain=yolo,
+                               num_cores=8,
                                optimize_restarts=15,
-                               acquisition_type='MPI',
-                               acquisition_weight=0.1,
+                               acquisition_type='EI',
+                               acquisition_weight=2,
+                               batch_size=5,
                                maximize=True)
 
     opt.run_optimization(max_iter=100, eps=0)
-    ret = opt.plot_acquisition()
-    print(ret)
-    print(type(ret))
-    plt.show()
-    opt.plot_acquisition()
-    plt.show()
+
 
     print('opt_Y')
     print(opt.Y)
@@ -159,6 +156,9 @@ def bayesOpt(folds):
     auc_mean, auc_std, acc_mean, acc_std = evaluate(dict_params, folds, int(params[8]), n_iter=4)
     print("I have auc: {} +- {}".format(auc_mean, auc_std))
     print("I have acc: {} +- {}".format(acc_mean, acc_std))
+
+    opt.plot_acquisition("acquisition.png")
+    opt.plot_convergence("convergence.png")
 
 
 def main():
