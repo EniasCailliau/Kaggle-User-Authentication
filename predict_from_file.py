@@ -101,7 +101,7 @@ def main():
         else:
             user_probabilities[i] = backup_probabilities[i]
 
-    create_submission.write_predictions_to_csv(user_probabilities, "Predictions/two_level_from_file_12_06_19_allact_hybrid.csv")
+    create_submission.write_predictions_to_csv(user_probabilities, "Predictions/two_level_from_file_12_07_19_allact_hybrid.csv")
 
     end = time.time()
     print(str(end - start) + "s elapsed")
