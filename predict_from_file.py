@@ -93,7 +93,6 @@ def main():
 
     backup_probabilities = backup_classifier.predict_proba(test_features)
     for i in range(len(activity_probabilities)):
-        break
         onelevel = backup_probabilities[i]
         twolevel = user_probabilities[i]
         if(np.argmax(onelevel) == np.argmax(twolevel) and np.amax(onelevel) > .4 and np.amax(twolevel) > .8):
@@ -102,7 +101,7 @@ def main():
         else:
             user_probabilities[i] = backup_probabilities[i]
 
-    create_submission.write_predictions_to_csv(user_probabilities, "Predictions/two_level_from_file_12_08_12_allact.csv")
+    create_submission.write_predictions_to_csv(user_probabilities, "Predictions/two_level_from_file_12_08_16_hybrid.csv")
 
     end = time.time()
     print(str(end - start) + "s elapsed")

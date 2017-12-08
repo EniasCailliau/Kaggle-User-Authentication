@@ -40,7 +40,7 @@ def main():
 
 
     # ['1','2','3','5','6','12','13','16','17','24']
-    for x in ['16']:
+    for x in ['16','17']:
         # load data from feature file
         train_features, train_activity_labels, train_subject_labels, train_sessions, test_features = trainer.load_data(
             os.path.join("feature_extraction", '_data_sets/augmented.pkl'), final=False)
@@ -61,7 +61,7 @@ def main():
         current_best_score = 0;
         current_best_params = {}
 
-        for iteration in range(100):
+        for iteration in range(10):
             print "-- ITERATION " + str(iteration) + " --"
             params = {}
             num_layers = np.random.randint(0,4)
