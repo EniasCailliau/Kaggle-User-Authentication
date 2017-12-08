@@ -30,7 +30,7 @@ def evaluate(estimator, train_activity_labels, train_features, train_session_id,
                                                             train_session_id, accuracy=True)
 
 def main():
-    options = ["JVH", "activity", "XGB", "LDAwrapped"]
+    options = ["JVH", "user", "XGB", "LDAwrapped"]
     results_location = os.path.join("Results", '/'.join(options) + "/")
     # init trainer
     trainer = t.Trainer("")
