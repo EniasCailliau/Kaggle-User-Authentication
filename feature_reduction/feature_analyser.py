@@ -86,6 +86,7 @@ def visualise_features_LDA(train_data, train_labels, location):
     ax.w_zaxis.set_ticklabels([])
     if not os.path.exists(os.path.dirname(location)):
         os.makedirs(os.path.dirname(location))
+    ax.view_init(220, 340)
     plt.savefig(location, bbox_inches='tight', dpi=300)
     return X_reduced
 
