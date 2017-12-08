@@ -34,7 +34,7 @@ def main():
     classifiers.append(trainer.load_estimator_file(os.path.join("Estimators/XGB_activity_augmented_optimal_9958.pkl")))
 
     ## User classifier for activity 1
-    classifiers.append(trainer.load_estimator_file(os.path.join("Estimators/XGB_user_1_9901.pkl")))
+    classifiers.append(trainer.load_estimator_file(os.path.join("Estimators/MLP_user_1_9941.pkl")))
 
     ## User classifier for activity 2
     classifiers.append(trainer.load_estimator_file(os.path.join("Estimators/XGB_user_2_9758.pkl")))
