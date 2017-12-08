@@ -59,7 +59,6 @@ def main():
         print "Start " + str(x)
         start = time.time()
         current_best_score = 0;
-        current_best_params = {}
 
         for iteration in range(10):
             print "-- ITERATION " + str(iteration) + " --"
@@ -85,10 +84,9 @@ def main():
             if(auc_mean > current_best_score):
                 print "############################## NEW BEST: " + str(auc_mean)
                 current_best_score = auc_mean
-                current_best_params = current_best_params
                 estimator.fit(train_features, train_subject_labels)
                 trainer.save_estimator(estimator, results_location, filename="MLP_"+str(x)+"_"+str(int(auc_mean*100000))+".pkl")
-                handyman.dump_pickle(current_best_params, results_location+"MLP_"+str(x)+"_"+str(int(auc_mean*100000))+"_params.pkl")
+                handyman.dump_pickle(params, results_location+"MLP_"+str(x)+"_"+str(int(auc_mean*100000))+"_params.pkl")
 
         end = time.time()
         print(str(end - start) + "s elapsed")
