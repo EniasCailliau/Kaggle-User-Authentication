@@ -46,9 +46,6 @@ def main():
     # Create a submission
     start = time.time()
     auc_mean, auc_std = trainer.evaluate(estimator, train_features, train_activity_labels, train_session_id, accuracy=True)
-
-    #plot_curves(estimator,results_location,train_activity_labels,train_features,train_session_id)
-
     estimator.fit(train_features, train_activity_labels)
     local_options = ["XGB", "activity", "LDAWrapped"]
     trainer.save_estimator(estimator, results_location)

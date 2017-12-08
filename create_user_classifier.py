@@ -38,16 +38,6 @@ def main():
     train_features, train_activity_labels, train_subject_labels, train_session_id, test_features = trainer.load_data(
         os.path.join("feature_extraction", '_data_sets/augmented.pkl'), final=False)
 
-    params = {'nrounds': 100000, 'n_estimators': 250, 'early.stop.round': 50, 'eta': 0.1, 'max_depth': 5,
-              'min_child_weight': 3, 'subsample': .7, 'colsample_bytree': .6, 'gamma': 0.1, 'nthread': 8, }
-    estimator = xgb.XGBClassifier(**params)
-    estimator = LDA_wrapper.LDAWrapper(estimator)
-    print "----------------- TESTING -----------------"
-    start = time.time()
-    auc_mean, auc_std = trainer.evaluate(estimator, train_features, train_activity_labels, train_session_id, accuracy=True)
-    end = time.time()
-    print(str(end - start) + "s elapsed")
-
     start = time.time()
     params = {'nrounds': 100000, 'n_estimators': 2500, 'early.stop.round': 50, 'eta': 0.01, 'max_depth': 5,
               'min_child_weight': 3, 'subsample': .7, 'colsample_bytree': .6, 'gamma': 0.1, 'nthread': 8, }
