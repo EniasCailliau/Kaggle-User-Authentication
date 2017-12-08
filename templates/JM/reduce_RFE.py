@@ -93,7 +93,7 @@ def main():
 
     trainer = t.Trainer()
     train_features, train_activity_labels, train_subject_labels, train_session, test_features = trainer.load_data(
-        os.path.join("../../feature_extraction", '_data_sets/unreduced.pkl'), final=False)
+        os.path.join("../../feature_extraction", '_data_sets/unreduced_with_bins.pkl'), final=False)
 
     print_stats(test_features, train_activity_labels, train_features, train_session, train_subject_labels)
 
@@ -101,7 +101,7 @@ def main():
         Initialize semi optimized estimator
     """
 
-    estimator = xgboost.XGBClassifier(n_estimators=1000, min_child_weight=1, max_depth=8, gamma=0, subsample=0.75,
+    estimator = xgboost.XGBClassifier(n_estimators=20, min_child_weight=1, max_depth=8, gamma=0, subsample=0.75,
                                       colsample_bytree=0.75, reg_lambda=10, learning_rate=0.01)
 
 
