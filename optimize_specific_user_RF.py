@@ -12,7 +12,6 @@ import time
 import pandas as pd
 from sklearn import feature_selection
 from sklearn import cross_decomposition, naive_bayes, neural_network
-from models import LDA_wrapper
 
 
 
@@ -53,7 +52,7 @@ def main():
 
         print_stats(test_features, train_activity_labels, train_features, train_sessions, train_subject_labels)
 
-        options = ["JVH", "MLP", "user", str(x)]
+        options = ["JVH", "RF", "user", str(x)]
         results_location = os.path.join("Results", '/'.join(options) + "/")
         print "----------------------------------------------"
         print "Start " + str(x)
@@ -64,23 +63,17 @@ def main():
         for iteration in range(100):
             print "-- ITERATION " + str(iteration) + " --"
             params = {}
-            num_layers = np.random.randint(0,3)
-            params['hidden_layer_sizes'] = (np.random.randint(75,150),)
-            for i in range(num_layers):
-                params['hidden_layer_sizes'] = params['hidden_layer_sizes'] + (np.random.randint(75,150),)
-            params['alpha'] = math.pow(0.1, 3 + 4*np.random.random())
-            params['learning_rate_init'] = math.pow(0.1, 2 + 2*np.random.random())
-            params['max_iter'] = 500
-            params['random_state'] = np.random.randint(1000000)
-            params['tol'] = 0.0000001
-            params['momentum'] = 0.8 + 0.2*np.random.random()
-            params['beta_1'] = 0.8 + 0.2*np.random.random()
-            params['beta_2'] = 0.998 + 0.002*np.random.random()
-            params['epsilon'] = math.pow(0.1, 7 + 2*np.random.random())
-            print params
-            estimator = neural_network.MLPClassifier(**params)
-            estimator = LDA_wrapper.LDAWrapper(estimator)
+            params['n_estimators'] = 256
+            params['n_jobs'] = -1
+            params['oob_score'] = True
+            params['class_weight'] = 'balanced'
+            #params['max_features'] = np.random.randint(10, 1050)
+            #params['min_samples_split'] = np.random.randint(2,5)
+            params['random_state'] = np.random.randint(100000)
 
+
+            print params
+            estimator = ensemble.RandomForestClassifier(**params)
             auc_mean, auc_std = trainer.evaluate(estimator, train_features, train_subject_labels, train_sessions)
             if(auc_mean > current_best_score):
                 print "############################## NEW BEST: " + str(auc_mean)
