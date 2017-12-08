@@ -38,8 +38,8 @@ def main():
     trainer = t.Trainer("")
 
 
-
-    for x in ['1','2','3','5','6','12','13','16','17','24']:
+    # ['1','2','3','5','6','12','13','16','17','24']
+    for x in ['17','24']:
         # load data from feature file
         train_features, train_activity_labels, train_subject_labels, train_sessions, test_features = trainer.load_data(
             os.path.join("feature_extraction", '_data_sets/augmented.pkl'), final=False)
