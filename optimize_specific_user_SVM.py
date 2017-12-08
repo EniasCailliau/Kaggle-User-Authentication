@@ -37,8 +37,8 @@ def main():
     # init trainer
     trainer = t.Trainer("")
 
-
-    for x in ['1','2','3','5','6','12','13','16','17','24']:
+    # ['1','2','3','5','6','12','13','16','17','24']
+    for x in ['16']:
         # load data from feature file
         train_features, train_activity_labels, train_subject_labels, train_sessions, test_features = trainer.load_data(
             os.path.join("feature_extraction", '_data_sets/augmented.pkl'), final=False)
@@ -66,13 +66,10 @@ def main():
             params['probability'] = True
             params['tol'] = 1e-4
             params['class_weight'] = 'balanced'
-            params['random_state'] = np.random.random()
+            params['random_state'] = np.random.randint(100000)
 
             print params
-            estimator = svm.SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
-    decision_function_shape='ovr', degree=3, gamma='auto', kernel='rbf',
-    max_iter=-1, probability=False, random_state=None, shrinking=True,
-    tol=0.001, verbose=False)
+            estimator = svm.SVC(**params)
             auc_mean, auc_std = trainer.evaluate(estimator, train_features, train_subject_labels, train_sessions)
             if(auc_mean > current_best_score):
                 print "############################## NEW BEST: " + str(auc_mean)
