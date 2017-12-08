@@ -60,7 +60,7 @@ def main():
         current_best_score = 0;
         current_best_params = {}
 
-        for iteration in range(200):
+        for iteration in range(100):
             print "-- ITERATION " + str(iteration) + " --"
             params = {}
             num_layers = np.random.randint(0,4)
@@ -70,7 +70,7 @@ def main():
             params['alpha'] = math.pow(0.1, 3 + 2*np.random.random())
             params['learning_rate_init'] = math.pow(0.1, 2 + 2*np.random.random())
             params['max_iter'] = 500
-            params['random_state'] = 1
+            params['random_state'] = np.random.randint(1000000)
             params['tol'] = 0.0000001
             params['momentum'] = 0.8 + 0.2*np.random.random()
             params['beta_1'] = 0.8 + 0.2*np.random.random()
