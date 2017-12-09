@@ -124,7 +124,6 @@ def main():
     sys.stdout = os.fdopen(sys.stdout.fileno(), 'w', 0)
     tee = subprocess.Popen(["tee", "final_ec_xgboost.txt"], stdin=subprocess.PIPE)
     os.dup2(tee.stdin.fileno(), sys.stdout.fileno())
-    print "\nstdout"
 
     trainer = t.Trainer()
     train_features, train_activity_labels, train_subject_labels, train_sessions, test_features = trainer.load_data(
