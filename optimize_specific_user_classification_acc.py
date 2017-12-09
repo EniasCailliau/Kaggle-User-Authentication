@@ -29,11 +29,11 @@ def plot_curves(estimator, results_location, train_labels, train_features, train
 yolo = [{'name': 'n_estimators', 'type': 'discrete', 'domain': (100, 5000, 1)},
         {'name': 'max_depth', 'type': 'discrete', 'domain': (2, 15, 1)},
         {'name': 'min_child_weight', 'type': 'discrete', 'domain': (1, 8, 1)},
-        {'name': 'gamma', 'type': 'continuous', 'domain': (0, 0.5)},
+        {'name': 'gamma', 'type': 'continuous', 'domain': (1e-5, 1)},
         {'name': 'subsample', 'type': 'continuous', 'domain': (0.6, 1.0)},
         {'name': 'colsample_bytree', 'type': 'continuous', 'domain': (0.6, 1.0)},
         {'name': 'reg_alpha', 'type': 'continuous', 'domain': (1e-5, 100)},
-        {'name': 'learning_rate', 'type': 'continuous', 'domain': (0, 0.5)},
+        {'name': 'learning_rate', 'type': 'continuous', 'domain': (1e-5, 1)},
         {'name': 'n_folds', 'type': 'discrete', 'domain': (2000, 2000, 1)},
         ]
 
@@ -78,13 +78,13 @@ def generate_folds(train_features, train_activity_labels, train_sessions):
     return folds
 
 
-def evaluate(param, folds, numRounds):
+def evaluate(param, folds, numRounds, n_iter=1):
     auc_scores, acc_scores = [], []
     print("I am using {} rounds".format(numRounds))
-    for i in range(4):
+    for i in range(n_iter):
         xg_train, xg_test, xg_valid, test_Y, test_Y_onehot = folds[i]
         watchlist = [(xg_train, 'train'), (xg_test, 'test')]
-        bst = xgb.train(param, xg_train, numRounds, watchlist, early_stopping_rounds=25)
+        bst = xgb.train(param, xg_train, numRounds, watchlist, early_stopping_rounds=50)
         y_scores = bst.predict(xg_valid, output_margin=False, ntree_limit=0)
         auc = roc_auc_score(test_Y_onehot, y_scores, average='macro')
         print("---- Intermediate score auc: {}".format(auc))
@@ -121,11 +121,9 @@ def xgbCv(x, folds):
 def bayesOpt(folds):
     opt = BayesianOptimization(f=partial(xgbCv, folds=folds),
                                domain=yolo,
-                               num_cores=8,
                                optimize_restarts=15,
                                acquisition_type='MPI',
                                acquisition_weight=0.1,
-                               batch_size=5,
                                maximize=True)
 
     opt.run_optimization(max_iter=100, eps=0)
@@ -151,72 +149,67 @@ def bayesOpt(folds):
     dict_params['subsample'] = params[4]
     dict_params['colsample_bytree'] = params[5]
     dict_params['reg_alpha'] = params[6]
+    dict_params['learning_rate'] = params[7]
     dict_params['objective'] = 'multi:softprob'
     dict_params['num_class'] = 8
     dict_params['silent'] = 1
-
-    print("best params:")
+    print("best params")
     print(dict_params)
 
-    auc_mean, auc_std, acc_mean, acc_std = evaluate(dict_params, folds, int(params[7]))
+    auc_mean, auc_std, acc_mean, acc_std = evaluate(dict_params, folds, int(params[8]), n_iter=4)
     print("I have auc: {} +- {}".format(auc_mean, auc_std))
     print("I have acc: {} +- {}".format(acc_mean, acc_std))
 
 
 def main():
-    for current_activity in ['1','2','3','4','5','6','7','12','13','16','17','24']:
-        print "-------------------------------------"
-        print "Activity "+ current_activity
-        print "-------------------------------------"
+    # try:
+    options = ["JVH", "USER", "XGB", "augmented"]
+    results_location = os.path.join("Results", '/'.join(options) + "/")
+    # init trainer
+    trainer = t.Trainer("")
+    # load data from feature file
+    train_features, train_activity_labels, train_subject_labels, train_sessions, test_features = trainer.load_data(
+        os.path.join("feature_extraction", '_data_sets/augmented.pkl'), final=False)
+    train_subject_labels = train_subject_labels.apply(lambda x: x - 1)
 
-        options = ["JVH", "SpecificUser", current_activity]
-        results_location = os.path.join("Results", '/'.join(options) + "/")
-        # init trainer
-        trainer = t.Trainer("")
-        # load data from feature file
-        train_features, train_activity_labels, train_subject_labels, train_sessions, test_features = trainer.load_data(
-            os.path.join("feature_extraction", '_data_sets/augmented.pkl'), final=False)
-        train_subject_labels = train_subject_labels.apply(lambda x: x-1)
+    index = train_activity_labels == '16'
 
-        index = train_activity_labels == current_activity
+    train_features = train_features[index].reset_index(drop=True)
+    train_sessions = train_sessions[index].reset_index(drop=True)
+    train_subject_labels = train_subject_labels[index].reset_index(drop=True)
+    train_activity_labels = train_activity_labels.reset_index(drop=True)
 
+    print_stats(test_features, train_activity_labels, train_features, train_sessions, train_subject_labels)
+    global_start_time = datetime.now()
 
-        train_features =  train_features[index].reset_index(drop=True)
-        train_sessions = train_sessions[index].reset_index(drop=True)
-        train_subject_labels = train_subject_labels[index].reset_index(drop=True)
-        train_activity_labels = train_activity_labels.reset_index(drop=True)
-
-        print_stats(test_features, train_activity_labels, train_features, train_sessions, train_subject_labels)
-        global_start_time = datetime.now()
-
-        # param = {
-        #     'nrounds': 100000,
-        #     'n_estimators': 200,
-        #     'learning_rate': 0.1,
-        #     'max_depth': 15,
-        #     'min_child_weight': 1,
-        #     'subsample': .7,
-        #     'colsample_bytree': .7,
-        #     'gamma': 0.05,
-        #     'scale_pos_weight': 1,
-        #     'nthread': 8,
-        #     'eta': 0.1
-        # }
+    # param = {
+    #     'nrounds': 100000,
+    #     'n_estimators': 200,
+    #     'learning_rate': 0.1,
+    #     'max_depth': 15,
+    #     'min_child_weight': 1,
+    #     'subsample': .7,
+    #     'colsample_bytree': .7,
+    #     'gamma': 0.05,
+    #     'scale_pos_weight': 1,
+    #     'nthread': 8,
+    #     'eta': 0.1
+    # }
 
 
-        folds = generate_folds(train_features, train_subject_labels, train_sessions)
-        #
-        # auc_mean, auc_std, acc_mean, acc_std = evaluate(param, folds, 100)
-        # print("I have auc: {} +- {}".format(auc_mean, auc_std))
-        # print("I have acc: {} +- {}".format(acc_mean, acc_std))
+    folds = generate_folds(train_features, train_subject_labels, train_sessions)
+    #
+    # auc_mean, auc_std, acc_mean, acc_std = evaluate(param, folds, 100)
+    # print("I have auc: {} +- {}".format(auc_mean, auc_std))
+    # print("I have acc: {} +- {}".format(acc_mean, acc_std))
 
-        print("starting with bayesian optimisation:")
-        bayesOpt(folds)
+    print("starting with bayesian optimisation:")
+    bayesOpt(folds)
 
-        time_elapsed = datetime.now() - global_start_time
+    time_elapsed = datetime.now() - global_start_time
 
-        print('Time elpased (hh:mm:ss.ms) {}'.format(time_elapsed))
-        send_notification("Finished", 'Time elpased (hh:mm:ss.ms) {}'.format(time_elapsed))
+    print('Time elpased (hh:mm:ss.ms) {}'.format(time_elapsed))
+    send_notification("Finished", 'Time elpased (hh:mm:ss.ms) {}'.format(time_elapsed))
 
 
 # except Exception as e:

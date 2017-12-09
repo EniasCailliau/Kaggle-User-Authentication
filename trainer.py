@@ -142,8 +142,8 @@ class Trainer:
         test_features = pd.DataFrame(test_features_np, columns=test_features.columns.values)
         return train_features, train_activity_labels, train_subject_labels, train_session_id, test_features
 
-    def save_estimator(self, estimator, results_location):
-        handyman.dump_pickle(estimator, results_location + "estimator.pkl")
+    def save_estimator(self, estimator, results_location, filename="estimator.pkl"):
+        handyman.dump_pickle(estimator, results_location + filename)
 
     def load_estimator(self, results_location, verbose=0):
         estimator = handyman.load_pickle(results_location + "estimator.pkl")

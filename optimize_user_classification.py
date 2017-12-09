@@ -81,7 +81,7 @@ def generate_folds(train_features, train_activity_labels, train_sessions):
 def evaluate(param, folds, numRounds, n_iter=1):
     auc_scores, acc_scores = [], []
     print("I am using {} rounds".format(numRounds))
-    for i in range(n_iter):
+    for i in [2]:
         xg_train, xg_test, xg_valid, test_Y, test_Y_onehot = folds[i]
         watchlist = [(xg_train, 'train'), (xg_test, 'test')]
         bst = xgb.train(param, xg_train, numRounds, watchlist, early_stopping_rounds=50)

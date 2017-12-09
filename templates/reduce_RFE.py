@@ -126,7 +126,7 @@ def visualize_feature_lda_pca(rfe, train_features, train_labels, location):
 
 
 def main():
-    base_options = ["ec", "feature_analysis", "rfe_augmented"]
+    base_options = ["JVH", "activity1" "feature_analysis", "rfe_augmented"]
 
     options = base_options
 
