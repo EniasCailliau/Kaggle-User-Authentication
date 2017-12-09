@@ -40,7 +40,7 @@ def main():
 
 
     # ['1','2','3','5','6','12','13','16','17','24']
-    for x in ['16','17']:
+    for x in ['16','2','3','5','6','12','13','16','17','24']:
         # load data from feature file
         train_features, train_activity_labels, train_subject_labels, train_sessions, test_features = trainer.load_data(
             os.path.join("feature_extraction", '_data_sets/augmented.pkl'), final=False)
@@ -60,7 +60,7 @@ def main():
         start = time.time()
         current_best_score = 0;
 
-        for iteration in range(10):
+        for iteration in range(40):
             print "-- ITERATION " + str(iteration) + " --"
             params = {}
             num_layers = np.random.randint(0,4)
@@ -78,7 +78,7 @@ def main():
             params['epsilon'] = math.pow(0.1, 7 + 2*np.random.random())
             print params
             estimator = neural_network.MLPClassifier(**params)
-            estimator = LDA_wrapper.LDAWrapper(estimator)
+            #estimator = LDA_wrapper.LDAWrapper(estimator)
 
             auc_mean, auc_std = trainer.evaluate(estimator, train_features, train_subject_labels, train_sessions)
             if(auc_mean > current_best_score):
