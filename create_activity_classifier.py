@@ -30,17 +30,39 @@ def evaluate(estimator, train_activity_labels, train_features, train_session_id,
                                                             train_session_id, accuracy=True)
 
 def main():
-    options = ["JVH", "activity", "XGB", "LDAwrapped"]
+    options = ["JVH", "user", "XGB", "Drek"]
     results_location = os.path.join("Results", '/'.join(options) + "/")
     # init trainer
     trainer = t.Trainer("")
     # load data from feature file
 
+    # BEST
+    params = {
+        'colsample_bytree': 0.55,
+        'silent': 1,
+        'learning_rate': 0.3,
+        'min_child_weight': 1,
+        'n_estimators': 300,
+        'subsample': 0.65,
+        'objective': 'multi:softprob',
+        'max_depth': 5,
+        'nthread' : 8,
+    }
 
-    params = {'reg_alpha': 7.7928156930661805, 'colsample_bytree': 0.69675743513153376, 'silent': 1, 'learning_rate': 0.221324230031307, 'min_child_weight': 1, 'n_estimators': 2000, 'subsample': 0.71026368052012712, 'objective': 'multi:softprob', 'num_class': 12, 'max_depth': 15, 'gamma': 0.58096777615427075, 'nthread' : 8}
+    # CURRENT
+    params = {
+        'colsample_bytree': 0.55,
+        'silent': 1,
+        'learning_rate': 0.10,
+        'min_child_weight': 1,
+        'n_estimators': 500,
+        'subsample': 0.65,
+        'objective': 'multi:softprob',
+        'max_depth': 5,
+        'nthread' : 8,
+    }
 
     estimator = xgb.XGBClassifier(**params)
-    estimator = LDA_wrapper.LDAWrapper(estimator)
     print "----------------- TESTING -----------------"
     # Create a submission
     start = time.time()
@@ -48,13 +70,15 @@ def main():
     train_features, train_activity_labels, train_subject_labels, train_session_id, test_features = trainer.load_data(
         os.path.join("feature_extraction", '_data_sets/unreduced_with_bins.pkl'), final=False)
 
-    auc_mean, auc_std = trainer.evaluate(estimator, train_features, train_activity_labels, train_session_id, accuracy=False)
-
+    auc_mean, auc_std = trainer.evaluate(estimator, train_features, train_subject_labels, train_session_id, accuracy=False)
+    if (auc_mean < .9932):
+        end = time.time()
+        print(str(end - start) + "s elapsed")
+        return
     train_features, train_activity_labels, train_subject_labels, train_session_id, test_features = trainer.load_data(
         os.path.join("feature_extraction", '_data_sets/augmented.pkl'), final=False)
 
-    estimator.fit(train_features, train_activity_labels)
-    local_options = ["XGB", "activity", "LDAWrapped"]
+    estimator.fit(train_features, train_subject_labels)
     trainer.save_estimator(estimator, results_location)
     end = time.time()
     print(str(end - start) + "s elapsed")
