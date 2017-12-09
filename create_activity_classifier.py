@@ -30,7 +30,7 @@ def evaluate(estimator, train_activity_labels, train_features, train_session_id,
                                                             train_session_id, accuracy=True)
 
 def main():
-    options = ["JVH", "user", "XGB", "Drek"]
+    options = ["JVH", "activity", "XGB", "Drek"]
     results_location = os.path.join("Results", '/'.join(options) + "/")
     # init trainer
     trainer = t.Trainer("")
@@ -40,7 +40,7 @@ def main():
     params = {
         'colsample_bytree': 0.55,
         'silent': 1,
-        'learning_rate': 0.3,
+        'learning_rate': 0.10,
         'min_child_weight': 1,
         'n_estimators': 300,
         'subsample': 0.65,
@@ -55,8 +55,8 @@ def main():
         'silent': 1,
         'learning_rate': 0.10,
         'min_child_weight': 1,
-        'n_estimators': 500,
-        'subsample': 0.65,
+        'n_estimators': 300,
+        'subsample': 0.55,
         'objective': 'multi:softprob',
         'max_depth': 5,
         'nthread' : 8,
@@ -70,7 +70,7 @@ def main():
     train_features, train_activity_labels, train_subject_labels, train_session_id, test_features = trainer.load_data(
         os.path.join("feature_extraction", '_data_sets/unreduced_with_bins.pkl'), final=False)
 
-    auc_mean, auc_std = trainer.evaluate(estimator, train_features, train_subject_labels, train_session_id, accuracy=False)
+    auc_mean, auc_std = trainer.evaluate(estimator, train_features, train_activity_labels, train_session_id, accuracy=False)
     if (auc_mean < .9932):
         end = time.time()
         print(str(end - start) + "s elapsed")
@@ -78,7 +78,7 @@ def main():
     train_features, train_activity_labels, train_subject_labels, train_session_id, test_features = trainer.load_data(
         os.path.join("feature_extraction", '_data_sets/augmented.pkl'), final=False)
 
-    estimator.fit(train_features, train_subject_labels)
+    estimator.fit(train_features, train_activity_labels)
     trainer.save_estimator(estimator, results_location)
     end = time.time()
     print(str(end - start) + "s elapsed")
