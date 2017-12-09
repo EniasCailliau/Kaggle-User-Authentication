@@ -28,7 +28,7 @@ def main():
 
     # Setting up estimators
     classifiers = []
-    backup_classifier = trainer.load_estimator_file(os.path.join("Estimators/user_9940_XGB.pkl"))
+    backup_classifier = trainer.load_estimator_file(os.path.join("Estimators/user_LDA_PKL.pkl"))
 
     ## Activity classifier:
     classifiers.append(trainer.load_estimator_file(os.path.join("Estimators/activity_9958_XGB.pkl")))
@@ -101,7 +101,7 @@ def main():
         else:
             user_probabilities[i] = backup_probabilities[i]
 
-    create_submission.write_predictions_to_csv(user_probabilities, "Predictions/two_level_from_file_12_08_16_hybrid.csv")
+    create_submission.write_predictions_to_csv(user_probabilities, "Predictions/two_level_from_file_12_08_16_hybrid_TEST.csv")
 
     end = time.time()
     print(str(end - start) + "s elapsed")

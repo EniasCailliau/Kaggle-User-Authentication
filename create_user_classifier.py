@@ -30,7 +30,7 @@ def evaluate(estimator, train_activity_labels, train_features, train_session_id,
                                                             train_session_id, accuracy=True)
 
 def main():
-    options = ["JVH", "activity", "XGB", "LDAwrapped"]
+    options = ["JVH", "user", "XGB", "LDAwrapped"]
     results_location = os.path.join("Results", '/'.join(options) + "/")
     # init trainer
     trainer = t.Trainer("")
@@ -43,7 +43,7 @@ def main():
               'min_child_weight': 3, 'subsample': .7, 'colsample_bytree': .6, 'gamma': 0.1, 'nthread': 8, }
     estimator = xgb.XGBClassifier(**params)
     estimator = LDA_wrapper.LDAWrapper(estimator)
-    estimator.fit(train_features, train_activity_labels)
+    estimator.fit(train_features, train_subject_labels)
     local_options = ["XGB", "user", "LDAWrapped"]
     trainer.save_estimator(estimator, results_location)
     end = time.time()
