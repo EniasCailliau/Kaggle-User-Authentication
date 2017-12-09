@@ -38,7 +38,6 @@ def main():
     # init trainer
     trainer = t.Trainer("")
 
-
     # ['1','2','3','5','6','12','13','16','17','24']
     for x in ['16','2','3','5','6','12','13','16','17','24']:
         # load data from feature file
@@ -63,11 +62,11 @@ def main():
         for iteration in range(40):
             print "-- ITERATION " + str(iteration) + " --"
             params = {}
-            num_layers = np.random.randint(0,4)
+            num_layers = np.random.randint(0,3)
             params['hidden_layer_sizes'] = (np.random.randint(75,150),)
             for i in range(num_layers):
                 params['hidden_layer_sizes'] = params['hidden_layer_sizes'] + (np.random.randint(75,150),)
-            params['alpha'] = math.pow(0.1, 3 + 2*np.random.random())
+            params['alpha'] = math.pow(0.1, 3 + 4*np.random.random())
             params['learning_rate_init'] = math.pow(0.1, 2 + 2*np.random.random())
             params['max_iter'] = 500
             params['random_state'] = np.random.randint(1000000)

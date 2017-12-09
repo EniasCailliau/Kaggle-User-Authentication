@@ -35,8 +35,7 @@ def main():
     # init trainer
     trainer = t.Trainer("")
     # load data from feature file
-    train_features, train_activity_labels, train_subject_labels, train_session_id, test_features = trainer.load_data(
-        os.path.join("feature_extraction", '_data_sets/augmented.pkl'), final=False)
+
 
     params = {'reg_alpha': 7.7928156930661805, 'colsample_bytree': 0.69675743513153376, 'silent': 1, 'learning_rate': 0.221324230031307, 'min_child_weight': 1, 'n_estimators': 2000, 'subsample': 0.71026368052012712, 'objective': 'multi:softprob', 'num_class': 12, 'max_depth': 15, 'gamma': 0.58096777615427075, 'nthread' : 8}
 
@@ -45,7 +44,15 @@ def main():
     print "----------------- TESTING -----------------"
     # Create a submission
     start = time.time()
-    auc_mean, auc_std = trainer.evaluate(estimator, train_features, train_activity_labels, train_session_id, accuracy=True)
+
+    train_features, train_activity_labels, train_subject_labels, train_session_id, test_features = trainer.load_data(
+        os.path.join("feature_extraction", '_data_sets/unreduced_with_bins.pkl'), final=False)
+
+    auc_mean, auc_std = trainer.evaluate(estimator, train_features, train_activity_labels, train_session_id, accuracy=False)
+
+    train_features, train_activity_labels, train_subject_labels, train_session_id, test_features = trainer.load_data(
+        os.path.join("feature_extraction", '_data_sets/augmented.pkl'), final=False)
+
     estimator.fit(train_features, train_activity_labels)
     local_options = ["XGB", "activity", "LDAWrapped"]
     trainer.save_estimator(estimator, results_location)
