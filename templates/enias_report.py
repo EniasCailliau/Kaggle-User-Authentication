@@ -1,12 +1,12 @@
 import csv
 import os
-import subprocess
-import sys
 
 import matplotlib.pyplot as plt
 import numpy as np
+import sys
 import xgboost
-
+from sklearn.ensemble import RandomForestClassifier
+import subprocess
 import trainer as t
 from model_evaluation import visualiser
 from utils import pandaman, handyman
@@ -28,9 +28,9 @@ def plot_curves(estimator, results_location, train_labels, train_features, train
     #                                 results_location)
     visualiser.plot_auc_learning_curve(estimator, train_features, train_labels, train_session_id,
                                        results_location)
-    # visualiser.plot_ce_learning_curve(estimator, train_features, train_labels, train_session_id,
-    #                                   results_location)
-    # visualiser.plot_confusion_matrix(estimator, train_features, train_labels, train_session_id, results_location)
+    visualiser.plot_ce_learning_curve(estimator, train_features, train_labels, train_session_id,
+                                      results_location)
+    visualiser.plot_confusion_matrix(estimator, train_features, train_labels, train_session_id, results_location)
 
 
 def visualize_importances(importance, location):
@@ -114,15 +114,15 @@ def visualize_feature_importance_tree(trainer, forest, train_features, train_lab
 
 
 def main():
-    base_options = ["ec", "final", "xgboost"]
+    base_options = ["ec", "report", "xgboost"]
 
-    options = base_options + ["FIMP"] + ["semi-optimized"]
+    options = base_options + ["lc"]
 
     results_location = handyman.calculate_path_from_options("Results", options)
     print("location: {}".format(results_location))
 
     sys.stdout = os.fdopen(sys.stdout.fileno(), 'w', 0)
-    tee = subprocess.Popen(["tee", "final_ec_xgboost.txt"], stdin=subprocess.PIPE)
+    tee = subprocess.Popen(["tee", "xgboost.txt"], stdin=subprocess.PIPE)
     os.dup2(tee.stdin.fileno(), sys.stdout.fileno())
     print "\nstdout"
 
@@ -132,45 +132,19 @@ def main():
 
     print_stats(test_features, train_activity_labels, train_features, train_sessions, train_subject_labels)
 
-    """
-        Initialize semi optimized estimator
-    """
-    params = {
-        'colsample_bytree': 0.55,
-        'silent': 1,
-        'learning_rate': 0.10,
-        'min_child_weight': 1,
-        'n_estimators': 500,
-        'subsample': 0.65,
-        'objective': 'multi:softprob',
-        'max_depth': 5,
-        'nthread': 12,
-    }
-    estimator = xgboost.XGBClassifier(**params)
-    #
-    print("Fitting estimator...")
-    estimator.fit(train_features, train_subject_labels)
+    estimator = xgboost.XGBClassifier(n_estimators=400, max_depth=10, silent=False)
 
-    print("Saving estimator...")
-    handyman.dump_pickle(estimator, results_location + "estimator.pkl")
+    print("evaluating")
+    trainer.evaluate(estimator, train_features, train_activity_labels, train_sessions)
 
-    # estimator = handyman.load_pickle(results_location + "estimator.pkl")
+    print("Plotting curves")
+    visualiser.plot_learning_curves(estimator, train_features, train_activity_labels, train_sessions, results_location)
+    print("printing confusion matrix")
+    visualiser.plot_confusion_matrix(estimator, train_features, train_activity_labels, train_sessions, results_location)
 
-    print("Tree produced the following importance: ")
-    print(estimator.feature_importances_)
-
-    print("Visualising forest importance in grid...")
-    visualize_importances(estimator.feature_importances_, results_location)
-
-    print("Visualising forest importance...")
-    visualize_forest_importance(estimator, train_features, results_location)
-
-    print("Visualising feature importance...")
-    visualize_feature_importance_tree(trainer, estimator, train_features, train_subject_labels, train_sessions,
-                                      results_location)
-
-    print("Visualising learning curve...")
-    plot_curves(estimator, results_location, train_subject_labels, train_features, train_sessions)
+    os.system('say Your program has finished!')
+    os.system('say Your program has finished!')
+    os.system('say Your program has finished!')
 
 
 if __name__ == '__main__':

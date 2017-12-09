@@ -24,9 +24,10 @@ def plot_curves(estimator, results_location, train_labels, train_features, train
 
 def evaluate(estimator, train_activity_labels, train_features, train_session_id, trainer):
     auc_mean, auc_std = trainer.evaluate(estimator, train_features, train_activity_labels,
-                                                            train_session_id)
+                                         train_session_id)
     acc_mean, acc_std = trainer.evaluate(estimator, train_features, train_activity_labels,
-                                                            train_session_id, accuracy=True)
+                                         train_session_id, accuracy=True)
+
 
 def main():
     options = ["JVH", "user", "XGB", "9951"]
@@ -38,16 +39,19 @@ def main():
         os.path.join("feature_extraction", '_data_sets/augmented.pkl'), final=False)
 
     params = {'reg_alpha': 5.421745185295384, 'colsample_bytree': 0.97401524090312686, 'silent': 1,
-     'learning_rate': 0.28981503893663102, 'min_child_weight': 1, 'n_estimators': 100, 'subsample': 0.72047190882139611,
-     'objective': 'multi:softprob', 'num_class': 8, 'max_depth': 2, 'gamma': 0.79234113609335632, 'nthread' : 8}
+              'learning_rate': 0.28981503893663102, 'min_child_weight': 1, 'n_estimators': 100,
+              'subsample': 0.72047190882139611,
+              'objective': 'multi:softprob', 'max_depth': 2, 'gamma': 0.79234113609335632}
 
     estimator = xgb.XGBClassifier(**params)
     print "----------------- TESTING -----------------"
     # Create a submission
     start = time.time()
-    auc_mean, auc_std = trainer.evaluate(estimator, train_features, train_subject_labels, train_session_id, accuracy=True)
+    auc_mean, auc_std = trainer.evaluate(estimator, train_features, train_subject_labels, train_session_id,
+                                         accuracy=False)
+    print("I have auc: {} +- {}".format(auc_mean, auc_std))
 
-    #plot_curves(estimator,results_location,train_activity_labels,train_features,train_session_id)
+    # plot_curves(estimator,results_location,train_activity_labels,train_features,train_session_id)
 
     estimator.fit(train_features, train_subject_labels)
     local_options = ["XGB", "aug", "optimal_12_07"]
@@ -55,6 +59,7 @@ def main():
     trainer.save_estimator(estimator, results_location)
     end = time.time()
     print(str(end - start) + "s elapsed")
+
 
 if __name__ == '__main__':
     main()
