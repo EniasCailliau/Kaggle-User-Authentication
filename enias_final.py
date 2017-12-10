@@ -38,7 +38,7 @@ def plot_curves(estimator, results_location, train_labels, train_features, train
 def main():
     base_options = ["ec", "final", "xgboost"]
 
-    options = base_options + ["FIMP"] + ["semi-optimized"]
+    options = base_options
 
     results_location = handyman.calculate_path_from_options("Results", options)
     print("location: {}".format(results_location))
@@ -81,7 +81,7 @@ def main():
     print("We try on 150 features")
     train_features_reduced = train_features.iloc[:, features_ordered[:150]]
 
-    estimator = handyman.dump_pickle(train_features_reduced, "reduced_feature.pkl")
+    estimator = handyman.dump_pickle(train_features_reduced, results_location + "reduced_feature.pkl")
 
     print("Tree produced the following importance: ")
     print(estimator.feature_importances_)
