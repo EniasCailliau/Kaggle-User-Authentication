@@ -132,6 +132,14 @@ def bayesOpt(folds):
 
 
 def main():
+
+    base_options = ["ec", "final", "xgboost"]
+
+    options = base_options
+
+    results_location = handyman.calculate_path_from_options("Results", options)
+
+
     sys.stdout = os.fdopen(sys.stdout.fileno(), 'w', 0)
     tee = subprocess.Popen(["tee", "final_enias_optimisation.txt"], stdin=subprocess.PIPE)
     os.dup2(tee.stdin.fileno(), sys.stdout.fileno())
@@ -143,7 +151,7 @@ def main():
         os.path.join("feature_extraction", '_data_sets/augmented.pkl'), final=False)
     train_subject_labels = train_subject_labels.apply(lambda x: x - 1)
 
-    train_features = handyman.load_pickle("reduced_feature.pkl")
+    train_features = handyman.load_pickle(results_location + "reduced_feature.pkl")
 
     print_stats(test_features, train_activity_labels, train_features, train_sessions, train_subject_labels)
     global_start_time = datetime.now()
