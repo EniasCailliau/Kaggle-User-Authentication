@@ -27,14 +27,6 @@ def generate_column_names():
     feature_names.extend((s + "(t)" for s in ("smv_ha", "smv_hg", "smv_ca", "smv_cg")))
     feature_names.extend((s + "(t)" for s in ("sma_ha", "sma_hg", "sma_ca", "sma_cg")))
 
-    ## Derivative stats (first order to fourth order)
-    for base in ["derivative_1", "derivative_2", "derivative_3", "derivative_4"]:
-        for metric in ["mean", "median", "q05", "q20", "q80", "q95", "kurtosis", "std", "skew", "mad", "rms",
-                       "crestfactor"]:
-            for placement in ["hand", "chest"]:
-                for type in ["aX", "aY", "aZ", "gX", "gY", "gZ"]:
-                    feature_names.append(base + "_" + metric + "_" + type + "_" + placement)
-
     # PITCH AND ROLL
     for metric in ["mean", "median", "q05", "q20", "q80", "q95", "kurtosis", "std", "skew", "mad", "rms",
                    "crestfactor"]:
@@ -108,6 +100,7 @@ def generate_features(data, percentiles):
 
     for index, interval in data.iteritems():
         print("Processing... {}".format(index))
+
         interval_entry_new_features = []
 
         interval_entry_new_features.extend(calculator.calculate_time_stats(interval))
@@ -144,5 +137,5 @@ if __name__ == '__main__':
          ATTENTION: This main block is for testing purposes only
     """
     #__create_data_set(coordinate_transform_method="depitch_all")
-    prepare_data_pickle("_data_sets/augmented.pkl", augmented=True)
+    prepare_data_pickle("_data_sets/reduced.pkl", augmented=False)
 

@@ -53,7 +53,7 @@ def main():
     params = {
         'colsample_bytree': 0.55,
         'silent': 1,
-        'learning_rate': 0.10,
+        'learning_rate': 0.2,
         'min_child_weight': 1,
         'n_estimators': 300,
         'subsample': 0.7,
@@ -68,7 +68,7 @@ def main():
     start = time.time()
 
     train_features, train_activity_labels, train_subject_labels, train_session_id, test_features = trainer.load_data(
-        os.path.join("feature_extraction", '_data_sets/unreduced_with_bins.pkl'), final=False)
+        os.path.join("feature_extraction", '_data_sets/augmented_reduced.pkl'), final=False)
 
     auc_mean, auc_std = trainer.evaluate(estimator, train_features, train_activity_labels, train_session_id, accuracy=False)
     if (auc_mean < .9932):

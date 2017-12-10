@@ -170,7 +170,6 @@ def calculate_pitch_roll_stats(data):
 def calculate_time_stats(data):
     time_stats = []
     time_stats.extend(__calculate_series_stats(data))
-    time_stats.extend(__calculate_derivative_stats(data))
     return time_stats
 
 
