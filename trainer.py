@@ -6,14 +6,11 @@ from imblearn.combine import SMOTEENN
 from imblearn.over_sampling import SMOTE
 from sklearn.metrics import classification_report
 from sklearn.model_selection import GridSearchCV
-from sklearn.model_selection import StratifiedKFold
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-from sklearn.utils import shuffle
 
 from feature_extraction import extractor
 from model_evaluation import scorer, CustomKFold
-from model_evaluation import visualiser
 from utils import create_submission, handyman
 
 

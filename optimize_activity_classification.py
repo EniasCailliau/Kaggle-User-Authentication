@@ -610,7 +610,7 @@ def main():
     print(opt_y[np.argmin(opt_y)])
     params = opt_x[np.argmin(opt_y)]
     dict_params = {}
-    dict_params['n_estimators'] = int(params[0])
+    dict_params['n_estimators'] = 500
     dict_params['max_depth'] = int(params[1])
     dict_params['min_child_weight'] = int(params[2])
     dict_params['gamma'] = params[3]
@@ -634,7 +634,8 @@ def main():
 
     estimator = xgb.XGBClassifier(**dict_params)
     trainer.evaluate(estimator, train_features, train_activity_labels, train_sessions, accuracy=True)
-    visualiser.plot_acc_learning_curve(estimator, train_features, train_activity_labels, train_sessions, "test/")
+    visualiser.plot_confusion_matrix(estimator, train_features, train_activity_labels, train_sessions,
+                                     "confusion_activity.jpg")
 
     # print("starting with bayesian optimisation:")
     # bayesOpt(folds)
