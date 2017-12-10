@@ -53,9 +53,9 @@ def main():
     params = {
         'colsample_bytree': 0.55,
         'silent': 1,
-        'learning_rate': 0.10,
+        'learning_rate': 0.01,
         'min_child_weight': 1,
-        'n_estimators': 300,
+        'n_estimators': 2500,
         'subsample': 0.65,
         'objective': 'multi:softprob',
         'max_depth': 5,
@@ -66,15 +66,6 @@ def main():
     print "----------------- TESTING -----------------"
     # Create a submission
     start = time.time()
-
-    train_features, train_activity_labels, train_subject_labels, train_session_id, test_features = trainer.load_data(
-        os.path.join("feature_extraction", '_data_sets/unreduced_with_bins.pkl'), final=False)
-
-    auc_mean, auc_std = trainer.evaluate(estimator, train_features, train_subject_labels, train_session_id, accuracy=False)
-    if (auc_mean < .9932):
-        end = time.time()
-        print(str(end - start) + "s elapsed")
-        return
     train_features, train_activity_labels, train_subject_labels, train_session_id, test_features = trainer.load_data(
         os.path.join("feature_extraction", '_data_sets/augmented.pkl'), final=False)
 

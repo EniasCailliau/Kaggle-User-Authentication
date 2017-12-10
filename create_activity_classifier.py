@@ -56,7 +56,7 @@ def main():
         'learning_rate': 0.10,
         'min_child_weight': 1,
         'n_estimators': 300,
-        'subsample': 0.55,
+        'subsample': 0.7,
         'objective': 'multi:softprob',
         'max_depth': 5,
         'nthread' : 8,

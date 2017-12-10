@@ -28,7 +28,7 @@ def main():
 
     # Setting up estimators
     classifiers = []
-    backup_classifier = trainer.load_estimator_file(os.path.join("Estimators/user_9940_XGB.pkl"))
+    backup_classifier = trainer.load_estimator_file(os.path.join("Estimators/user_9938_unred_XGB.pkl"))
 
     ## Activity classifier:
     classifiers.append(trainer.load_estimator_file(os.path.join("Estimators/activity_9958_XGB.pkl")))
@@ -37,37 +37,37 @@ def main():
     classifiers.append(trainer.load_estimator_file(os.path.join("Estimators/user_1_9946_MLP.pkl")))
 
     ## User classifier for activity 2
-    classifiers.append(trainer.load_estimator_file(os.path.join("Estimators/user_2_9790_XGB.pkl")))
+    classifiers.append(trainer.load_estimator_file(os.path.join("Estimators/user_2_9823_XGB.pkl")))
 
     ## User classifier for activity 3
-    classifiers.append(trainer.load_estimator_file(os.path.join("Estimators/user_3_9859_XGB.pkl")))
+    classifiers.append(trainer.load_estimator_file(os.path.join("Estimators/user_3_9871_XGB.pkl")))
 
     ## User classifier for activity 4
-    classifiers.append(trainer.load_estimator_file(os.path.join("Estimators/user_4_9996_XGB.pkl")))
+    classifiers.append(trainer.load_estimator_file(os.path.join("Estimators/user_4_9997_XGB.pkl")))
 
     ## User classifier for activity 5
     classifiers.append(trainer.load_estimator_file(os.path.join("Estimators/user_5_9982_MLP.pkl")))
 
     ## User classifier for activity 6
-    classifiers.append(trainer.load_estimator_file(os.path.join("Estimators/user_6_9973_MLP.pkl")))
+    classifiers.append(trainer.load_estimator_file(os.path.join("Estimators/user_6_9982_MLP.pkl")))
 
     ## User classifier for activity 7
-    classifiers.append(trainer.load_estimator_file(os.path.join("Estimators/user_7_9995_XGB.pkl")))
+    classifiers.append(trainer.load_estimator_file(os.path.join("Estimators/user_7_9997_XGB.pkl")))
 
     ## User classifier for activity 12
-    classifiers.append(trainer.load_estimator_file(os.path.join("Estimators/user_12_9967_MLP.pkl")))
+    classifiers.append(trainer.load_estimator_file(os.path.join("Estimators/user_12_9974_MLP.pkl")))
 
     ## User classifier for activity 13
-    classifiers.append(trainer.load_estimator_file(os.path.join("Estimators/user_13_9925_MLP.pkl")))
+    classifiers.append(trainer.load_estimator_file(os.path.join("Estimators/user_13_9928_MLP.pkl")))
 
     ## User classifier for activity 16
-    classifiers.append(trainer.load_estimator_file(os.path.join("Estimators/user_16_9621_XGB.pkl")))
+    classifiers.append(trainer.load_estimator_file(os.path.join("Estimators/user_16_9714_XGB.pkl")))
 
     ## User classifier for activity 17
-    classifiers.append(trainer.load_estimator_file(os.path.join("Estimators/user_17_9772_XGB.pkl")))
+    classifiers.append(trainer.load_estimator_file(os.path.join("Estimators/user_17_9832_XGB.pkl")))
 
     ## User classifier for activity 24
-    classifiers.append(trainer.load_estimator_file(os.path.join("Estimators/user_24_9948_MPL.pkl")))
+    classifiers.append(trainer.load_estimator_file(os.path.join("Estimators/user_24_9975_XGB.pkl")))
 
 
     # Create a submission
@@ -93,7 +93,6 @@ def main():
 
     backup_probabilities = backup_classifier.predict_proba(test_features)
     for i in range(len(activity_probabilities)):
-        break
         onelevel = backup_probabilities[i]
         twolevel = user_probabilities[i]
         if(np.argmax(onelevel) == np.argmax(twolevel) and np.amax(onelevel) > .4 and np.amax(twolevel) > .8):
@@ -102,7 +101,7 @@ def main():
         else:
             user_probabilities[i] = backup_probabilities[i]
 
-    create_submission.write_predictions_to_csv(user_probabilities, "Predictions/two_level_from_file_12_08_22_pure.csv")
+    create_submission.write_predictions_to_csv(user_probabilities, "Predictions/two_level_from_file_12_09_20_hybrid2.csv")
 
     end = time.time()
     print(str(end - start) + "s elapsed")
