@@ -50,17 +50,7 @@ def main():
     }
 
     # CURRENT
-    params = {
-        'colsample_bytree': 0.55,
-        'silent': 1,
-        'learning_rate': 0.10,
-        'min_child_weight': 1,
-        'n_estimators': 300,
-        'subsample': 0.65,
-        'objective': 'multi:softprob',
-        'max_depth': 5,
-        'nthread' : 8,
-    }
+    params = {        'nrounds' : 100000,        'n_estimators' : 2500,        'early.stop.round' : 50,        'eta' : 0.01,        'max_depth' : 5,        'min_child_weight' : 3,        'subsample' : .7,        'colsample_bytree' : .6,        'gamma' : 0.1,        'nthread' : 8,    }
 
     estimator = xgb.XGBClassifier(**params)
     print "----------------- TESTING -----------------"
@@ -68,15 +58,9 @@ def main():
     start = time.time()
 
     train_features, train_activity_labels, train_subject_labels, train_session_id, test_features = trainer.load_data(
-        os.path.join("feature_extraction", '_data_sets/unreduced_with_bins.pkl'), final=False)
+        os.path.join("feature_extraction", '_data_sets/augmented.pkl'), final=False)
 
     auc_mean, auc_std = trainer.evaluate(estimator, train_features, train_subject_labels, train_session_id, accuracy=False)
-    if (auc_mean < .9932):
-        end = time.time()
-        print(str(end - start) + "s elapsed")
-        return
-    train_features, train_activity_labels, train_subject_labels, train_session_id, test_features = trainer.load_data(
-        os.path.join("feature_extraction", '_data_sets/augmented.pkl'), final=False)
 
     estimator.fit(train_features, train_subject_labels)
     trainer.save_estimator(estimator, results_location)
